@@ -41,7 +41,8 @@ try:
 	if pop(pipi) == "val2":
 		print(json.dumps(dico_good))
 	else:
-		dico_bad["errormessages"] = "Valeur incorrecte  "  
+		dico_bad["errormessages"] = "Valeur incorrecte  "
+		dico_bad["feedback"] = " Vous renvoyez le premier élément entreé et pas le dernier"
 		print(json.dumps(dico_bad))
 except:
     print(json.dumps(dico_bad))
