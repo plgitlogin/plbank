@@ -43,7 +43,6 @@ try:
 	else:
 		dico_bad["errormessages"] = "Valeur incorrecte  "  
 		print(json.dumps(dico_bad))
-==
 except:
     print(json.dumps(dico_bad))
 ==
