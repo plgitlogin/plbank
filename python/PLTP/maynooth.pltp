@@ -1,0 +1,12 @@
+
+author=Dominique In Maynooth
+
+introduction==
+Au example for Maynooth 
+==
+tag=function|parameter|return
+concept==call
+@ python/exercices/call/appel.pl
+@ python/exercices/call/appel_retour.pl
+@ python/exercices/call/call.pl
+==
