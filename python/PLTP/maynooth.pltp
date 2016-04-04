@@ -1,12 +1,17 @@
 
-author=Dominique In Maynooth
+author=Dominique
 
 introduction==
-Au example for Maynooth 
+Un fichier pltp.
+
 ==
 tag=function|parameter|return
-concept==call
-@ python/exercices/call/appel.pl
-@ python/exercices/call/appel_retour.pl
-@ python/exercices/call/call.pl
+concept==exemple
+@ python/exemple/exemple1.pl
+@ python/exemple/variadic.pl
+@ python/stack/undopile.pl
+@ python/tuples/tuple_template.pl
+@ python/exemple/exemple2.pl
+@ python/stack/stackbasic.pl
+@ python/tuples/tuple1.pl
 ==
