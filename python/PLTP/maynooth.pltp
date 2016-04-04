@@ -6,7 +6,7 @@ Un fichier pltp.
 
 ==
 tag=function|parameter|return
-concept==exemple
+concept==return
 @ python/exemple/exemple1.pl
 @ python/exemple/variadic.pl
 @ python/stack/undopile.pl
