@@ -2,7 +2,7 @@
 # Copyright 2016 Dominique Revuz <dr@univ-mlv.fr>
 author=Dominique Revuz 
 title=undopile.pl
-template= tagname @anotherexercice.pl
+
 files=@mydatafile
 files=@secbde
 text==
