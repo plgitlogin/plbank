@@ -5,6 +5,7 @@ title=exemple1.pl
 texte==
 Veuiller ecrire un code qui ne lève pas dexception 
 
+Ceci est l'ENNONCEEE QUI N'APPARAIT PAS 
 
 ==
 code==
