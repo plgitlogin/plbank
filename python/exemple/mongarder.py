@@ -17,5 +17,5 @@ try:
 	dico_good["execution"]= bob.getvalue()
 	print(json.dumps(dico_good),file=oldstd)
 except Exception as e:
-	print(e)
+	print(e,file=sys.stderr)
 	print(json.dumps(dico_bad))
