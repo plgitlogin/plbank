@@ -8,7 +8,7 @@ et qui affiche Fizz si n est divisible par 3 et  Buzz si n est divisible par 7.
 ==
 
 
-file=@functiongrader.py
+file=@/python/fonction/functiongrader.py
 
 
 
