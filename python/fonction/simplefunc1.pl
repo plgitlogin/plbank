@@ -16,7 +16,7 @@ __doc__=""">>> from student import fizzbuzz
 'Fizz'
 >>> fizzbuzz(7)
 'Buzz'
->>> fizzbuzz(33/0)
+>>> fizzbuzz(3*7)
 'Fizz Buzz'
 >>> fizzbuzz(11)
 >>> 
