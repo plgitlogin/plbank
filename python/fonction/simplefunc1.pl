@@ -3,14 +3,9 @@ title=simplefunc1.pl
 text==
 Veuiller ecrire un code qui défini une fonction //fizzbuzz(n)// qui prend en parameters un entier
 et qui affiche Fizz si n est divisible par 3 et  Buzz si n est divisible par 7.
-
-
 ==
 
 
-files=@/python/fonction/functiongrader.py
-
-# ne marche pas files@=functiongrader.py
 
 
 grader==
