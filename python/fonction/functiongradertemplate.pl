@@ -10,7 +10,7 @@ en signalant le nom de l'exercice qui devrai être diférent de functiongraderte
 ==
 
 
-file=@fonctiongrader.py
+file=@functiongrader.py
 
 
 code==
