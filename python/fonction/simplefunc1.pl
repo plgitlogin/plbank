@@ -1,4 +1,4 @@
-template=fonctiongradertemplate
+template=/python/fonction/fonctiongradertemplate
 title=simplefunc1.pl
 text==
 Veuiller ecrire un code qui défini une fonction //fizzbuzz(n)// qui prend en parameters un entier
