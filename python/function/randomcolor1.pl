@@ -21,12 +21,12 @@ def randomcolor(cl):
 
 grader==
 __doc__=""">>> from student import randomcolor
->>>randomcolor(['yellow']) # Ne marche pas avec un seul élement dans la liste
+>>> randomcolor(['yellow']) # Ne marche pas avec un seul élement dans la liste
 'yellow'
->>>colorlist=['blue','red','white','black']
->>>randomcolor(colorlist) in colorlist # usage normal 
+>>> colorlist=['blue','red','white','black']
+>>> randomcolor(colorlist) in colorlist # usage normal 
 True
->>>not randomcolor(colorlist) in colorlist # c'est aléatoire mais pas dans la liste 
+>>> not randomcolor(colorlist) in colorlist # c'est aléatoire mais pas dans la liste 
 False
 >>> randomcolor([]) # pas de couleur dans une liste vide ...
 >>> ll =[u for u in range(1,10000)]
