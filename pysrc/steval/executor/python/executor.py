@@ -9,9 +9,11 @@ from .codemetrics import CodeMetrics
 from .memoryfiles import VirtualFileManager
 from steval.utils import PrefixMapping, limited_sys, get_traceback_str, update_dict
 
-import time, ast, sys, io, resource
+import time, ast, sys, io, resource, traceback, logging, imp
 from .importinfo import get_transitive_import_dependencies, RemoteDependency
 from collections import namedtuple, OrderedDict
+
+logger = logging.getLogger(__name__)
 
 globalvars = globals
 
@@ -29,16 +31,41 @@ def dictionary_of(ob):
 	
 class ForeignCodeException(Exception):
 	"""An exeption due to foreign code"""
-	def __init__(self, cause, trace):
+	def __init__(self, cause, trace, environment):
 		self.cause = cause
 		self.trace = trace
+		self.environment = environment
+	@property
+	def code_lines(self):
+		e = self.environment
+		while hasattr(e, "parent"):
+			e = e.parent
+		return e.code.split("\n") if e else []
 	@property
 	def verbose_traceback(self):
-		return get_traceback_str(self.trace)
+		# return get_traceback_str(self.trace)
+		try:
+			l = []
+			trace = self.trace
+			while trace:
+				element = {"lineno": trace.tb_lineno, "line": None, "filename": trace.tb_frame.f_code.co_filename, "name": trace.tb_frame.f_code.co_name}
+				if element["filename"] == "<string>":
+					try:
+						element["line"] = self.code_lines[element["lineno"]-1]
+					except:
+						pass # cannot retrieve the line
+					l.append(element)
+				trace = trace.tb_next
+			r = ""
+			for element in l:
+				r += "{}({})\t{}\n".format(element["name"], element["lineno"], element["line"])
+			return r
+		except:
+			traceback.print_exc()
 	@classmethod
-	def create(cls):
-		(type, value, traceback) = sys.exc_info()
-		return cls(value, traceback)
+	def create(cls, environment):
+		(typ, value, traceback) = sys.exc_info()
+		return cls(value, traceback, environment)
 
 class ParsingException(ForeignCodeException):
 	@property
@@ -46,13 +73,13 @@ class ParsingException(ForeignCodeException):
 		if isinstance(self.cause, SyntaxError):
 			return "{} detected at line {} character {}: {}".format(type(self.cause).__name__, self.cause.lineno, self.cause.offset, self.cause.text)
 		else:
-			return "Code parsing failed with the exception {}\n\nTraceback:\n{}".format(self.cause, self.verbose_traceback)
+			return "Code parsing failed with the exception {}: {}\n\nTraceback:\n{}".format(type(self.cause).__name__, self.cause, self.verbose_traceback)
 	def __str__(self):
 		return self.explanation
 		
 class FailedImportException(ForeignCodeException):
-	def __init__(self, rejected_imports):
-		super(FailedImportException, self).__init__(None, None)
+	def __init__(self, rejected_imports, environment):
+		super(FailedImportException, self).__init__(None, None, environment)
 		self.rejected_imports = rejected_imports
 	@property
 	def explanation(self):
@@ -63,37 +90,59 @@ class FailedImportException(ForeignCodeException):
 class ExecutionException(ForeignCodeException):
 	@property
 	def explanation(self):
-		return "Code execution failed with the exception {}\n\nTraceback:\n{}".format(self.cause, self.verbose_traceback)
+		return "Code execution failed with the exception {} \"{}\"\n\nTraceback:\n{}".format(type(self.cause), self.cause, self.verbose_traceback)
 	def __str__(self):
 		return self.explanation
+		
+class SuppliedFile(object):
+	def __init__(self, name, content=None):
+		self.name = named
+		if isinstance(content, (bytes, str, bytearray)):
+			self.content = content
+		elif hasattr(content,'__iter__'):
+			self.content = sum(content)
+			
+class FunctionArguments(object):
+	def __init__(self, args, kwargs=None, globals=None, files=None):
+		self.args = args
+		self.kwargs = kwargs if kwargs else {}
+		self.globals = globals if globals else {}
+		self.files = files if files else {}
 
 class ExecutionResult(object):
 	def __init__(self):
-		self.executed = False
-		self.result = None # could be also an exception
+		self.executed = False # is the function executed
+		self.returned = None # could be also an exception
 		self.globals = None
 		self.stdout = None
 		self.stderr = None
-		self.handled_files = None
+		self.files = None
+		self.time = None # to be modified when the function is executed
+		self.memory = None # TODO: to be implemented to supply the memory usage
 		self._start_time = None
 	def _signal_parse_error(self, error):
-		self.exception = ParsingException(error)
+		self.returned = ParsingException(error)
 	def _start(self):
 		self._start_time = time.process_time()
-	def _end(self, result, globals=None):
+	def _end(self, returned, globals=None):
 		self.executed = True
 		self.time = time.process_time() - self._start_time if self._start_time else None
-		self.result = result
+		self.returned = returned
 		self.globals = globals
 	def __repr__(self):
-		return "result={}, exception={}, stdout={}, stderr={}, files={}, time={}".format(self.result, self.exception, self.stdout, self.stderr, self.handled_files, self.time)
+		return "returned={}, globals={}, stdout={}, stderr={}, files={}, time={}, memory={}".format(self.returned, self.globals, self.stdout, self.stderr, self.files, self.time, self.memory)
 	def to_dict(self):
-		return {"result": self.result, "globals": self.globals, "stdout": self.stdout, "stderr": self.stderr, "files": self.handled_files, "time": self.time}
+		return {"result": self.returned, "globals": self.globals, "stdout": self.stdout, "stderr": self.stderr, "files": self.files, "time": self.time}
 		
 class ExecutionEnvironment(object):
-	def __init__(self):
+	def __init__(self, funcargs: FunctionArguments):
+		self.funcargs = funcargs
+		self.globals = dict(self.funcargs.globals) # to be overriden is special cases
 		self.result = ExecutionResult()
 		self.file_manager = VirtualFileManager()
+		# supply files in the file manager 
+		for (k, v) in self.funcargs.files.items():
+			self.file_manager.supply(k, v)
 		self._redirect_stdfiles = False
 	def _execute(self):
 		raise NotImplementedError()
@@ -106,7 +155,7 @@ class ExecutionEnvironment(object):
 			if self._redirect_stdfiles:
 				self.result.stdout = sys.stdout.getvalue().strip()
 				self.result.stderr = sys.stderr.getvalue().strip()
-				self.result.handled_files = {k: v.getvalue() for (k, v) in self.file_manager.created_files.items() }
+				self.result.files = {k: v.content for (k, v) in self.file_manager.files.items() if k not in self.funcargs.files }
 			return self.result
 		finally:
 			sys.stdout, sys.stderr = (stdout, stderr) # restore old stdout and stderr
@@ -137,15 +186,15 @@ class ExecutionProfile(object):
 		elif name not in self.get_modules_whitelist():
 			if name in context.imported:
 				return context.imported[name]
-			name2 = name.replace(".", "/")
-			if name2 in context.file_manager.supplied_files:
+			name2 = name.replace(".", "/") + ".py"
+			try:
 				# special import from the supplied files
-				with context.file_manager.open(name, "r") as f:
-					module = object()
+				with context.file_manager.open(name2, "r") as f:
+					module = imp.new_module(name)
 					exec(f.read(), module.__dict__)
 					context.imported[name] = module
 					return module
-			else:
+			except IOError as e:
 				raise ImportError("The module {} is not whitelisted".format(name))
 		else:
 			return self._builtin_import(name, globals, locals, fromlist, level)
@@ -194,104 +243,137 @@ class DefaultExecutionProfile(ExecutionProfile):
 			"IndexError", "NameError", "AssertionError", "ImportError", "OverflowError", "LookpError",
 			"IOError", "FloatingPointError", "ValueError", "UnicodeError", "ArithmeticError", "UnboundLocalError",
 			"IndentationError", "UnicodeEncodeError", "KeyError",
-			"sys"])
+			"sys", "__build_class__", "__name__"])
 		self.modules_whitelist = set([
 			"abc", "array", "base64", "binascii", "binhex", "bisect",
 			"calendar", "cmath", "collections", "copy", "datetime", "decimal", 
 			"difflib", "encodings", "fractions", "functools", "hashlib", "heapq",
 			"math", "numbers", "operator", "queue", "random", "re", "string", "time"])
 		self.modified_modules = {"sys": limited_sys}
-		self.file_manager = VirtualFileManager()
 	def get_builtins_whitelist(self):
 		return self.builtins_whitelist
 	def get_modules_whitelist(self):
 		return self.modules_whitelist
 	def get_modified_modules(self):
 		return self.modified_modules
-			
-		
-class CodeExecutionEnvironment(ExecutionEnvironment):
-	"""Execute top-level Python code"""
+	
+	
+class CodeParsingEnvironment(ExecutionEnvironment):
 	@classmethod
 	def from_file(self, filepath):
 		with open(filepath, "r") as f:
-			return CodeExecutionEnvironemnt(f.read())
-	def __init__(self, code, basedir=".", profile=DefaultExecutionProfile(), globals=None):
-		super(CodeExecutionEnvironment, self).__init__()
+			return CodeExecutionEnvironment(f.read(), FunctionArguments(None))
+	def __init__(self, code, funcargs: FunctionArguments, profile=None, rootdir=None):
+		super(CodeParsingEnvironment, self).__init__(funcargs)
+		if profile is None: profile = DefaultExecutionProfile()
+		self._redirect_stdfiles = True
 		self.code = code
 		self.profile = profile
-		self.basedir = basedir
+		self.rootdir = rootdir
 		self.ast = None
 		self.metrics = None
-		self.globals = {} if globals is None else globals
-		self.globals["__builtins__"] = profile.make_builtins(self.file_manager)
-		self.parsed = False # parsed state
-	def parse(self):
+	def execute(self):
+		# add the required files in the file manager
 		try:
 			self.ast = ast.parse(self.code)
 		except:
-			self.result._end(ParsingException.create())
+			self.result._end(ParsingException.create(self))
 		else:
 			self.metrics = CodeMetrics(self.code, self.ast)
-			imports = get_transitive_import_dependencies(self.code, paths=("."))
-			remote_imports = filter(lambda x: isinstance(x, RemoteDependency), imports)
+			imports = get_transitive_import_dependencies(self.code, paths=(self.rootdir,) if self.rootdir else tuple())
+			remote_imports = list(filter(lambda x: isinstance(x, RemoteDependency), imports))
 			whitelisted_prefixes = PrefixMapping(map(lambda x: x.split("."), self.profile.get_modules_whitelist()))
 			rejected_imports = frozenset(filter(lambda x: len(whitelisted_prefixes[x.module.split(".")]) == 0, remote_imports))
 			self.rejected_imports = rejected_imports
 			if not rejected_imports:
 				for remote_import in remote_imports:
-					__import__(remote_import)
+					logger.info("Importing {}".format(remote_import))
+					__import__(remote_import.module)
 			else:
-				self.result._end(FailedImportException(rejected_imports))
-		self.parsed = True
-	@property
-	def valid(self):
-		return self.parsed is True and not isinstance(self.result.result, ForeignCodeException)
-	def _execute(self):
-		if not self.parsed:
-			self.parse()
-		if self.valid:
-			g = dict(self.globals)
-			self.result._start()
-			try:
-				exec(self.code, g)
-			except Exception as e:
-				self.result._end(ExecutionException.create())
-			else:
-				self.result._end(None, globals={k: g[k] for k in g if k not in self.globals})
-			return self.result
-	def execute_function(self, name, *kargs, **kwargs):
+				self.result._end(FailedImportException(rejected_imports, self))
+			if not self.result.executed:
+				self.result._end(True)
+		return self.result
+	def create_main_environment(self, funcargs: FunctionArguments):
 		if not self.result.executed:
-			self.execute()
-		function = self.result.globals.get(name)
-		if function is None:
-			return None
-		env = FunctionExecutionEnvironment(self, name, *kargs, **kwargs)
+			raise Exception("Not already executed")
+		else:
+			funcargs.globals.update(self.funcargs.globals)
+			return CodeExecutionEnvironment(self, funcargs)
+	@classmethod
+	def execute_for_globals(cls, code, funcargs, profile=None, rootdir=None):
+		env = CodeParsingEnvironment(code, funcargs, profile=profile, rootdir=rootdir)
 		env.execute()
-		return env.result
+		env2 = env.create_main_environment(FunctionArguments(None))
+		result = env2.execute()
+		if not isinstance(result.returned, ForeignCodeException):
+			return result.globals
+		else:
+			raise result.returned
+		
+			
+		
+class CodeExecutionEnvironment(ExecutionEnvironment):
+	"""Execute top-level Python code"""
+	def __init__(self, parent, funcargs: FunctionArguments):
+		super(CodeExecutionEnvironment, self).__init__(funcargs)
+		self.parent = parent
+		self._redirect_stdfiles = True
+		self.profile = parent.profile
+		self.globals["__builtins__"] = self.profile.make_builtins(self.file_manager)
+		self.file_manager.parent = parent.file_manager # stack the file manager
+	def _execute(self):
+		g = dict(self.globals)
+		self.result._start()
+		try:
+			exec(self.parent.code, self.globals)
+		except Exception as e:
+			self.result._end(ExecutionException.create(self))
+		else:
+			self.result._end(None, globals={k: v for (k, v) in self.globals.items() if k not in g})
+		return self.result
+	def create_function_environment(self, name, funcargs: FunctionArguments):
+		if not self.result.executed:
+			raise Exception("Not already executed")
+		else:
+			function = self.result.globals.get(name, self.globals.get(name, None))
+			if function is None:
+				return None
+			env = FunctionExecutionEnvironment(self, name, funcargs)
+			return env
 	
 class FunctionExecutionEnvironment(ExecutionEnvironment):
-	def __init__(self, parent, function, *kargs, **kwargs):
-		 super(FunctionExecutionEnvironment, self).__init__()
-		 self.parent = parent # parent execution environment
-		 self.function = function
-		 self.kargs, self.kwargs = (kargs, kwargs)
+	def __init__(self, parent, function, funcargs: FunctionArguments):
+		super(FunctionExecutionEnvironment, self).__init__(funcargs)
+		self._redirect_stdfiles = True
+		self.parent = parent # parent execution environment
+		self.function = function
+		self.funcargs = funcargs
+		self.globals = dict(self.parent.globals)
+		self.globals.update(self.parent.result.globals)
+		self.globals.update(self.funcargs.globals)
+		self.globals["__builtins__"] = self.parent.profile.make_builtins(self.file_manager)
+		# parent.globals["__builtins__"] = self.globals["__builtins__"] # required since the functions keep their container globals
+		self.args_dict = OrderedDict()
+		update_dict(self.args_dict, [ ("__args_{}".format(i), self.funcargs.args[i]) for i in range(0, len(self.funcargs.args)) ])
+		update_dict(self.args_dict, [ ("__kwargs_{}".format(k), v) for (k, v) in self.funcargs.kwargs.items() ])
+		self.globals.update(self.args_dict)	
+		self.file_manager.parent = parent.file_manager
 	def _execute(self):
 		"""Execute the function"""
 		# TODO: memory profiling..
 		# Create the string to be evaluated
-		args_dict = OrderedDict()
-		update_dict(args_dict, [ ("kargs_{}".format(i), self.kargs[i]) for i in range(0, len(self.kargs)) ])
-		update_dict(args_dict, [ ("kwargs_{}".format(k), v) for (k, v) in self.kwargs.items() ]) 
-		call = "{}({})".format(self.function, ",".join(args_dict))
+		g = dict(self.globals)
+		f = g.get(self.function)
+		f.__globals__.clear()
+		f.__globals__.update(g)
+		call = "{}({})".format(self.function, ",".join(self.args_dict))
 		self.result._start()
-		globals = dict(self.parent.result.globals)
-		globals.update(args_dict)
 		try:
-			r = eval(call, globals)
+			r = eval(call, self.globals)
 		except Exception as e:
-			r = ExecutionException.create()
-		self.result._end(r)
+			r = ExecutionException.create(self)
+		self.result._end(r, globals={k: v for (k, v) in self.globals.items() if k not in g})
 	
 	
 if __name__ == "__main__":

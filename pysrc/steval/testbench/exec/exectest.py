@@ -11,12 +11,13 @@ do dangerous actions. Therefore it is highly recommended to run it inside an app
 """
 
 from steval.testbench.testbench import TestBench
+from steval.config import DICT_KEYS
 
 import shlex
 
 class ExecutableTestBench(TestBench):
 	def prepare(self, data):
-		command = data.get("tester")
+		command = data.get(DICT_KEYS.code)
 		if command is None:
 			raise TestBenchException("No command is defined in the command key")
 		self.args = shlex.split(command.strip()) # split the args

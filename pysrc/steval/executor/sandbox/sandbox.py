@@ -6,6 +6,7 @@ Sandboxing exploiting seccomp kernel functionalities
 """
 
 import sys, os, resource, json, signal
+from steval import utils
 
 class Sandbox(object):
 	"""A sandbox using seccomp
@@ -19,6 +20,7 @@ class Sandbox(object):
 		self.enabled = enabled
 		self.sandboxed = False # if the sandbox is currently active
 	def start(self):
+		utils.DISABLE_TRACEBACK = True # FIXME...
 		from ctypes import cdll
 		lib = cdll.LoadLibrary(self.LIBRARY_PATH)
 		if self.cpu_limit is not None:
@@ -27,7 +29,7 @@ class Sandbox(object):
 			resource.setrlimit(resource.RLIMIT_AS, (self.memory_limit, self.memory_limit))
 		r = lib.startSandbox()
 		if r == 0:
-			print("Entered in sandbox mode", file=sys.stderr)
+			print("Irreversibly entered in sandbox mode", file=sys.stderr)
 			self.sandboxed = True
 		else:
 			raise Exception("Cannot start the seccomp sandbox: error {}".format(r))
@@ -47,9 +49,9 @@ class Sandbox(object):
 				os.close(r_pipe)
 				result = function(*args, **kwargs)
 				try:
-					result2 = json.dumps(result)
+					result2 = json.dumps(utils.jsoniblify(result))
 				except:
-					result2 = {"invalidJSON": str(result)}
+					result2 = json.dumps({"invalidJSON": str(result)})
 					valid = False
 				os.write(w_pipe, result2.encode("UTF-8"))
 				os.close(w_pipe)
@@ -63,7 +65,7 @@ class Sandbox(object):
 				if status & 0xff != 0:
 					raise ValueError("The function tried to access to restricted syscalls or used too much resources: status={}".format(status))
 				if (status & 0xff00) != 0:
-					raise ValueError("The subprocess exited with resultcode {}".format(status >> 8))
+					raise ValueError("The subprocess exited with resultcode {}; returned content: {}".format(status >> 8, content))
 				try:
 					return json.loads(content)
 				except:
