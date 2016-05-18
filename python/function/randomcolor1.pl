@@ -31,7 +31,8 @@ __doc__=""">>> from student import randomcolor
 True
 >>> not randomcolor(colorlist) in colorlist # c'est aléatoire mais pas dans la liste 
 False
->>> randomcolor([]) # pas de couleur dans une liste vide ...
+>>> vide=[]
+>>> randomcolor(vide)
 >>> ll =[u for u in range(1,10000)]
 >>> randomcolor(ll)== randomcolor(ll) and randomcolor(ll)== randomcolor(ll) # si ceci ne fonctionne pas c'est que votre fonction n'est pas aleatoire
 False
