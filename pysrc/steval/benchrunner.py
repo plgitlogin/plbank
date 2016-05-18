@@ -5,13 +5,14 @@ Main module running bench tests
 @author: chilowi at u-pem.fr
 """
 
-from steval import config
+from steval import config, taxonomy
 from steval.generator import generator
+from steval.utils import jsoniblify, i18nize
 
-import json, sys, argparse, traceback, os, signal
+import json, sys, argparse, traceback, os, signal, logging
 from collections import OrderedDict
 
-def run_test(data, sandbox, bench_whitelist):
+def run_test(data, sandbox, bench_whitelist, rootdir=None):
 	"""
 	Dictionary of the test instance is provided by the data argument
 	The result output is returned as a dictionary
@@ -25,7 +26,8 @@ def run_test(data, sandbox, bench_whitelist):
 		benchname = data["bench"] # select the bench to use
 		if benchname not in bench_whitelist: # check if the grader is authorized
 			return {"error": True, "resourceException": "The specified bench {} is not authorized".format(benchname)}
-		bench = config.BENCHS[benchname](data)
+		bench = taxonomy.BENCHS[benchname](data)
+		bench.set_rootdir(rootdir)
 	except Exception as e:
 		return {"error": True, "formatException": "The specified bench is not available: {}".format(data.get("bench", None)), "exception": str(e)}
 	# the sandbox resources may be lowered using the data dictionary
@@ -47,6 +49,9 @@ def run_test(data, sandbox, bench_whitelist):
 		os.close(pipe_w)
 		pipe_r = os.fdopen(pipe_r, "r") # wrap with a file object
 		read_output = pipe_r.read(config.MAX_OUTPUT_SIZE)
+		if pipe_r.read(1): # data remain to be read
+			return {"error": True, "platformException": "The test bench is too talkative", "output": read_output}
+		os.close(pipe_r.fileno())
 		resultcode = os.waitpid(pid, 0)[1]
 		sig = resultcode & 0x00ff
 		code = resultcode & 0xff00
@@ -54,13 +59,11 @@ def run_test(data, sandbox, bench_whitelist):
 		if sig == signal.SIGXCPU:
 			return {"error": True, "resourceException": "Code consumed too much CPU time"}
 		elif sig in (signal.SIGKILL, signal.SIGSYS):
-			return {"error": True, "resourceException": "Grader process was killed because of anormal syscalls"}
+			return {"error": True, "resourceException": "Grader process was killed due to anormal syscalls or overconsumption of resources (memory, time...)"}
 		elif sig == signal.SIGSEGV:
 			return {"error": True, "platformException": "A segmentation error was detected"}
-		if pipe_r.read(1): # data remain to be read
-			return {"error": True, "platformException": "The test bench is too talkative", "output": read_output}
 		try:
-			return json.loads(read_output)
+			return json.loads(read_output, object_pairs_hook=OrderedDict)
 		except:
 			return {"error": True, "platformException": "The produced output does not follow the JSON format", "output": read_output}
 	else:
@@ -72,14 +75,19 @@ def run_test(data, sandbox, bench_whitelist):
 				result = bench.execute()
 				if hasattr(result, "to_dict"):
 					result = result.to_dict()
+				result = jsoniblify(result)
 		except Exception as e:
-			# traceback.print_exc()
+			if not sandbox.enabled:
+				traceback.print_exc()
 			result = {"error": True, "platformException": "Exception while running the test bench", "cause": str(e)}
 		try:
 			output = json.dumps(result)
 		except Exception as e:
 			output = {"error": True, "platformException": "Cannot JSONify the result", "output": str(result)}
-		print(output, file=pipe_w)
+		try:
+			print(output, file=pipe_w)
+		except BrokenPipeError as e:
+			pass # since we are taoo talkative the parent process does not listen to us anymore
 		pipe_w.close()
 		sys.exit(0)
 			
@@ -90,9 +98,11 @@ def read_string(a, d=None):
 			f = sys.stdin
 		else:
 			f = open(a[1:], "r")
-		return f.read().strip()
+		return read_string(f.read().strip(), d)
 	elif a.startswith("#"): # copy a previous entry from the dictionary d
 		return d[a[1:]]
+	elif a.startswith("[") or a.startswith("{"):
+		return json.loads(a.strip())
 	else:
 		return a.strip()
 			
@@ -113,11 +123,16 @@ def main(argv):
 	parser = argparse.ArgumentParser()
 	parser.add_argument('-d', '--dict', action="append", default=[], help="Use the specified JSON string as the input dictionary (prefix by @ to specify a path, @- for stdin)")
 	parser.add_argument("-e", "--entry", action="append", default=[], help="Add a new entry 'key=value' in the dictionary (prefix the value by @ to specify a file where a string must be read, # to copy the value from another previously specified entry)")
-	parser.add_argument("-s", "--sandbox", choices=list(config.SANDBOXES), default=config.DEFAULT_SANDBOX, help="Use a preset sandbox configuration")
+	parser.add_argument("-s", "--sandbox", choices=list(taxonomy.SANDBOXES), default=taxonomy.DEFAULT_SANDBOX, help="Use a preset sandbox configuration")
 	parser.add_argument("-o", "--output", default="-", help="File where the output must be written (by default stdout)")
-	parser.add_argument("-b", "--bench", choices=list(config.BENCHS), action="append", default=[], help="Specify a whitelisted bench")
+	parser.add_argument("-b", "--bench", choices=list(taxonomy.BENCHS), action="append", default=[], help="Specify a whitelisted bench")
+	parser.add_argument("-l", "--language", default=None, help="Print the internationalized strings in the given language (2 letter ISO code like en, fr, de...)")
+	parser.add_argument("-r", "--rootdir", default=None, help="Root directory under where local files must be searched")
 	args = parser.parse_args(argv)
 	data = OrderedDict()
+	# configure the logger
+	logging.getLogger("").setLevel(logging.DEBUG)
+	logging.getLogger("").addHandler(logging.StreamHandler())
 	for d in args.dict:
 		try:
 			data.update(load_dictionary(d))
@@ -138,7 +153,9 @@ def main(argv):
 	except:
 		print("Cannot open the output file {}".format(args.output), file=sys.stderr)
 		return -1
-	output = run_test(data, config.SANDBOXES[args.sandbox], args.bench)
+	output = run_test(data, taxonomy.SANDBOXES[args.sandbox], args.bench, rootdir=args.rootdir)
+	if args.language:
+		output = jsoniblify(i18nize(output), language=args.language)
 	with dump_file:
 		print(json.dumps(output, indent=True), file=dump_file)
 	if not output or output.get("error", False):

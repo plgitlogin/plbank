@@ -5,7 +5,7 @@ Retrieve the import dependencies of a specified code
 @author: chilowi at u-pem.fr
 """
 
-import ast
+import ast, os
 
 class Dependency(object):
 	def __init__(self, module):
@@ -47,7 +47,7 @@ def get_transitive_import_dependencies(code, paths=(".")):
 	imports = get_import_dependencies(code)
 	results = set()
 	def find_path(imp_name):
-		if imp_name.find(".."):
+		if imp_name.find("..") >= 0:
 			return None # we do not support relative .. import for security reasons
 		imp_name2 = imp_name.replace(".", "/")
 		for path in paths:
@@ -60,7 +60,7 @@ def get_transitive_import_dependencies(code, paths=(".")):
 			with open(filepath, "r") as f:
 				code = f.read()
 				results.add(LocalDependency(v, filepath, code))
-				results += self.get_transitive_import_dependencies(code, paths)
+				results = results.union(get_transitive_import_dependencies(code, paths))
 		else:
 			results.add(RemoteDependency(v))
 	return results

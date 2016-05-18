@@ -11,8 +11,8 @@ en signalant le nom de l'exercice qui devrai être diférent de functiongraderte
 
 
 
-files=@/python/exemple/pldicjson.py
-files=@/python/function/functiongrader.py
+files=@/python/fonction/functiongrader.py
+
 
 
 code==
