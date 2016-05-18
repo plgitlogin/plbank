@@ -1,2 +1,3 @@
 author=chilowi
+bench=python
 
