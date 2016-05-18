@@ -11,8 +11,8 @@ en signalant le nom de l'exercice qui devrai être diférent de functiongraderte
 
 
 
-files=@/python/fonction/functiongrader.py
-
+files=@/python/exemple/pldicjson.py
+files=@/python/function/functiongrader.py
 
 
 code==
@@ -20,4 +20,13 @@ code==
 def nomdaelafonction(n):
 	pass
 
+==
+
+grader==
+from pldicjson import getpldic
+
+dic = getpldic()
+dic["leteste"]
+from functiongrader import grade
+grade(dic["leteste"])
 ==

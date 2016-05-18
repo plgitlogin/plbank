@@ -1,7 +1,7 @@
 # Copyright 2016 Dominique Revuz <dr@univ-mlv.fr>
 author=Dominique Revuz 
 title=funcvoyelle.pl
-template=/python/fonction/functiongradertemplate
+template=/python/function/functiongradertemplate
 text==
 Ecrire une fonction //voyelles// qui compte le nombre de voyelles (minuscules, sans accents) dans une chaîne de
 caractères u passée en argument.

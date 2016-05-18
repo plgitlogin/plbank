@@ -6,14 +6,14 @@ import doctest
 dico_good = { "success": True , "errormessages" : "" , "execution": "OK", "feedback": "ok", "other": "" }
 dico_bad = { "success": False , "errormessages" : "création d'une exception", "execution": "", "feedback": "modifier votre valeur", "other": "" }
 
-__doc__=""">>> from student import foobar
->>> foobar(3)
+__doc__=""">>> from student import fizzbuzz
+>>> fizzbuzz(3)
 'Fizz'
->>> foobar(7)
+>>> fizzbuzz(7)
 'Buzz'
->>> foobar(33/0)
+>>> fizzbuzz(33/0) # divi an djskldqhflkjhdfjks
 'Fizz Buzz'
->>> foobar(11)
+>>> fizzbuzz(11)
 >>> 
 """
 
