@@ -54,7 +54,7 @@ def doBad(success=False,error="Des erreurs dans l'exécution",execution="pas de 
 
 
 
-def grade(s):
+def grade():
 	with io.StringIO() as bob:
 		oldstd = sys.stdout
 		sys.stdout = bob
