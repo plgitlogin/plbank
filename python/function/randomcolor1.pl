@@ -20,6 +20,9 @@ def randomcolor(cl):
 ==
 
 grader==
+
+
+
 __doc__=""">>> from student import randomcolor
 >>> randomcolor(['yellow']) # Ne marche pas avec un seul élement dans la liste
 'yellow'
