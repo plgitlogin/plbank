@@ -33,7 +33,9 @@ True
 False
 >>> vide=[]
 >>> randomcolor(vide)
-
+>>> ll =[u for u in range(1,10000)]  # la ligne suivante ne fonctionne pas c'est que votre fonction n'est pas aleatoire
+>>> randomcolor(ll) == randomcolor(ll) and randomcolor(ll) == randomcolor(ll)
+False
 """
 from functiongrader import grade
 grade()
@@ -47,9 +49,7 @@ def randomcolor(cl):
 
 
 qsfgkj==
->>> ll =[u for u in range(1,10000)]
->>> randomcolor(ll) == randomcolor(ll) and randomcolor(ll)== randomcolor(ll) # si ceci ne fonctionne pas c'est que votre fonction n'est pas aleatoire
-False`
+
 ==
 
 
