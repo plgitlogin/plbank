@@ -1,0 +1,19 @@
+author=Dominique Revuz
+
+title=TestFonctionnel de la plateforme sur la préprode 
+
+introduction==
+
+Bonjour,
+ceci permet de faire des tests de la plateforme de préprod.
+
+le test1 est pour tester les affichages en format markdown des énoncés.
+
+==
+
+tag=function|root|variable|test
+
+concept==test
+@ python/test/test1.pl
+
+==
