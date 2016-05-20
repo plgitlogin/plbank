@@ -1,9 +1,9 @@
 # Copyright 2016 Dominique Revuz <dr@univ-mlv.fr>
 author=Dominique Revuz
-template=/python/function/functiongradertemplate
+template=/python/function/functiongradertemplate.pl
 title=allwayscorrect.pl
 tag=test # N'oubliez pas de remplir ce champs svp
-template=/python/fonction/functiongradertemplate
+
 text==
 
 *italic*
