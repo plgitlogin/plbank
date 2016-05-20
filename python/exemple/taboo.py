@@ -26,6 +26,6 @@ def testtaboo():
 		with open("student.py","r") as sf:
 			codestudent = "".join( sf.readlines() )
 		for w in dic["taboo"].split('|'):
-			if w in codestudent:
+			if codestudent.find(w) :
 				return "Le Taboo n'est pas respecté"
 	return None
