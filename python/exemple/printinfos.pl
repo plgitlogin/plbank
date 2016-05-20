@@ -12,6 +12,7 @@ Clicker sur check
 grader==
 
 import sys
+import json
 dico_good = { "success": True , "errormessages" : "" , "execution": "OK", "feedback": "ok", "other": "" }
 dico_bad = { "success": False , "errormessages" : "création d'une exception", "execution": "", "feedback": "modifier votre valeur", "other": "" }
 
