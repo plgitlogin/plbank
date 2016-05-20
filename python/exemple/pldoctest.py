@@ -1104,7 +1104,7 @@ class DocTestRunner:
     """
     # This divider string is used to separate failure messages, and to
     # separate sections of the summary.
-    DIVIDER = "*" * 70
+    DIVIDER = "DIVIDER premier langage <br>\n"
 
     def __init__(self, checker=None, verbose=None, optionflags=0):
         """
@@ -2157,7 +2157,7 @@ class DocTestCase(unittest.TestCase):
                                checker=self._dt_checker, verbose=False)
 
         try:
-            runner.DIVIDER = "-"*70
+            runner.DIVIDER = "Divider Premier langage \n"
             failures, tries = runner.run(
                 test, out=new.write, clear_globs=False)
         finally:
