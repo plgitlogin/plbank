@@ -7,9 +7,9 @@ introduction==
 Bonjour,
 ceci permet de faire des tests de la plateforme de préprod.
 
-Si le fichier test/test1.pl n'existe pas le message d'erreur est correct.
+	Si le fichier test/test1.pl n'existe pas le message d'erreur est correct.
 
-le test1 est pour tester les affichages en format markdown des énoncés.
+l'exercice allwayscorrect est pour tester les affichages en format markdown des énoncés.
 
 ==
 
