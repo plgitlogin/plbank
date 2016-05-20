@@ -1246,8 +1246,8 @@ class DocTestRunner:
                 lineno = test.lineno + example.lineno + 1
             else:
                 lineno = '?'
-            out.append('File "%s", line %s, in %s' %
-                       (test.filename, lineno, test.name))
+            #out.append('File "%s", line %s, in %s' %
+            #          (test.filename, lineno, test.name))
         else:
             out.append('Line %s, in %s' % (example.lineno+1, test.name))
         out.append('Failed example:')
@@ -1519,7 +1519,7 @@ class DocTestRunner:
                     print(" %3d tests in %s" % (count, thing))
         if failed:
             print(self.DIVIDER)
-            print(len(failed), "tests avec des problèmes :")
+            print(len(failed), " jeu de tests avec des problèmes :")
             failed.sort()
             for thing, (f, t) in failed:
                 print(" %3d tests sur %3d dans %s" % (f, t, thing))
