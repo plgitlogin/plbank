@@ -26,7 +26,7 @@
 
 import sys
 import json 
-import pldoctest
+import doctest
 import io
 
 
@@ -58,7 +58,7 @@ def grade():
 	with io.StringIO() as bob:
 		oldstd = sys.stdout
 		sys.stdout = bob
-		failures,tests = pldoctest.testmod(name=" Votre Code ")
+		failures,tests = doctest.testmod(name=" Votre Code ")
 		sys.stdout=oldstd
 		if failures ==0:
 			doGood(execution=bob.getvalue())
