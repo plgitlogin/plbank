@@ -66,3 +66,4 @@ def grade():
 			doBad(execution=bob.getvalue(),feedback=" %d test raté sur %d " % (failures,tests))
 
 
+# modif pour probleme de syncro a effacer
