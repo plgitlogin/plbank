@@ -24,7 +24,7 @@ def doGood(success=True,error="",execution="OK",feedback="Bravo",other=""):
 	print(json.dumps(dico_good)) 
 
 
-doGood(execution=(sys.version_string+sys.pathdirs))
+doGood(execution=(sys.version+str(sys.path)))
 
 
 ==
