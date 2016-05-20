@@ -2216,7 +2216,7 @@ class DocTestCase(unittest.TestCase):
                                checker=self._dt_checker, verbose=False)
 
         try:
-            runner.DIVIDER = "-"*70
+            runner.DIVIDER = "First  langage Divider <br>/n"
             failures, tries = runner.run(
                 test, out=new.write, clear_globs=False)
         finally:
