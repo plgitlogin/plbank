@@ -37,7 +37,7 @@ dico_bad = { "success": False , "errormessages" : "création d'une exception", "
 def doGood(success=True,error="",execution="OK",feedback="Bravo",other=""):
 	dico_good["success"]=success
 	dico_good["error"]=error
-	dico_good["execution"]=execution
+	dico_good["execution"]="<br/>".join(execution.split("\n"))
 	dico_good["feedback"]=feedback
 	dico_good["other"]=other
 	print(json.dumps(dico_good)) 
