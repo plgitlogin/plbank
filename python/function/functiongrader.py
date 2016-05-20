@@ -58,7 +58,7 @@ def grade():
 	with io.StringIO() as bob:
 		oldstd = sys.stdout
 		sys.stdout = bob
-		failures,tests = pldoctest.testmod(name=" Votre Code ")
+		failures,tests = pldoctest.testmod(name=" Votre Code <br> ")
 		sys.stdout=oldstd
 		if failures ==0:
 			doGood(execution=bob.getvalue())
