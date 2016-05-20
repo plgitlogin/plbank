@@ -23,6 +23,7 @@ An [example link](http://example.com/ "Optional Title") in a sentence.
 ==
 
 grader==
+import pldoctest
 from functiongrader import doGood
 doGood(feedback="ceci n'est pas un exercice doit être utilisé uniquement comme élement de test")
 ==
