@@ -45,7 +45,7 @@ def doGood(success=True,error="",execution="OK",feedback="Bravo",other=""):
 def doBad(success=False,error="Des erreurs dans l'exécution",execution="pas de sorties",feedback="Corrigez votre code",other=""):
 	dico_good["success"]=success
 	dico_good["error"]=error
-	dico_good["execution"]="TOTO<br/>".join(execution.split("\n"))
+	dico_good["execution"]="<br>".join(execution.split("\n"))
 	dico_good["feedback"]=feedback
 	dico_good["other"]=other
 	print(json.dumps(dico_good)) 
