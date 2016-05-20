@@ -1161,7 +1161,7 @@ class DocTestRunner:
     """
     # This divider string is used to separate failure messages, and to
     # separate sections of the summary.
-    DIVIDER = "*" * 70
+    DIVIDER = "Premeir langage <br>\n"
 
     def __init__(self, checker=None, verbose=None, optionflags=0):
         """
