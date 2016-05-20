@@ -20,7 +20,7 @@ doGood(execution=(sys.version_string+sys.pathdirs))
 
 ==
 
-# files=@/python/pahtdufichier/nomdufichier
+
 soluce==
 # une solution de l'exercice
 # utile pour les tests
