@@ -56,6 +56,7 @@ def doBad(success=False,error="Des erreurs dans l'exécution",execution="pas de 
 
 def grade():
 	with io.StringIO() as bob:
+		# TODO il faut tester si le code compile avant de lancer les test pour clarifier les messages d'erreurs 
 		oldstd = sys.stdout
 		sys.stdout = bob
 		failures,tests = pldoctest.testmod(name=" Votre Code <br> ")
