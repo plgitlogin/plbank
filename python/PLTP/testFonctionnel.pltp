@@ -16,6 +16,6 @@ l'exercice allwayscorrect est pour tester les affichages en format markdown des 
 tag=function|root|variable|test
 
 concept==test
-@ python/exemple/allwayscorrect.pl
+@ /python/exemple/allwayscorrect.pl
 
 ==
