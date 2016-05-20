@@ -1519,15 +1519,15 @@ class DocTestRunner:
                     print(" %3d tests in %s" % (count, thing))
         if failed:
             print(self.DIVIDER)
-            print(len(failed), "items had failures:")
+            print(len(failed), "tests avec des problèmes :")
             failed.sort()
             for thing, (f, t) in failed:
-                print(" %3d of %3d in %s" % (f, t, thing))
+                print(" %3d tests sur %3d dans %s" % (f, t, thing))
         if verbose:
             print(totalt, "tests in", len(self._name2ft), "items.")
             print(totalt - totalf, "passed and", totalf, "failed.")
         if totalf:
-            print("***Test Failed***", totalf, "failures.")
+            print("***Tests échoués***", totalf, " erreurs.")
         elif verbose:
             print("Test passed.")
         return TestResults(totalf, totalt)
