@@ -1,7 +1,9 @@
 
 import sys
 import json 
-import doctest
+import pldoctest
+#import doctest
+doctest=pldoctest
 
 dico_good = { "success": True , "errormessages" : "" , "execution": "OK", "feedback": "ok", "other": "" }
 dico_bad = { "success": False , "errormessages" : "création d'une exception", "execution": "", "feedback": "modifier votre valeur", "other": "" }
