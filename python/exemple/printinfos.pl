@@ -12,7 +12,16 @@ Clicker sur check
 grader==
 
 import sys
-from functiongrader import doGood
+dico_good = { "success": True , "errormessages" : "" , "execution": "OK", "feedback": "ok", "other": "" }
+dico_bad = { "success": False , "errormessages" : "création d'une exception", "execution": "", "feedback": "modifier votre valeur", "other": "" }
+
+def doGood(success=True,error="",execution="OK",feedback="Bravo",other=""):
+	dico_good["success"]=success
+	dico_good["error"]=error
+	dico_good["execution"]=execution
+	dico_good["feedback"]=feedback
+	dico_good["other"]=other
+	print(json.dumps(dico_good)) 
 
 
 doGood(execution=(sys.version_string+sys.pathdirs))
