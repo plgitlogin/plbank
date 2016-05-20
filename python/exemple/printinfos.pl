@@ -2,7 +2,7 @@
 author=Dominique Revuz 
 title=printinfos.pl
 tag=root # N'oubliez pas de remplir ce champs svp
-template=/python/fonction/functiongradertemplate
+template=/python/function/functiongradertemplate
 text==
 
 Clicker sur check 
