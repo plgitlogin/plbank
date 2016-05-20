@@ -1,27 +1,29 @@
 
+# Copyright 2016 Dominique Revuz <dr@univ-mlv.fr>
+author=Dominique Revuz 
+title=importpysrc.pl
+text==
+Veuiller ecrire un code qui ne lève pas dexception 
+
+
+==
+code==
+# Veuillez saisir votre code ici
+
+==
+grader==
 import sys
 import json 
-import pldoctest
-#import doctest
-doctest=pldoctest
+import pysrc.steval
 
 dico_good = { "success": True , "errormessages" : "" , "execution": "OK", "feedback": "ok", "other": "" }
 dico_bad = { "success": False , "errormessages" : "création d'une exception", "execution": "", "feedback": "modifier votre valeur", "other": "" }
 
-__doc__=""">>> from student import fizzbuzz
->>> fizzbuzz(3)
-'Fizz'
->>> fizzbuzz(7)
-'Buzz'
->>> fizzbuzz(33/0) # divi an djskldqhflkjhdfjks
-'Fizz Buzz'
->>> fizzbuzz(11)
->>> 
-"""
 
-
-failures,tests = doctest.testmod()
-if failures == 0:
+try:
+	import student
 	print(json.dumps(dico_good))
-else:
-	print(dico_bad)
+except:
+    print(json.dumps(dico_bad))
+==
+

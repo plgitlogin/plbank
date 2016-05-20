@@ -5,9 +5,9 @@ title=stackbasic.pl
 concept=call|return
 text==
 Pour modéliser une pile nous allons proposer trois fonctions qui permettent de manipuler une pile.
-Une fonction create() qui retourne une pile.
-Une fonction push(pile,value) qui ajoute la valeur à la pile 
-Une fontion pop(pile) qui retire le haut de la pile et retourne la valeur.
+Une fonction //create()// qui retourne une pile.
+Une fonction //push(pile,value)// qui ajoute la valeur à la pile 
+Une fontion //pop(pile)// qui retire le haut de la pile et retourne la valeur.
 
 Ecrire les trois fonctions.
 

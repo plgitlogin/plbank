@@ -26,7 +26,7 @@
 
 import sys
 import json 
-import doctest
+import pldoctest
 import io
 
 
@@ -58,7 +58,7 @@ def grade():
 	with io.StringIO() as bob:
 		oldstd = sys.stdout
 		sys.stdout = bob
-		failures,tests = doctest.testmod(name=" Votre Code ")
+		failures,tests = pldoctest.testmod(name=" Votre Code ")
 		sys.stdout=oldstd
 		if failures ==0:
 			doGood(execution=bob.getvalue())
@@ -66,3 +66,4 @@ def grade():
 			doBad(execution=bob.getvalue(),feedback=" %d test raté sur %d " % (failures,tests))
 
 
+# modif pour probleme de syncro a effacer

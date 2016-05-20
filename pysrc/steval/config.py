@@ -15,8 +15,8 @@ class DICT_KEYS:
 	template = _k("template") # for dictionary inheritance
 	substituer = _k("subst") # the substituer regexp (or keyword)
 	init = _k("init") # code that is executed before the generation of the dictionary
-	precode = _k("precode") # code that is executed before testing
-	code = _k("code") # for the answer code
+	precode = _k("code") # code that is executed before testing
+	code = _k("soluce") # for the answer code
 	proposed_code = _k("student") # code proposed by the student
 	taboo = _k("taboo") # taboo keywords
 	
