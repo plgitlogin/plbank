@@ -26,13 +26,18 @@ def doGood(success=True,error="",execution="OK",feedback="Bravo",other=""):
 
 import os
 
-doGood(execution=(sys.version+str(sys.path)),feedback=str(os.listdir()))
+with open("student.json","r") as stud :
+	f = "".join(stud.readlines())
+doGood(execution=(sys.version+str(sys.path)),feedback=str(os.listdir()),other=f)
 
 
 ==
 
 comment==
 if soluce ['soluce.py', 'grader.py', 'student.py', 'pl.json', 'pldicjson.py', 'functiongrader.py', 'student.json', 'pldoctest.py', 'soluce.json', 'environment']
+with out soluce :
+		['grader.py', 'student.py', 'pl.json', 'pldicjson.py', 'functiongrader.py', 'student.json', 'pldoctest.py', 'environment']
+
 ==
 
 Xsoluce==
