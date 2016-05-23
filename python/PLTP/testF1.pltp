@@ -17,5 +17,7 @@ tag=function|root|variable|test
 
 concept==test
 @ python/function/simplefunc1.pl
+@ python/exemple/allwayscorrect.pl
+@ python/exemple/exemple1.pl
 
 ==
