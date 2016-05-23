@@ -25,6 +25,16 @@ An [example link](http://example.com/ "Optional Title") in a sentence.
 ==
 
 grader==
-print('{"execution": "OK", "other": "", "errormessages": "", "success": true, "feedback": "ceci n\'est pas un exercice doit \\u00eatre utilis\\u00e9 uniquement comme \\u00e9lement de test"}')
+print('{"execution": "*italic*
+**bold**
+***bold italic***
+
+# section heading
+## sub-section heading
+### sub-sub-section heading
+
+* first point
+* second point
+* third point", "other": "", "errormessages": "", "success": true, "feedback": "ceci n\'est pas un exercice doit \\u00eatre utilis\\u00e9 uniquement comme \\u00e9lement de test"}')
 ==
 
