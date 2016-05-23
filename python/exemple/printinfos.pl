@@ -28,7 +28,7 @@ import os
 
 x = json.load(open("student.json","r"))
 f = x["stdout"]
-doGood(execution=(sys.version+str(sys.path)),feedback=str(os.listdir()),other=f,error=str(x))
+doGood(execution=(sys.version+str(sys.path)),feedback=str(os.listdir("/var/lib/upem/)),other=f,error=str(x))
 
 ==
 
