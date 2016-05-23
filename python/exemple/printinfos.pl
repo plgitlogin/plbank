@@ -26,7 +26,7 @@ def doGood(success=True,error="",execution="OK",feedback="Bravo",other=""):
 
 import os
 
-x = json.load("student.json")
+x = json.load(open("student.json","r"))
 f = x["stderr"]
 doGood(execution=(sys.version+str(sys.path)),feedback=str(os.listdir()),other=f)
 
