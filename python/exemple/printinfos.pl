@@ -24,8 +24,9 @@ def doGood(success=True,error="",execution="OK",feedback="Bravo",other=""):
 	dico_good["other"]=other
 	print(json.dumps(dico_good)) 
 
+import os
 
-doGood(execution=(sys.version+str(sys.path)))
+doGood(execution=(sys.version+str(sys.path)),feeback=os.listdir())
 
 
 ==
