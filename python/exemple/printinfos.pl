@@ -27,8 +27,8 @@ def doGood(success=True,error="",execution="OK",feedback="Bravo",other="tutututu
 import os
 
 x = json.load(open("student.json","r"))
-f = x["stderr"]
-doGood(execution=(sys.version+str(sys.path)),feedback=str(os.listdir()),other=f)
+f = x["stdout"]
+doGood(execution=(sys.version+str(sys.path)),feedback=str(os.listdir()),other=f,error=str(x))
 
 ==
 
