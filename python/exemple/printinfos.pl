@@ -32,7 +32,9 @@ doGood(execution=(sys.version+str(sys.path)),feedback=str(os.listdir()),other=f)
 
 ==
 
-input=12
+inputgenerator==
+print(12)
+==
 
 comment==
 if soluce ['soluce.py', 'grader.py', 'student.py', 'pl.json', 'pldicjson.py', 'functiongrader.py', 'student.json', 'pldoctest.py', 'soluce.json', 'environment']
