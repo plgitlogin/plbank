@@ -16,7 +16,7 @@ import json
 dico_good = { "success": True , "errormessages" : "" , "execution": "OK", "feedback": "ok", "other": "" }
 dico_bad = { "success": False , "errormessages" : "création d'une exception", "execution": "", "feedback": "modifier votre valeur", "other": "" }
 
-def doGood(success=True,error="",execution="OK",feedback="Bravo",other=""):
+def doGood(success=True,error="",execution="OK",feedback="Bravo",other="tutututu"):
 	dico_good["success"]=success
 	dico_good["error"]=error
 	dico_good["execution"]=execution
