@@ -14,7 +14,6 @@ Le fichier d'exercice est testFormat.pl
 tag=function|root|variable|test
 
 concept==test
-
-@ python/exemple/testFormat.pl
+@ /python/exemple/testFormat.pl
 
 ==
