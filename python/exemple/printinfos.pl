@@ -31,8 +31,14 @@ doGood(execution=(sys.version+str(sys.path)),feedback=str(os.listdir()))
 
 ==
 
+comment==
+if soluce ['soluce.py', 'grader.py', 'student.py', 'pl.json', 'pldicjson.py', 'functiongrader.py', 'student.json', 'pldoctest.py', 'soluce.json', 'environment']
+==
 
-soluce==
+Xsoluce==
 # une solution de l'exercice
 # utile pour les tests
+
+
+
 ==
