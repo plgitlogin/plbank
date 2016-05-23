@@ -26,8 +26,8 @@ def doGood(success=True,error="",execution="OK",feedback="Bravo",other=""):
 
 import os
 
-with open("student.json","r") as stud :
-	f = "".join(stud.readlines())
+x = json.load("student.json")
+	f = x["stderr"]
 doGood(execution=(sys.version+str(sys.path)),feedback=str(os.listdir()),other=f)
 
 ==
