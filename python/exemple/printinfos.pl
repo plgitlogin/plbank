@@ -26,7 +26,7 @@ def doGood(success=True,error="",execution="OK",feedback="Bravo",other=""):
 
 import os
 
-doGood(execution=(sys.version+str(sys.path)),feedback=os.listdir())
+doGood(execution=(sys.version+str(sys.path)),feedback=str(os.listdir()))
 
 
 ==
