@@ -1688,13 +1688,13 @@ class OutputChecker:
         # If we're not using diff, then simply list the expected
         # output followed by the actual output.
         if want and got:
-            return 'Attendu:%s optenu: %s' % (_indent(want), _indent(got))
+            return 'Attendu:%s obtenu: %s' % (_indent(want), _indent(got))
         elif want:
-            return 'Attendu:%s rien optenu!\n' % _indent(want)
+            return 'Attendu:%s rien obtenu!\n' % _indent(want)
         elif got:
-            return 'Attendai rien ai optenu:\n%s' % _indent(got)
+            return 'Attendai rien ai obtenu:\n%s' % _indent(got)
         else:
-            return 'attendai rien\n optenu rien\n'
+            return 'attendai rien\n obtenu rien\n'
 
 class DocTestFailure(Exception):
     """A DocTest example has failed in debugging mode.
