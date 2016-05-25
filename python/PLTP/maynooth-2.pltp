@@ -7,8 +7,9 @@ Un fichier pltp.
 ==
 
 tag=function|parameter|return
+
 concept==return
-@ python/exemple/exemple1.pl
+@ python/function/carre.pl
 @ python/exemple/variadic.pl
 @ python/stack/undopile.pl
 @ python/tuples/tuple_template.pl
@@ -16,3 +17,4 @@ concept==return
 @ python/stack/stackbasic.pl
 @ python/tuples/tuple1.pl
 ==
+
