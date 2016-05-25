@@ -23,9 +23,3 @@ __doc__=""">>> from student import carre
 from functiongrader import grade
 grade()
 ==
-
-# f i l e s=@/python/pahtdufichier/nomdufichier
-soluce==
-def carre(n):
-	return n*n
-==
