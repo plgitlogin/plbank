@@ -63,7 +63,7 @@ def grade():
 		if failures ==0:
 			doGood(execution=bob.getvalue())
 		else:
-			doBad(execution=bob.getvalue(),feedback=" %d test raté sur %d " % (failures,tests))
+			doBad(execution=bob.getvalue(),feedback=" %d tests raté sur %d " % (failures,tests))
 
 
 # modif pour probleme de syncro a effacer
