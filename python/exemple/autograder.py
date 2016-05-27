@@ -38,7 +38,6 @@ dico_reponse = { "success": True , "errormessages" : "" , "execution": "Platefor
 
 from pldicjson import getpldic
 
-dicjson = getpldic()
 
 def doGood(success=True,error="",execution="OK",feedback=None,other=""):
 	dico_reponse["success"]=success
@@ -47,6 +46,7 @@ def doGood(success=True,error="",execution="OK",feedback=None,other=""):
 	if feedback != None:
 		dico_reponse["feedback"]=feedback
 	else:
+		dicjson = getpldic()
 		if dicjson["feedback"]:
 			dico_reponse["feedback"] = dicjson["feedback"]
 		else:
@@ -58,6 +58,7 @@ def doBad(success=False,error="Des erreurs dans l'exécution",execution="pas de 
 	dico_reponse["success"]=success
 	dico_reponse["error"]=error
 	dico_reponse["execution"]="<br>".join(execution.split("\n"))
+	dicjson = getpldic()
 	if dicjson["feedbackfalse"] :
 		dico_reponse["feedback"] = dicjson["feedbackfalse"]
 	else:
@@ -97,8 +98,12 @@ def grade(o):
 				doBad(execution=bob.getvalue(),feedback=" %d tests raté sur %d " % (failures,tests))
 
 
+def autograde():
+	dicjson = getpldic()
+	grade(dicjson["pltest"])
 
-
-grade(dic["pltest"])
+if __name__ == '__main__':
+	dicjson = getpldic()
+	grade(dicjson["pltest"])
 
 
