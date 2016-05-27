@@ -88,7 +88,6 @@ def compiletest():
 def grade(o):
 	if compiletest() :
 		with io.StringIO() as bob:
-			# TODO il faut tester si le code compile avant de lancer les test pour clarifier les messages d'erreurs 
 			oldstd = sys.stdout
 			sys.stdout = bob
 			failures,tests = pldoctest.pltestfile(o,name=" Votre Code <br> ",optionflags=pldoctest.REPORT_ONLY_FIRST_FAILURE)
@@ -97,7 +96,8 @@ def grade(o):
 				doGood(execution=bob.getvalue())
 			else:
 				doBad(execution=bob.getvalue(),feedback=" %d tests raté sur %d " % (failures,tests))
-
+		sys.exit()
+	doGood(execution="problème avec la plateforme")
 
 def autograde():
 	dicjson = getpldic()
