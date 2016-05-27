@@ -102,6 +102,7 @@ def autograde():
 	dicjson = getpldic()
 	grade(dicjson["pltest"])
 
+
 if __name__ == '__main__':
 	dicjson = getpldic()
 	grade(dicjson["pltest"])
