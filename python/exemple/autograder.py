@@ -59,7 +59,7 @@ def doBad(success=False,error="Des erreurs dans l'exécution",execution="pas de 
 	dico_reponse["error"]=error
 	dico_reponse["execution"]="<br>".join(execution.split("\n"))
 	dicjson = getpldic()
-	if dicjson["feedbackfalse"] :
+	if "feedbackfalse" in dicjson :
 		dico_reponse["feedback"] = dicjson["feedbackfalse"]
 	else:
 		dico_reponse["feedback"]=feedback
