@@ -70,17 +70,11 @@ def doBad(success=False,error="Des erreurs dans l'exécution",execution="pas de 
 
 def compiletest():
 	import py_compile
-	with io.StringIO() as errors:
-		oldstderr=sys.stderr
-		sys.stderr=errors
-		try:
-			x= py_compile.compile("student.py",doraise=True)
-		except py_compile.PyCompileError as EEE:
-			err = str(sys.stderr.getvalue())
-			sys.stderr= oldstderr
-			
-			doBad(error="Erreur de compilation de votre code<br>", errormessages = str(EEE), execution=err)
-			return False
+	try:
+		x= py_compile.compile("student.py",doraise=True)
+	except py_compile.PyCompileError as EEE:
+		doBad(error="Erreur de compilation de votre code<br>", errormessages = str(EEE))
+		return False
 	return True
 
 
