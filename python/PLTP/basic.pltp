@@ -1,0 +1,25 @@
+author=Cantor
+
+title=Mise en Jambes
+
+tag=identifiers|conversion|types
+
+introduction==
+Quels élements de syntaxe python.
+
+
+
+
+==
+
+
+
+concept==identifiers
+@/python/identifier/correctidentifiers.pl
+==
+
+concept==conversion
+@/python/conversion/str_and_int.pl
+==
+
+
