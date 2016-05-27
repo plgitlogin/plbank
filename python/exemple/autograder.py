@@ -54,7 +54,7 @@ def doGood(success=True,error="",execution="OK",feedback=None,other=""):
 	dico_reponse["other"]=other
 	print(json.dumps(dico_reponse)) 
 
-def doBad(success=False,error="Des erreurs dans l'exécution",execution="pas de sorties",feedback="Corrigez votre code",other=""):
+def doBad(success=False,error="Des erreurs dans l'exécution",execution="pas de sorties",feedback="Corrigez votre code",errormessages="",other=""):
 	dico_reponse["success"]=success
 	dico_reponse["error"]=error
 	dico_reponse["execution"]="<br>".join(execution.split("\n"))
@@ -64,6 +64,7 @@ def doBad(success=False,error="Des erreurs dans l'exécution",execution="pas de 
 	else:
 		dico_reponse["feedback"]=feedback
 	dico_reponse["other"]=other
+	dico_reponse["errormessages"] = errormessages
 	print(json.dumps(dico_reponse)) 
 
 
