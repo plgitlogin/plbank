@@ -16,7 +16,7 @@ good_morning=3
 good-afternoon=3
 Hi!=3
 oui=3
-NON=3
+YES=3
 def=3
 _upem_=3
 
@@ -24,15 +24,10 @@ _upem_=3
 
 code==
 bonjour=3
-au revoir Ciao=3
 byeBye7=3
-6hello6=3
 good_morning=3
-good-afternoon=3
-Hi!=3
 oui=3
-NON=3
-def=3
+YES=3
 _upem_=3
 ==
 
