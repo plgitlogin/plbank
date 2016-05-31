@@ -34,8 +34,8 @@ _upem_=3
 
 pltest==
 >>> lines = [line.rstrip('\n') for line in open("student.py","r") ]
->>> len(lines)  # il y a 8 expressions correctes dans le fichier
-6
+>>> len(lines) == 6  # il y a 6 expressions correctes dans le fichier
+True
 >>> 
 ==
 
