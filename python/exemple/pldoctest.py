@@ -1950,6 +1950,65 @@ def testmod(m=None, name=None, globs=None, verbose=None,
 
     return TestResults(runner.failures, runner.tries)
 
+
+def pltestfile(teststring, module_relative=True, name="Your Code", package=None,
+             globs=None, verbose=None, report=True, optionflags=0,
+             extraglobs=None, raise_on_error=False, parser=DocTestParser(),
+             encoding=None):
+    """
+    This is the same function than doctest.testfile but the text comme from the teststring
+
+    """
+    global master
+
+    if package and not module_relative:
+        raise ValueError("Package may only be specified for module-"
+                         "relative paths.")
+
+    # Relativize the path
+    # forget it get the test from the string 
+    text = teststring
+    #text, filename = _load_testfile(filename, package, module_relative,
+    #                                encoding or "utf-8")
+
+    # If no name was given, then use the file's name.
+    # ther should be a name ! see default argument 
+    #if name is None:
+    #    name = os.path.basename(filename)
+    filename=name
+
+    # Assemble the globals.
+    if globs is None:
+        globs = {}
+    else:
+        globs = globs.copy()
+    if extraglobs is not None:
+        globs.update(extraglobs)
+    if '__name__' not in globs:
+        globs['__name__'] = '__main__'
+
+    if raise_on_error:
+        runner = DebugRunner(verbose=verbose, optionflags=optionflags)
+    else:
+        runner = DocTestRunner(verbose=verbose, optionflags=optionflags)
+
+    # Read the file, convert it to a test, and run it.
+    test = parser.get_doctest(text, globs, name, filename, 0)
+    runner.run(test)
+
+    if report:
+        runner.summarize()
+
+    if master is None:
+        master = runner
+    else:
+        master.merge(runner)
+
+    return TestResults(runner.failures, runner.tries)
+
+
+
+
 def testfile(filename, module_relative=True, name=None, package=None,
              globs=None, verbose=None, report=True, optionflags=0,
              extraglobs=None, raise_on_error=False, parser=DocTestParser(),
