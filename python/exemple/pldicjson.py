@@ -27,4 +27,19 @@ def getpldic():
 			pldicsingleton = dict() # retourne un dico vide 
 	return pldicsingleton
 
+studentdicsingleton=None
+
+def getstudic():
+	"""
+	getsutdic loads the student.json file in a dictionnary
+	"""
+	global studentdicsingleton
+	if studentdicsingleton == None:
+		try:
+			studentdicsingleton = json.load(open("pl.json","r"))
+		except Exception as e:
+			# TODO gestion des exceptions dans plExecutor
+			studentdicsingleton = dict() # retourne un dico vide 
+	return studentdicsingleton 
+
 
