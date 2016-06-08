@@ -70,13 +70,12 @@ def printHistoListes(l):
 	"""
 	pass
 
-
-l=[]
-N=int(input())
-for n in range(N):
-	l.append(float(input()))
-
-printHistoListes(l)
+# ce code permet de faire un test avec l'entrée au clavier des valeurs
+#l=[]
+#N=int(input())
+#for n in range(N):
+#	l.append(float(input()))
+#printHistoListes(l)
 ==
 
 
