@@ -117,6 +117,7 @@ def testoutput():
 	if not "expectedoutput" in dicjson:
 		doBad(execution=" Corriger votre sujet d'exercice la balise ‘expectedouput‘ est manquante")
 		sys.exit()
+	value = dicjson["expectedoutput"]
 	import json
 	d = json.load(open("student.json","r"))
 	if not "stdout" in d:
