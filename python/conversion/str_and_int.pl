@@ -24,6 +24,7 @@ print(n + n)
 ==
 
 pltest==
+>>> import json
 >>> d = json.load("student.json")
 >>> d["stdout"]=="bob"
 True
