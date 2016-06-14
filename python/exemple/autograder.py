@@ -112,6 +112,20 @@ def autograde():
 	dicjson = getpldic()
 	grade(dicjson["pltest"])
 
+def testoutput():
+	dicjson = getpldic()
+	if not "expectedoutput" in dicjson:
+		doBad(execution=" Corriger votre sujet d'exercice la balise ‘expectedouput‘ est manquante")
+		sys.exit()
+	import json
+	d = json.load(open("student.json","r"))
+	if not "stdout" in d:
+		return False
+	if  value ==  d["stdout"]:
+		doGood(execution=value)
+	else:
+		doBad()
+
 
 if __name__ == '__main__':
 	dicjson = getpldic()
