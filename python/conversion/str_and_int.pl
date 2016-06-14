@@ -26,7 +26,7 @@ Comme vous pouvez le voir sur cet exemple le type d'une variable modifie son com
 La fonction prédéfinie input retourne toujours (en python3) une chaine de caractère c'est au programmeur de décider en quoi il faut convertir cette chaine.
 
 ==
-
+locked=1
 code==
 r = input()
 print(r + r)
