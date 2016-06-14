@@ -125,7 +125,7 @@ def testoutput():
 	if  value ==  d["stdout"]:
 		doGood(execution=value)
 	else:
-		doBad()
+		doBad(execution=d["stdout"])
 
 
 if __name__ == '__main__':
