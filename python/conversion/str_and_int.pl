@@ -26,9 +26,8 @@ print(n + n)
 pltest==
 >>> import json
 >>> d = json.load(open("student.json","r"))
->>> d["stdout"]
-12341234
-2468
+>>> d["stdout"] = "12341234\n2468\n"
+True
 >>>
 ==
 
