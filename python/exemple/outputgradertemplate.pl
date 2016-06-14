@@ -19,7 +19,7 @@ files=@/python/exemple/autograder.py
 
 
 grader==
-from autograder import testouput
+from autograder import testoutput
 testoutput() 
 ==
 
