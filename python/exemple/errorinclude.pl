@@ -2,7 +2,7 @@
 author=Dominique Revuz 
 title=outputgradertemplate.pl
 
-file=@/python/exemple/autograder.py
+file=@/python/exemple/autograde.py
 
 tag=root # N'oubliez pas de remplir ce champs svp
 
