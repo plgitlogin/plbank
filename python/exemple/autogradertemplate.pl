@@ -9,26 +9,13 @@ en signalant le nom de l'exercice qui devrai être diférent de autogradertempla
 
 ==
 
-
+# chargement des fichiers utiles 
 files=@/python/exemple/pldoctest.py
 files=@/python/exemple/pldicjson.py
 files=@/python/exemple/autograder.py
 
 
-code==
-# Veuillez saisir votre code ici
-def nomdaelafonction(n):
-	pass
-
-==
-
-pltest==
->>> print(" ERREUR PLATEFORM ") # ERREUR PLATEFORME TEST NON Défini 
->>> True # Veuillez modifier votre exercice en ajoutant une balise pltest 
->>>
-==
-
-
+# en fonction des balises présentes fait le bon teste
 grader==
 from autograder import autograde
 autograde()
