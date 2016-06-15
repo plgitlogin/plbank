@@ -122,12 +122,8 @@ def testoutput():
 	
 
 def testsoluce():
-
 	sol = getsoldic()
 	stu = getstudic()
-	print(sol,file=sys.stderr)
-	print(stu,file=sys.stderr)
-	
 	if not "stdout" in stu:
 		doBad(execution="Attendu: "+sol["stdout"]+"\nobtenu: rien ")
 	if sol["stdout"] == stu["stdout"] and stu["stderr"]== "":
@@ -136,9 +132,6 @@ def testsoluce():
 		doGood(execution=stu["stdout"],feedback="C'est juste aux caractères d'espacement près")
 	else:
 		doBad(execution="Attendu: "+sol["stdout"]+"\nobtenu:"+stu["stdout"])
-
-
-
 
 
 
