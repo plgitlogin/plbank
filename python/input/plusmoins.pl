@@ -14,12 +14,10 @@ somme= 34 , moyenne = 8.5
 == 
 
 inputgenerator==
-print("""
-12
-3
-14
-5
-""")
+print(12)
+print(3)
+print(14)
+print(5)
 ==
 
 soluce==
