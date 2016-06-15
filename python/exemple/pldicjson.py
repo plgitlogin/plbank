@@ -36,10 +36,24 @@ def getstudic():
 	global studentdicsingleton
 	if studentdicsingleton == None:
 		try:
-			studentdicsingleton = json.load(open("pl.json","r"))
+			studentdicsingleton = json.load(open("student.json","r"))
 		except Exception as e:
 			# TODO gestion des exceptions dans plExecutor
 			studentdicsingleton = dict() # retourne un dico vide 
 	return studentdicsingleton 
 
 
+solucedicsingleton=None
+
+def getsoldic():
+	"""
+	getsutdic loads the soluce.json file in a dictionnary
+	"""
+	global solucedicsingleton
+	if solucedicsingleton == None:
+		try:
+			solucedicsingleton = json.load(open("soluce.json","r"))
+		except Exception as e:
+			# TODO gestion des exceptions dans plExecutor
+			solucedicsingleton = dict() # retourne un dico vide 
+	return solucedicsingleton 
