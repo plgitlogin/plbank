@@ -1,7 +1,7 @@
 # Copyright 2016 Dominique Revuz <dr@univ-mlv.fr>
 author=Dominique Revuz 
 title=Manipulation de Nombre
-tag=root # N'oubliez pas de remplir ce champs svp
+tag=input|print
 template=/python/exemple/autogradertemplate
 
 text==
