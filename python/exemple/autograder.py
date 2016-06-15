@@ -125,6 +125,9 @@ def testsoluce():
 
 	sol = getsoldic()
 	stu = getstudic()
+	print(sol,file=sys.stderr)
+	print(stu,file=sys.stderr)
+	
 	if not "stdout" in stu:
 		doBad(execution="Attendu: "+sol["stdout"]+"\nobtenu: rien ")
 	if sol["stdout"] == stu["stdout"] and stu["stderr"]== "":
