@@ -13,6 +13,14 @@ Ecrire un programme qui demande à l’utilisateur de saisir quatre entiers au c
 somme= 34 , moyenne = 8.5
 == 
 
+feedback==
+Bien vu le float.
+Deux solutions :
+	print("somme = %d , moyenne = %.1f" % (somme,moyenne))
+	ou
+	print("somme = ",s," , moyenne = " , s/4)
+==
+
 inputgenerator==
 print(12)
 print(3)
