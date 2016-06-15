@@ -12,7 +12,7 @@ import sys
 import json 
 import pldoctest
 import io
-from pldicjson import getpldic
+import pldicjson 
 
 __pl__="""
 	Utilise la balise pltest comme élément de test 
@@ -21,7 +21,7 @@ __pl__="""
 
 dico_reponse = { "success": True , "errormessages" : "" , "execution": "Plateforme Error", "feedback": "", "other": "" }
 
-from pldicjson import getpldic
+from pldicjson import getpldic,getstudic,getsoldic
 
 
 def doGood(success=True,error="",execution="OK",feedback=None,other=""):
@@ -37,7 +37,8 @@ def doGood(success=True,error="",execution="OK",feedback=None,other=""):
 		else:
 			dico_reponse["feedback"] = ""
 	dico_reponse["other"]=other
-	print(json.dumps(dico_reponse)) 
+	print(json.dumps(dico_reponse))
+	sys.exit()
 
 def doBad(success=False,error="Des erreurs dans l'exécution",execution="pas de sorties",feedback="Corrigez votre code",errormessages="",other=""):
 	dico_reponse["success"]=success
@@ -50,7 +51,8 @@ def doBad(success=False,error="Des erreurs dans l'exécution",execution="pas de 
 		dico_reponse["feedback"]=feedback
 	dico_reponse["other"]=other
 	dico_reponse["errormessages"] = errormessages
-	print(json.dumps(dico_reponse)) 
+	print(json.dumps(dico_reponse))
+	sys.exit()
 
 def __gg__(l):
 	for u in l:
@@ -77,12 +79,6 @@ def dostudent(l):
 		mockinput(l)
 		doloadstudent()
 
-
-
-
-
-
-
 def compiletest():
 	import py_compile
 	try:
@@ -107,15 +103,12 @@ def grade(o):
 				doBad(execution=bob.getvalue(),feedback=" %d tests raté sur %d " % (failures,tests))
 		sys.exit()
 	doGood(execution="problème avec la plateforme")
-
-def autograde():
-	dicjson = getpldic()
-	grade(dicjson["pltest"])
+	sys.exit()
 
 def testoutput():
 	dicjson = getpldic()
-	if not "expectedoutput" in dicjson:
-		doBad(execution=" Corriger votre sujet d'exercice la balise ‘expectedouput‘ est manquante")
+	if not "expectedoutput" in dicjson :
+		doBad(execution=" Corriger votre sujet balise 'expectedouput' manquante")
 		sys.exit()
 	value = dicjson["expectedoutput"]
 	import json
@@ -125,11 +118,38 @@ def testoutput():
 	if  value ==  d["stdout"]:
 		doGood(execution=value)
 	else:
-		doBad(execution=d["stdout"])
+		doBad(execution=value+"\n"+d["stdout"])
+	
 
+def testsoluce():
+
+	sol = getsoldic()
+	stu = getstudic()
+	if not "stdout" in stu:
+		doBad(execution="Attendu: "+sol["stdout"]+"\nobtenu: rien ")
+	if sol["stdout"] == stu["stdout"] and stu["stderr"]== "":
+		doGood(execution=stu["stdout"])
+	if  "".join(sol["stdout"].split()) ==  "".join(stu["stdout"].split()):
+		doGood(execution=stu["stdout"],feedback="C'est juste aux caractères d'espacement près")
+	else:
+		doBad(execution="Attendu: "+sol["stdout"]+"\nobtenu:"+stu["stdout"])
+
+
+
+
+
+
+def autograde():
+	dicjson = getpldic()
+	if "pltest" in dicjson :
+		grade(dicjson["pltest"])
+	if "expectedoutput" in dicjson :
+		testoutput()
+	if "soluce" in dicjson:
+		testsoluce()
 
 if __name__ == '__main__':
-	dicjson = getpldic()
-	grade(dicjson["pltest"])
+	autograde()
+
 
 
