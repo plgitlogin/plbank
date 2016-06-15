@@ -14,11 +14,11 @@ somme= 34 , moyenne = 8.5
 == 
 
 feedback==
-Bien vu le float.
-Deux solutions :
+
+Deux solutions :<br>
+	print("somme = ",somme," , moyenne = " ,moyenne)<br>
+ou la syntaxe avec % mais attention c'est un float<br>
 	print("somme = %d , moyenne = %.1f" % (somme,moyenne))
-	ou
-	print("somme = ",s," , moyenne = " , s/4)
 ==
 
 inputgenerator==
