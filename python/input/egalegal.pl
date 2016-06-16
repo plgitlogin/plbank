@@ -5,7 +5,7 @@ tag=input|print
 template=/python/exemple/autogradertemplate
 
 text==
-Remplacer les @@ par '=' ou '==' aux bons endrois pour rendre le code coohérent.
+Remplacer les @@ par '=' ou '= =' aux bons endrois pour rendre le code coohérent.
 
 == 
 
