@@ -10,19 +10,10 @@ Cette page d'exercice vous propose quelques fonctions.
 ==
 
 concept==function
-@ python/exemple/errorparsing.pl
-@ python/exemple/exemple1.pl
-@ python/exemple/printinfos.pl
+
 @ python/function/autosubsets.pl
 @ python/function/carre.pl
-@ python/function/funcvoyelle.pl
+
 @ python/function/histogramme1.pl
 @ python/function/randomcolor1.pl
-@ python/function/simplefunc1.pl
-@ python/function/simplefunc2.pl
-@ python/function/subsets.pl
-@ python/function/untitled.pl
-@ python/string/palindrome.pl
 ==
-
-
