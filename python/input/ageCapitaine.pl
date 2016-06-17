@@ -29,7 +29,7 @@ Les opérateur de python permettent d'écrire des expressions complexe et rapide
 
 inputgenerator==
 from random import randint 
-print(randint(10,40)+10))
+print(randint(10,40)+10)
 
 ==
 
