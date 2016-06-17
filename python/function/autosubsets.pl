@@ -1,15 +1,14 @@
 # Copyright 2016 Dominique Revuz <dr@univ-mlv.fr>
 author=Dominique Revuz 
 title=subsets.pl
-tag=root # N'oubliez pas de remplir ce champs svp
+tag=function|set|sorted # N'oubliez pas de remplir ce champs svp
 template=/python/exemple/autogradertemplate
 text==
-Ecrire une fonction *subsets* qui retourne l'ensemble des sous ensembles de l'ensemble passé en parametre.
+Ecrire une fonction *subsets* qui retourne l'ensemble trié des sous ensembles de l'ensemble passé en parametre.
 
 ==
 
 pltest==
->>> from student import subsets
 >>> subsets(set([]))
 [[]]
 >>> sorted(subsets(set([1,2,3,4,5])))
