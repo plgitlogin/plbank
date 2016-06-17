@@ -2,7 +2,7 @@
 author=Dominique Revuz 
 title=subsets.pl
 tag=root # N'oubliez pas de remplir ce champs svp
-template=/python/function/autogradertemplate
+template=/python/exemple/autogradertemplate
 text==
 Ecrire une fonction *subsets* qui retourne l'ensemble des sous ensembles de l'ensemble passé en parametre.
 
