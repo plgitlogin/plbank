@@ -1,5 +1,6 @@
 # ceci est un exercice Premier langage
 
+tag=math|exponentiation|parameter
 template=/python/exemple/autogradertemplate
 text==
 
