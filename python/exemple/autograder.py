@@ -125,9 +125,9 @@ def testoutput():
 	if  value ==  d["stdout"]:
 		doGood(execution=value)
 	if  "".join(d["stdout"].split()) ==  "".join(value.split()):
-		doGood(execution=d["stdout"],feedback="C'est juste aux caractères d'espacement près")
+		doGood(other=d["stdout"],feedback="C'est juste aux caractères d'espacement près")
 	else:
-		doBad(execution="Attendu: "+value+"\nobtenu:"+d["stdout"])
+		doBad(execution= d["stdout"],other="Attendu: "+value+"\nobtenu:"+d["stdout"])
 
 def testsoluce():
 	sol = getsoldic()
