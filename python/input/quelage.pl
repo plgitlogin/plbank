@@ -5,7 +5,7 @@ tag=input|print|variable
 template=/python/exemple/autogradertemplate
 
 text==
-Demandez au Capitaine son année de naissance et calculer et afficher son age au 31 décembre 2018 à Minuit.
+Demandez au Capitaine son année de naissance puis calculez et affichez son age au 31 décembre 2018 à Minuit.
 == 
 
 code==
