@@ -7,11 +7,13 @@ template=/python/exemple/autogradertemplate
 text==
 
 Utilisons la fonction **print** pour faire un affichage.
-tester l'affichage deu code suivant:
+
+Testez l'affichage deu code suivant:
 
 	print("+" * 3)
 
-en déduire l'affichage de l'image suivante
+en déduire le code pour afficher les lignes suivantes:
+
 +<br>
 ++<br>
 +++<br>
