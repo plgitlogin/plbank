@@ -133,7 +133,7 @@ def testsoluce():
 	sol = getsoldic()
 	stu = getstudic()
 	if stu["stderr"] != "":
-		doBad(error="Erreur d'execution de votre code<br>")
+		doBad(execution="Erreur d'execution de votre code<br>")
 	if not "stdout" in stu:
 		doBad(execution="Attendu: "+sol["stdout"]+"\nobtenu: rien ")
 	if sol["stdout"] == stu["stdout"] and stu["stderr"]== "":
