@@ -5,6 +5,9 @@ tag=input|print
 template=/python/exemple/autogradertemplate
 
 text==
+
+ATTENTION EXERCICE VEROLE TEMPS QUE LA BUG 38 n'est pas corrigée. DR.
+
 Remplacer les @@ par '=' ou '= =' aux bons endrois pour rendre le code coohérent.
 
 == 
@@ -26,8 +29,10 @@ la partie gauche doit être une référence qui sera réutilisable plus tard, ce
 ==
 
 inputgenerator==
-print(12)
-print(12)
+from random import randint
+a=randint(1,100)
+print(a)
+print(a)
 ==
 
 soluce==
