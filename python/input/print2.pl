@@ -1,6 +1,6 @@
 # Copyright 2016 Dominique Revuz <dr@univ-mlv.fr>
 author=Dominique Revuz 
-name=print1.pl
+name=Utilisation de print
 title=La fonction print
 tag=print
 template=/python/exemple/autogradertemplate
