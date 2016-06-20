@@ -1,12 +1,13 @@
 
 # Copyright 2016 Dominique Revuz <dr@univ-mlv.fr>
 author=Dominique Revuz 
-title= python/exemple/autofunctiongradertemplate.pl
+title= autogradertemplate.pl
 text==
 
 Ceci est un texte qui ne devrai pas apparaitre voyez avec dr@univ-mlv.fr
 en signalant le nom de l'exercice qui devrai être diférent de autogradertemplate.pl
 
+python/exemple/autogradertemplate
 ==
 
 # chargement des fichiers utiles 
