@@ -1,27 +1,17 @@
-# Copyright 2016 Dominique Revuz <dr@univ-mlv.fr>
-author=Dominique Revuz 
+
 name=Afficher
-title=La fonction print
-tag=print
 template=/python/exemple/autogradertemplate
 text==
-
 La fonction **print** permet de faire des affichages (envois de caractère à l'écran).
-
 Nous allons l'utiliser pour écrire votre premier programme python.
-
 Ecrivez une ligne de code de la forme :
-
-
-print("votreprénomentreguillemets")
-
+	print("votreprénomentreguillemets")
 ==
 
 code==
+# modifier en remplacant les $$$ par votre nom entre guillemets
 print($$$$$$$$$$)
 ==
-
-# Choisir pltest ou soluce ou expectedoutput
 
 pltest==
 >>> print("ok")
