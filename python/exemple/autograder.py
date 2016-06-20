@@ -117,7 +117,9 @@ def testoutput():
 		sys.exit()
 	value = dicjson["expectedoutput"]
 	import json
-	d = json.load(open("student.json","r"))
+	d = getstudic()
+	if d["stderr"] != "":
+		doBad(error="Erreur d'execution de votre code<br>")
 	if not "stdout" in d:
 		return False
 	if  value ==  d["stdout"]:
@@ -130,6 +132,8 @@ def testoutput():
 def testsoluce():
 	sol = getsoldic()
 	stu = getstudic()
+	if stu["stderr"] != "":
+		doBad(error="Erreur d'execution de votre code<br>")
 	if not "stdout" in stu:
 		doBad(execution="Attendu: "+sol["stdout"]+"\nobtenu: rien ")
 	if sol["stdout"] == stu["stdout"] and stu["stderr"]== "":
@@ -152,6 +156,7 @@ def autograde():
 		testsoluce()
 
 if __name__ == '__main__':
+	compiletest()
 	autograde()
 
 
