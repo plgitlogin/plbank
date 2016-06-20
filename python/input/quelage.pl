@@ -6,11 +6,13 @@ template=/python/exemple/autogradertemplate
 name=Capitaine
 text==
 Demandez au Capitaine son année de naissance puis calculez et affichez son age au 31 décembre 2018 à Minuit.
+
+  Le capitaine auras XXX ans en 2018.
 == 
 
 code==
 # 
-anne=int(input())
+annee=int(input())
 # Le capitaine auras XXX ans.
 
 ==
@@ -27,5 +29,5 @@ print(randint(10,78)+1939)
 
 soluce==
 a=int(input())
-print("Le capitaine auras %d ans." % (2018-a))
+print("Le capitaine auras %d ans en 2018." % (2018-a))
 ==
