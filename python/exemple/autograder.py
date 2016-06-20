@@ -24,7 +24,7 @@ dico_reponse = { "success": True , "errormessages" : "" , "execution": "Platefor
 from pldicjson import getpldic,getstudic,getsoldic
 
 
-def doGood(success=True,error="",execution="OK",feedback=None,other=""):
+def doGood(success=True,error="",execution="OK",feedback=None,other=None):
 	dico_reponse["success"]=success
 	dico_reponse["error"]=error
 	dico_reponse["execution"]=execution
@@ -36,11 +36,12 @@ def doGood(success=True,error="",execution="OK",feedback=None,other=""):
 			dico_reponse["feedback"] = dicjson["feedback"]
 		else:
 			dico_reponse["feedback"] = ""
-	dico_reponse["other"]=other
+	if other :
+		dico_reponse["other"]=other
 	print(json.dumps(dico_reponse))
 	sys.exit()
 
-def doBad(success=False,error="Des erreurs dans l'exécution",execution="pas de sorties",feedback="Corrigez votre code",errormessages="",other=""):
+def doBad(success=False,error="Des erreurs dans l'exécution",execution="pas de sorties",feedback="Corrigez votre code",errormessages="",other=None):
 	dico_reponse["success"]=success
 	dico_reponse["error"]=error
 	dico_reponse["execution"]="<br>".join(execution.split("\n"))
@@ -51,6 +52,8 @@ def doBad(success=False,error="Des erreurs dans l'exécution",execution="pas de 
 		dico_reponse["feedback"]=feedback
 	dico_reponse["other"]=other
 	dico_reponse["errormessages"] = errormessages
+	if other :
+		dico_reponse["other"]=other
 	print(json.dumps(dico_reponse))
 	sys.exit()
 
@@ -86,6 +89,7 @@ def compiletest():
 	except py_compile.PyCompileError as EEE:
 		doBad(error="Erreur de compilation de votre code<br>", errormessages = str(EEE))
 		return False
+	dico_reponse["other"]="Compilation OK"
 	return True
 
 
@@ -102,6 +106,7 @@ def grade(o):
 			else:
 				doBad(execution=bob.getvalue(),feedback=" %d tests raté sur %d " % (failures,tests))
 		sys.exit()
+	
 	doGood(execution="problème avec la plateforme")
 	sys.exit()
 
