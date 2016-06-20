@@ -12,10 +12,13 @@ Nous allons l'utiliser pour écrire votre premier programme python.
 
 Ecrivez une ligne de code de la forme :
 
-‘‘‘python
-print(votreprénomentreguillemets)
-‘‘‘
 
+print(votreprénomentreguillemets)
+
+==
+
+code==
+print(votreprénomentreguillemets)
 ==
 
 # Choisir pltest ou soluce ou expectedoutput
