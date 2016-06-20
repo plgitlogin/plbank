@@ -10,7 +10,7 @@ Demandez au Capitaine son année de naissance puis calculez et affichez son age 
 
 code==
 # 
-age=int(input())
+anne=int(input())
 # Le capitaine auras XXX ans.
 
 ==
