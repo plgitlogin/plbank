@@ -9,27 +9,27 @@ text==
 Utilisons la fonction **print** pour faire un affichage.
 tester l'affichage deu code suivant:
 
-print("*"*3)
+	print("+" * 3)
 
 en déduire l'affichage de l'image suivante
-*
-**
-***
-****
-*****
++
+++
++++
+++++
++++++
 
 ==
 
 code==
-print("*"*3)
+print("+"*3)
 ==
 
 expectedoutput==
-*
-**
-***
-****
-*****
++
+++
++++
+++++
++++++
 ==
 
 feedback==
