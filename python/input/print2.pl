@@ -12,11 +12,11 @@ tester l'affichage deu code suivant:
 	print("+" * 3)
 
 en déduire l'affichage de l'image suivante
-+
-++
-+++
-++++
-+++++
++<br>
+++<br>
++++<br>
+++++<br>
++++++<br>
 
 ==
 
