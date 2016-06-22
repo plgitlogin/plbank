@@ -91,7 +91,7 @@ def compiletest():
 		doBad(error="Erreur de compilation de votre code<br>", errormessages = str(EEE))
 		return False
 	except Exception as Berk:
-		doBad(error="Erreur d'execution de votre code<br>", errormessages = str(berk))
+		doBad(error="Erreur d'execution de votre code<br>", errormessages = str(Berk))
 		return False
 	dico_reponse["other"]="Compilation OK"
 	return True
