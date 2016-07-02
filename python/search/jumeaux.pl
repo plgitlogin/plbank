@@ -17,7 +17,7 @@ En entrée un entier nombre de personnes *nbp* puis sur chaque ligne **p** le po
 	109.43
 	110.0
 
-résultat la position des deux jumeaux.
+résultat la position des deux jumeaux (indice de 0 à 2).
 
 	1 2
 
