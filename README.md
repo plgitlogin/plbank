@@ -3,7 +3,7 @@
 
 Banque d'exercices pl
 
-# Accès 
+# Accès
 
 Demander à Dominique Revuz at upem fr.
 
@@ -17,19 +17,15 @@ Banque de question pl ''python''
 Quelques remarques avant de commencer sur l'organisation des fichiers.
 
 l'arborescence est découpé en deux parties,
-- une partie documentation ''doc'' 
-- une partie langage par exemple ''python'' 
+- une partie documentation ''doc''
+- une partie langage par exemple ''python''
 
-En suite vous trouverez des sous répertoires associés au différents concepts du graphe http://pl.univ-mlv.fr/concept/graph/BT/ .
+La structure de l'arborescence sous le langage est laisé à l'appréciation de l'équipe enseignante.
 
-Dans chaque sous répertoires vous trouverez des sous répertoires contenant des exercices pl.
+Une approche est par **concept** ou les retpertoire structure les exercices par  les //prod// c'est à dire des exercice qui permetent à un élève d'aquérir le concept en question.
 
-Ainsi /python/logique/bool/algebre.pl est un exercice de python associé au concept logique dans un sous répertoire bool, le nom de fichier de l'exercice  est algebre.pl 
+Une approche est par **tp** ou feuille de tp. l'idée est que tous les exercices d'une feuille plmtp sont mis dans le m^eme répertoire ce qui simplie les échanges entre repository.
 
-
-Le repertoire logique ne doit contenir aucun exercice.
-
-Vous pouvez placer des fichiers d'autre type que pl et pltp dans l'arborescence il ne seront pas visible pour les utilisateur du service plactivity.
-Mais référenceables dans vos exercices.
+Personnellement (DR) je privilègie la deuxième approche.
 
 
