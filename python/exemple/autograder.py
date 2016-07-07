@@ -86,8 +86,12 @@ def compiletest():
 	import py_compile
 	try:
 		x= py_compile.compile("student.py",doraise=True)
+		exec(open("student.py","r").read())
 	except py_compile.PyCompileError as EEE:
 		doBad(error="Erreur de compilation de votre code<br>", errormessages = str(EEE))
+		return False
+	except Exception as Berk:
+		doBad(error="Erreur d'execution de votre code<br>", errormessages = str(Berk))
 		return False
 	dico_reponse["other"]="Compilation OK"
 	return True
