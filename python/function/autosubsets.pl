@@ -9,6 +9,8 @@ Ecrire une fonction *subsets* qui retourne l'ensemble trié des sous ensembles d
 ==
 
 pltest==
+>>> print(2)
+2
 >>> subsets(set([]))
 [[]]
 >>> sorted(subsets(set([1,2,3,4,5])))
