@@ -1,7 +1,7 @@
 # Copyright 2016 Dominique Revuz <dr@univ-mlv.fr>
 author=Dominique Revuz 
-title= Egal = Egal ? 
-tag=input|print
+title= Egal ou EgalEgal ? 
+tag=root
 template=/python/exemple/autogradertemplate
 
 text==

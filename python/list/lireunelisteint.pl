@@ -2,7 +2,8 @@
 author=Dominique Revuz 
 name=lireunelisteint.pl
 title=  Lire une liste d'entiers
-tag= list|input|conversion
+tag= listinput|conversion
+tog= intlistinput
 template=/python/exemple/autogradertemplate
 text==
 Nous souhaitons lire une liste d'entiers que 
@@ -24,16 +25,20 @@ print(sum([int(x) for x in input().split()]))
 inputgenerator==
 l=[]
 from random import randint
-print(" ".join([ randint(0,2000) for j in range(randint(3,7))]))
+print(" ".join([ str(randint(0,2000)) for j in range(randint(3,7))]))
 ==
 
 feedback==
 Très bien 
 Retenez bien ce code :<br>
 	input().split()
-qui permet d'obtenir une liste à partir d'une chaine en coupant à chaque espace
+qui permet d'obtenir une liste à partir d'une chaine en coupant à chaque espace et celui ci
+qui permet de lire une liste d'entiers écrits sur une seule ligne:
 	a=0
 	for l in input().split():
 		a += int(l)
 	print(a)
+Ou bien :<br>
+	intliste=[int(x) for x in input().split()]
+
 ==

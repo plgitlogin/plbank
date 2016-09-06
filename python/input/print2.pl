@@ -1,6 +1,6 @@
 # Copyright 2016 Dominique Revuz <dr@univ-mlv.fr>
 author=Dominique Revuz 
-name=Utilisation de print
+name=Multiplication des chaines
 title=La fonction print
 tag=print
 template=/python/exemple/autogradertemplate
