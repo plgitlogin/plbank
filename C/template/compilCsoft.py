@@ -22,8 +22,8 @@ def compiletest(ldflags=""):
     compilation_command = "gcc basic.c -o progCstudent "+ ldflags
 
     # Ugly : two times the compilations and constitution of two log files
-    os.system(compilation_command + "1> compilCstdout.log")
-    os.system(compilation_command + "2> compilCstderr.log")
+    os.system(compilation_command + " 1> compilCstdout.log")
+    os.system(compilation_command + " 2> compilCstderr.log")
     err_out_log = open("compilCstderr.log", "r")
     err_out = err_out_log.read()
 
@@ -48,6 +48,6 @@ def compiletest(ldflags=""):
     return True
 
 def compilC():
-    compiletest("-Wall")
+    compiletest("-Wall -ansi")
     print(json.dumps(dico_reponse))
     sys.exit()
