@@ -41,7 +41,7 @@ def compiletest(ldflags=""):
 
     # If there is some warnings
     if "warning:" in err_out:
-        dico_reponse["feedback"] = "Vous pouvez augmenter la qualité de votre programme en lisant les recommandations du compilateur:\n" + std_out
+        dico_reponse["feedback"] = "Vous pouvez augmenter la qualité de votre programme en lisant les recommandations du compilateur:\n" + err_out
         dico_reponse["compilation"] = "warning"
     # No error, no warning
     else:
