@@ -2,23 +2,19 @@
 author=Nicolas Borie
 name=Premier programme en C
 title=Premier programme en C
-tag=
+tag=output
 template=/C/template/autograderC
 
 text==
 Faites votre premier programme C, ce programme devra écrire *Hello
-World* sur la sortie standard et retourner à la ligne.
+World!* sur la sortie standard et retourner à la ligne.
 ==
 
 code==
 #include <stdio.h>
 
-/* main est la fonction principale d'un programme. C'est la fonction
-qui sera appelé lors de l'éxecution du programme. argc et argv sont
-les arguments typés du programme, on verra plus tard comment les
-utiliser.*/
 int main(int argc, char* argv[]){
-/* votre code SVP */
+/* votre code ici... */
 }
 ==
 
@@ -32,7 +28,7 @@ int main(int argc, char* argv[]){
 ==
 
 expectedoutput==
-Hello World
+Hello World!
 ==
 
 # chargement des fichiers utiles 
