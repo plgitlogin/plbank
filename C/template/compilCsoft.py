@@ -48,6 +48,6 @@ def compiletest(ldflags=""):
     return True
 
 def compilC():
-    compiletest()
+    compiletest("-Wall -ansi")
     print(json.dumps(dico_reponse))
     sys.exit()
