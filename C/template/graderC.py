@@ -91,7 +91,10 @@ def test_exec(name, in_args="", out_expected="", verbose=True):
         file_out_expected.close()
     
     # execution and diff commands
-    test_command = "cat file_stdin | ./progCstudent > outputstudent"
+    if in_args != "":
+        test_command = "cat args_in | ./progCstudent > outputstudent"
+    else:
+        test_command = "./progCstudent > outputstudent"
     os.system(test_command)
     diff_command = "diff file_out_expected outputstudent > diffoutput"
     os.system(diff_command)
