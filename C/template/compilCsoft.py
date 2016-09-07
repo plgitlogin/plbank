@@ -19,7 +19,7 @@ dico_reponse = { "success": True , "errormessages" : "" , "execution": "Platefor
 
 def compiletest(ldflags=""):
     # Compilation command
-    compilation_command = "gcc basic.c -o progCstudent"+ ldflags
+    compilation_command = "gcc basic.c -o progCstudent "+ ldflags
 
     # Ugly : two times the compilations and constitution of two log files
     os.system(compilation_command + "1> compilCstdout.log")
@@ -48,6 +48,6 @@ def compiletest(ldflags=""):
     return True
 
 def compilC():
-    compiletest("-Wall -ansi")
+    compiletest("-Wall")
     print(json.dumps(dico_reponse))
     sys.exit()
