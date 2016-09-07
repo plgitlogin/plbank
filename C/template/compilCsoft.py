@@ -26,10 +26,15 @@ def compiletest(ldflags=""):
     # Compilation command
     compilation_command = "gcc basic.c -o progCstudent "+ ldflags
 
+    # TODO : avoid double compilation
     os.system(compilation_command + " 2> compilCstderr.log")
+    os.system(compilation_command + " 1> compilCstdout.log")
     err_out_log = open("compilCstderr.log", "r")
     err_out = err_out_log.read()
     err_out_log.close()
+    std_out_log = open("compilCstdout.log", "r")
+    std_out = std_out_log.read()
+    std_out_log.close()
 
     # If there is some compilation errors
     if "error:" in err_out:
@@ -43,12 +48,14 @@ def compiletest(ldflags=""):
     if "warning:" in err_out:
         dico_reponse["feedback"] = "Vous pouvez augmenter la qualité de votre programme en lisant les recommandations du compilateur:\n" + err_out
         dico_reponse["compilation"] = "warning"
+    elif "warning:" in std_out:
+        dico_reponse["feedback"] = "Vous pouvez augmenter la qualité de votre programme en lisant les recommandations du compilateur:\n" + std_out
+        dico_reponse["compilation"] = "warning"
     # No error, no warning
     else:
         dico_reponse["feedback"] = "Votre programme semble être écrit correctement\n"
         dico_reponse["compilation"] = "parfaite"
     # Here, the compilation is OK with possible warnings
-    std_out_log.close()
     return True
 
 def compilC():
