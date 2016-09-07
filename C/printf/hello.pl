@@ -33,9 +33,9 @@ Hello World!
 
 # chargement des fichiers utiles 
 files=@/C/template/basic.c
-files=@/C/template/compilCsoft.py
+files=@/C/template/graderC.py
 
 grader==
-from compilCsoft import compilC
-compilC()
+from graderC import grade
+grade()
 ==
