@@ -104,14 +104,14 @@ def grade(tests=dict()):
     all_test_pass = True
 
     # We first try a no flag compilation in order to isolate errors only
-    if not compiletest():
+    if not compile_gcc():
         # If the no flag compilation fails, GTFO
         print(json.dumps(dico_reponse))
         sys.exit()
 
     # Now, since it compiles, we try a -Wall -ansi compilation to get all 
     # warnings
-    compiletest("-Wall -ansi")
+    compile_gcc("-Wall -ansi")
 
     # time for tests !!!
     for test_name in tests:
