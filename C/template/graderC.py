@@ -78,22 +78,47 @@ def compile_gcc(flags=""):
 #         A single C test          #
 ####################################
 
-def test_exec(name, in_args="", out_expected=""):
+def test_exec(name, in_args="", out_expected="", verbose=True):
 
     # set file for test arguments and expected output
     if in_args != "":
         file_stdin = open("args_in", "w")
-    if out_expected != "":
-        file_out_expected = open("out_expected", "w")
-
-    
-
-
-    # close file for test arguments and expected output
-    if in_args != "":
+        file_stdin.write(in_args)
         file_stdin.close()
     if out_expected != "":
+        file_out_expected = open("out_expected", "w")
+        file_out_expected.write(out_expected)
         file_out_expected.close()
+    
+    # execution and diff commands
+    test_command = "cat args_in | ./progCstudent > outputstudent"
+    os.system(test_command)
+    diff_command = "diff file_out_expected outputstudent > diffoutput"
+    os.system(diff_command)
+    file_diff = open("diffoutput", "r")
+    content_diff = file_diff.read()
+    file_diff.close()
+
+    # In case of differences
+    # TODO : Sure there is better solution than a unix diff
+    if len(content_diff) > 0:
+        # the test failled
+        dico_reponse["errormessages"] = "Le test "+name+" a échoué:\n"
+        # if there were arguments and activated verbose
+        if in_args != "" and verbose:
+            dico_reponse["errormessages"] += "Pour les données \n"
+            dico_reponse["errormessages"] += in_args
+        # HINT: unactive verbose when arg or output are HHUUUGGEEEE !!!!
+        if verbose:
+            dico_reponse["errormessages"] += "Attendu: \n"
+            dico_reponse["errormessages"] += out_expected
+            dico_reponse["errormessages"] += "Produit: \n"
+            file_out = open("outputstudent", "r")
+            content_out = file_out.read()
+            file_out.close()
+            dico_reponse["errormessages"] += content_out
+        return False
+    return True
 
 
 ####################################
@@ -117,10 +142,18 @@ def grade(tests=dict()):
     for test_name in tests:
         test_in = tests[test_name][0]
         test_out = tests[test_name][1]
-        if not test_exec(test_name, test_in, test_out):
+        test_verbose = tests[test_name][2]
+        if not test_exec(test_name, test_in, test_out, test_verbose):
             all_test_pass = False
+            break # this break can be discussed for pedagogic reasons...
+            # This break force students to solve mess one by one...
+            # The guy who have all tests can solve them faster
+            # But one by one, if you chose to fix mess with hacks, you
+            # can be rapidly heading for a fall
 
+    # The holy grail
     if all_test_pass:
+        dico_reponse["errormessages"] = "Tous les tests passent..."
         dico_reponse["success"] = True
 
     # GTFO
