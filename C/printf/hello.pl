@@ -1,35 +1,35 @@
-# Copyright 2016 Dominique Revuz <dr@univ-mlv.fr>
-author=Dominique Revuz 
-name= Premier pas C
-title= 
-tag=  # N'oubliez pas de remplir ce champs svp
-template=/C/template/autogradertemplate
+# Copyright 2016 Nicolas Borie <nicolas.borie@u-pem.fr>
+author=Nicolas Borie
+name=Premier programme en C
+title=Premier programme en C
+tag=
+template=/C/template/autograderC
+
 text==
-
-Faites un Hello World 
-
-
-
+Faites votre premier programme C, ce programme devra écrire *Hello
+World* sur la sortie standard et retourner à la ligne.
 ==
-
 
 code==
 #include <stdio.h>
 
+/* main est la fonction principale d'un programme. C'est la fonction
+qui sera appelé lors de l'éxecution du programme. argc et argv sont
+les arguments typés du programme, on verra plus tard comment les
+utiliser.*/
+int main(int argc, char* argv[]){
 /* votre code SVP */
-int main(){
-
 }
 ==
 
 soluce==
 #include <stdio.h>
-int main(){
-print("Hello World\n");
+
+int main(int argc, char* argv[]){
+  print("Hello World\n");
+  return 0;
 }
 ==
-
-
 
 expectedoutput==
 Hello World
