@@ -85,10 +85,9 @@ def test_exec(name, in_args="", out_expected="", verbose=True):
         file_stdin = open("args_in", "w")
         file_stdin.write(in_args)
         file_stdin.close()
-    if out_expected != "":
-        file_out_expected = open("out_expected", "w")
-        file_out_expected.write(out_expected)
-        file_out_expected.close()
+    file_out_expected = open("out_expected", "w")
+    file_out_expected.write(out_expected)
+    file_out_expected.close()
     
     # execution and diff commands
     if in_args != "":
@@ -96,7 +95,7 @@ def test_exec(name, in_args="", out_expected="", verbose=True):
     else:
         test_command = "./progCstudent > outputstudent"
     os.system(test_command)
-    diff_command = "diff file_out_expected outputstudent > diffoutput"
+    diff_command = "diff out_expected outputstudent > diffoutput"
     os.system(diff_command)
     file_diff = open("diffoutput", "r")
     content_diff = file_diff.read()
