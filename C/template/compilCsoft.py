@@ -42,7 +42,8 @@ def compiletest(ldflags=""):
 
     if len(std_out) > 0: # TODO : find a better python test for testing if a file is empty
         dico_reponse["feedback"] = "Vous pouvez augmenter la qualité de votre programme en lisant les recommandations du compilateur:\n" + std_out
-
+    else:
+        dico_reponse["feedback"] = "Votre programme semble être écrit correctement\n"
     # Here, the compilation is OK with possible warnings
     std_out_log.close()
     return True
