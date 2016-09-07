@@ -34,3 +34,12 @@ int main(int argc, char* argv[]){
 expectedoutput==
 Hello World
 ==
+
+# chargement des fichiers utiles 
+files=@/C/template/basic.c
+files=@/C/template/compilCsoft.py
+
+grader==
+from compilCsoft import compilC
+compilC()
+==
