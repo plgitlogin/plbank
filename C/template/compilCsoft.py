@@ -33,7 +33,7 @@ def compiletest(ldflags=""):
     err_out = err_out_log.read()
 
     # If there is some compilation errors
-    if len(err_out) > 0: # TODO : find a better python test for testing if a file is empty
+    if "error:" in err_out:
         dico_reponse["success"] = False
         dico_reponse["errormessages"] = "Voir le feedback donné par le compilateur gcc"
         dico_reponse["execution"] = "Impossible"
@@ -45,7 +45,7 @@ def compiletest(ldflags=""):
     std_out_log = open("compilCstdout.log", "r")
     std_out = std_out_log.read()
 
-    if len(std_out) > 0: # TODO : find a better python test for testing if a file is empty
+    if "warning:" in err_out:
         dico_reponse["feedback"] = "Vous pouvez augmenter la qualité de votre programme en lisant les recommandations du compilateur:\n" + std_out
         dico_reponse["compilation"] = "Warnings"
     else:
