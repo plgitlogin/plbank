@@ -2,12 +2,9 @@
 author=Nicolas Borie
 title=<>
 text==
-
 Ceci est un texte qui ne devrait pas apparaitre!
 Voyez avec nicolas.borie@u-pem.fr en signalant le nom de l'exercice qui devrait
 être différent de autograderC.pl
-
-python/exemple/autogradertemplate
 ==
 
 # chargement des fichiers utiles 

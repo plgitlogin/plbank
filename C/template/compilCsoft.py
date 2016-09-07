@@ -6,7 +6,6 @@
 #  Copyright 2016 Nicolas Borie <nicolas.borie@u-pem.fr>
 #  
 
-
 ########################################################
 #  Compilation de programme C avec le compilateur gcc  #
 ########################################################
@@ -15,7 +14,13 @@ import os
 import sys
 import json 
 
-dico_reponse = { "success": True , "errormessages" : "" , "execution": "Plateforme Error", "feedback": "", "other": "" }
+############################################
+#  Ajout d'un champ compilation pour le C  #
+############################################
+
+dico_reponse = { "success": True , "errormessages" : "" ,
+                 "execution": "Plateforme Error", "feedback": "", 
+                 "other": "", "compilation" : "Erreur" }
 
 def compiletest(ldflags=""):
     # Compilation command
@@ -42,13 +47,21 @@ def compiletest(ldflags=""):
 
     if len(std_out) > 0: # TODO : find a better python test for testing if a file is empty
         dico_reponse["feedback"] = "Vous pouvez augmenter la qualité de votre programme en lisant les recommandations du compilateur:\n" + std_out
+        dico_reponse["compilation"] = "Warnings"
     else:
         dico_reponse["feedback"] = "Votre programme semble être écrit correctement\n"
+        dico_reponse["compilation"] = "Parfaite"
     # Here, the compilation is OK with possible warnings
     std_out_log.close()
     return True
 
 def compilC():
+    # We first try a no flag compilation
+    if not compiletest():
+        print(json.dumps(dico_reponse))
+        sys.exit()
+    # Now, we try a -Wall -ansi compilation
     compiletest("-Wall -ansi")
     print(json.dumps(dico_reponse))
     sys.exit()
+            
