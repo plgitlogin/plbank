@@ -9,11 +9,11 @@ Voyez avec nicolas.borie@u-pem.fr en signalant le nom de l'exercice qui devrait
 
 # chargement des fichiers utiles 
 files=@/C/template/basic.c
-files=@/C/template/compilCsoft.py
+files=@/C/template/graderC.py
 
 
 # en fonction des balises présentes fait le bon teste
 grader==
-from compilCsoft import compilC
-compilC()
+from graderC import grade
+grade()
 ==

@@ -32,10 +32,10 @@ Hello World!
 ==
 
 # chargement des fichiers utiles 
-files=@/C/template/basic.c
-files=@/C/template/graderC.py
+#files=@/C/template/basic.c
+#files=@/C/template/graderC.py
 
-grader==
-from graderC import grade
-grade()
-==
+#grader==
+#from graderC import grade
+#grade()
+#==
