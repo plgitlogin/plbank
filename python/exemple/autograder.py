@@ -19,7 +19,7 @@ __pl__="""
 	"""
 
 
-dico_reponse = { "success": True , "errormessages" : "" , "execution": "Plateforme Error", "feedback": "", "other": "" }
+dico_reponse = { "success": True , "errormessages" : "" , "execution": "Error", "feedback": "", "other": "" }
 
 from pldicjson import getpldic,getstudic,getsoldic
 
@@ -86,14 +86,12 @@ def compiletest():
 	import py_compile
 	try:
 		x= py_compile.compile("student.py",doraise=True)
-		exec(open("student.py","r").read())
 	except py_compile.PyCompileError as EEE:
 		doBad(error="Erreur de compilation de votre code<br>", errormessages = str(EEE))
 		return False
-	except Exception as Berk:
-		doBad(error="Erreur d'execution de votre code<br>", errormessages = str(Berk))
-		return False
-	dico_reponse["other"]="Compilation OK"
+	stu = getstudic()
+	if "stderr" in stu and stu["stderr"] != "":
+		doBad(execution="Erreur d'execution de votre code<br>", errormessages = stud["stderr"])
 	return True
 
 
@@ -115,6 +113,10 @@ def grade(o):
 	sys.exit()
 
 def testoutput():
+	"""TODO
+	modifier pour accepter input0-NUM correspondant à expectedoutput0-NUM
+	les feedback0-NUM si il existe sont associés en cas d'erreur 
+	"""
 	dicjson = getpldic()
 	if not "expectedoutput" in dicjson :
 		doBad(execution=" Corriger votre sujet balise 'expectedouput' manquante")
@@ -134,6 +136,10 @@ def testoutput():
 		doBad(execution= d["stdout"],other="Attendu: "+value+"\nobtenu:"+d["stdout"])
 
 def testsoluce():
+	"""
+	TODO modifier pour accepter un certain nombre d' input0-Num qui permettent de tester
+	les feedback0-Num peuvent êre associers  
+	"""
 	sol = getsoldic()
 	stu = getstudic()
 	if stu["stderr"] != "":
@@ -153,7 +159,7 @@ def testsoluce():
 def autograde():
 	dicjson = getpldic()
 	if "pltest" in dicjson :
-		grade(dicjson["pltest"])
+		grade(">>> from student import * \n"+dicjson["pltest"])
 	if "expectedoutput" in dicjson :
 		testoutput()
 	if "soluce" in dicjson:
