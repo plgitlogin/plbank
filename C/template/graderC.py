@@ -40,8 +40,8 @@ def compile_gcc(flags=""):
     #
     # Both are just warning (a valid executable is produced)
     # both are not on the same file descriptor
-    os.system(compilation_command + " 2> compilCstderr.log")
-    os.system(compilation_command + " 1> compilCstdout.log")
+    os.system(compilation_command + "> compilCstdout.log 2> compilCstderr.log ")
+    
     err_out_log = open("compilCstderr.log", "r")
     err_out = err_out_log.read()
     err_out_log.close()
