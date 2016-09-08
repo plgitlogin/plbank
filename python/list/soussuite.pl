@@ -9,20 +9,30 @@ text==
 
 Nous allons ici nous intéresser à deux définitions de la présence d'une liste dans une autre.
 
-Première définition: la liste apparrait en un seul bloc dans l'autre liste:
+Première définition: la liste apparrait en un seul bloc dans l'autre liste est une ***sousliste***:
 	la liste [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12] contient la sous liste
 	[2,3,4] mais pas la sous liste [2,4].
 
-Deuxième définition: les éléments de la sous suite apparaissent tous et dans l'ordre dans l'autre liste:
+Deuxième définition: les éléments de la sous suite apparaissent tous et dans l'ordre dans l'autre liste est une ***soussuite***:
 	la liste [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12] contient la sous liste
 	[2,6,8].
 	mais contient pas la liste [3,2] car les éléments n'apparaissent pas dans l'ordre.
 
-Ecrivez deux fonctions réalisant le test permettant de vérifier si une liste est une sous liste ou suos suite d'une autre:
-	soussuite(l1,l2) retourne True si l1 est soussuite de l2 sinon False
+Ecrivez deux fonctions réalisant le test permettant de vérifier si une liste est une sous liste ou sous suite d'une autre:
 	sousliste(l1,l2) retourne True si l1 est sousliste de l2 sinon False
+	soussuite(l1,l2) retourne True si l1 est soussuite de l2 sinon False
 
 ==
 
 # Choisir pltest ou soluce ou expectedoutput
 
+pltest==
+>>> sousliste([0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12],[2,3,4])
+True
+>>> soussuite([0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12],[2,6,8])
+True
+>>> sousliste([0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12],[0,12])
+False
+>>> soussuite([0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12],[6,8,2])
+False
+==
