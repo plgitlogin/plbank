@@ -14,7 +14,8 @@ code==
 ==
 
 grader==
-__doc__=""">>> from student import voyelles ; voyelles("aeiou")
+__doc__=""">>> from student import voyelles # la fonction est bien définie
+>>> voyelles("aeiou")
 5
 >>> voyelles("ceci est un exemple")
 7
