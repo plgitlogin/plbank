@@ -17,11 +17,11 @@ grader==
 __doc__=""">>> from student import voyelles
 >>> voyelles("aeiou")
 5
->>>voyelles("ceci est un exemple")
+>>> voyelles("ceci est un exemple")
 7
->>>voyelles("")
+>>> voyelles("")
 0
->>>voyelles("zrt&(§ç&!'§(&!'è(ç")
+>>> voyelles("zrt&(§ç&!'§(&!'è(ç")
 0
 """
 from functiongrader import grade
