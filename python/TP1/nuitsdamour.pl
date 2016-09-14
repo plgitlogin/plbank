@@ -46,4 +46,4 @@ print(......)
 
 # Choisir pltest ou soluce ou expectedoutput
 
-soluce=@ soluce.py
+soluce=@soluce.py
