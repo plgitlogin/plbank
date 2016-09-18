@@ -3,7 +3,7 @@ author=Dominique Revuz
 name=printbonjour.pl
 title= Exercice no1 IUT
 tag= print
-template=/python/iut/template
+template=/python/IUT/template
 text==
 
 Votre premier programme sur la plateforme :
