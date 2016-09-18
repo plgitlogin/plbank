@@ -52,8 +52,7 @@ def failure(dexec,feedback="Corrigez votre code !", error=""):
 	sys.exit(0)
 
 def plateform(dexec,feedback="Un problème de la plateforme\\n parlez en au professeur\\n passez à l'exercice suivant"):
-		dico_reponse = { "success": True , "errormessages" : dexec['stderr'] ,
-	 "feedback": feedback, "other": "","error":error,"execution":dexec['stdout'] }
+	dico_reponse = { "success": True , "errormessages" : dexec['stderr'] ,"feedback": feedback, "other": "","error":error,"execution":dexec['stdout'] }
 	print(json.dumps(dico_reponse))
 	sys.exit(0)
 
