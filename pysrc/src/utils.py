@@ -142,15 +142,15 @@ def createInputFile(pld):
 	>>> os.path.isfile("input.txt")
 	True
 	""" 
-	if pld["inputgenerator"]:
+	if 'inputgenerator' in pld:
 		with open("inputgen.py","w") as ig:
 			print(pld["inputgenerator"],file=ig)
 		d=exectojson("inputgen.py")
-		if pld['input']:
+		if  'input' in pld:
 			# TODO remonter une erreur a l'auteur du test 
 			failure(d,error="INPUT ET INPUTGENERATOR AMBIGUITE\\n")
 		pld['input']=d['stdout'] # on écrasse le input 
-	if pld['input']:
+	if 'input' in pld:
 		with open("input.txt","w") as it :
 			print(pld['input'].decode(encoding="utf-8", errors="strict"),file=it)
 		return True
