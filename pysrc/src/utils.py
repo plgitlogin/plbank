@@ -31,6 +31,36 @@ def getpldic():
 
 
 
+def success(dexec,feedback="OK Bien Continuez !"):
+	dico_reponse = { "success": True , "errormessages" : "" , "feedback": "", "other": "","error":""}
+	dico_reponse["error"]=error
+	dico_reponse["execution"]=dexec['stdout']
+	dico_reponse["feedback"]=feedback
+	dicjson = getpldic()
+	if "feedback" in dicjson:
+			dico_reponse["feedback"] = dicjson["feedback"]
+	if other :
+		dico_reponse["other"]=other
+	print(json.dumps(dico_reponse))
+	sys.exit(0)
+
+
+def failure(dexec,feedback="Corrigez votre code !", error=""):
+	dico_reponse = { "success": False , "errormessages" : dexec['stderr'] ,
+	 "feedback": feedback, "other": "","error":error,"execution":dexec['stdout'] }
+	print(json.dumps(dico_reponse))
+	sys.exit(0)
+
+def plateform(dexec,feedback="Un problème de la plateforme\\n parlez en au professeur\\n passez à l'exercice suivant"):
+		dico_reponse = { "success": True , "errormessages" : dexec['stderr'] ,
+	 "feedback": feedback, "other": "","error":error,"execution":dexec['stdout'] }
+	print(json.dumps(dico_reponse))
+	sys.exit(0)
+
+
+
+
+
 def exectojson(target,infile=None,jsonfile=None,timeout=1):
 	"""
 	exectojson execute the shell process
@@ -96,6 +126,7 @@ def exectojson(target,infile=None,jsonfile=None,timeout=1):
 
 def execstudent(inputfile="input",jsonfile=None):
 	dico= exectojson("student.py")
+	
 
 def createInputFile(pld):
 	"""
