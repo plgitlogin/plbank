@@ -108,6 +108,7 @@ def createInputFile(pld):
 	>>> import os.path
 	>>> os.remove("input.txt")
 	>>> createInputFile({"inputgenerator":"import random\\nfor  n in range(10):\\n  print(random.randint(4,123))","input":None})
+	True
 	>>> os.path.isfile("input.txt")
 	True
 	""" 
@@ -135,7 +136,7 @@ def grade():
 			d=execstudent(inputfile="input.txt")
 		if pld['expectedoutput']==d['stdout']:
 			success(d)
-			else:
+		else:
 			failure(d,message="Votre script ne produit pas la bonne sortie\\n")
 	elif pld['pltest']:
 		failure(d,error="pas IMPLEMENTE ENCORE \\n")
