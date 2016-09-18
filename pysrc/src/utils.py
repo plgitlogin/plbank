@@ -129,7 +129,7 @@ def createInputFile(pld):
 
 def grade():
 	pld=getpldic()
-	if pld['expectedoutput']:
+	if 'expectedoutput' in pld:
 		if not createInputFile(pld): # il n'y a pas de fichier d'entrée 
 			d=execstudent()
 		else:
@@ -138,9 +138,9 @@ def grade():
 			success(d)
 		else:
 			failure(d,message="Votre script ne produit pas la bonne sortie\\n")
-	elif pld['pltest']:
+	elif 'pltest' in pld:
 		failure(d,error="pas IMPLEMENTE ENCORE \\n")
-	elif pld['soluce']:
+	elif 'soluce' in pld:
 		failure(d,error="pas IMPLEMENTE ENCORE \\n")
 	else:
 		failure(d,error="Utilisez une méthode d'évaluation expectedoutput,pltest,soluce\\n")
