@@ -129,7 +129,7 @@ def createInputFile(pld):
 def grade():
 	pld=getpldic()
 	if pld['expectedoutput']:
-		if ! createInputFile(pld): # il n'y a pas de fichier d'entrée 
+		if not createInputFile(pld): # il n'y a pas de fichier d'entrée 
 			d=execstudent()
 		else:
 			d=execstudent(inputfile="input.txt")
