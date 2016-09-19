@@ -6,7 +6,7 @@ Nous allons l'utiliser pour écrire votre premier programme python.
 Ecrivez une ligne de code de la forme :
 	print("votreprénomentreguillemets")
 
-Confirme.
+
 ==
 
 code==
@@ -14,8 +14,11 @@ code==
 print($$$$$$$$$$)
 ==
 
+
+
+
 feedbackfalse==
-L'appel de la fonction print doit être fait avec une chaine c'est à dire des caractères entre deux guillemets.
+L'appel de la fonction **print** doit être fait avec une chaine c'est à dire des caractères entre deux guillemets.
 ==
 
 feedback==
@@ -25,6 +28,6 @@ Remarque en python 2 les parenthèses ne sont pas nécessaire, mais garder l'hab
 ==
 
 pltest==
->>> print("ok")
-ok
+>>> True
+True
 ==

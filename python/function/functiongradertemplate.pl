@@ -4,7 +4,7 @@ author=Dominique Revuz
 title=functiongradertemplate.pl
 text==
 
-Ceci est un texte qui ne devrai pas apparaitre voyer avec dr@univ-mlv.fr
+Ceci est un texte qui ne devrai pas apparaitre voyez avec dr@univ-mlv.fr
 en signalant le nom de l'exercice qui devrai être diférent de functiongradertemplate.pl
 
 ==

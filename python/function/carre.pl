@@ -1,13 +1,11 @@
 # Copyright 2016 Dominique Revuz <dr@univ-mlv.fr>
 author=Dominique Revuz 
 title=L'éponge Caré
-tag=root # N'oubliez pas de remplir ce champs svp
+tag=function # N'oubliez pas de remplir ce champs svp
 template=/python/function/functiongradertemplate
 text==
-
 ## Une fonction carre ##
 Ecrivez une fonction **carre** qui retourne le carré de son paramêtre.
-
 ==
 
 grader==

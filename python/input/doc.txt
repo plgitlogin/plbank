@@ -1,0 +1,12 @@
+>>> from generator import dostudent
+>>> dostudent([3,4])
+3
+4
+>>> dostudent(["toto","tata"])
+toto
+tata
+>>> dostudent(["toto","tata","titi"])
+toto
+tata
+titi
+>>>
