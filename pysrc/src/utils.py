@@ -195,7 +195,7 @@ def createInputFile(pld):
 	creates a file "input.txt" in current directory
 	with the inputgenerator if it exist
 	with the input field if it exist
-	with input-0 to input-9 FIXME in this order 
+	with input0 to input9 FIXME in this order 
 	the inputgenerator is considered random
 		and new file will create each call
 
@@ -221,7 +221,7 @@ def createInputFile(pld):
 	"""
 	if not 'input' in pld:
 		for i in range(0,10):
-			s='input-'+str(i)
+			s='input'+str(i)
 			if s in pld:
 				pld['input']=pld[s]
 				del pld[s]
