@@ -307,7 +307,7 @@ def grade():
 		message="%d tests passé avec succes " % NBT
 		success(message)
 	else:
-		failure(d,error="Utilisez une méthode d'évaluation expectedoutput,pltest,soluce\\n")
+		plateform(message="Utilisez une méthode d'évaluation expectedoutput,pltest,soluce\\n")
 
 
 def main(args):
