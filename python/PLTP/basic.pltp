@@ -16,6 +16,7 @@ tag=identifier|conversion|types
 
 
 concept==debug
+@ /python/exemple/debugfalse.pl
 @ /python/exemple/debugtrue.pl
 @ /python/exemple/debugfalse.pl
 ==
