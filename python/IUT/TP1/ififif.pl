@@ -44,13 +44,13 @@ if X % 2 != 0 and X % 3 != 0 and X % 7 !=0 :
 	print("%d n'est divisble ni par 2 ni par 3 ni par 7." % X)
 ==
 
-input-0==
+input0==
 2
 ==
-input-1==
+input1==
 6
 ==
-input-2==
+input2==
 42
 ==
 input-3==
