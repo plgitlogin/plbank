@@ -158,6 +158,11 @@ def testsoluce():
 
 def autograde():
 	dicjson = getpldic()
+	if "debug" in dicjson:
+		if dicjson["debug"] :
+			doGood(error="ERROR",execution="EXECUTION",feedback="FEEDBACK",other="OTHER")
+		else:
+			doBad(error="ERROR",execution="EXECUTION",feedback="FEEDBACK",other="OTHER")
 	if "pltest" in dicjson :
 		grade(">>> from student import * \n"+dicjson["pltest"])
 	if "expectedoutput" in dicjson :
