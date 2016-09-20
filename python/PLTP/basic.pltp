@@ -19,6 +19,7 @@ concept==debug
 @ /python/exemple/debugfalse.pl
 @ /python/exemple/debugtrue.pl
 @ /python/exemple/debugfalse.pl
+@ /python/exemple/allwayscorrect.pl
 ==
 
 
