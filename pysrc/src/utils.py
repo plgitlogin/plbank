@@ -75,9 +75,9 @@ def pldecode(s):
 
 
 
-def success():
+def success(message):
 	dico_reponse = { "success": True ,
-	"execution" : "" ,
+	"execution" : message ,
 	"feedback": "Bravo vous avez reussit l'exercice\n",
 	"other": "","error":""}
 	print(json.dumps(dico_reponse))
@@ -304,7 +304,8 @@ def grade():
 				failure(message)
 			else:
 				NBT+=1
-		success()
+		message="%d tests passé avec succes " % NBT
+		success(message)
 	else:
 		failure(d,error="Utilisez une méthode d'évaluation expectedoutput,pltest,soluce\\n")
 
