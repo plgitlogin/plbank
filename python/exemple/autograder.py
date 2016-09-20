@@ -160,7 +160,7 @@ def autograde():
 	dicjson = getpldic()
 	if "debug" in dicjson:
 		if dicjson["debug"] == "True" :
-			doGood(error="ERROR",execution="EXECUTION",feedback="FEEDBACK Ok",other="OTHER")
+			doGood(error="ERROR",execution=dicjson["debug"],feedback="FEEDBACK Ok",other="OTHER")
 		else:
 			doBad(error="ERROR",execution="EXECUTION",feedback="FEEDBACK Pas Ok",other="OTHER")
 	if "pltest" in dicjson :
