@@ -53,16 +53,16 @@ input1==
 input2==
 42
 ==
-input-3==
+input3==
 17
 ==
-input-4==
+input4==
 14
 ==
-input-5==
+input5==
 77
 ==
-input-6==
+input6==
 69
 ==
 
