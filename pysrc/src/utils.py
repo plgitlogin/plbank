@@ -81,7 +81,7 @@ def success():
 	"feedback": "Bravo vous avez reussit l'exercice\n",
 	"other": "","error":""}
 	print(json.dumps(dico_reponse))
-	sys.exit(0e)
+	sys.exit(0)
 
 
 def compileerror(message):
@@ -288,7 +288,7 @@ def grade():
 			message += "\nsortie optenue:\n" + d['stdout'] 
 			erreurdexecution(message)
 	elif 'pltest' in pld:
-		failure(d,error="pas IMPLEMENTE ENCORE \\n")
+		plateform(message="pas IMPLEMENTE ENCORE \\n")
 	elif 'soluce' in pld:
 # il faut pour tous les input-* verifier que l'execution de student celle de soluce
 # ou bien faire inputgeneratorcalls appels à inputgenerator et vrifier la même chose
