@@ -1,6 +1,6 @@
 # Copyright 2016 Dominique Revuz <dr@univ-mlv.fr>
 author=Dominique Revuz 
-name=debugFalse.pl
+name=Hahahaha Flase.pl
 title=  Debug du success affichage des différents champs # N'oubliez pas de remplir ce champs svp
 tag=  # N'oubliez pas de remplir ce champs svp
 template=/python/exemple/autogradertemplate
