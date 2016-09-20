@@ -162,7 +162,7 @@ def autograde():
 		if dicjson["debug"] == "True" :
 			doGood(error="ERROR",execution=dicjson["debug"],feedback="FEEDBACK Ok",other="OTHER")
 		else:
-			doBad(error="ERROR",execution="EXECUTION",feedback="FEEDBACK Pas Ok",other="OTHER")
+			doBad(error="ERROR",execution=dicjson["debug"],feedback="FEEDBACK Pas Ok",other="OTHER")
 	if "pltest" in dicjson :
 		grade(">>> from student import * \n"+dicjson["pltest"])
 	if "expectedoutput" in dicjson :
