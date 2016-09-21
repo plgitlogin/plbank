@@ -92,7 +92,7 @@ def pldecode(s):
 	if type(s) is str:
 		return s
 	else:
-		s.decode(encoding="utf-8", errors="strict")
+		return s.decode(encoding="utf-8", errors="strict")
 
 
 
