@@ -3,7 +3,7 @@ author=Dominique Revuz
 name=/python/IUT/TP1/identificateurs.pl
 title=  Vérification des identificateurs 
 tag=  # N'oubliez pas de remplir ce champs svp
-template=/python/exemple/autogradertemplate
+
 text==
 
 Eliminez les lignes ne contenant pas uniquement un identificateur utilisable pour une variable : 
