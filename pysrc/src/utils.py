@@ -312,7 +312,7 @@ def grade():
 			success(pld['expectedoutput'])
 		else:
 			message = "Votre script ne produit pas la bonne sortie\nsortie attendue:\n" + pld['expectedoutput']
-			message += "\nsortie optenue:\n" + d['stdout'] 
+			message += "\nsortie optenue:\n" + pldecode( d['stdout']) 
 			erreurdexecution(message)
 	elif 'pltest' in pld:
 		# copier à la fin de student.py le doctest puis lancer la commande
