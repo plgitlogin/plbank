@@ -42,4 +42,4 @@ def
 $pip$
 ==
 
-grader= @ /python/IUT/TP1/drgrader.py
+grader=@/python/IUT/TP1/drgrader.py
