@@ -98,7 +98,7 @@ def pldecode(s):
 
 def success(message):
 	dico_reponse = { "success": True ,
-	"execution" : message ,
+	"execution" : pldecode(message) ,
 	"feedback": "Bravo vous avez reussit l'exercice\n",
 	"other": "","error":""}
 	if globtaboook :# usage d'un mot taboo
@@ -114,7 +114,7 @@ def compileerror(message):
 	
 	"""
 	dico_reponse = { "success": False , 
-	 "feedback": "Le compilateur à détecté une erreur\n il faut la corriger\n","errormessages" : "" , "other": "","error":"","execution":message }
+	 "feedback": "Le compilateur à détecté une erreur\n il faut la corriger\n","errormessages" : "" , "other": "","error":"","execution":pldecode(message) }
 	print(json.dumps(dico_reponse))
 	sys.exit(0)
 
