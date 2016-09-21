@@ -63,8 +63,8 @@ def check_output(want, got):
 	# characters such as [\u1234], so `want` and `got` should
 	# be folded to hex-escaped ASCII string to compare.
 	# FIXME i commanted out the 2 following lignes 
-	#got = str(pldecode(got).encode('ASCII', 'backslashreplace'), "ASCII")
-	#want = str(pldecode(want).encode('ASCII', 'backslashreplace'), "ASCII")
+	got = str(pldecode(got).encode('ASCII', 'backslashreplace'), "ASCII")
+	want = str(pldecode(want).encode('ASCII', 'backslashreplace'), "ASCII")
 
 	# Handle the common case first, for efficiency:
 	# if they're string-identical, always return true.
@@ -284,6 +284,7 @@ def dumpdic(dic):
 	f=open("pl.json","w")
 	print(json.dump(dic,f))
 	f.close()
+	return
 
 def _createStudentCode(code):
 	f=open("student.py","w")
@@ -295,7 +296,7 @@ def grade():
 	"""
 	# pour que ce test fonctionne il faut un fichier pl.json
 	>>> dumpdic({"input":"1\\n2\\n","expectedoutput":"1\\n2\\n"})  
-	>>> _createStudentCode("print(input())\\nprint(input())\\n"}
+	>>> _createStudentCode("print(input())\\nprint(input())\\n")
 	>>> grade()
 	
 	"""
