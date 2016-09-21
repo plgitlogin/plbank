@@ -99,11 +99,11 @@ def pldecode(s):
 def success(message):
 	dico_reponse = { "success": True ,
 	"execution" : pldecode(message) ,
-	"feedback": "Bravo vous avez reussit l'exercice\n",
+	"feedback": "Bravo vous avez reussit l'exercice<br>",
 	"other": "","error":""}
 	if globtaboook :# usage d'un mot taboo
 		dico_reponse["success"]= False
-		dico_reponse["feedback"]= "L'execution est bonne mais les taboo ne sont pas respectés\n recommancez sans les mots clefs :"+getpldic()["taboo"]
+		dico_reponse["feedback"]= "L'execution est bonne mais les taboo ne sont pas respectés<br> recommancez sans les mots clefs :"+getpldic()["taboo"]
 	print(json.dumps(dico_reponse))
 	sys.exit(0)
 
@@ -114,7 +114,7 @@ def compileerror(message):
 	
 	"""
 	dico_reponse = { "success": False , 
-	 "feedback": "Le compilateur à détecté une erreur\n il faut la corriger\n","errormessages" : "" , "other": "","error":"","execution":pldecode(message) }
+	 "feedback": "Le compilateur à détecté une erreur<br> il faut la corriger<br>","errormessages" : "" , "other": "","error":"","execution":pldecode(message) }
 	print(json.dumps(dico_reponse))
 	sys.exit(0)
 
@@ -125,7 +125,7 @@ def erreurdexecution(message):
 	appeller avec la concaténation de stdout et sdterr
 	"""
 	dico_reponse = { "success": False , 
-	 "feedback": "Erreur à l'excution\n Il semble qu'une erreur de programmation c'est glissée dans votre code \n","errormessages" : "" , "other": "","error":"","execution":message }
+	 "feedback": "Erreur à l'excution<br> Il semble qu'une erreur de programmation c'est glissée dans votre code <br>","errormessages" : "" , "other": "","error":"","execution":message }
 	print(json.dumps(dico_reponse))
 	sys.exit(0)
 
@@ -135,7 +135,7 @@ def failure(message):
 	le message contient le nombre de tests réussis et le test en échec
 	"""
 	dico_reponse = { "success": False , "errormessages" : "" ,
-	 "feedback": "Il n'y a pas d'erreur dans votre code \n Mais il ne calcul pas le résultat attendu\n", "other":"" ,"error":"","execution":message}
+	 "feedback": "Il n'y a pas d'erreur dans votre code <br> Mais il ne calcul pas le résultat attendu<br>", "other":"" ,"error":"","execution":message}
 	print(json.dumps(dico_reponse))
 	sys.exit(0)
 
@@ -311,8 +311,8 @@ def grade():
 		if check_output(pld['expectedoutput'],d['stdout']):
 			success(pld['expectedoutput'])
 		else:
-			message = "Votre script ne produit pas la bonne sortie\nsortie attendue:\n" + pld['expectedoutput']
-			message += "\nsortie optenue:\n" + pldecode( d['stdout']) 
+			message = "Votre script ne produit pas la bonne sortie<br>sortie attendue:<br>" + pld['expectedoutput']
+			message += "<br>sortie optenue:<br>" + pldecode( d['stdout']) 
 			erreurdexecution(message)
 	elif 'pltest' in pld:
 		# copier à la fin de student.py le doctest puis lancer la commande
@@ -326,11 +326,11 @@ def grade():
 		while createInputFile(pld) :
 			r,want,got = compareexecution()
 			if not r : # echec d'un test
-				message= str(NBT)+"tests réussit\n"
-				message += "entree:\n"
+				message= str(NBT)+"tests réussits<br>"
+				message += "entree:<br>"
 				message += open("input.txt","r").read()
-				message += "\nsortie attendue:\n" + want
-				message += "\nsortie optenue:\n" + got 
+				message += "<br>sortie attendue:<br>" + want
+				message += "<br>sortie optenue:<br>" + got 
 				failure(message)
 			else:
 				NBT+=1
