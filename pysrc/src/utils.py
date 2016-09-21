@@ -309,7 +309,7 @@ def grade():
 		else:
 			d=exectojson("student.py",infile="input.txt")
 		if check_output(pld['expectedoutput'],d['stdout']):
-			success(d)
+			success(pld['expectedoutput'])
 		else:
 			message = "Votre script ne produit pas la bonne sortie\nsortie attendue:\n" + pld['expectedoutput']
 			message += "\nsortie optenue:\n" + d['stdout'] 
