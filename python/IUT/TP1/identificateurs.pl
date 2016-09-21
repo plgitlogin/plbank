@@ -42,4 +42,4 @@ def
 $pip$
 ==
 
-grader= @ drgrader.py
+grader= @ ./drgrader.py
