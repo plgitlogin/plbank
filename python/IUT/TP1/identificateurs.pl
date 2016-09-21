@@ -1,6 +1,6 @@
 # Copyright 2016 Dominique Revuz <dr@univ-mlv.fr>
 author=Dominique Revuz 
-name=identificateurs.pl
+name=/python/IUT/TP1/identificateurs.pl
 title=  Vérification des identificateurs 
 tag=  # N'oubliez pas de remplir ce champs svp
 template=/python/exemple/autogradertemplate
@@ -27,6 +27,7 @@ Eliminez les lignes ne contenant pas uniquement un identificateur utilisable pou
 code==
 jenesuispasunidentifiant
 JeNeSuisPasUnIdentifiant
+Je ne suis pas un identifiant
 a
 a1
 1a
@@ -66,7 +67,7 @@ if "@@Truc@@" in lignes:
 if "truc()" in lignes:
 		failure(" truc() est le resultat d'un appel de la fonction truc\n truc est un identificateur, mais truc() est le résultat de l'appel.\nCe n'est donc pas un identificateur.")
 if "def" in lignes:
-		failure(" def est un mot réservé du langage <a href="https://fr.wikibooks.org/wiki/Programmation_Python/Tableau_des_mots_r%C3%A9serv%C3%A9s">Tableau des mots réservés</A> ce mot permet de définir une fonction.\n C'est un identificateur mais il n'est pas utlisable pour une variable.")
+		failure(" def est un mot réservé du langage <a href=\"https://fr.wikibooks.org/wiki/Programmation_Python/Tableau_des_mots_r%C3%A9serv%C3%A9s\">Tableau des mots réservés</A> ce mot permet de définir une fonction.\n C'est un identificateur mais il n'est pas utlisable pour une variable.")
 if "$pip$" in lignes:
 		failure(" $pip$ contient des $ qui ne sont pas authorisé dans les identificateurs de variables.\n Ce n'est donc pas un identificateur.")
 if "Je ne suis pas un identifiant" in lignes:
