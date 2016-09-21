@@ -12,6 +12,7 @@
 import subprocess
 import json
 import sys
+import re
 
 pldicsingleton=None
 
@@ -30,6 +31,25 @@ def getpldic():
 	return pldicsingleton
 
 
+globtaboook=False # par defaut pas de problem de taboo
+
+# le checktaboo doit être fait en debut de grader 
+def checktaboo(taboo):
+	"""
+	check taboo est brutal
+	il faudrais faire une analyse du code pour
+	être sur que les mots clefs sont vraiment des mots clef
+	pas des truc ou les loup 'bass' sont transformée en 'bbotom'.
+	"""
+	ltaboo = taboo.split('|')
+	mots = (open("student.py","r").read()).split() #
+	for x in ltaboo:
+		if x in mots:
+			globtaboook = True
+	return globtaboook
+
+
+
 def check_output(want, got):
 	"""
 	Return True iff the actual output from an example (`got`)
@@ -42,8 +62,9 @@ def check_output(want, got):
 	# On the other hand, `got` could be another sequence of
 	# characters such as [\u1234], so `want` and `got` should
 	# be folded to hex-escaped ASCII string to compare.
-	got = str(got.encode('ASCII', 'backslashreplace'), "ASCII")
-	want = str(want.encode('ASCII', 'backslashreplace'), "ASCII")
+	# FIXME i commanted out the 2 following lignes 
+	#got = str(pldecode(got).encode('ASCII', 'backslashreplace'), "ASCII")
+	#want = str(pldecode(want).encode('ASCII', 'backslashreplace'), "ASCII")
 
 	# Handle the common case first, for efficiency:
 	# if they're string-identical, always return true.
@@ -80,6 +101,9 @@ def success(message):
 	"execution" : message ,
 	"feedback": "Bravo vous avez reussit l'exercice\n",
 	"other": "","error":""}
+	if globtaboook :# usage d'un mot taboo
+		dico_reponse["success"]= False
+		dico_reponse["feedback"]= "L'execution est bonne mais les taboo ne sont pas respectés\n recommancez sans les mots clefs :"+getpldic()["taboo"]
 	print(json.dumps(dico_reponse))
 	sys.exit(0)
 
@@ -214,7 +238,7 @@ def createInputFile(pld):
 	True
 	>>> os.path.isfile("input.txt")
 	True
-	>>> createInputFile({"input-4": b"5\\n5\\n5\\n5\\n"})
+	>>> createInputFile({"input4": b"5\\n5\\n5\\n5\\n"})
 	True
 	>>> createInputFile({})
 	False
@@ -276,6 +300,8 @@ def grade():
 	
 	"""
 	pld=getpldic()
+	if 'taboo' in pld:
+		checktaboo(pld['taboo'])
 	if 'expectedoutput' in pld:
 		if not createInputFile(pld): # il n'y a pas de fichier d'entrée 
 			d=exectojson("student.py")
@@ -288,11 +314,14 @@ def grade():
 			message += "\nsortie optenue:\n" + d['stdout'] 
 			erreurdexecution(message)
 	elif 'pltest' in pld:
+		# copier à la fin de student.py le doctest puis lancer la commande
+		# python3 -m doctest student.py
+		
 		plateform(message="pas IMPLEMENTE ENCORE \\n")
 	elif 'soluce' in pld:
-# il faut pour tous les input-* verifier que l'execution de student celle de soluce
+# il faut pour tous les input* verifier que l'execution de student celle de soluce
 # ou bien faire inputgeneratorcalls appels à inputgenerator et vrifier la même chose
-		NBT=0 # NOMBRE DE TESTS REUSSITS
+		NBT=0 # NOMBRE DE TESTS REUSSIT
 		while createInputFile(pld) :
 			r,want,got = compareexecution()
 			if not r : # echec d'un test
