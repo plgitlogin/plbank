@@ -97,7 +97,7 @@ def pldecode(s):
 def dodump(dr,ev=0):
 	for key in ['execution','feedback','error','other','error']:
 		dr[key]= '<br>'.join(dr[key].split("\n"))
-	print(json.dump(dr))
+	print(json.dumps(dr))
 	sys.exit(ev)
 
 
