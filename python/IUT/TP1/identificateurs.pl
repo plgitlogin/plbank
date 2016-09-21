@@ -2,7 +2,7 @@
 author=Dominique Revuz 
 name=/python/IUT/TP1/identificateurs.pl
 title=  Vérification des identificateurs 
-tag=  # N'oubliez pas de remplir ce champs svp
+tag= $identifier
 
 text==
 
@@ -44,6 +44,7 @@ $pip$
 
 grader==
 import sys
+import json
 def failure(message):
 	dico_reponse = { "success": False , "errormessages" : "" ,
 	 "feedback": message, "other":"" ,"error":"","execution":""}
