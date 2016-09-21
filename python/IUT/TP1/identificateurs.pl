@@ -54,8 +54,8 @@ def failure(message):
 f = open("student.py","r")
 lignes = f.read().split('\n')
 
-if len(lignes)<2:
-	failure("Qui dit efface tout cela vas marcher ?\n")
+if len(lignes)>2:
+	failure("Qui dit efface tout cela vas marcher ?\n"+str(lignes))
 
 if "1a" in lignes :
 		failure("Désolé mais 1a n'est pas un identifiant correct.\nIl peut être confondu avec le nombre en héxadécimal 170 \n Aucun identificateur ne peut commencer par un chiffre\n Par contre a1 est correct \n")
