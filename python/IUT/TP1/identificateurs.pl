@@ -59,12 +59,12 @@ if len(lignes)<2:
 
 if "1a" in lignes :
 		failure("Désolé mais 1a n'est pas un identifiant correct.\nIl peut être confondu avec le nombre en héxadécimal 170 \n Aucun identificateur ne peut commencer par un chiffre\n Par contre a1 est correct \n")
-if "bob" in lignes :
+if "\"bob\"" in lignes or "\'bob\'":
 		failure("\"bob\" et \'bob\' sont des chaines de caractères les \" guillemets et les \' apostrophes délimitant le début et la fin de celle-ci.\n Ce n'est donc pas un identificateur.")
 if "b*b" in lignes:
 		failure(" b*b est le resultat d'une multiplication * de la variable b\n Ce n'est donc pas un identificateur.")
 if "@@Truc@@" in lignes:
-		failure(" le caractère @ n'est pas autorisé dans les identificateurs.\n Ce n'est donc pas un identificateur.")
+		failure(" le caractère @ n'est pas autorisé dans les identificateurs.\n @@Truc@@ n'est donc pas un identificateur.")
 if "truc()" in lignes:
 		failure(" truc() est le resultat d'un appel de la fonction truc\n truc est un identificateur, mais truc() est le résultat de l'appel.\nCe n'est donc pas un identificateur.")
 if "def" in lignes:
