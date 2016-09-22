@@ -103,7 +103,7 @@ def dodump(dr,ev=0):
 
 def success(message):
 	dico_reponse = { "success": True ,
-	"execution" : message,
+	"execution" : message+" # Titre MarkDown \n\n **gras** ",
 	"feedback": "# Bravo **vous** *avez*\n\n reussit l'exercice",
 	"other": "","error":""}
 	if globtaboook :# usage d'un mot taboo
