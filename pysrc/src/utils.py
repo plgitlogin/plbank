@@ -128,7 +128,7 @@ def erreurdexecution(message):
 	appeller avec la concaténation de stdout et sdterr
 	"""
 	dico_reponse = { "success": False , 
-	 "feedback": "Erreur à l'excution\n Il semble qu'une erreur de programmation c'est glissée dans votre code \n","errormessages" : "" , "other": "","error":"","execution":message }
+	 "feedback": "Erreur à l'exécution\n Il semble qu'une erreur de programmation c'est glissée dans votre code \n","errormessages" : "" , "other": "","error":"","execution":message }
 	dodump(dico_reponse)
 
 def failure(message):
@@ -207,6 +207,20 @@ def exectojson(target,infile=None,jsonfile=None,timeout=1):
 		with open(jsonfile,"w") as jsf:
 			json.dump(dico, fp=jsf)
 	return(dico)
+
+def compiletest():
+	"""
+	>>> _createStudentCode("@ <- ça grosse erreur de compile ")
+	>>> compiletest()
+	"""
+	import py_compile
+	try:
+		x= py_compile.compile("student.py",doraise=True)
+	except py_compile.PyCompileError as EEE:
+		compileerror(str(EEE))
+		return False # inattégnable 
+	return True
+
 
 
 
@@ -294,7 +308,8 @@ def _createStudentCode(code):
 def grade():
 	"""
 	# pour que ce test fonctionne il faut un fichier pl.json
-	>>> dumpdic({"input":"1\\n2\\n","expectedoutput":"1\\n2\\n"})  
+	>>> dumpdic({"input":"1\\n2\\n","expectedoutput":"1\\n2\\n"})
+	None
 	>>> _createStudentCode("print(input())\\nprint(input())\\n")
 	>>> grade()
 	
@@ -302,6 +317,7 @@ def grade():
 	pld=getpldic()
 	if 'taboo' in pld:
 		checktaboo(pld['taboo'])
+	#TODO  test de compilation 
 	if 'expectedoutput' in pld:
 		if not createInputFile(pld): # il n'y a pas de fichier d'entrée 
 			d=exectojson("student.py")
