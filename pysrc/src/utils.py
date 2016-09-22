@@ -95,8 +95,8 @@ def pldecode(s):
 		return str(s.decode(encoding="utf-8", errors="strict"))
 
 def dodump(dr,ev=0):
-	for key in ['execution','feedback','error','other','error']:
-		dr[key]= '<br>'.join(dr[key].split("\n"))
+	#for key in ['execution','feedback','error','other','error']:
+	#	dr[key]= '<br>'.join(dr[key].split("\n"))
 	print(json.dumps(dr))
 	sys.exit(ev)
 
@@ -104,7 +104,7 @@ def dodump(dr,ev=0):
 def success(message):
 	dico_reponse = { "success": True ,
 	"execution" : message,
-	"feedback": "# Bravo **vous** avez reussit l'exercice\n",
+	"feedback": "# Bravo **vous** *avez*\n\n reussit l'exercice",
 	"other": "","error":""}
 	if globtaboook :# usage d'un mot taboo
 		dico_reponse["success"]= False
