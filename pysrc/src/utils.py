@@ -103,8 +103,8 @@ def dodump(dr,ev=0):
 
 def success(message):
 	dico_reponse = { "success": True ,
-	"execution" : pldecode(message) ,
-	"feedback": "Bravo vous avez reussit l'exercice\n",
+	"execution" : message,
+	"feedback": "\# Bravo **vous** avez reussit l'exercice\n",
 	"other": "","error":""}
 	if globtaboook :# usage d'un mot taboo
 		dico_reponse["success"]= False
@@ -205,7 +205,7 @@ def exectojson(target,infile=None,jsonfile=None,timeout=1):
 
 	if jsonfile:
 		with open(jsonfile,"w") as jsf:
-			json.dump(dico, fp=jsf)
+			json.dump(dico, fp=jsf,sort_keys=True)
 	return(dico)
 
 def compiletest():
@@ -295,7 +295,7 @@ def compareexecution():
 def dumpdic(dic):
 	import json
 	f=open("pl.json","w")
-	print(json.dump(dic,f))
+	print(json.dump(dic,f,sort_keys=True))
 	f.close()
 	return
 
@@ -311,8 +311,11 @@ def grade():
 	>>> dumpdic({"input":"1\\n2\\n","expectedoutput":"1\\n2\\n"})
 	None
 	>>> _createStudentCode("print(input())\\nprint(input())\\n")
-	>>> grade()
-	
+	>>> d=grade()
+	Traceback (most recent call last):
+	...
+	SystemExit: 0
+	>>> 
 	"""
 	pld=getpldic()
 	if 'taboo' in pld:
