@@ -6,7 +6,8 @@ tag= $identifier
 
 text==
 
-Eliminez les lignes ne contenant pas uniquement un identificateur utilisable pour une variable : 
+Eliminez les lignes ne contenant pas uniquement un identificateur utilisable pour une variable :
+
 	jenesuispasunidentifiant
 	JeNeSuisPasUnIdentifiant
 	Je ne suis pas un identifiant
