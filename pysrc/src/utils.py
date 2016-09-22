@@ -104,7 +104,7 @@ def dodump(dr,ev=0):
 def success(message):
 	dico_reponse = { "success": True ,
 	"execution" : message,
-	"feedback": "\# Bravo **vous** avez reussit l'exercice\n",
+	"feedback": "# Bravo **vous** avez reussit l'exercice\n",
 	"other": "","error":""}
 	if globtaboook :# usage d'un mot taboo
 		dico_reponse["success"]= False
