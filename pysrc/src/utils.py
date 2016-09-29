@@ -2,11 +2,11 @@
 # -*- coding: utf-8 -*-
 #
 #  utils.py
-#  
+#
 #  Copyright 2016 Dominique Revuz <dr@univ-mlv.fr>
-#  
-# help functions to use in the PL project 
-# 
+#
+# help functions to use in the PL project
+#
 #
 
 import subprocess
@@ -18,7 +18,7 @@ pldicsingleton=None
 
 def getpldic():
 	'''
-	getpdic return the dictionnary contained in the file "./pl.json" 
+	getpdic return the dictionnary contained in the file "./pl.json"
 	'''
 	global pldicsingleton
 	if pldicsingleton == None :
@@ -33,7 +33,7 @@ def getpldic():
 
 globtaboook=False # par defaut pas de problem de taboo
 
-# le checktaboo doit être fait en debut de grader 
+# le checktaboo doit être fait en debut de grader
 def checktaboo(taboo):
 	"""
 	check taboo est brutal
@@ -54,7 +54,7 @@ def check_output(want, got):
 	"""
 	Return True iff the actual output from an example (`got`)
 	matches the expected output (`want`).
-	
+
 	"""
 
 	# If `want` contains hex-escaped character such as "\u1234",
@@ -62,7 +62,7 @@ def check_output(want, got):
 	# On the other hand, `got` could be another sequence of
 	# characters such as [\u1234], so `want` and `got` should
 	# be folded to hex-escaped ASCII string to compare.
-	# FIXME i commanted out the 2 following lignes 
+	# FIXME i commanted out the 2 following lignes
 	got = str(pldecode(got).encode('ASCII', 'backslashreplace'), "ASCII")
 	want = str(pldecode(want).encode('ASCII', 'backslashreplace'), "ASCII")
 
@@ -79,7 +79,7 @@ def check_output(want, got):
 	# This flag causes doctest to ignore any differences in the
 	# contents of whitespace strings.  Note that this can be used
 	# in conjunction with the ELLIPSIS flag.
-	if True : # we want normelized white spaces 
+	if True : # we want normelized white spaces
 		got = ' '.join(got.split())
 		want = ' '.join(want.split())
 		if got == want:
@@ -115,9 +115,9 @@ def success(message):
 def compileerror(message):
 	"""
 	compileerror("les messages du compilateur pour l'execution ")
-	
+
 	"""
-	dico_reponse = { "success": False , 
+	dico_reponse = { "success": False ,
 	 "feedback": "Le compilateur à détecté une erreur\n il faut la corriger\n","errormessages" : "" , "other": "","error":"","execution":pldecode(message) }
 	dodump(dico_reponse)
 
@@ -127,7 +127,7 @@ def erreurdexecution(message):
 	i.e. stderr non vide
 	appeller avec la concaténation de stdout et sdterr
 	"""
-	dico_reponse = { "success": False , 
+	dico_reponse = { "success": False ,
 	 "feedback": "Erreur à l'exécution\n Il semble qu'une erreur de programmation c'est glissée dans votre code \n","errormessages" : "" , "other": "","error":"","execution":message }
 	dodump(dico_reponse)
 
@@ -155,7 +155,7 @@ def exectojson(target,infile=None,jsonfile=None,timeout=1):
 	return a dictionnary with these three values
 	if jsonfile != None:
 		a jsondump of the dictionnary is done in the file named jsonfile
-	the process is kill after a timeout (1 default) seconds 
+	the process is kill after a timeout (1 default) seconds
 
 
 		>>> d=exectojson("xx.py",infile="entrrrrrrree.tex")
@@ -176,17 +176,24 @@ def exectojson(target,infile=None,jsonfile=None,timeout=1):
 		True
 		>>> d['stdout']
 		b"procesus fils\\nj'ai lu  PAS DE PROBLEM DE LECTURE\\n"
-		>>> d=exectojson("xx.py") # pas d'input 
+		>>> d=exectojson("xx.py") # pas d'input
 		>>> d['result']
 		False
 		>>> d['stdout']
 		b'procesus fils\\n'
 
+		>>> d=exectojson(["-m","doctest","testofdoc.py"])
+		>>> print(d)
 
 	"""
 	# TODO can i check the existance of python3 ?
 	# CHECKME no options
-	args=['python3',target]
+	if isinstance(target, str):
+		args=['python3',target]
+	elif isinstance(target, list):
+		args=['python3'].add(target)
+	else:
+		raise TypeError(target)
 	try:
 		if infile:
 			entry = open(infile, "rb")
@@ -218,7 +225,7 @@ def compiletest():
 		x= py_compile.compile("student.py",doraise=True)
 	except py_compile.PyCompileError as EEE:
 		compileerror(str(EEE))
-		return False # inattégnable 
+		return False # inattégnable
 	return True
 
 
@@ -232,7 +239,7 @@ def createInputFile(pld):
 	creates a file "input.txt" in current directory
 	with the inputgenerator if it exist
 	with the input field if it exist
-	with input0 to input9 FIXME in this order 
+	with input0 to input9 FIXME in this order
 	the inputgenerator is considered random
 		and new file will create each call
 
@@ -270,25 +277,25 @@ def createInputFile(pld):
 		if  'input' in pld and pld['input'] != None:
 			# TODO remonter une erreur a l'auteur du test
 			failure("INPUT ET INPUTGENERATOR AMBIGUITE\\n")
-		pld['input']=d['stdout'] # on écrasse le input 
+		pld['input']=d['stdout'] # on écrasse le input
 	if 'input' in pld:
 		with open("input.txt","w") as it :
 			print(pldecode(pld['input']),file=it)
 		return True
 	else:
-		return False # retourne faux si pas de input ou si fin des inputs prédéfinis 
+		return False # retourne faux si pas de input ou si fin des inputs prédéfinis
 
 
 def compareexecution():
 	"""
 	check the execution of student with input = input.txt
-	against the execution of soluce with input = input.txt 
+	against the execution of soluce with input = input.txt
 	"""
 	dt= exectojson("soluce.py",infile="input.txt")
 	ds= exectojson("student.py",infile="input.txt")
 	if check_output(dt['stdout'],ds['stdout']):
-		# TODO 
-		return True,"","" 
+		# TODO
+		return True,"",""
 	else:
 		return False,dt['stdout'],ds['stdout']
 
@@ -315,14 +322,14 @@ def grade():
 	Traceback (most recent call last):
 	...
 	SystemExit: 0
-	>>> 
+	>>>
 	"""
 	pld=getpldic()
 	if 'taboo' in pld:
 		checktaboo(pld['taboo'])
-	#TODO  test de compilation 
+	#TODO  test de compilation
 	if 'expectedoutput' in pld:
-		if not createInputFile(pld): # il n'y a pas de fichier d'entrée 
+		if not createInputFile(pld): # il n'y a pas de fichier d'entrée
 			d=exectojson("student.py")
 		else:
 			d=exectojson("student.py",infile="input.txt")
@@ -330,12 +337,12 @@ def grade():
 			success(pld['expectedoutput'])
 		else:
 			message = "Votre script ne produit pas la bonne sortie\nsortie attendue:\n" + pld['expectedoutput']
-			message += "\nsortie optenue:\n" + pldecode( d['stdout']) 
+			message += "\nsortie optenue:\n" + pldecode( d['stdout'])
 			erreurdexecution(message)
 	elif 'pltest' in pld:
 		# copier à la fin de student.py le doctest puis lancer la commande
 		# python3 -m doctest student.py
-		
+
 		plateform(message="pas IMPLEMENTE ENCORE \\n")
 	elif 'soluce' in pld:
 # il faut pour tous les input* verifier que l'execution de student celle de soluce
@@ -348,7 +355,7 @@ def grade():
 				message += "entree:\n"
 				message += open("input.txt","r").read()
 				message += "\nsortie attendue:\n" + want
-				message += "\nsortie optenue:\n" + got 
+				message += "\nsortie optenue:\n" + got
 				failure(message)
 			else:
 				NBT+=1
