@@ -108,7 +108,7 @@ def success(message):
 	"other": "","error":""}
 	if globtaboook :# usage d'un mot taboo
 		dico_reponse["success"]= False
-		dico_reponse["feedback"] + = "L'execution est bonne mais les taboo ne sont pas respectés\n recommancez sans les mots clefs :"+getpldic()["taboo"]
+		dico_reponse["feedback"] += "L'execution est bonne mais les taboo ne sont pas respectés\n recommancez sans les mots clefs :"+getpldic()["taboo"]
 	dodump(dico_reponse)
 
 
