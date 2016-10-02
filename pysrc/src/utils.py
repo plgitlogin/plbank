@@ -103,12 +103,12 @@ def dodump(dr,ev=0):
 
 def success(message):
 	dico_reponse = { "success": True ,
-	"execution" : message+" # Titre MarkDown \n\n **gras** ",
-	"feedback": "# Bravo **vous** *avez*\n\n reussit l'exercice",
+	"execution" : "",
+	"feedback": "# Bravo **vous** *avez*\n\n reussit l'exercice\n"+message,
 	"other": "","error":""}
 	if globtaboook :# usage d'un mot taboo
 		dico_reponse["success"]= False
-		dico_reponse["feedback"]= "L'execution est bonne mais les taboo ne sont pas respectés\n recommancez sans les mots clefs :"+getpldic()["taboo"]
+		dico_reponse["feedback"] + = "L'execution est bonne mais les taboo ne sont pas respectés\n recommancez sans les mots clefs :"+getpldic()["taboo"]
 	dodump(dico_reponse)
 
 
@@ -118,7 +118,7 @@ def compileerror(message):
 
 	"""
 	dico_reponse = { "success": False ,
-	 "feedback": "Le compilateur à détecté une erreur\n il faut la corriger\n","errormessages" : "" , "other": "","error":"","execution":pldecode(message) }
+	 "feedback": "# Erreur de compilation \n Le compilateur à détecté une erreur\n il faut la corriger\n"+pldecode(message),"errormessages" : "" , "other": "","error":"","execution":"" }
 	dodump(dico_reponse)
 
 def erreurdexecution(message):
@@ -128,7 +128,7 @@ def erreurdexecution(message):
 	appeller avec la concaténation de stdout et sdterr
 	"""
 	dico_reponse = { "success": False ,
-	 "feedback": "Erreur à l'exécution\n Il semble qu'une erreur de programmation c'est glissée dans votre code \n","errormessages" : "" , "other": "","error":"","execution":message }
+	 "feedback": "# Erreur à l'exécution\n Il semble qu'une erreur de programmation c'est glissée dans votre code \n# Sortie standard\n"+str(message),"errormessages" : "" , "other": "","error":"","execution":"" }
 	dodump(dico_reponse)
 
 def failure(message):
@@ -137,11 +137,14 @@ def failure(message):
 	le message contient le nombre de tests réussis et le test en échec
 	"""
 	dico_reponse = { "success": False , "errormessages" : "" ,
-	 "feedback": "Il n'y a pas d'erreur dans votre code \n Mais il ne calcul pas le résultat attendu\n", "other":"" ,"error":"","execution":message}
+	 "feedback": "#Mauvais résultat \n Il n'y a pas d'erreur dans votre code \n Mais il ne calcul pas le résultat attendu\n # Execution \n "+str(message), "other":"" ,"error":"","execution":""}
 	dodump(dico_reponse)
 
-def plateform(dexec,feedback="Un problème de la plateforme\\n parlez en au professeur\\n passez à l'exercice suivant"):
-	dico_reponse = { "success": True , "errormessages" : dexec['stderr'] ,"feedback": feedback, "other": "","error":error,"execution":dexec['stdout'] }
+def plateform(dexec,feedback="# Erreur Plateforme \n Un problème de la plateforme\\n parlez en au professeur\\n passez à l'exercice suivant"):
+	feedback += "\n# Execution \n" + dexec['stdout']
+	feedback += "\# Erreurs \n"+ dexec['stderr']+"\n"+error 
+	dico_reponse = { "success": True , "errormessages" : "","feedback": feedback, "other": "","error":"","execution": ""
+		}
 	dodump(dico_reponse,ev=1)
 
 
@@ -263,13 +266,7 @@ def createInputFile(pld):
 	>>> createInputFile({})
 	False
 	"""
-	if not 'input' in pld:
-		for i in range(0,10):
-			s='input'+str(i)
-			if s in pld:
-				pld['input']=pld[s]
-				del pld[s]
-				break
+
 	if 'inputgenerator' in pld:
 		with open("inputgen.py","w") as ig:
 			print(pld["inputgenerator"],file=ig)
@@ -278,9 +275,18 @@ def createInputFile(pld):
 			# TODO remonter une erreur a l'auteur du test
 			failure("INPUT ET INPUTGENERATOR AMBIGUITE\\n")
 		pld['input']=d['stdout'] # on écrasse le input
+	elif not 'input' in pld:
+		for i in range(0,10):
+			s='input'+str(i)
+			if s in pld:
+				pld['input']=pld[s]
+				del pld[s]
+				break
+
 	if 'input' in pld:
 		with open("input.txt","w") as it :
 			print(pldecode(pld['input']),file=it)
+			del pld['input']
 		return True
 	else:
 		return False # retourne faux si pas de input ou si fin des inputs prédéfinis
