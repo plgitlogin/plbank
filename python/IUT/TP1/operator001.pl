@@ -22,8 +22,8 @@ Aidons le avec // qui est la division entière et % (opérateur modulo) qui calc
 code==
 nbreoeufs = int( input("saississez le nombre d'oeufs :") )
 
-print("Il faut "+ XXX + "boites.")
-print("il restera "+ YYY + "oeufs.") 
+print("Il faut "+ 333 + "boites.")
+print("il restera "+ 222 + "oeufs.") 
 
 
 ==
@@ -33,6 +33,7 @@ from random import randint
 
 print(randint(10,100))
 ==
+
 soluce==
 nbreoeufs = int( input("saississez le nombre d'oeufs :") )
 
