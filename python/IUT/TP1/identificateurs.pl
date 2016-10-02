@@ -1,7 +1,7 @@
 # Copyright 2016 Dominique Revuz <dr@univ-mlv.fr>
 author=Dominique Revuz 
-name=/python/IUT/TP1/identificateurs.pl
-title=  Vérification des identificateurs 
+name= Name Vérification des identificateurs 
+title=  Titre Vérification des identificateurs 
 tag= $identifier
 
 text==
