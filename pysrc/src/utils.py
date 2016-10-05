@@ -221,6 +221,12 @@ def compiletest():
 	"""
 	>>> _createStudentCode("@ <- ça grosse erreur de compile ")
 	>>> compiletest()
+	Traceback (most recent call last):
+	...
+	SystemExit: 0
+	>>> _createStudentCode("print('titi') ")
+	>>> compiletest()
+	True
 	"""
 	EEE=None
 	import py_compile
@@ -231,7 +237,7 @@ def compiletest():
 	else:
 		return True
 
-	compileerror(str(EE))
+	compileerror(str(EEE))
 	return False # inattégnable
 
 
@@ -341,7 +347,7 @@ def grade():
 	pld=getpldic()
 	if 'taboo' in pld:
 		checktaboo(pld['taboo'])
-	#TODO  test de compilation
+	compiletest()
 	if 'expectedoutput' in pld:
 		if not createInputFile(pld): # il n'y a pas de fichier d'entrée
 			d=exectojson("student.py")
