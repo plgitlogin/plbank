@@ -30,3 +30,11 @@ print("le nombre de sous ensembles d'un ensemble à ",x," élements est",2**x)
 ==
 
 input= Il faut une entrée
+
+
+help==
+# IndentationError
+
+Une erreur d'indentation est une erreur sur le nombre d'espace ou de tabulation qui commence la ligne. Voire votre cours.
+
+==
