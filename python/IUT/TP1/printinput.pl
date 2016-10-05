@@ -21,11 +21,11 @@ Ici nous avons été obligé de transformer la chaine fournie en entier pour pou
 Utiliser ces informations pour écrire un code qui produit l'execution suivantes :
 
 
-	Quel est votre nom ?**Eric**
-	Quel est votre age ?**17**
+	Quel est votre nom ?<div color="red">Eric</div>
+	Quel est votre age ?<div color="red">17</div>
 	Bonjour  Eric  vous avez  17  ans
 
-La partie en **gras** étant tapée par l'utilisateur.
+
 
 ==
 code==
