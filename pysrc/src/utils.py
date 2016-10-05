@@ -219,16 +219,20 @@ def exectojson(target,infile=None,jsonfile=None,timeout=1):
 
 def compiletest():
 	"""
-	 _createStudentCode("@ <- ça grosse erreur de compile ")
-	 compiletest()
+	>>> _createStudentCode("@ <- ça grosse erreur de compile ")
+	>>> compiletest()
 	"""
+	EEE=None
 	import py_compile
 	try:
 		x= py_compile.compile("student.py",doraise=True)
-	except py_compile.PyCompileError as EEE:
-		compileerror(str(EEE))
-		return False # inattégnable
-	return True
+	except py_compile.PyCompileError as EE:
+		EEE=EE
+	else:
+		return True
+
+	compileerror(str(EEE))
+	return False # inattégnable
 
 
 
