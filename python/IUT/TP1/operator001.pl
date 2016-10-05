@@ -1,6 +1,6 @@
 # Copyright 2016 Dominique Revuz <dr@univ-mlv.fr>
 author=Dominique Revuz 
-name= Boites d'oeufs
+name= Boites d'oeufs (Operateurs)
 title= Modulo et Diviser
 tag= print|input|operator.mod|operator.floordiv
 template=/python/IUT/template
@@ -24,9 +24,9 @@ nbreoeufs = int( input("saisissez le nombre d'oeufs :") )
 
 b=  # votre opération 
 r=  # votre opération
-
-print("Il faut ", b , "boites.")
-print("il restera ", r , "oeufs.") 
+print("Pour ",nbreoeufs," il faut:")
+print( b , "boites,")
+print("et il restera ", r , "oeufs.") 
 
 
 ==
@@ -40,8 +40,12 @@ print(randint(10,100)*6+randint(1,6))
 soluce==
 nbroeufs = int( input("saisissez le nombre d'oeufs :") )
 
-print("Il faut ", nbroeufs // 6 , "boites.")
-print("il restera ", nbroeufs % 6 , "oeufs.") 
+b=nbroeufs // 6
+r= nbroeufs % 6
+
+print("Pour ",nbreoeufs," il faut:")
+print( b , "boites,")
+print("et il restera ", r , "oeufs.") 
 
 ==
 
