@@ -15,7 +15,6 @@ bombe2CPU
 
 grader==
 
-import randint
 import json
 import threading
 
