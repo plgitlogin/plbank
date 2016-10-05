@@ -1,6 +1,6 @@
 # Copyright 2016 Dominique Revuz <dr@univ-mlv.fr>
 author=Dominique Revuz 
-name=printbonjour.pl
+name=/python/IUT/TP1/printbonjour.pl
 title= Exercice no1 IUT
 tag= print
 template=/python/IUT/template
@@ -8,13 +8,13 @@ text==
 
 Votre premier programme sur la plateforme :
 	Afficher Bonjour !
+pour cela il vous faut une chaine de caractères soit  "Bonjour !" soit 'Bonjour !'
 
-pour cela il vous faut une chaine de caractères : "Bonjour !"
 
-et une fonction pré définie: print qui affiche sur la sortie du processus
-les chaines que l'on lui passe en paramêtre.
+et une fonction pré définie: **print()** qui affiche sur la sortie du processus
+ses paramêtre ici vous allez utiliser votre chaine comme parametre de print.
 
-Allez Y
+Allez Y !
 
 	Affichez Bonjour !
 
