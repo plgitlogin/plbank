@@ -356,7 +356,7 @@ def grade():
 		plateform(message="pas IMPLEMENTE ENCORE \\n")
 	elif 'soluce' in pld:
 # il faut pour tous les input* verifier que l'execution de student celle de soluce
-# ou bien faire inputgeneratorcalls appels à inputgenerator et vrifier la même chose
+# ou bien faire inputgeneratorcalls appels à inputgenerator et verifier la même chose
 		NBT=0 # NOMBRE DE TESTS REUSSIT
 		while createInputFile(pld) :
 			r,want,got = compareexecution()
