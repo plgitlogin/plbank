@@ -11,7 +11,7 @@ import json
 
 for i in range(1,300):
     time.sleep(1)    
-    print("Cela fait " + str(i) + " secondes que le script tourne)
+    print("Cela fait " + str(i) + " secondes que le script tourne")
     
 print(json.dumps({"feedback": "Hum... On dirait que vous avez attendu 300 secondes au lieu de 60", "success": False}))
 ==
