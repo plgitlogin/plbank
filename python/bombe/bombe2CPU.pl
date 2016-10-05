@@ -17,10 +17,21 @@ grader==
 
 import randint
 import json
+import threading
 
-l=[0]
-for i in range(1,2**30):
-	l.append(randint(1,10000))
+def worker():
+    """thread worker function"""
+    j=0
+	for i in range(1,1000):
+		j += 2**i
+    return j
+
+threads = []
+for i in range(8): # objectif 800% 
+    t = threading.Thread(target=worker)
+    threads.append(t)
+    t.start()
+
 
 json.dumps({"plateforme":True,"stderr":"","result":True,"stdout":"temps d'execution trop long"})
 ==
