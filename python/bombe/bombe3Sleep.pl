@@ -9,7 +9,7 @@ grader==
 import time
 import json
 
-for i in range(1,300):
+for i in range(1,20):
     time.sleep(1)    
     print("Cela fait " + str(i) + " secondes que le script tourne")
     
