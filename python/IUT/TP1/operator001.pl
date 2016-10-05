@@ -34,7 +34,7 @@ print("il restera "+ r + "oeufs.")
 inputgenerator==
 from random import randint
 
-print(randint(10,100))
+print(randint(10,100)*6+randint(1,6))
 ==
 
 soluce==
