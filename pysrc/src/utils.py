@@ -236,7 +236,7 @@ def compiletest():
 
 
 
-def createInputFile(pld):
+def createInputFile(pld,lastgenerated=True):
 	"""
 	creates a file "input.txt" in current directory
 	with the inputgenerator if it exist
@@ -274,6 +274,8 @@ def createInputFile(pld):
 			# TODO remonter une erreur a l'auteur du test
 			failure("INPUT ET INPUTGENERATOR AMBIGUITE\\n")
 		pld['input']=d['stdout'] # on écrasse le input
+		if lastgenerated:
+			del pld['inputgenerator'] # doit repondre faux la prochaine fois
 	elif not 'input' in pld:
 		for i in range(0,10):
 			s='input'+str(i)
