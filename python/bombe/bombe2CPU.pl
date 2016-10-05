@@ -22,8 +22,8 @@ import threading
 def worker():
     """thread worker function"""
     j=0
-	for i in range(1,1000):
-		j += 2**i
+    for i in range(1,1000):
+        j += 2**i
     return j
 
 threads = []
