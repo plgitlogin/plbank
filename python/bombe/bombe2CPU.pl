@@ -32,5 +32,5 @@ for i in range(8): # objectif 800%
     t.start()
 
 
-json.dumps({"plateforme":True,"stderr":"","result":True,"stdout":"temps d'execution trop long"})
+print(json.dumps({"plateforme":True,"stderr":"","result":True,"stdout":"temps d'execution trop long"}))
 ==
