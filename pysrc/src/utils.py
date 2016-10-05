@@ -247,8 +247,11 @@ def createInputFile(pld,lastgenerated=True):
 
 	>>> import os.path
 	>>> if os.path.isfile("input.txt"): os.remove("input.txt")
-	>>> createInputFile({"inputgenerator":"import random\\nfor  n in range(10):\\n  print(random.randint(4,123))","input":None})
+	>>> plk={"inputgenerator":"import random\\nfor  n in range(10):\\n  print(random.randint(4,123))","input":None}
+	>>> createInputFile(plk,lastgenerated=True)
 	True
+	>>> "inputgenerator" in plk
+	False
 	>>> os.path.isfile("input.txt")
 	True
 	>>> createInputFile({"inputgenerator":"import random\\nfor  n in range(10):\\n  print(random.randint(4,123))","input":"Toto"}) # ambiguité entre input et inputgenerator
