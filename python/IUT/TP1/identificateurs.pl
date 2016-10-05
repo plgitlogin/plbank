@@ -1,6 +1,6 @@
 # Copyright 2016 Dominique Revuz <dr@univ-mlv.fr>
 author=Dominique Revuz 
-name= Name Vérification des identificateurs 
+name= Vérification des identificateurs 
 title=  Titre Vérification des identificateurs 
 tag= $identifier
 
@@ -80,7 +80,7 @@ if "b*b" in lignes:
 if "@@Truc@@" in lignes:
 		failure(" le caractère @ n'est pas autorisé dans les identificateurs.\n @@Truc@@ n'est donc pas un identificateur.")
 if "truc()" in lignes:
-		failure(" truc() est le resultat d'un appel de la fonction truc\n truc est un identificateur, mais truc() est le résultat de l'appel.\nCe n'est donc pas un identificateur.")
+		failure("# **truc()** est le resultat d'un appel de la fonction **truc**\n\n **truc** est un identificateur, mais truc() est le résultat de l'appel.\nCe n'est donc pas un identificateur.")
 if "def" in lignes:
 		failure(" **def** est un mot réservé du langage <a href=\"https://fr.wikibooks.org/wiki/Programmation_Python/Tableau_des_mots_r%C3%A9serv%C3%A9s\">Tableau des mots réservés</A> ce mot permet de définir une fonction.\n C'est un identificateur mais il n'est pas utlisable pour une variable.")
 if "$pip$" in lignes:
