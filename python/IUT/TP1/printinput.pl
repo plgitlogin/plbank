@@ -31,3 +31,15 @@ Utiliser ces informations pour écrire un code qui produit l'execution suivantes
 
 # Choisir pltest ou soluce ou expectedoutput
 
+soluce==
+nom=input("Quel est votre nom ?")
+age=int(input("Quel est votre age ?"))
+print(" Bonjour ",nom," vous avez ",age," ans")
+
+==
+
+input==
+LEPRENOM
+200
+==
+
