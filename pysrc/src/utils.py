@@ -184,9 +184,9 @@ def exectojson(target,infile=None,jsonfile=None,timeout=1):
 		False
 		>>> d['stdout']
 		b'procesus fils\\n'
-
-		>>> d=exectojson(["-m","doctest","testofdoc.py"])
-		>>> print(d)
+		>>> d=exectojson(['-m','doctest','testofdoc.py'])
+		>>> d['result']
+		True
 
 	"""
 	# TODO can i check the existance of python3 ?
@@ -194,7 +194,8 @@ def exectojson(target,infile=None,jsonfile=None,timeout=1):
 	if isinstance(target, str):
 		args=['python3',target]
 	elif isinstance(target, list):
-		args=['python3'].add(target)
+		args=['python3']
+		args.extend(target)
 	else:
 		raise TypeError(target)
 	try:
@@ -204,9 +205,7 @@ def exectojson(target,infile=None,jsonfile=None,timeout=1):
 				stdout=subprocess.PIPE,stderr=subprocess.PIPE,
 				timeout=timeout)
 		else:
-			cp = subprocess.run(args,
-				stdin=subprocess.DEVNULL, stdout=subprocess.PIPE,
-				stderr=subprocess.PIPE, timeout=timeout)
+			cp = subprocess.run(args, stdin=subprocess.DEVNULL, stdout=subprocess.PIPE,stderr=subprocess.PIPE, timeout=timeout)
 		dico = {"plateforme":True,"stderr":cp.stderr,"result":cp.returncode==0,"stdout":cp.stdout}
 	except (OSError, IOError) as e:
 		dico = {"plateforme":False,"stderr":e,"result":False,"stdout":"PlateForme IO ERROR"}
@@ -220,8 +219,8 @@ def exectojson(target,infile=None,jsonfile=None,timeout=1):
 
 def compiletest():
 	"""
-	>>> _createStudentCode("@ <- ça grosse erreur de compile ")
-	>>> compiletest()
+	 _createStudentCode("@ <- ça grosse erreur de compile ")
+	 compiletest()
 	"""
 	import py_compile
 	try:
@@ -360,8 +359,8 @@ def grade():
 				message= str(NBT)+"tests réussits\n"
 				message += "entree:\n"
 				message += open("input.txt","r").read()
-				message += "\nsortie attendue:\n" + want
-				message += "\nsortie optenue:\n" + got
+				message += "\nsortie attendue:\n" + str(want)
+				message += "\nsortie optenue:\n" + str(got)
 				failure(message)
 			else:
 				NBT+=1
