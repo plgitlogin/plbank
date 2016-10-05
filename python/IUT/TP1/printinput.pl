@@ -25,11 +25,12 @@ Utiliser ces informations pour écrire un code qui produit l'execution suivantes
 	Quel est votre age ?**17**
 	Bonjour  Eric  vous avez  17  ans
 
-
+La partie en **gras** étant tapée par l'utilisateur.
 
 ==
-
-# Choisir pltest ou soluce ou expectedoutput
+code==
+# Votre code 
+==
 
 soluce==
 nom=input("Quel est votre nom ?")
