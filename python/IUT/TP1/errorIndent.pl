@@ -28,3 +28,5 @@ x=7 #  initialisation de la variable x
 print("le nombre de sous ensembles d'un ensemble à ",x," élements est",2**x)
 
 ==
+
+input= Il faut une entrée
