@@ -25,8 +25,8 @@ nbreoeufs = int( input("saisissez le nombre d'oeufs :") )
 b=  # votre opération 
 r=  # votre opération
 
-print("Il faut "+ b + "boites.")
-print("il restera "+ r + "oeufs.") 
+print("Il faut ", b , "boites.")
+print("il restera ", r , "oeufs.") 
 
 
 ==
@@ -40,8 +40,8 @@ print(randint(10,100)*6+randint(1,6))
 soluce==
 nbroeufs = int( input("saisissez le nombre d'oeufs :") )
 
-print("Il faut "+ nbroeufs // 6 + "boites.")
-print("il restera "+ nbroeufs % 6 + "oeufs.") 
+print("Il faut ", nbroeufs // 6 , "boites.")
+print("il restera ", nbroeufs % 6 , "oeufs.") 
 
 ==
 
