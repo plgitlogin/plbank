@@ -35,7 +35,7 @@ print(randint(10,100))
 ==
 
 soluce==
-nbreoeufs = int( input("saississez le nombre d'oeufs :") )
+nbroeufs = int( input("saississez le nombre d'oeufs :") )
 
 print("Il faut "+ nbroeufs // 6 + "boites.")
 print("il restera "+ nbroeufs % 6 + "oeufs.") 
