@@ -226,12 +226,12 @@ def compiletest():
 	import py_compile
 	try:
 		x= py_compile.compile("student.py",doraise=True)
-	except py_compile.PyCompileError as EE:
+	except Exception as EE:
 		EEE=EE
 	else:
 		return True
 
-	compileerror(str(EEE))
+	compileerror(str(EE))
 	return False # inattégnable
 
 
