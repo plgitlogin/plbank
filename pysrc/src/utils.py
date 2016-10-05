@@ -307,7 +307,7 @@ def compareexecution():
 		# TODO
 		return True,"",""
 	else:
-		return False,dt['stdout'],ds['stdout']
+		return False,str(dt['stdout']),str(ds['stdout'])
 
 def dumpdic(dic):
 	import json
@@ -352,7 +352,6 @@ def grade():
 	elif 'pltest' in pld:
 		# copier à la fin de student.py le doctest puis lancer la commande
 		# python3 -m doctest student.py
-
 		plateform(message="pas IMPLEMENTE ENCORE \\n")
 	elif 'soluce' in pld:
 # il faut pour tous les input* verifier que l'execution de student celle de soluce
@@ -361,7 +360,7 @@ def grade():
 		while createInputFile(pld) :
 			r,want,got = compareexecution()
 			if not r : # echec d'un test
-				message= str(NBT)+"tests réussits\n"
+				message= "# "+ str(NBT)+" tests réussits\n"
 				message += "entree:\n"
 				message += open("input.txt","r").read()
 				message += "\nsortie attendue:\n" + str(want)
