@@ -15,10 +15,16 @@ Dans le code suivant il y a une erreur de compilation qui est due à un opérate
 
 
 code==
-# Il faut transformer l'entier int en chaine str pour que l'opérateur + fonctionne.
+# Il faut transformer l'entier (int) en chaine (str) pour que l'opérateur + fonctionne.
 print(" Nombre de jours dans une semaine "+7)
+# Il faut transformer la chaine en float pour que l'opération soit possible  
+PI="3.14159"
+print(" La circonférence d'un cercle de rayon 7 est de ",2*PI*7)
 # 
+==
 
-
-# Choisir pltest ou soluce ou expectedoutput
+expectedoutput==
+ Nombre de jours dans une semaine 7
+ La circonférence d'un cercle de rayon 7 est de 43.98226
+==
 
