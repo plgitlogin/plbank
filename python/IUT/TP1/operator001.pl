@@ -20,11 +20,11 @@ Aidons le avec // qui est la division entière et % (opérateur modulo) qui calc
 ==
 
 code==
-nbreoeufs = int( input("saisissez le nombre d'oeufs :") )
+nbroeufs = int( input("saisissez le nombre d'oeufs :") )
 
 b=  # votre opération 
 r=  # votre opération
-print("Pour ",nbreoeufs," il faut:")
+print("Pour ",nbroeufs," il faut:")
 print( b , "boites,")
 print("et il restera ", r , "oeufs.") 
 
@@ -40,10 +40,10 @@ print(randint(10,100)*6+randint(1,6))
 soluce==
 nbroeufs = int( input("saisissez le nombre d'oeufs :") )
 
-b=nbroeufs // 6
+b= nbroeufs // 6
 r= nbroeufs % 6
 
-print("Pour ",nbreoeufs," il faut:")
+print("Pour ",nbroeufs," il faut:")
 print( b , "boites,")
 print("et il restera ", r , "oeufs.") 
 
