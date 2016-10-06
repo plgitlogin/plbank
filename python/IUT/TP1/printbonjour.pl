@@ -1,8 +1,8 @@
 # Copyright 2016 Dominique Revuz <dr@univ-mlv.fr>
 author=Dominique Revuz 
-name=/python/IUT/TP1/printbonjour.pl
+name= Affichage
 title= Exercice no1 IUT
-tag= print
+tag=print
 template=/python/IUT/template
 text==
 
@@ -27,6 +27,9 @@ code==
 
 # ce site est expérimental vous êtes des Cobayes !
 ==
+
+
+
 
 
 expectedoutput==
