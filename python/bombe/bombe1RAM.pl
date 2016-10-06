@@ -15,7 +15,7 @@ creation d'une liste de 1go elements
 
 grader==
 
-import randint
+from random import randint
 
 l=[0]
 for i in range(1,2**30):
