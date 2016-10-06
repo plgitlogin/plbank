@@ -36,7 +36,7 @@ concept==debug
 @ /python/IUT/TP1/operator002.pl
 @ /python/IUT/TP1/errorindent.pl
 @ /python/IUT/TP1/errorsyntax.pl
-@ /python/IUT/TP1/errortypes001.pl
+@ /python/IUT/TP1/errortypes.pl
 ==
 
 
