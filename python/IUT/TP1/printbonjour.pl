@@ -11,8 +11,7 @@ Votre premier programme sur la plateforme :
 pour cela il vous faut une chaine de caractères soit  "Bonjour !" soit 'Bonjour !'
 
 
-et une fonction pré définie: **print()** qui affiche sur la sortie du processus
-ses paramêtre ici vous allez utiliser votre chaine comme parametre de print.
+et une fonction pré définie: **print()** qui affiche ses paramêtres sur la sortie du processus ici vous allez utiliser votre chaine comme parametre de print.
 
 Allez Y !
 
@@ -23,9 +22,10 @@ Allez Y !
 code==
 # ici vous mettez votre code 
 
-# en suite vous valider avec le bouton valider
+# ensuite vous validez avec le bouton Valider (ou Check en anglais)
 
-# ce site est expérimental vous êtes des Cobayes !
+# ce site est expérimental vous êtes des cobayes !
+
 ==
 
 
