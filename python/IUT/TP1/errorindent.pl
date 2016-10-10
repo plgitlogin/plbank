@@ -7,7 +7,8 @@ template=/python/IUT/template
 
 text==
 
-Corrigez l'erreur qui fait que le code suivant ne compile pas. La sortie attendue est:
+Corrigez l'erreur qui fait que le code suivant ne compile pas.
+La sortie attendue est:
 
 	le nombre de sous ensembles d'un ensemble à 7 élements est 128
 
@@ -35,6 +36,8 @@ input= Il faut une entrée
 help==
 # IndentationError
 
-Une erreur d'indentation est une erreur sur le nombre d'espace ou de tabulation qui commence la ligne. Voire votre cours.
+Une erreur d'indentation **IndentationError** est une erreur sur le nombre d'espace ou de tabulation qui commence la ligne (soit l'indentation de la ligne).
+
+Voire votre cours.
 
 ==
