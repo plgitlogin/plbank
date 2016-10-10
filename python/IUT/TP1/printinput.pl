@@ -6,26 +6,26 @@ tag=input|print
 template=/python/IUT/template
 text==
 
-Exercice classique d'entrée sortie. La ligne suivant permet de demander une information a l'utilisateur:
+Exercice classique d'entrée sortie. La ligne suivante permet de demander une information à l'utilisateur:
 
 	nom = input("Comment vous appelez vous ? ")
 
-Maintenant la variable **nom** contient une chaine. 
+Maintenant la variable **nom** contient une chaine (le nom tapé). 
 
 	age =  int(input("Quel age avez vous ? "))
 
-Ici nous avons été obligé de transformer la chaine fournie en entier pour pouvoir l'utiliser dans un calcul (par exemple l'age en mois). 
+Ici nous avons été obligé de transformer la chaine fournie en entier pour pouvoir l'utiliser dans un calcul. 
 
 	print(" Bonjour ", nom," vous avez ",age, " ans.")
 
-Utiliser ces informations pour écrire un code qui produit l'execution suivantes :
+Utilisez ces informations pour écrire un code qui produit l'execution suivante :
 
 
 	Quel est votre nom ? Eric
 	Quel est votre age ? 17
 	Bonjour  Eric  vous avez  17  ans
 
-La partie a droite du "?" étant tapé par l'utilisateur.
+La partie à droite du "?" étant tapée par l'utilisateur.
 
 ==
 code==
