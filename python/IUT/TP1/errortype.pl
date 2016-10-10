@@ -1,15 +1,16 @@
 # Copyright 2016 Dominique Revuz <dr@univ-mlv.fr>
 author=Dominique Revuz 
-name= Erreurs de Types 
-title=  Erreur de Types 001
+name= Erreurs de Type
+title=  Erreur de Type
 tag=TypeError  # N'oubliez pas de remplir ce champs svp
 template=/python/IUT/template
 
 text==
 
 #  Erreurs de Types
-Dans le code suivant il y a une erreur de compilation qui est due à un opérateur qui est utilisé avec des arguments qui sont de types incompatibles.
+Dans le code suivant il y a une (plusieurs) erreur(s) de compilation dues à un opérateur utilisé avec des arguments qui sont de types incompatibles.
 
+Corrigez le code en changeant le type d'une des deux opérandes de façon à rendre homogène l'opération.
 
 ==
 
