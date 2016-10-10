@@ -37,9 +37,9 @@ globtaboook=False # par defaut pas de problem de taboo
 def checktaboo(taboo):
 	"""
 	check taboo est brutal
-	il faudrais faire une analyse du code pour
+	il faudrais faire une analyse du code avec l'AST pour
 	être sur que les mots clefs sont vraiment des mots clef
-	pas des truc ou les loup 'bass' sont transformée en 'bbotom'.
+	pas des truc ou les loups 'bass' sont transformée en 'bbotom'.
 	"""
 	ltaboo = taboo.split('|')
 	mots = (open("student.py","r").read()).split() #
@@ -120,8 +120,9 @@ def compileerror(message):
 	compileerror("les messages du compilateur pour l'execution ")
 
 	"""
+	message = "\n\n".join(pldecode(message).split("\n"))
 	dico_reponse = { "success": False ,
-	 "feedback": "# Erreur de compilation \n Le compilateur à détecté une erreur\n il faut la corriger\n"+pldecode(message),"errormessages" : "" , "other": "","error":"","execution":"" }
+	 "feedback": "# Erreur de compilation \n\n Le compilateur à détecté une erreur\n\n il faut la corriger\n\n"+message,"errormessages" : "" , "other": "","error":"","execution":"" }
 	dodump(dico_reponse)
 
 def erreurdexecution(message):
@@ -131,7 +132,7 @@ def erreurdexecution(message):
 	appeller avec la concaténation de stdout et sdterr
 	"""
 	dico_reponse = { "success": False ,
-	 "feedback": "# Erreur à l'exécution\n Il semble qu'une erreur de programmation c'est glissée dans votre code \n# Sortie standard\n"+str(message),"errormessages" : "" , "other": "","error":"","execution":"" }
+	 "feedback": "# Erreur à l'exécution\n Il semble qu'une erreur de programmation c'est glissée dans votre code \n# la Sortie standard\n"+str(message),"errormessages" : "" , "other": "","error":"","execution":"" }
 	dodump(dico_reponse)
 
 def failure(message):
@@ -359,8 +360,8 @@ def grade():
 		if check_output(pld['expectedoutput'],d['stdout']):
 			success(pld['expectedoutput'])
 		else:
-			message = "Votre script ne produit pas la bonne sortie\nsortie attendue:\n" + pld['expectedoutput']
-			message += "\nsortie optenue:\n" + pldecode( d['stdout'])
+			message = "Votre script ne produit pas la bonne sortie.\n\nsortie attendue:\n" + pld['expectedoutput']
+			message += "\n\nsortie optenue:\n\n" + pldecode( d['stdout'])
 			erreurdexecution(message)
 	elif 'pltest' in pld:
 		# copier à la fin de student.py le doctest puis lancer la commande
