@@ -33,7 +33,7 @@ code==
 ==
 
 soluce==
-nom=input("Quel est votre nom ? ")
+nom = input("Comment vous appelez vous ? ")
 age=int(input("Quel est votre age ? "))
 print(" Bonjour ",nom," vous avez ",age," ans")
 
