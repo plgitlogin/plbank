@@ -107,11 +107,11 @@ def dodump(dr,ev=0):
 def success(message):
 	dico_reponse = { "success": True ,
 	"execution" : "",
-	"feedback": "# Bravo vous avez \n\n reussit l'exercice\n"+message,
+	"feedback": "# Bravo ! \n\n vous avez  reussit l'exercice\n"+message,
 	"other": "","error":""}
 	if globtaboook :# usage d'un mot taboo
 		dico_reponse["success"]= False
-		dico_reponse["feedback"] += "L'execution est bonne mais les taboo ne sont pas respectés\n recommancez sans les mots clefs :"+getpldic()["taboo"]
+		dico_reponse["feedback"] += "# Taboo \n\nL'execution est bonne mais les taboo ne sont pas respectés\n recommencez sans les mots clefs :"+getpldic()["taboo"]
 	dodump(dico_reponse)
 
 
