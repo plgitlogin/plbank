@@ -86,19 +86,32 @@ if "def" in lignes:
 if "$pip$" in lignes:
 		failure(" **$pip$** contient des $ qui ne sont pas autorisés dans les identificateurs de variables.\n Ce n'est donc pas un identificateur.")
 if "Je ne suis pas un identifiant" in lignes:
-		failure(" le caractère espace permet de séparer les mots et les identificateurs il n'est donc pas autorisé dans un identificateur.\n \'Je ne suis pas un identifiant\' n'est donc pas un identificateur.")
+		failure(" le caractère espace permet de séparer les mots et les identificateurs il n'est donc pas autorisé dans un identificateur.\n **\'Je ne suis pas un identifiant\'** n'est donc pas un identificateur.")
 
 if "42" in lignes:
 		failure(" **42** est un entier et donc pour ne pas avoir d\'ambiguïté entre des valeurs entière et des identificateurs les valeurs entières ne sont pas des identificateurs.")
 
 
-if len(lignes) != 7:
-	failure("il en manque")
+for x in ["jenesuispasunidentifiant", "JeNeSuisPasUnIdentifiant", "a",
+"a1","abc", "__truc__"]:
+	if not x in lignes:
+		failure("Vous avez éliminé l'identificateur ",x," qui est un identificateur valable.\n")
+
 dico_reponse = { "success": True , "errormessages" : "" ,
  "feedback": "Bravo ", "other":"" ,"error":"","execution":""}
 print(json.dumps(dico_reponse))
 
 sys.exit(0)
-
-
 ==
+
+
+
+
+
+
+
+
+
+
+
+
