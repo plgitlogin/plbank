@@ -28,7 +28,8 @@ print("Pour ",nbroeufs," il faut:")
 print( b , "boites,")
 print("et il restera ", r , "oeufs.") 
 
-
+# Fin du code, n'écrivez pas de code après cette ligne s'il vous plait !
+# L'équipe PL
 ==
 
 inputgenerator==
