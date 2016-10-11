@@ -26,6 +26,8 @@ code==
 
 # ce site est expérimental vous êtes des cobayes !
 
+# Fin du code, n'écrivez pas de code après cette ligne s'il vous plait !
+# L'équipe PL
 ==
 
 

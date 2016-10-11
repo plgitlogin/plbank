@@ -19,7 +19,8 @@ code==
 x=7 #  initialisation de la variable x
     #  x est le nombre d'element d'un ensemble 
  print("le nombre de sous ensembles d'un ensemble à ",x," élements est",2**x)
-
+# Fin du code, n'écrivez pas de code après cette ligne s'il vous plait !
+# L'équipe PL
 ==
 # Choisir pltest ou soluce ou expectedoutput
 soluce==

@@ -22,6 +22,9 @@ print(" Nombre de jours dans une semaine "+7)
 PI="3.14159"
 print(" La circonférence d'un cercle de rayon 7 est de ",2*PI*7)
 # TODO
+
+# Fin du code, n'écrivez pas de code après cette ligne s'il vous plait !
+# L'équipe PL
 ==
 
 expectedoutput==

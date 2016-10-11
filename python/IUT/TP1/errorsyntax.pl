@@ -18,6 +18,8 @@ x=int(input("Nombre d'équipe de Foot a embarquer sur le bateau :")
 tailleequipe=11
 print("En comptant que les joueurs il faut ",tailleequipe*x, " places.")
 
+# Fin du code, n'écrivez pas de code après cette ligne s'il vous plait !
+# L'équipe PL
 ==
 
 # Choisir pltest ou soluce ou expectedoutput
