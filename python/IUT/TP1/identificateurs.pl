@@ -44,6 +44,8 @@ __truc__
 truc()
 $pip$
 42
+# Fin du code, n'écrivez pas de code après cette ligne s'il vous plait !
+# L'équipe PL
 ==
 
 grader==
