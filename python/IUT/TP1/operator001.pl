@@ -8,13 +8,11 @@ text==
 
 # Operator  // et % 
 
-Joelle a des poules, tous les matins elle ramasse les oeufs et souhaite les mettre dans des boites.
+**Joelle** a des poules, tous les matins elle ramasse les oeufs et souhaite les mettre dans des boites.
 
-Quand elle a fini de ramasser les oeufs elle appelle son fils Emile en lui donnant le nombre d'oeufs. Il doit calculer le nombre de boites de 6 oeufs et le nombre d'oeufs restants.
+Quand elle a fini de ramasser les oeufs elle appelle son fils **Emile** en lui donnant le nombre d'oeufs. Il doit calculer le nombre de boites de 6 oeufs et le nombre d'oeufs restants.
 
-Aidons le avec // qui est la division entière et % (opérateur modulo) qui calcule le reste de la division entière. 
-
-
+Aidons **Emile** avec // qui est la division entière et % (opérateur modulo) qui calcule le reste de la division entière. 
 
 
 ==
