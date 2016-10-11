@@ -16,14 +16,15 @@ Maintenant la variable **nom** contient une chaine (le nom tapé).
 
 Ici nous avons été obligé de transformer la chaine fournie en entier pour pouvoir l'utiliser dans un calcul. 
 
-	print(" Bonjour ", nom," vous avez ",age, " ans.")
+	print(" Soit",age*12," mois.")
 
 Utilisez ces informations pour écrire un code qui produit l'execution suivante :
 
 
-	Quel est votre nom ? Eric
-	Quel est votre age ? 17
-	Bonjour  Eric  vous avez  17  ans
+	Comment vous appelez vous ? Eric
+	Quel age avez vous ? 17
+	Bonjour  Eric  vous avez 17 ans.
+	Soit 204 mois.
 
 La partie à droite du "?" étant tapée par l'utilisateur.
 
@@ -35,7 +36,8 @@ code==
 soluce==
 nom = input("Comment vous appelez vous ? ")
 age =  int(input("Quel age avez vous ? "))
-print(" Bonjour ",nom," vous avez ",age," ans")
+print(" Bonjour ",nom," vous avez ",age," ans.")
+print(" Soit",age*12," mois.")
 
 ==
 
