@@ -63,6 +63,7 @@ def check_output(want, got):
 	# characters such as [\u1234], so `want` and `got` should
 	# be folded to hex-escaped ASCII string to compare.
 	# FIXME i commanted out the 2 following lignes
+	# FIXME should verify if bytes then decode(utf-8) 
 	got = str(pldecode(got).encode('ASCII', 'backslashreplace'), "ASCII")
 	want = str(pldecode(want).encode('ASCII', 'backslashreplace'), "ASCII")
 
@@ -107,7 +108,7 @@ def dodump(dr,ev=0):
 def success(message):
 	dico_reponse = { "success": True ,
 	"execution" : "",
-	"feedback": "# Bravo ! \n\n vous avez  reussit l'exercice\n"+message,
+	"feedback": "# Bravo ! \n\n vous avez réussit l'exercice\n"+message,
 	"other": "","error":""}
 	if globtaboook :# usage d'un mot taboo
 		dico_reponse["success"]= False
@@ -364,9 +365,15 @@ def grade():
 			message += "\n\nsortie optenue:\n\n" + pldecode( d['stdout'])
 			erreurdexecution(message)
 	elif 'pltest' in pld:
+		f=open("student.py","a")
+		print("\"\"\"\n",file=f)
+		print(pld["pltest"],file=f)
+		print("\"\"\"\n",file=f)
+		d=exectojson(['-m','doctest','student.py'])
 		# copier à la fin de student.py le doctest puis lancer la commande
 		# python3 -m doctest student.py
-		plateform(message="pas IMPLEMENTE ENCORE \\n")
+		print(d)
+		sys.exit(1)
 	elif 'soluce' in pld:
 # il faut pour tous les input* verifier que l'execution de student celle de soluce
 # ou bien faire inputgeneratorcalls appels à inputgenerator et verifier la même chose
