@@ -365,7 +365,7 @@ def grade():
 			message += "\n\nsortie optenue:\n\n" + pldecode( d['stdout'])
 			erreurdexecution(message)
 	elif 'pltest' in pld:
-		with f=open("student.py","a") as f:
+		with open("student.py","a") as f:
 			print("\"\"\"\n",file=f)
 			print(pld["pltest"],file=f)
 			print("\"\"\"\n",file=f)
