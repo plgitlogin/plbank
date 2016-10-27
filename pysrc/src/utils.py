@@ -367,7 +367,7 @@ def grade():
 			erreurdexecution(message)
 	elif 'pltest' in pld:
 		with open("pltest.py","w") as pltf :
-			with open("student.py","a") as f:
+			with open("student.py","r") as f:
 				print("\"\"\"",file=pltf)
 				print(pld["pltest"]+"\"\"\"\n",file=pltf)
 				print(f.read(),file=pltf)
