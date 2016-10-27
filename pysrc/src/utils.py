@@ -13,6 +13,7 @@ import subprocess
 import json
 import sys
 import re
+import os
 
 pldicsingleton=None
 
@@ -365,14 +366,16 @@ def grade():
 			message += "\n\nsortie optenue:\n\n" + pldecode( d['stdout'])
 			erreurdexecution(message)
 	elif 'pltest' in pld:
-		with open("student.py","a") as f:
-			print("\"\"\"\n",file=f)
-			print(pld["pltest"],file=f)
-			print("\"\"\"\n",file=f)
-			d=exectojson(['-m','doctest','student.py'])
-			# copier à la fin de student.py le doctest puis lancer la commande
-			# python3 -m doctest student.py
-			erreurdexecution(d['stdout'])
+		with open("pltest.py","w") as pltf :
+			with open("student.py","a") as f:
+				print("\"\"\"",file=pltf)
+				print(pld["pltest"]+"\"\"\"\n",file=pltf)
+				print(f.read(),file=pltf)
+				os.environ['TERM']="linux"
+				d=exectojson(['-m','doctest','pltest.py'])
+				# copier à la fin de student.py le doctest puis lancer la commande
+				# python3 -m doctest student.py
+				erreurdexecution(d['stdout'])
 	elif 'soluce' in pld:
 # il faut pour tous les input* verifier que l'execution de student celle de soluce
 # ou bien faire inputgeneratorcalls appels à inputgenerator et verifier la même chose
