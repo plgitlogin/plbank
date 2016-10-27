@@ -211,7 +211,7 @@ def exectojson(target,infile=None,jsonfile=None,timeout=1):
 				timeout=timeout)
 		else:
 			cp = subprocess.run(args, stdin=subprocess.DEVNULL, stdout=subprocess.PIPE,stderr=subprocess.PIPE, timeout=timeout)
-		dico = {"plateforme":True,"stderr":cp.stderr,"result":cp.returncode==0,"stdout":cp.stdout}
+		dico = {"plateforme":True,"stderr":cp.stderr.decode("utf-8"),"result":cp.returncode==0,"stdout":cp.stdout.decode("utf-8")}
 	except (OSError, IOError) as e:
 		dico = {"plateforme":False,"stderr":e,"result":False,"stdout":"PlateForme IO ERROR"}
 	except subprocess.TimeoutExpired as toe:
@@ -372,8 +372,7 @@ def grade():
 		d=exectojson(['-m','doctest','student.py'])
 		# copier à la fin de student.py le doctest puis lancer la commande
 		# python3 -m doctest student.py
-		print(d)
-		sys.exit(1)
+		erreurdexecution(d['stdout'])
 	elif 'soluce' in pld:
 # il faut pour tous les input* verifier que l'execution de student celle de soluce
 # ou bien faire inputgeneratorcalls appels à inputgenerator et verifier la même chose
