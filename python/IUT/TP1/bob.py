@@ -13,9 +13,6 @@ import subprocess
 import json
 import sys
 import re
-import os
-
-
 
 pldicsingleton=None
 
@@ -34,25 +31,22 @@ def getpldic():
 	return pldicsingleton
 
 
-globaltaboo=False # par defaut pas de problem de taboo
+globtaboook=False # par defaut pas de problem de taboo
 
 # le checktaboo doit être fait en debut de grader
 def checktaboo(taboo):
 	"""
 	check taboo est brutal
-	il faudrais faire une analyse du code avec l'AST pour
+	il faudrais faire une analyse du code pour
 	être sur que les mots clefs sont vraiment des mots clef
-	pas des truc ou les loups 'bass' sont transformée en 'bbotom'.
+	pas des truc ou les loup 'bass' sont transformée en 'bbotom'.
 	"""
-	global globaltaboo
-	globaltaboo = False 
 	ltaboo = taboo.split('|')
-	mots = open("student.py","r").read() #
+	mots = (open("student.py","r").read()).split() #
 	for x in ltaboo:
-		reexp=re.compile(x)
-		if reexp.search(mots) :
-			globaltaboo = True
-	return globaltaboo
+		if x in mots:
+			globtaboook = True
+	return globtaboook
 
 
 
@@ -69,7 +63,10 @@ def check_output(want, got):
 	# characters such as [\u1234], so `want` and `got` should
 	# be folded to hex-escaped ASCII string to compare.
 	# FIXME i commanted out the 2 following lignes
-	# FIXME should verify if bytes then decode(utf-8) 
+	print("GOT:",got)
+	print("want:",want)
+
+
 	got = str(pldecode(got).encode('ASCII', 'backslashreplace'), "ASCII")
 	want = str(pldecode(want).encode('ASCII', 'backslashreplace'), "ASCII")
 
@@ -104,13 +101,6 @@ def pldecode(s):
 def dodump(dr,ev=0):
 	#for key in ['execution','feedback','error','other','error']:
 	#	dr[key]= '<br>'.join(dr[key].split("\n"))
-	pld=getpldic()
-	if "help" in pld:
-		dr['feedback'] += pld["help"]
-	if dr["success"] and "taboo" in pld and checktaboo(pld["taboo"]):
-		print("taboo",file=sys.stderr)
-		dr["success"]=False
-		dr['feedback'] += "# TABOOOOO \n\n Vous avez utilisé un terme interdit \n\n"+pld['taboo']
 	print(json.dumps(dr))
 	sys.exit(ev)
 
@@ -118,19 +108,21 @@ def dodump(dr,ev=0):
 def success(message):
 	dico_reponse = { "success": True ,
 	"execution" : "",
-	"feedback": "# Bravo ! \n\n vous avez réussit l'exercice\n"+message,
+	"feedback": "# Bravo **vous** *avez*\n\n reussit l'exercice\n"+message,
 	"other": "","error":""}
+	if globtaboook :# usage d'un mot taboo
+		dico_reponse["success"]= False
+		dico_reponse["feedback"] += "L'execution est bonne mais les taboo ne sont pas respectés\n recommancez sans les mots clefs :"+getpldic()["taboo"]
 	dodump(dico_reponse)
 
 
 def compileerror(message):
 	"""
 	compileerror("les messages du compilateur pour l'execution ")
-	
+
 	"""
-	message = "\n\n".join(pldecode(message).split("\n"))
 	dico_reponse = { "success": False ,
-	 "feedback": "# Erreur de compilation \n\n Le compilateur à détecté une erreur\n\n il faut la corriger\n\n"+message,"errormessages" : "" , "other": "","error":"","execution":"" }
+	 "feedback": "# Erreur de compilation \n Le compilateur à détecté une erreur\n il faut la corriger\n"+pldecode(message),"errormessages" : "" , "other": "","error":"","execution":"" }
 	dodump(dico_reponse)
 
 def erreurdexecution(message):
@@ -140,7 +132,7 @@ def erreurdexecution(message):
 	appeller avec la concaténation de stdout et sdterr
 	"""
 	dico_reponse = { "success": False ,
-	 "feedback": "# Erreur à l'exécution\n Il semble qu'une erreur de programmation c'est glissée dans votre code \n# la Sortie standard\n"+str(message),"errormessages" : "" , "other": "","error":"","execution":"" }
+	 "feedback": "# Erreur à l'exécution\n Il semble qu'une erreur de programmation c'est glissée dans votre code \n# Sortie standard\n"+str(message),"errormessages" : "" , "other": "","error":"","execution":"" }
 	dodump(dico_reponse)
 
 def failure(message):
@@ -190,13 +182,13 @@ def exectojson(target,infile=None,jsonfile=None,timeout=1):
 		>>> d['result']
 		True
 		>>> d['stdout']
-		"procesus fils\\nj'ai lu  PAS DE PROBLEM DE LECTURE\\n"
+		b"procesus fils\\nj'ai lu  PAS DE PROBLEM DE LECTURE\\n"
 		>>> d=exectojson("xx.py") # pas d'input
 		>>> d['result']
 		False
 		>>> d['stdout']
-		'procesus fils\\n'
-		>>> exectojson(['-m','doctest','testofdoc.py'])
+		b'procesus fils\\n'
+		>>> d=exectojson(['-m','doctest','testofdoc.py'])
 		>>> d['result']
 		True
 
@@ -218,8 +210,7 @@ def exectojson(target,infile=None,jsonfile=None,timeout=1):
 				timeout=timeout)
 		else:
 			cp = subprocess.run(args, stdin=subprocess.DEVNULL, stdout=subprocess.PIPE,stderr=subprocess.PIPE, timeout=timeout)
-		dico = {"plateforme":True,"stderr":cp.stderr.decode("utf-8"),"result":(cp.returncode==0),"stdout":cp.stdout.decode("utf-8"),"cp":cp,"pwd":os.getcwd()}
-		return(dico)
+		dico = {"plateforme":True,"stderr":cp.stderr,"result":cp.returncode==0,"stdout":cp.stdout}
 	except (OSError, IOError) as e:
 		dico = {"plateforme":False,"stderr":e,"result":False,"stdout":"PlateForme IO ERROR"}
 	except subprocess.TimeoutExpired as toe:
@@ -251,7 +242,7 @@ def compiletest():
 		return True
 
 	compileerror(str(EEE))
-
+	return False # inattégnable
 
 
 
@@ -260,8 +251,6 @@ def compiletest():
 
 
 def createInputFile(pld,lastgenerated=True):
-	# il faut pour tous les input* verifier que l'execution de student celle de soluce
-    # ou bien faire inputgeneratorcalls appels à inputgenerator et verifier la même chose
 	"""
 	creates a file "input.txt" in current directory
 	with the inputgenerator if it exist
@@ -346,56 +335,6 @@ def _createStudentCode(code):
 	print(code,file=f)
 	f.close()
 
-def testexpectedoutput():
-	pld=getpldic()
-	if not createInputFile(pld): # il n'y a pas de fichier d'entrée
-		d=exectojson("student.py")
-	else:
-		d=exectojson("student.py",infile="input.txt")
-	if check_output(pld['expectedoutput'],d['stdout']):
-		success(pld['expectedoutput'])
-	else:
-		message = "Votre script ne produit pas la bonne sortie.\n\nsortie attendue:\n" + pld['expectedoutput']
-		message += "\n\nsortie optenue:\n\n" + pldecode( d['stdout'])
-		erreurdexecution(message)
-
-
-def testpltest():
-	pld=getpldic()
-	with open("pltest.py","w") as pltf :
-		with open("student.py","r") as f:
-			print("\"\"\"\n"+pld["pltest"]+"\"\"\"",file=pltf)
-			print(f.read(),file=pltf)
-	os.environ['TERM']="linux"# bug in readlinhttps://bugs.python.org/msg191824
-	d=exectojson(['-m','doctest','pltest.py'])
-	if d['result']:
-		success("# Bravo \n\nTout les tests sont passés \n\n")
-	else:
-		erreurdexecution(d['stdout'])
-
-
-def testsoluce():
-	pld=getpldic()
-	if "generateinput" in pld:
-		nbt2g = int(pld["generateinput"])
-	NBT=0 # NOMBRE DE TESTS REUSSIT
-	didcreate =  createInputFile(pld,lastgenerated=False)
-	if not didcreate :
-		plateform({}) # pas d'input définis ni de inputgenerator
-	while  didcreate:
-		r,want,got = compareexecution()
-		if not r : # echec d'un test
-			message= "# "+ str(NBT)+" tests réussits\n"
-			message += "entree:\n"
-			message += open("input.txt","r").read()
-			message += "\nsortie attendue:\n" + str(want)
-			message += "\nsortie optenue:\n" + str(got)
-			failure(message)
-		else:
-			NBT+=1
-			didcreate  =  createInputFile(pld, lastgenerated = (NBT<nbt2g) )
-	message="%d tests passé avec succes " % NBT
-	success(message)
 
 def grade():
 	"""
@@ -409,17 +348,42 @@ def grade():
 	SystemExit: 0
 	>>>
 	"""
-	
 	pld=getpldic()
 	if 'taboo' in pld:
 		checktaboo(pld['taboo'])
 	compiletest()
 	if 'expectedoutput' in pld:
-		return testexpectedoutput()
+		if not createInputFile(pld): # il n'y a pas de fichier d'entrée
+			d=exectojson("student.py")
+		else:
+			d=exectojson("student.py",infile="input.txt")
+		if check_output(pld['expectedoutput'],d['stdout']):
+			success(pld['expectedoutput'])
+		else:
+			message = "Votre script ne produit pas la bonne sortie\nsortie attendue:\n" + pld['expectedoutput']
+			message += "\nsortie optenue:\n" + pldecode( d['stdout'])
+			erreurdexecution(message)
 	elif 'pltest' in pld:
-		return testpltest()
+		# copier à la fin de student.py le doctest puis lancer la commande
+		# python3 -m doctest student.py
+		plateform(message="pas IMPLEMENTE ENCORE \\n")
 	elif 'soluce' in pld:
-		return testsoluce()
+# il faut pour tous les input* verifier que l'execution de student celle de soluce
+# ou bien faire inputgeneratorcalls appels à inputgenerator et verifier la même chose
+		NBT=0 # NOMBRE DE TESTS REUSSIT
+		while createInputFile(pld) :
+			r,want,got = compareexecution()
+			if not r : # echec d'un test
+				message= "# "+ str(NBT)+" tests réussits\n"
+				message += "entree:\n"
+				message += open("input.txt","r").read()
+				message += "\nsortie attendue:\n" + str(want)
+				message += "\nsortie optenue:\n" + str(got)
+				failure(message)
+			else:
+				NBT+=1
+		message="%d tests passé avec succes " % NBT
+		success(message)
 	else:
 		plateform(message="Utilisez une méthode d'évaluation expectedoutput,pltest,soluce\\n")
 
@@ -428,6 +392,7 @@ def main(args):
 	print("ce fichier n'est pas un script principal",file=sys.stderr)
 	return 1
 
-if __name__ == '__main__':
-    import sys
-    sys.exit(main(sys.argv))
+
+grade()
+
+

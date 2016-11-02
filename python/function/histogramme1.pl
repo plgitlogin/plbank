@@ -2,10 +2,10 @@
 author=Dominique Revuz 
 title=histogramme de notes
 tag=function|list|branching
-template=/python/exemple/autogradertemplate
+template=/python/template
 text==
 
-## Histogramme des Notes ##
+# Histogramme des Notes 
 
 Lire sur une première ligne le nombre de notes N, puis sur la ligne suivante les N notes en question.
 '''

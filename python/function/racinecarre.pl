@@ -1,8 +1,11 @@
 # ceci est un exercice Premier langage
 
 tag=math|exponentiation|parameter
-template=/python/exemple/autogradertemplate
+template=/python/template
+piste=verte
 text==
+
+# Racine Carrée
 
 Ecrire une fonction **racinecarre** qui calcul la racine carré de son paramètre.
 
