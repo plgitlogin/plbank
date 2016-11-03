@@ -1,25 +1,22 @@
-template=/python/function/functiongradertemplate
+template=/python/template.pl
 title=Fizz Buzz 
 
 text==
-Veuiller ecrire un code qui défini une fonction //fizzbuzz(n)// qui prend en parameters un entier
+#  Fizz Buzz 
+Veuillez écrire une fonction **fizzbuzz(n)** qui prend en parametre un entier
 et qui affiche Fizz si n est divisible par 3 et  Buzz si n est divisible par 7.
 ==
 
 
-grader==
-__doc__=""">>> from student import fizzbuzz
+pltest==
 >>> fizzbuzz(3) # divisible par 3
-'Fizz'
+Fizz
 >>> fizzbuzz(7) # divisible par 7
-'Buzz'
+Buzz
 >>> fizzbuzz(3*7) # divisible par les deux 
-'Fizz Buzz'
+Fizz Buzz
 >>> fizzbuzz(3*7*3841) # divisible par les deux 
-'Fizz Buzz'
+Fizz Buzz
 >>> fizzbuzz(11) # ni l'un ni l'autre 
 >>> 
-"""
-from functiongrader import grade
-grade()
 ==

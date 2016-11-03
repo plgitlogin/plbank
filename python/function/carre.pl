@@ -2,14 +2,13 @@
 author=Dominique Revuz 
 title=L'éponge Caré
 tag=function # N'oubliez pas de remplir ce champs svp
-template=/python/function/functiongradertemplate
+template=/python/template.pl
 text==
 ## Une fonction carre ##
 Ecrivez une fonction **carre** qui retourne le carré de son paramêtre.
 ==
 
-grader==
-__doc__=""">>> from student import carre
+pltest==
 >>> carre(510)
 260100
 >>> carre(0)
@@ -17,7 +16,4 @@ __doc__=""">>> from student import carre
 >>> carre(10)
 100
 >>> 
-"""
-from functiongrader import grade
-grade()
 ==

@@ -7,4 +7,3 @@ from utils import grade
 grade()
 ==
 files=@/pysrc/src/utils.py
-files=@/pysrc/src/gag.py

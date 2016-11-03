@@ -25,7 +25,8 @@ La fonction **input** qui permet de demander une saisie au clavier.
 
 ==
 
-tag=input|print
+tag=root
+tog=input|print
 
 concept==return
 @ python/input/print1.pl

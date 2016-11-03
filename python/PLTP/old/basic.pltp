@@ -1,22 +1,20 @@
 author=DR 2016
 
-title=Debugs 
+title= Premier TP Premier langage 
 
 
 
 introduction==
 
-Exercice de debugage de la plateforme
-
-
+TODO 
 
 ==
 
-tag=identifier|conversion|types
+tag=print|input|variables|identifieurs
 
 
 concept==debug
-@ /python/exemple/debugfalse.pl
+@ /python/IUT/TP1/printbonjour.pl
 @ /python/exemple/debugtrue.pl
 @ /python/exemple/allwayscorrect.pl
 ==

@@ -22,7 +22,7 @@ Allez Y !
 code==
 # ici vous mettez votre code 
 
-# ensuite vous validez avec le bouton Valider (ou Check en anglais)
+# ensuite vous validez avec le bouton Verifier (ou Check en anglais)
 
 # ce site est expérimental vous êtes des cobayes !
 

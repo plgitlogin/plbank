@@ -2,14 +2,24 @@
 author=Dominique Revuz 
 title=Calcul des sous ensembles
 tag=root # N'oubliez pas de remplir ce champs svp
-template=/python/function/functiongradertemplate
+template=/python/template.pl
+
+
 text==
-Ecrire une fonction *subsets* qui retourne l'ensemble des sous ensembles de l'ensemble passé en parametre.
+# Sous ensembles
+Ecrire une fonction **subsets** qui retourne l'ensemble des sous ensembles de l'ensemble passé en parametre.
 
-==
+Si ce n'est pas un ensemble cela fait une erreur mais c'est pas grave.
 
-grader==
-__doc__=""">>> from student import subsets
+
+Exemple :
+	subsets({"Toto","titi"})
+	retourne 
+	[[], ['titi'], ['Toto'], ['titi', 'Toto']]
+
+=
+
+pltest==
 >>> subsets(set([]))
 [[]]
 >>> subsets({"Toto","titi"})
@@ -17,11 +27,8 @@ __doc__=""">>> from student import subsets
 >>> subsets(set([1,2,3,4,5])
 [[], [1], [2], [1, 2], [3], [1, 3], [2, 3], [1, 2, 3], [4], [1, 4], [2, 4], [1, 2, 4], [3, 4], [1, 3, 4], [2, 3, 4], [1, 2, 3, 4]]
 >>> 
-"""
-from functiongrader import grade
-grade()
 ==
 
-soluce==
-subsets = lambda x: [[y for j, y in enumerate(set(x)) if (i >> j) & 1] for i in range(2**len(set(x)))]
+testcode==
+subsets = lambda x: [set([y for j, y in enumerate(set(x)) if (i >> j) & 1]) for i in range(2**len(set(x)))]
 ==
