@@ -174,7 +174,11 @@ def buildir(dic, namedic={"grader":"grader.py","testcode":"testcode.py","soluce"
 
 
 	if not "text" in dic:
-		perror("N'a pas de balise text")
+		perror("N'a pas de balise text c'est à dire pas de sujet pour l'élève")
+		sys.exit(1)
+	if not "name" in dic:
+		perror("N'a pas de balise Name obligatoire")
+		sys.exit(1)
 	if not "pltest" and not "soluce" and not "expectedoutput":
 		perror("pas de balise d'évaluation")
 	if not "grader" in dic and not "basefiles" in dic:
@@ -280,8 +284,7 @@ def testexecution(dummy):
 	dicr = {"plateforme":True,"stderr":cp.stderr,"result":cp.returncode==0,"stdout":cp.stdout}
 	if getExecDic(dicr)["success"] :
 		print("ERREUR : Non détection d'une erreur de compilation : ",cp.stdout)
-	else:
-		print("test compil ok")
+
 	# Test is soluce ok
 	if createStudentFromSoluce():
 		cp = subprocess.run(args, stdin=subprocess.DEVNULL, stdout=subprocess.PIPE,stderr=subprocess.PIPE, timeout=timeout)
