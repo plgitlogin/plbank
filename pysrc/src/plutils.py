@@ -101,5 +101,19 @@ def plateform(dexec,feedback="# Erreur Plateforme \n Un problème de la platefor
 	dodump(dico_reponse,ev=1)
 
 
+pldicsingleton=None
 
+def getpldic():
+	'''
+	getpdic return the dictionnary contained in the file "./pl.json"
+	'''
+	global pldicsingleton
+	if pldicsingleton == None :
+		try:
+			pldicsingleton= json.load(open("pl.json","r"))
+		except Exception as e:
+			pldicsingleton = {"plateforme":False,
+				"stderr":e,"result":False,
+				"stdout":"PlateForme IO ERROR"}
+	return pldicsingleton
 

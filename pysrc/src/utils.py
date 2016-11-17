@@ -15,29 +15,15 @@ import sys
 import re
 import os
 
+from plutils import *
 
 
-pldicsingleton=None
-
-def getpldic():
-	'''
-	getpdic return the dictionnary contained in the file "./pl.json"
-	'''
-	global pldicsingleton
-	if pldicsingleton == None :
-		try:
-			pldicsingleton= json.load(open("pl.json","r"))
-		except Exception as e:
-			pldicsingleton = {"plateforme":False,
-				"stderr":e,"result":False,
-				"stdout":"PlateForme IO ERROR"}
-	return pldicsingleton
 
 
 globaltaboo=False # par defaut pas de problem de taboo
 
 # le checktaboo doit être fait en debut de grader
-def checktaboo(taboo):
+def checktaboo(taboo,studentfile="student.py"):
 	"""
 	check taboo est brutal
 	il faudrais faire une analyse du code avec l'AST pour
@@ -47,7 +33,7 @@ def checktaboo(taboo):
 	global globaltaboo
 	globaltaboo = False 
 	ltaboo = taboo.split('|')
-	mots = open("student.py","r").read() #
+	mots = open(studentfile,"r").read() #
 	for x in ltaboo:
 		reexp=re.compile(x)
 		if reexp.search(mots) :
@@ -100,64 +86,6 @@ def pldecode(s):
 		return s
 	else:
 		return str(s.decode(encoding="utf-8", errors="strict"))
-
-def dodump(dr,ev=0):
-	#for key in ['execution','feedback','error','other','error']:
-	#	dr[key]= '<br>'.join(dr[key].split("\n"))
-	pld=getpldic()
-	if "help" in pld:
-		dr['feedback'] += pld["help"]
-	if dr["success"] and "taboo" in pld and checktaboo(pld["taboo"]):
-		print("taboo",file=sys.stderr)
-		dr["success"]=False
-		dr['feedback'] += "# TABOOOOO \n\n Vous avez utilisé un terme interdit \n\n"+pld['taboo']
-	print(json.dumps(dr))
-	sys.exit(ev)
-
-
-def success(message):
-	dico_reponse = { "success": True ,
-	"execution" : "",
-	"feedback": "# Bravo ! \n\n vous avez réussit l'exercice\n"+message,
-	"other": "","error":""}
-	dodump(dico_reponse)
-
-
-def compileerror(message):
-	"""
-	compileerror("les messages du compilateur pour l'execution ")
-	
-	"""
-	message = "\n\n".join(pldecode(message).split("\n"))
-	dico_reponse = { "success": False ,
-	 "feedback": "# Erreur de compilation \n\n Le compilateur à détecté une erreur\n\n il faut la corriger\n\n"+message,"errormessages" : "" , "other": "","error":"","execution":"" }
-	dodump(dico_reponse)
-
-def erreurdexecution(message):
-	"""
-	appellez cette fonction quand il y a une exception dans l'execution
-	i.e. stderr non vide
-	appeller avec la concaténation de stdout et sdterr
-	"""
-	dico_reponse = { "success": False ,
-	 "feedback": "# Erreur à l'exécution\n Il semble qu'une erreur de programmation c'est glissée dans votre code \n# la Sortie standard\n"+str(message),"errormessages" : "" , "other": "","error":"","execution":"" }
-	dodump(dico_reponse)
-
-def failure(message):
-	"""
-	Une erreur d'excution résultat non conforme aux attentes
-	le message contient le nombre de tests réussis et le test en échec
-	"""
-	dico_reponse = { "success": False , "errormessages" : "" ,
-	 "feedback": "#Mauvais résultat \n Il n'y a pas d'erreur dans votre code \n Mais il ne calcul pas le résultat attendu\n # Execution \n "+str(message), "other":"" ,"error":"","execution":""}
-	dodump(dico_reponse)
-
-def plateform(dexec,feedback="# Erreur Plateforme \n Un problème de la plateforme\\n parlez en au professeur\\n passez à l'exercice suivant"):
-	feedback += "\n# Execution \n" + dexec['stdout']
-	feedback += "\# Erreurs \n"+ dexec['stderr']+"\n"+error 
-	dico_reponse = { "success": True , "errormessages" : "","feedback": feedback, "other": "","error":"","execution": ""
-		}
-	dodump(dico_reponse,ev=1)
 
 
 
@@ -232,6 +160,7 @@ def exectojson(target,infile=None,jsonfile=None,timeout=1):
 
 def compiletest():
 	"""
+	TODO ne détecte pas les erreurs de compile dans une fonction
 	>>> _createStudentCode("@ <- ça grosse erreur de compile ")
 	>>> compiletest()
 	Traceback (most recent call last):
@@ -371,7 +300,7 @@ def testpltest():
 	if d['result']:
 		success("# Bravo \n\nTout les tests sont passés \n\n")
 	else:
-		erreurdexecution("# Execution des Tests\n\n"+"\n\n".join(d['stdout'].split("\n")))
+		erreurdexecution("# Execution des Tests\n\n"+"<br>".join(d['stdout'].split("\n")))
 
 
 def testsoluce():
