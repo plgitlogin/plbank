@@ -1,20 +1,20 @@
 # Copyright 2016 Dominique Revuz <dr@univ-mlv.fr>
 author=Dominique Revuz 
-name=  pom.pl
-title=  Pom Pom Pom Pom  # N'oubliez pas de remplir ce champs svp
-tag=function|parameter  # N'oubliez pas de remplir ce champs svp
+name=  Romains 
+title=  Gaulois  # N'oubliez pas de remplir ce champs svp
+tag=function|parameter|return  # N'oubliez pas de remplir ce champs svp
 template=/python/template.pl
 text==
 
-Ecrire une fonction **romain** qui prend un parametre entier n et qui retourne le nombre écrit avec la numération romaine :
+Ecrire une fonction **romains** qui prend un parametre entier *n* et qui le retourne écrit avec la numération romaine :
 
-Si n < 1 retourne rien
-Si n s'écrit mcdu (milliers centaines dizaine unité)
+Si n < 1 ne retourne rien
+Si n>3999 retourne "Impossible"
+Si n s'écrit mcdu (milliers centaines dizaines unités) alors
 les unités sont transcrites u=1 à u= 9 par respectivement I,II,III,IV,V,VI,VII,VIII,IX
 les dizaine sont transcrites d=1 à d= 9 par respectivement X,XX,XXX,XL,L,LX,LXX,LXXX,XC
 les centaintes sont transcrites c=1 à c= 9 par respectivement C,CC,CCC,CD,D,DC,DCC,DCCC,CM
-les milliers sont transcrits m=1 à m=3 par respectivement  M,MM,MMM
-Si n>3999 retourne "Impossible"
+les milliers sont transcrits m=1 à m=3 par respectivement M,MM,MMM
 
 [Plus d'informations et en couleur](http://exercices.free.fr/maths/numeration/numrom/romaide.htm)
 
@@ -31,7 +31,10 @@ exemples:
 	>>> romains(10000)
 	'Impossible'
 	>>> romains(-3)
-	>>> 
+	>>>
+
+Vous avez besoin de cette fonction dans l'exercice suivant.
+
 ==
 
 pltest==
