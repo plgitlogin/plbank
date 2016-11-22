@@ -5,17 +5,20 @@ title= Décomposition en facteurs Premiers  # N'oubliez pas de remplir ce champs
 tag=join|list|def|parameters|return # N'oubliez pas de remplir ce champs svp
 template=/python/template.pl
 text==
+## Décomposition en facteurs premiers
 
-# Décomposition en facteurs premiers
 Tout entier positif *n* se décompose de manière unique en produit de nombres premiers. Par exemple, *301158* se décompose en
-<a href="https://www.codecogs.com/eqnedit.php?latex=2&plus;3^4&plus;11&plus;13^2" target="_blank"><img src="https://latex.codecogs.com/gif.latex?2&plus;3^4&plus;11&plus;13^2" title="2+3^4+11+13^2" /></a>.
-## Écrire une fonction **contient_puissance** qui prend comme arguments un entier positif
+<a href="https://www.codecogs.com/eqnedit.php?latex=2&mult;3^4&mult;11&mult;13^2" target="_blank"><img src="https://latex.codecogs.com/gif.latex?2&mult;3^4&mult;11&mult;13^2" title="2*3^4*11*13^2" /></a>.
+###  *contient_puissance*
+Écrire une fonction **contient_puissance** qui prend comme arguments un entier positif
 *n* et un nombre premier
 *p* et qui renvoie le plus grand entier
 *k* tel que
 *n* est divisible par *p**k* .
 
-## En utilisant la fonction **contient_puissance** de la question précédente, écrire une fonction
+## *decomposition*
+
+En utilisant la fonction **contient_puissance** de la question précédente, écrire une fonction
 **decomposition**
 qui prend comme argument un entier positif
 *n*
