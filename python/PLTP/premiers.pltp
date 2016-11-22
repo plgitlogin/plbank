@@ -10,7 +10,8 @@ Ce TP est consacré aux nombre premiers.
 
 Un nombre premier est un entier naturel qui admet exactement deux diviseurs distincts entiers et positifs (qui sont alors 1 et lui-même). Ainsi, 1 n'est pas premier car il n'a qu'un seul diviseur entier positif ; 0 non plus car il est divisible par tous les entiers positifs.
 
-	[Nombres Premiers](https://fr.wikipedia.org/wiki/Nombre_premier)
+[Nombres Premiers](https://fr.wikipedia.org/wiki/Nombre_premier Page Wikipedia)
+
 
 Ainsi pour tester si un nombre et premier il suffit (c'est parfois long) de vérifier qu'il n'a pas d'autres diviseurs que 1 et lui-même.
 
