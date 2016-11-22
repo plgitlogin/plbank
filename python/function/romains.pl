@@ -5,15 +5,21 @@ title=  Gaulois  # N'oubliez pas de remplir ce champs svp
 tag=function|parameter|return  # N'oubliez pas de remplir ce champs svp
 template=/python/template.pl
 text==
-
+## Nombres Romains
 Ecrire une fonction **romains** qui prend un parametre entier *n* et qui le retourne écrit avec la numération romaine :
 
 Si n < 1 ne retourne rien
+
 Si n>3999 retourne "Impossible"
+
 Si n s'écrit mcdu (milliers centaines dizaines unités) alors
+
 les unités sont transcrites u=1 à u= 9 par respectivement I,II,III,IV,V,VI,VII,VIII,IX
+
 les dizaine sont transcrites d=1 à d= 9 par respectivement X,XX,XXX,XL,L,LX,LXX,LXXX,XC
+
 les centaintes sont transcrites c=1 à c= 9 par respectivement C,CC,CCC,CD,D,DC,DCC,DCCC,CM
+
 les milliers sont transcrits m=1 à m=3 par respectivement M,MM,MMM
 
 [Plus d'informations et en couleur](http://exercices.free.fr/maths/numeration/numrom/romaide.htm)
