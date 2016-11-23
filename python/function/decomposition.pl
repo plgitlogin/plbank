@@ -44,7 +44,10 @@ pltest==
 >>> contient_puissance(2**3*3**4,3)
 4
 >>> decomposition(2**3*3**4)
-2^3 + 3^4
+2^3*3^4
+>>> decomposition(2**3*3**4*11**11*97**2)
+2^3*3^4*11^11*97^2
+
 ==
 
 
@@ -82,7 +85,6 @@ def ldecomposition(n):
 	return l
 
 def decomposition(n):
-	print( " + ".join(ldecomposition(n)))
-
+	print("*".join(ldecomposition(n)))
 
 ==
