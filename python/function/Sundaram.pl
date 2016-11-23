@@ -15,12 +15,12 @@ Trois étapes:
 1) créez une liste d'entiers de 1 à n. Ecrivez la fonction **createlist** qui retourne cette liste.
 
 	>>> createlist(5)
-	[1,2,3,4,5]
+	[1, 2, 3, 4, 5]
 
 2) Eliminer de la liste tout les entiers de la forme i+j+2ij ou 0<i<=j<=n . Créez une fonction **crible1** qui prend une liste en parametre et qui fait cette élimination.
 
 	>>> crible1([1,2,3,4,5,6,7,8])
-	[1,2,3,5,6,8]
+	[1, 2, 3, 5, 6, 8]
 
 3) Ecrire une fonction **crible2** qui prend en parametre une liste et qui retourne une liste ou tout les entiers de la liste ont été transformés par la formule 2i+1 :
 
@@ -32,7 +32,7 @@ Trois étapes:
 # Choisir pltest ou soluce ou expectedoutput
 # 14041997
 pltest==
->>> creatliste(5)
+>>> createlist(5)
 [1, 2, 3, 4, 5]
 >>> crible1([1,2,3,4,5,6,7,8])
 [1, 2, 3, 5, 6, 8]
@@ -46,6 +46,7 @@ pltest==
 testcode==
 def createlist(n):
 	return  [x + 1 for x in range(n)]
+	# return "["+"".join(range(1,n+1))+"]"
 
 def crible1(li):
 	for i in range(1,len(li)+1):
