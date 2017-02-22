@@ -1,7 +1,7 @@
 # Copyright 2016 Dominique Revuz <dr@univ-mlv.fr>
 author=Dominique Revuz 
 name= Affichage
-title= Exercice no1 IUT
+title= Première Exercice
 tag=print
 template=/python/IUT/template
 text==
@@ -20,14 +20,10 @@ Allez Y !
 ==
 
 code==
-# ici vous mettez votre code 
+# ici vous saisissez votre code 
 
 # ensuite vous validez avec le bouton Verifier (ou Check en anglais)
 
-# ce site est expérimental vous êtes des cobayes !
-
-# Fin du code, n'écrivez pas de code après cette ligne s'il vous plait !
-# L'équipe PL
 ==
 
 
