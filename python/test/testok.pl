@@ -7,6 +7,8 @@ template=/python/test/template.pl
 
 text==
 
+# Essai de test de la plateforme
+
 
 ==
 
