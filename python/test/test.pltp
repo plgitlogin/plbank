@@ -1,0 +1,23 @@
+
+author=Dominique dot Revuz dot u-pem dot fr 
+title=test.pltp 
+
+introduction==
+
+# Ceci est une feuille de test pour vérifier le fonctionnement de la plateforme
+
+<p color="red">
+Vous ne devriez pas voir ce texte si vous êtes etudiant.
+
+un mail à votre administrateur pour lui signaler le problème 
+</p>
+
+Le premier fichier de test est testok qui vérifie les choses suivantes:
+
+
+
+==
+
+concept==function
+@ /python/test/testok.pl
+==
