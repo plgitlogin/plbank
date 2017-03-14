@@ -7,7 +7,7 @@ title= TP 01 Math Info 2016
 
 introduction==
 
-# BIENVENUE 
+# BIENVENUE
 
 Bonjour,
 bienvenue sur la plateforme Premier Langage.
@@ -20,7 +20,7 @@ Si vous avez des difficultés avec un exercice demandez à votre chargé(e) de T
 
 Cordialement
 
-L'Equipe Premier langage. 
+L'Equipe Premier langage.
 
 
 ==
@@ -31,6 +31,7 @@ tag=print|input|variables|identifier|error|operator
 concept==debug
 @ /python/IUT/TP1/printbonjour.pl
 @ /python/IUT/TP1/printinput.pl
+@ /python/IUT/TP1/variablestypes.pl
 @ /python/IUT/TP1/identificateurs.pl
 @ /python/IUT/TP1/operator001.pl
 @ /python/IUT/TP1/operator002.pl
