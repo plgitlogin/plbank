@@ -29,9 +29,9 @@ tag=print|input|variables|identifier|error|operator
 
 
 concept==debug
+@ /python/IUT/TP1/constantestypes.pl
 @ /python/IUT/TP1/printbonjour.pl
 @ /python/IUT/TP1/printinput.pl
-@ /python/IUT/TP1/variablestypes.pl
 @ /python/IUT/TP1/identificateurs.pl
 @ /python/IUT/TP1/operator001.pl
 @ /python/IUT/TP1/operator002.pl
