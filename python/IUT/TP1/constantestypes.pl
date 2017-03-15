@@ -90,7 +90,7 @@ code==
 
 ==
 
-
+gradertype=autonome
 
 grader==
 
@@ -112,7 +112,10 @@ except ImportError as ie:
 	d["feedback"]="# oubli\n\n Vous n'avez pas définie la variable **" +  str(ie).split("'")[1]+"**\n"
 	print(json.dumps(d))
 	sys.exit(1)
-
+except Exception as e:
+	d["feedback"]="# Problem dans le code\n\n"+str(e)
+	print(json.dumps(d))
+	sys.exit(1)
 if not type(entier) == type(3):
 	d["feedback"]="# Type incorrect\n\nla variable entier n'est pas entière \n type(entier) =: " +str(type(entier))  
 elif not type(bob) == type(3.12):
@@ -127,3 +130,10 @@ print(json.dumps(d))
 
 
 ==
+
+testcode==
+entier=123
+bob=5.5
+nom="jkh"
+==
+
