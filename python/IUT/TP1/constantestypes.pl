@@ -16,8 +16,11 @@ Nous utilisons dans la vie de tout les jours de nombreux littéraux:
 
 A la boulangerie nous échangeons avec la boulangère:
 
+<span style="color=blue">
+
  Je voudrais réserver *3* *Mille-Feuilles* pour *demain*.
  *Oui*. Ils seront près à *15h30*.
+</span>
 
 Si nous regardons ces différentes littéraux nous constatons qu'ils ne sont pas échangeables dans la phrase.
 
