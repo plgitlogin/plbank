@@ -16,8 +16,8 @@ Nous utilisons dans la vie de tout les jours de nombreux littéraux:
 
 A la boulangerie nous échangeons avec la boulangère:
 
-	Je voudrais réserver *3* *Mille-Feuilles* pour *demain*.
-	*Oui*. Ils seront près à *15h30*.
+ Je voudrais réserver *3* *Mille-Feuilles* pour *demain*.
+ *Oui*. Ils seront près à *15h30*.
 
 Si nous regardons ces différentes littéraux nous constatons qu'ils ne sont pas échangeables dans la phrase.
 
@@ -31,19 +31,19 @@ Mais il est possible de les changer en les remplacant par une autre constante du
 
 Le **type** de ces constantes est soit un jour *Lundi*, soit un nom de gateau *Charlottes-aux-poires* soit un nombre entier *10* soit une heure *7h57* etc.
 
-Pour python nous allons trouver les Littéraux suivants qui nous permettent d'exprimer des valeurs pertinantes:
+Pour python nous allons trouver des Littéraux avec des types prédéfins qui nous permettent d'exprimer des valeurs pertinantes ici nous demandons a python de nous donner le type de chaque littéral :
 
-	>>> type(1)   # je demande le type du littéral 1
+	>>> type(1)   # je demande le type du littéral 1 un entier 
 	<class 'int'>
-	>>> type('a')
+	>>> type('a') # je demande le type du littéral 'a' une chaine 
 	<class 'str'>
-	>>> type("Toto")
+	>>> type("Toto") # je demande le type du littéral "toto" une chaine 
 	<class 'str'>
-	>>> type(3.141592653589793)
+	>>> type(3.141592653589793)  # je demande le type du littéral 3.141592653589793 un float
 	<class 'float'>
 	>>> 
 
-Définition: Un **littéral** est une valeur apparaissant directement dans un programme.
+Définition: Un **littéral** est une valeur d'un certain type apparaissant directement dans un programme.
 
 # Variables et identifiants 
 
