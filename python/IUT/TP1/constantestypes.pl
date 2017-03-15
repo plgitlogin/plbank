@@ -4,7 +4,8 @@ name=constantestypes.pl
 title= Variables et Types
 tag= int|str|type|constant
 
-files@=/python/pysrc/src/plutils.py
+# je ne suis pas sur d'avoir besoin de ca FIXME 
+template=/python/IUT/template
 text==
 
 
