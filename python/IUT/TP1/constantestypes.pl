@@ -23,13 +23,16 @@ A la boulangerie nous échangeons avec la boulangère:
 
 Si nous regardons ces différentes littéraux nous constatons qu'ils ne sont pas échangeables dans la phrase.
 
-	Je voudrais réserver *15h30* *demain* pour *Oui* .
-	*3*. Ils seront près à *Mille-Feuilles*.
+<span style="color:blue;background-color: white;">
+Je voudrais réserver *15h30* *demain* pour *Oui* .
+*3*. Ils seront près à *Mille-Feuilles*.
+</span>
 
 Mais il est possible de les changer en les remplacant par une autre constante du **MEME TYPE**.
 
-	Je voudrais réserver *10* *Charlottes-aux-poires* pour *Lundi*.
+<span style="color:blue;background-color: white;">Je voudrais réserver *10* *Charlottes-aux-poires* pour *Lundi*.
 	*Non*.  Désolé nous somme fermés *Lundi*.
+	</span>
 
 Le **type** de ces constantes est soit un jour *Lundi*, soit un nom de gateau *Charlottes-aux-poires* soit un nombre entier *10* soit une heure *7h57* etc.
 
