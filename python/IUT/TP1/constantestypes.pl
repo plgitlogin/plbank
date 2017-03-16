@@ -16,8 +16,7 @@ Nous utilisons dans la vie de tout les jours de nombreux littéraux:
 
 A la boulangerie nous échangeons avec la boulangère:
 
-<span style="color=blue">
-
+<span style="color:blue;background-color: white;">
  Je voudrais réserver *3* *Mille-Feuilles* pour *demain*.
  *Oui*. Ils seront près à *15h30*.
 </span>
