@@ -35,9 +35,10 @@ class Feedback:
     def __init__(self):
         self.compilation = False # No error yet
         self.success = True
-        self.showinput= True
+        self.showinput= False
         self.executionhistory = []
-        self.feebacktext=""
+        self.feedbacktext=""
+        self.asio=False
         self.template = Template('''
 <html><body>
 <style>
@@ -62,7 +63,9 @@ class Feedback:
         <p>{{text}}</p>
     </span>
     {%- endif %}
-    {%- if type=="output" %}
+    {%- if  type== "output" %}
+    <span class="outputstyle"><p>{{text}}</p></span>
+    {%- elif type=="optained" %}
     <span class="outputstyle">
         <p>Obtenu:<br/>{{text}}</p>
     </span>
@@ -104,16 +107,18 @@ class Feedback:
         self.executionhistory.append(("output",subnlbybr(newoutput)))
     def addExpected(self,newoutput):
         self.executionhistory.append(("expected",subnlbybr(newoutput)))
+    def addOptained(self,newoutput):
+        self.executionhistory.append(("optained",subnlbybr(newoutput)))
     def addExpectedOptained(self,newoutput,expected):
         self.addExpected(expected)
-        self.addOutput(newoutput)
+        self.addOptained(newoutput)
         self.success=False
     def addCompilationError(self,text):
         self.compilationError=subnlbybr(text)
         self.compile = True
         self.success = False
     def addFeedback(self,text):
-        self.feedbacktext = subnlbybr(text)
+        self.feedbacktext += subnlbybr(text)
     def feedback(self):
         return self.template.render(feedback=self)
     def setsuccess(value):

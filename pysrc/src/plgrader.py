@@ -54,7 +54,7 @@ class Grader:
         update feedback in consequence
         return True if sucessfull
         """
-        r,t = self.getStudentOutput()
+        r,t = self.getStudentOutput(stdinput)
         if r and t == expected :
             self.fb.addOutput(expected)
             self.fb.success = True
@@ -67,16 +67,21 @@ class Grader:
         # execute student.py
         return self.execute(["python3","student.py"],instr=stdinput)
 
-    def getSoluceOutput(self,stdinput=None):
-        return self.execute(["python3","student.py"],instr=stdinput)
+    def getSoluceOutput(self, stdinput=None):
+        r,out = self.execute(["python3","soluce.py"],instr=stdinput)
+        if not r:
+            self.fb.addFeedback("Problemes with the soluce")
+            self.fb.addFeedback(out)
+        return (r,out)
 
     def execute(self,args,instr):
         try:
             if instr :
-                encoded = stdinput.encode("utf-8")
+                encoded = instr.encode("utf-8")
             else:
                 encoded = None
-            tt = subprocess.check_output(args,input=encoded)
+            tt = subprocess.check_output(args,input=encoded,
+                                stderr=subprocess.STDOUT)
             return (True,tt.decode("utf-8"))
         except subprocess.CalledProcessError as cpe:
              return (False,cpe.stdout.decode("utf-8"))
@@ -88,15 +93,67 @@ class Grader:
         so="output0"
         i= 0
         while si in self.pld and so in self.pld:
+            self.fb.asio=True
+            self.fb.addInput(self.pld[si])
             r = self.compareExpectedOutput(self.pld[so],
-                    stdinput=self.pld[si].encode("utf-8"))
-            print("WWW"+str(r))
+                    stdinput=self.pld[si])
             if not r:
                 return True
             i=i+1
             si="input"+str(i)
             so="output"+str(i)
         return True
+
+    def inputsoluce(self):
+        if  not "soluce" in self.pld:
+            return False
+        si="input0"
+        i= 0
+        while si in self.pld :
+            self.fb.asio=True
+            self.fb.addInput(self.pld[si])
+            r,soloutput = self.getSoluceOutput(stdinput=self.pld[si])
+            if not r:
+                return False
+            r = self.compareExpectedOutput(soloutput,
+                    stdinput=self.pld[si])
+            if not r:
+                return True
+            i=i+1
+            si="input"+str(i)
+        return True
+
+    def getrandomgenerated(self,num):
+        r,out = self.execute(["python3","inputgenerator.py",str(num)],None)
+        if not r:
+            self.fb.addFeedback("Problemes with the input generator ")
+            self.fb.addFeedback(out)
+        return (r,out)
+
+    def generatorsoluce(self):
+        
+        if  not "soluce" in self.pld or not "inputgenerator" in self.pld:
+            return False
+        if "numberofgenerator" in self.pld:
+            num=int(self.pld["numberofgenerator"])
+        else:
+            num=4
+        self.fb.showinput = True # random ...
+        for x in range(num):
+        
+            self.fb.asio=True
+            r,stdinput = self.getrandomgenerated(x)
+            if not r:
+                return False
+            r,soloutput = self.getSoluceOutput(stdinput=stdinput)
+            if not r:
+                return False
+            r = self.compareExpectedOutput(soloutput,
+                    stdinput=stdinput)
+            if not r:
+                return True
+        return True
+
 
     def grade(self):
         """
@@ -105,6 +162,7 @@ class Grader:
         input/output
         input/soluce
         inputgenerator/soluce
+        input/soluce
         pltest
         """
         if not self.compilestudent():
@@ -112,6 +170,12 @@ class Grader:
         elif self.expectedoutput() :
             return self.doOutput()
         elif self.inputoutput():
+            if "showinput" in self.pld and self.pld['showinput']:
+                self.fb.showinput=True
+            return self.doOutput()
+        elif self.generatorsoluce():
+            return self.doOutput()
+        elif self.inputsoluce():
             return self.doOutput()
         # Default response should by an plateforme error
         # or a good answer to pass to next exercice
