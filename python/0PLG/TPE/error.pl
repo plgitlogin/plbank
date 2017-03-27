@@ -1,6 +1,6 @@
 # Copyright 2016 Dominique Revuz <dr@univ-mlv.fr>
 author=Dominique Revuz 
-name= Erreur de compilation 
+name= Erreur de paranthèses
 title= Erreur de compilation 
 tag=compile|error
 template=/python/0PLG/template
