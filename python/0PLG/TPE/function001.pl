@@ -3,7 +3,7 @@ author=Dominique Revuz
 name= 
 title= 
 tag= 
-template=/python/IUT/template
+template=/python/0PLG/template
 text==
 
 # Fonctions 
