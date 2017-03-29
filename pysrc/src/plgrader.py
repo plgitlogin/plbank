@@ -15,10 +15,9 @@ class Grader:
         try:
             self.pld= json.load(open("pl.json","r"))
         except Exception as e:
-            pldicsingleton = {"plateforme":False,
-                "stderr":e,"result":False,
-                "error":"PlateForme IO ERROR can't open pl.json"}
-            print(json.dump(pldicsingleton))
+            self.success =True
+            self.feedback = "# erreur de plateforme \n pl.json illissible\n"
+            self.doOutput()
             sys.exit(1)
         self.fb = Feedback()
         self.success=True
