@@ -17,7 +17,7 @@ class Grader:
         except Exception as e:
             pldicsingleton = {"plateforme":False,
                 "stderr":e,"result":False,
-                "stdout":"PlateForme IO ERROR can't open pl.json"}
+                "error":"PlateForme IO ERROR can't open pl.json"}
             print(json.dump(pldicsingleton))
             sys.exit(1)
         self.fb = Feedback()
