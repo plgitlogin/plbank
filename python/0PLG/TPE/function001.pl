@@ -21,7 +21,7 @@ code==
 pltest==
 >>> bob()
 1238
->>> bobo()==1238
+>>> bob()==1238
 True
 ==
 
