@@ -154,6 +154,28 @@ class Grader:
                 return True
         return True
 
+    def dopltest(self):
+        if not "pltest" in self.pld :
+            return False
+        try:
+            with open("pltest.py","w") as pltf :
+                with open("student.py","r") as f:
+                    print("\"\"\"\n"+self.pld["pltest"]+">>> \n\"\"\"",file=pltf)
+                    print(f.read(),file=pltf)
+        except Exception as e:
+           return False
+
+        import os
+        os.environ['TERM']="linux"# bug in readlinehttps://bugs.python.org/msg191824
+        r,out=self.execute(['python3','-B','-m','pldoctest','-v','pltest.py'],instr=None)
+        self.success = r
+        if r :
+            self.fb.addFeedback("# Tests\n")
+            self.fb.addFeedback(out)
+        else:
+            self.fb.addOutput("# Echec de tests\n")
+            self.fb.addOutput(out)
+        return True
 
     def grade(self):
         """
@@ -176,6 +198,8 @@ class Grader:
         elif self.generatorsoluce():
             return self.doOutput()
         elif self.inputsoluce():
+            return self.doOutput()
+        elif self.dopltest():
             return self.doOutput()
         # Default response should by an plateforme error
         # or a good answer to pass to next exercice

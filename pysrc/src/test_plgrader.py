@@ -102,8 +102,7 @@ def test_plgrader_no_grading_rules():
     g.fb.buildTemplate(testtemplate)
     x = json.loads(g.grade())
     
-    assert x["success"]==True
-    print(x["feedback"])
+    assert x["success"]==True # ne pas pénaliser les élèves
     assert x["feedback"] == """\nsuccess\n<H1> Problème exercice mal défini </H1> Contacter l'auteur: LE roi de la bug<br/> Passez à l'exercice suivant."""
 
 
@@ -190,3 +189,24 @@ def test_plgrader_bad_generator():
     assert x["feedback"] == """
 success
 Problemes with the input generator   File "inputgenerator.py", line 1<br/>    from ran dom import randint <br/>               ^<br/>SyntaxError: invalid syntax<br/>"""
+
+
+def testPltestOk():
+    mysetup("def f():\n    print(3)",{"pltest":">>> f()\n3\n"})
+    g = plgrader.Grader()
+    g.fb.buildTemplate(testtemplate)
+    x = json.loads(g.grade())
+    assert x["success"]==True
+
+
+
+def testPltestPasOk():
+    mysetup("def f():\n    print(3)",{"pltest":">>> f()\n4\n"})
+    g = plgrader.Grader()
+    g.fb.buildTemplate(testtemplate)
+    x = json.loads(g.grade())
+    assert x["success"]==False
+    assert x["feedback"] == """
+success
+# Echec de tests<br/>Trying:<br/>    f()<br/>Expecting:<br/>    4<br/>-+-*-+--+-*-+--+-*-+--+-*-+--+-*-+--+-*-+--+-*-+--+-*-+--+-*-+--+-*-+-<br/>Failed example:<br/>    f()<br/>Attendu:    4<br/> obtenu:     3<br/>1 items had no tests:<br/>    pltest.f<br/>-+-*-+--+-*-+--+-*-+--+-*-+--+-*-+--+-*-+--+-*-+--+-*-+--+-*-+--+-*-+-<br/>1  jeu de tests avec des problèmes :<br/>   1 tests sur   1 dans pltest<br/>1 tests in 2 items.<br/>0 passed and 1 failed.<br/>***Tests échoués*** 1  erreurs.<br/>"""
+    
