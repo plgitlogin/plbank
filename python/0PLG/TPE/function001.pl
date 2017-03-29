@@ -1,8 +1,8 @@
 # Copyright 2016 Dominique Revuz <dr@univ-mlv.fr>
 author=Dominique Revuz 
-name= 
-title= 
-tag= 
+name= Function1
+title= None 
+tag= function
 template=/python/0PLG/template
 text==
 
