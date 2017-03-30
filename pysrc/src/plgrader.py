@@ -130,7 +130,6 @@ class Grader:
         return (r,out)
 
     def generatorsoluce(self):
-        
         if  not "soluce" in self.pld or not "inputgenerator" in self.pld:
             return False
         if "numberofgenerator" in self.pld:
