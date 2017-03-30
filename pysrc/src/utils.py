@@ -20,74 +20,6 @@ from plutils import *
 
 
 
-globaltaboo=False # par defaut pas de problem de taboo
-
-# le checktaboo doit être fait en debut de grader
-def checktaboo(taboo,studentfile="student.py"):
-	"""
-	check taboo est brutal
-	il faudrais faire une analyse du code avec l'AST pour
-	être sur que les mots clefs sont vraiment des mots clef
-	pas des truc ou les loups 'bass' sont transformée en 'bbotom'.
-	"""
-	global globaltaboo
-	globaltaboo = False 
-	ltaboo = taboo.split('|')
-	mots = open(studentfile,"r").read() #
-	for x in ltaboo:
-		reexp=re.compile(x)
-		if reexp.search(mots) :
-			globaltaboo = True
-	return globaltaboo
-
-
-
-def check_output(want, got):
-	"""
-	Return True iff the actual output from an example (`got`)
-	matches the expected output (`want`).
-
-	"""
-
-	# If `want` contains hex-escaped character such as "\u1234",
-	# then `want` is a string of six characters(e.g. [\,u,1,2,3,4]).
-	# On the other hand, `got` could be another sequence of
-	# characters such as [\u1234], so `want` and `got` should
-	# be folded to hex-escaped ASCII string to compare.
-	# FIXME i commanted out the 2 following lignes
-	# FIXME should verify if bytes then decode(utf-8) 
-	got = str(pldecode(got).encode('ASCII', 'backslashreplace'), "ASCII")
-	want = str(pldecode(want).encode('ASCII', 'backslashreplace'), "ASCII")
-
-	# Handle the common case first, for efficiency:
-	# if they're string-identical, always return true.
-	if got == want:
-		return True
-
-	# If a line in got contains only spaces, then remove the
-	# spaces.
-	got = re.sub('(?m)^\s*?$', '', got)
-	if got == want:
-		return True
-	# This flag causes doctest to ignore any differences in the
-	# contents of whitespace strings.  Note that this can be used
-	# in conjunction with the ELLIPSIS flag.
-	if True : # we want normelized white spaces
-		got = ' '.join(got.split())
-		want = ' '.join(want.split())
-		if got == want:
-			return True
-	# We didn't find any match; return false.
-	return False
-
-
-def pldecode(s):
-	if type(s) is str:
-		return s
-	else:
-		return str(s.decode(encoding="utf-8", errors="strict"))
-
-
 
 
 def exectojson(target,infile=None,jsonfile=None,timeout=1):
@@ -175,18 +107,41 @@ def compiletest():
 	try:
 		x= py_compile.compile("student.py",doraise=True)
 	except Exception as EE:
+		# feedback.compileError(EE)
 		EEE=EE
+		return False	
 	else:
 		return True
 
-	compileerror(str(EEE))
 
 
 
 
+def prepareFileInputOutput(n,pld):
+	"""
+	>>> import os
+	>>> os.remove("input.txt")
+	>>> prepareFileInputOutput(1,{"input1":"","output1":""})
+	True
+	>>> os.path.exist("input.txt")
 
-
-
+	>>> prepareFileInputOutput(2,{"input1":"","output1":""})
+	False
+	"""
+	si="input"+str(n)
+	so="output"+str(n)
+	if si in pld and so in pld :
+		try:
+			with open("input.txt","w") as it :
+				print(pldecode(pld[si]),file=it)
+				del pld[si]
+			with open("output.txt","w") as ot :
+				print(pldecode(pld[so]),file=ot)
+				del pld[so]
+		except EnvironmentError as e:
+			return False
+		return True
+	return False
 
 def createInputFile(pld,lastgenerated=True):
 	# il faut pour tous les input* verifier que l'execution de student celle de soluce
@@ -263,6 +218,22 @@ def compareexecution():
 	else:
 		return False,str(dt['stdout']),str(ds['stdout'])
 
+
+def comparetoexpected(output):
+	"""
+	check the execution of student with input = input.txt
+	against the execution of soluce with input = input.txt
+	"""
+	ds= exectojson("student.py",infile="input.txt")
+	
+	if check_output(dt['stdout'],output):
+		# TODO
+		return True,"",""
+	else:
+		return False,str(dt['stdout']),str(ds['stdout'])
+
+
+
 def dumpdic(dic):
 	import json
 	f=open("pl.json","w")
@@ -288,6 +259,34 @@ def testexpectedoutput():
 		message += "\n\nsortie optenue:\n\n" + pldecode( d['stdout'])
 		erreurdexecution(message)
 
+def inputoutput():
+	""" appellée si il y a une balise output 
+	"""
+	result=True # a priori cela se passe bien
+	pld=getpldic()
+	si="input"
+	so="output"
+	i= -1
+	while si in pld and so in pld:
+		# feedback.addinput(pld[si])
+		theoutput = subprocess.check_output(["python","student.py"],input=pld[si].encode("utf-8"))
+		theoutput= theoutput.decode("utf-8")
+		if not theoutput == pld[so]:
+			# resultat mauvais
+			# feedback.addAttendu(pld[so])
+			print("Attendu >>>>"+pld[so]+"<<<<")
+			# feedback.addOptenu(theoutput)
+			print("Optenu >>>>"+theoutput+"<<<<")
+			result = False
+		else:
+			# feedback.addSortie(pld[so])
+			pass
+		i=i+1
+		si="input"+str(i)
+		so="output"+str(i)
+		print(si,so)
+	return result
+
 
 def testpltest():
 	pld=getpldic()
@@ -296,7 +295,7 @@ def testpltest():
 			print("\"\"\"\n"+pld["pltest"]+"\"\"\"",file=pltf)
 			print(f.read(),file=pltf)
 	os.environ['TERM']="linux"# bug in readlinhttps://bugs.python.org/msg191824
-	d=exectojson(['-m','doctest','pltest.py'])
+	d=exectojson(['-m','pldoctest','-v','pltest.py'])
 	if d['result']:
 		success("# Bravo \n\nTout les tests sont passés \n\n")
 	else:
@@ -307,6 +306,8 @@ def testsoluce():
 	pld=getpldic()
 	if "generateinput" in pld:
 		nbt2g = int(pld["generateinput"])
+	else:
+		nbt2g=3
 	NBT=0 # NOMBRE DE TESTS REUSSIT
 	didcreate =  createInputFile(pld,lastgenerated=False)
 	if not didcreate :
@@ -322,7 +323,8 @@ def testsoluce():
 			failure(message)
 		else:
 			NBT+=1
-			didcreate  =  createInputFile(pld, lastgenerated = (NBT<nbt2g) )
+			lastgenerated = (NBT<nbt2g)
+			didcreate  =  createInputFile(pld, lastgenerated  )
 	message="%d tests passé avec succes " % NBT
 	success(message)
 
@@ -350,10 +352,14 @@ def grade():
 	elif 'soluce' in pld:
 		return testsoluce()
 	else:
-		plateform(message="Utilisez une méthode d'évaluation expectedoutput,pltest,soluce\\n")
+		plateform(message="Utilisez une méthode d'évaluation expectedoutput,pltest,soluce,input-output\\n")
 
 
 def main(args):
+	pld=getpldic()
+	print(pld)
+	print(inputoutput())
+	
 	print("ce fichier n'est pas un script principal",file=sys.stderr)
 	return 1
 
