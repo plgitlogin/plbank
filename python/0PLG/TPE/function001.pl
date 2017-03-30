@@ -1,8 +1,8 @@
 # Copyright 2016 Dominique Revuz <dr@univ-mlv.fr>
 author=Dominique Revuz 
-name= Function1
-title= None 
-tag= function
+name= function
+title= function
+tag=function 
 template=/python/0PLG/template
 text==
 
@@ -21,7 +21,7 @@ code==
 pltest==
 >>> bob()
 1238
->>> bob()==1238
+>>> bobo()==1238
 True
 ==
 
