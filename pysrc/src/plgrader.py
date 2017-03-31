@@ -44,7 +44,8 @@ class Grader:
         if not "expectedoutput" in self.pld:
             return False
         expected = self.pld["expectedoutput"]
-        self.compareExpectedOutput(expected)
+        stdinput = self.pld["input0"] if "input0" in self.pld else None
+        self.compareExpectedOutput(expected,stdinput)
         return True
 
     def compareExpectedOutput(self,expected,stdinput=None):
