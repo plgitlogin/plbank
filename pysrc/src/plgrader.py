@@ -166,7 +166,7 @@ class Grader:
 
         import os
         os.environ['TERM']="linux"# bug in readlinehttps://bugs.python.org/msg191824
-        r,out=self.execute(['python3','-B','-m','pldoctest','-v','pltest.py'],instr=None)
+        r,out=self.execute(['python3','-B','-m','doctest','-f','-v','pltest.py'],instr=None)
         self.success = r
         if r :
             self.fb.addFeedback("# Tests\n")
