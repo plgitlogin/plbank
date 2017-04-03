@@ -15,12 +15,13 @@ class Grader:
         try:
             self.pld= json.load(open("pl.json","r"))
         except Exception as e:
-            self.success =True
-            self.feedback = "# erreur de plateforme \n pl.json illissible\n"
+            self.fb = Feedback()
+            self.fb.addFeedback( "# erreur de plateforme \n pl.json illissible\n")
+            self.fb.success = True
             self.doOutput()
             sys.exit(1)
-        self.fb = Feedback()
-        self.success=True
+        self.fb =  Feedback()
+        self.fb.success=True
 
     def compilestudent(self):
             EEE=None
@@ -31,13 +32,13 @@ class Grader:
                 
             except Exception as EE:
                 self.fb.addCompilationError(str(EE))
-                self.success=False
+                self.fb.success=False
                 return False
             else:
                 return True # compilation ok
 
     def doOutput(self):
-        dico_response = { "success": self.success , "errormessages" : "","feedback": self.fb.feedback(), "other": "","error":"","execution": "","grade":"1"}
+        dico_response = { "success": self.fb.success , "errormessages" : "","feedback": self.fb.feedback(), "other": "","error":"","execution": "","grade":"1"}
         return(json.dumps(dico_response))
 
     def expectedoutput(self):
@@ -167,7 +168,7 @@ class Grader:
         import os
         os.environ['TERM']="linux"# bug in readlinehttps://bugs.python.org/msg191824
         r,out=self.execute(['python3','-B','-m','doctest','-f','-v','pltest.py'],instr=None)
-        self.success = r
+        self.fb.success = r
         if r :
             self.fb.addFeedback("# Tests\n")
             self.fb.addFeedback(out)

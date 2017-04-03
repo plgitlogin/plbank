@@ -111,6 +111,7 @@ class Feedback:
         self.executionhistory.append(("optained",subnlbybr(newoutput)))
     def addExpectedOptained(self,newoutput,expected):
         self.addExpected(expected)
+        self.asio =True	
         self.addOptained(newoutput)
         self.success=False
     def addCompilationError(self,text):

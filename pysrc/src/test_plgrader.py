@@ -3,9 +3,9 @@ import plgrader
 import json
 
 
-def mysetup(student,pld):
+def mysetup(content,pld):
     with open("student.py","w") as s:
-        print(student,file=s)
+        print(content,file=s)
     json.dump(pld,open("pl.json","w"))
     if "soluce" in pld:
         with open("soluce.py","w") as sol:
@@ -96,6 +96,17 @@ def test_plgrader_good_expectedOutput():
     print(x["feedback"])
     assert x["feedback"] =="""\nsuccess\n1<br/>2<br/>"""
 
+def test_plgrader_good_expectedOutputi_withinput():
+    mysetup("print(input())\n",{"expectedoutput":"1\n","input0":"1\n"})
+    g = plgrader.Grader()
+    g.fb.buildTemplate(testtemplate)
+    x = json.loads(g.grade())
+    assert x["success"]==True
+    print(x["feedback"])
+    assert x["feedback"] =="""\nsuccess\n1<br/>"""
+
+
+
 def test_plgrader_no_grading_rules():
     mysetup("print(1)\nprint(2)\n",{"author":"LE roi de la bug"})
     g = plgrader.Grader()
@@ -138,7 +149,7 @@ def test_plgrader_inputoutput_oneok_twonotok_hideinput():
     g = plgrader.Grader()
     g.fb.buildTemplate(testtemplate)
     x = json.loads(g.grade())
-    assert x["success"]==True
+    assert x["success"]== False
     print(x["feedback"])
     assert x["feedback"] == """
 echec
@@ -207,6 +218,6 @@ def testPltestPasOk():
     x = json.loads(g.grade())
     assert x["success"]==False
     assert x["feedback"] == """
-success
-# Echec de tests<br/>Trying:<br/>    f()<br/>Expecting:<br/>    4<br/>-+-*-+--+-*-+--+-*-+--+-*-+--+-*-+--+-*-+--+-*-+--+-*-+--+-*-+--+-*-+-<br/>Failed example:<br/>    f()<br/>Attendu:    4<br/> obtenu:     3<br/>1 items had no tests:<br/>    pltest.f<br/>-+-*-+--+-*-+--+-*-+--+-*-+--+-*-+--+-*-+--+-*-+--+-*-+--+-*-+--+-*-+-<br/>1  jeu de tests avec des problèmes :<br/>   1 tests sur   1 dans pltest<br/>1 tests in 2 items.<br/>0 passed and 1 failed.<br/>***Tests échoués*** 1  erreurs.<br/>"""
+echec
+# Echec de tests<br/>Trying:<br/>    f()<br/>Expecting:<br/>    4<br/>**********************************************************************<br/>File "/Users/dr/DJANGO/plbank/pysrc/src/pltest.py", line 2, in pltest<br/>Failed example:<br/>    f()<br/>Expected:<br/>    4<br/>Got:<br/>    3<br/>1 items had no tests:<br/>    pltest.f<br/>**********************************************************************<br/>1 items had failures:<br/>   1 of   1 in pltest<br/>1 tests in 2 items.<br/>0 passed and 1 failed.<br/>***Test Failed*** 1 failures.<br/>"""
     
