@@ -27,6 +27,7 @@ import os
 import re
 import json
 import time
+from pathlib import Path
 
 def openandsplit(filename):
 	try:
@@ -38,10 +39,10 @@ def openandsplit(filename):
 
 name='^(?P<name>\w*)\s*'
 operator='(?P<op>=|==|=@)\s*'
-value='(?P<value>[^\s=@][^#]*)'
+value='(?P<value>[^\s=@#]*)'
 commentANDend='($|(?P<comment>#.*)$)'
-li=re.compile(name+operator+value+commentANDend,re.DEBUG)
-starmulti=re.compile(name+"(?P<op>==).*$")
+li=re.compile(name+operator+value+commentANDend)#,re.DEBUG)
+starmulti=re.compile("^(?P<name>\w*)\s*(?P<op>==).*$")#,re.DEBUG)
 debug=False
 
 def parseOneLine(line,d):
@@ -51,10 +52,12 @@ def parseOneLine(line,d):
 		print("{{"+line+"}}")
 	xx = li.search(line)
 	if xx == None:
-		print("problème  de format avec la ligne :"+line)
-		xx== starmulti.search(line)
-		if xx == None:
+		if debug:
 			print("problème  de format avec la ligne :"+line)
+		xx== starmulti.search(line)
+		if xx == None :
+			if debug:
+				print("problème  :"+line)
 			return False,None
 	if xx.group("op")== "==":
 		return (True,(xx.group("name")))
@@ -83,7 +86,7 @@ def parse(filename,currentdict=None):
 				multi = False
 				multiname = None
 			else: # in multi line 
-				multivalue += line + "[]"
+				multivalue += line + "\n"
 		else:
 			multi,multiname = parseOneLine(line,currentdict)
 			multivalue=""
@@ -110,9 +113,9 @@ class Question:
 		"""
 		if root == None and not "root" in os.environ:
 			raise Error(" No root defined")
-		dico={"url":filename}
+		dico={"url":filename+"_"+os.path.basename(root)}
 		parse(makepath(filename,root),dico)
-		printdico(dico)
+		#printdico(dico)
 		### Appel récursif sur le template 
 		while "template" in dico:
 			templatename = dico['template']
@@ -135,12 +138,14 @@ class Question:
 				except Exception as e:
 					print(e)
 					print("le fichier de la directive files",makepath(x,root),"ne peut être ouvert")
+					raise
+					# Exception("Format de fichier pl "+filename+" incorrect")
 		self.dico = dico
 		self.json = json.dumps(dico)
 		self.filename = filename
 		self.qname = "/tmp/"+os.path.basename(filename)+str(time.time())
 
-	def createDir(self,studentfilestr):
+	def createdir(self,studentfilestr,pathdir=None):
 		"""
 		creation of the directory for the execution of the grading 
 		action
@@ -154,31 +159,45 @@ class Question:
 			studentfilestr=self.dico["student"]
 		elif "student.py" in self.dico:
 			studentfilestr=self.dico["student.py"]
-		dir = os.mkdir(self.qname)
+		if pathdir == None :
+			pathdir = Path('/tmp/env/'+str(time.time()))
+		pathdir.mkdir(parents=True)
 		# 1
-		for name,trad in [('grader','grader.py'),('soluce','soluce.py')]:
+		for name,trad in [('grader','grader.py'),('soluce','soluce.py'),('inputgenerator','inputgenerator.py')]:
 			if name in self.dico:
-				with open(self.qname+"/"+trad,"w") as f:
-					print(self.dico[name],file=sol)
+				with pathdir.joinpath(trad).open(mode="w") as f:
+					print(self.dico[name],file=f)
 		# 2
-		for thefile in self.dico["basefiles"].keys():
-			with open(self.qname+"/"+thefile,"w") as f:
-					print(self.dico["basefiles"][thefile],file=f)
+		if "basefiles" in self.dico:
+			for thefile in self.dico["basefiles"].keys():
+				with pathdir.joinpath(thefile).open(mode="w") as f:
+						print(self.dico["basefiles"][thefile],file=f)
 		# directory ready to run only the stduent's file is missing
 		# 3
-
-		with open(self.qname+"/student.py","w") as f:
+		with  pathdir.joinpath("student.py").open(mode="w") as f:
 					print(studentfilestr,file=f)
-		# ok ready to go
-		return self.qname
+		if debug :
+			for k,v in self.dico.items():
+				print(k+" == " )
+		if "basefiles" in self.dico:
+			del self.dico["basefiles"]
+		self.pdir = pathdir
+		with pathdir.joinpath("pl.json").open(mode="w") as f:
+			json.dump(self.dico,fp=f)
+		print(" exercice sauvegardé dans "+str(self.pdir))
+		return self.pdir
 
-	def pushJsonDirToUrl(self,url):
-		"""
-		FIXME
-		call pl-sandbox-test.u-pem.fr
-		with the json from the question 
-		"""
-		pass
+	def checkgrader(self):
+		if not "grader" in self.dico:
+			if not "basefiles" in self.dico :
+				raise Error("No grader")
+			else:
+				if not "grader.py" in self.dico["basefiles"]:
+					raise Error("No grader")
+				else:
+					self.dico["grader"]=self.dico["basefiles"]["garder.py"]
+
+
 
 def printdico(d):
 	for k in d.keys():
