@@ -32,12 +32,16 @@ class Grader:
                 
             except Exception as EE:
                 self.fb.addCompilationError(str(EE))
+                if "compilehelp" in self.pld:
+                    self.fb.addFeedback(self.pld['compilehelp'])
                 self.fb.success=False
                 return False
             else:
                 return True # compilation ok
 
     def doOutput(self):
+        if "showinput" in self.pld: # valeur sans importance
+            self.fb.showinput =True
         dico_response = { "success": self.fb.success , "errormessages" : "","feedback": self.fb.feedback(), "other": "","error":"","execution": "","grade":"1"}
         return(json.dumps(dico_response))
 
