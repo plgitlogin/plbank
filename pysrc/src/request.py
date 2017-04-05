@@ -13,7 +13,7 @@ __doc__ = """
 	"""
 
 
-import requests
+import plrequest
 import question
 
 
@@ -22,8 +22,18 @@ class SanboxSession:
 		self.question = question
 		self.url = url
 
-	def call(self):
-		self.answer = requests.post(self.url,data=self.question.dico,timeout=0.1)
+	def createEnvFile(self):
+		from shutil import rmtree
+		rmtree('/tmp/env/')
+		p=Path('/tmp/env/')
+		p.mkdir()
+		for name,
+
+
+
+	def call(self,studentfile):
+		self.files = {'environment': open('/tmp/env.zip', 'rb'),'student.py':studentfile}
+		self.answer = requests.post(self.url,data=self.question.dico,files=self.files,timeout=0.1)
 
 
 
