@@ -3,7 +3,7 @@ author=Dominique Revuz
 tag=error
 title= Corrige Moi !
 name= Trouvez l'erreur
-template=python/AP1/TP1/template
+template=python/template
 text==
 
 Le programme python si dessous contient une erreur corrigez la pour passer à l'exercice suivant.
