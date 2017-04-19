@@ -45,7 +45,7 @@ class Grader:
         if "failure" in self.pld and not self.fb.success :
             self.fb.addFeedback(self.pld["failure"])
 
-        dico_response = { "success": self.fb.success , "errormessages" : "","feedback": self.fb.feedback(), "other": "","error":"","execution": "","grade":"1"}
+        dico_response = { "success": self.fb.success , "errormessages" : "","feedback": self.fb.feedback(), "other": "","error":"XK11","execution": "","grade":"1"}
         return(json.dumps(dico_response))
 
     def expectedoutput(self):
@@ -138,7 +138,7 @@ class Grader:
             self.fb.addFeedback(out)
         return (r,out)
 
-    def direct():
+    def direct(self):
         if  not "direct" in self.pld:
             return False
         if not "expectedoutput" in self.pld:
@@ -154,6 +154,7 @@ class Grader:
             if "" == x :
                 self.fb.addFeedback("sur la première ligne votre réponse")
             self.fb.addFeedback("la valeur attendu était "+self.pld["expectedoutput"])
+        return True
 
     def generatorsoluce(self):
         if  not "soluce" in self.pld or not "inputgenerator" in self.pld:
@@ -212,7 +213,7 @@ class Grader:
         input/soluce
         pltest
         """
-        if not self.direct():
+        if self.direct():
             return self.doOutput()
         elif not self.compilestudent():
             return self.doOutput()
