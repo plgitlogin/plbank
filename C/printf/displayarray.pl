@@ -42,7 +42,7 @@ void diaplay_array(int* array, int nb_term){
 }
 
 int main(int argc, char* argv[]){
-  int tab[] = [6, 2, 3, 7, 7, 9, 2];
+  int tab[] = {6, 2, 3, 7, 7, 9, 2};
 
   diaplay_array(tab, 7);
   return 0;
