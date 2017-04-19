@@ -22,7 +22,7 @@ nbroeufs = int( input("saisissez le nombre d'oeufs :") )
 
 b=  # votre opération 
 r=  # votre opération
-print("Pour ",nbroeufs," il faut:")
+print("\nPour ",nbroeufs," il faut:")
 print( b , "boites,")
 print("et il restera ", r , "oeufs.") 
 
@@ -42,7 +42,7 @@ nbroeufs = int( input("saisissez le nombre d'oeufs :") )
 b= nbroeufs // 6
 r= nbroeufs % 6
 
-print("Pour ",nbroeufs," il faut:")
+print("\nPour ",nbroeufs," il faut:")
 print( b , "boites,")
 print("et il restera ", r , "oeufs.") 
 
