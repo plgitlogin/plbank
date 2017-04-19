@@ -3,7 +3,7 @@ author=Dominique Revuz
 clog=error|quoting
 title= Corrige Moi !
 name= Trouvez l'erreur
-template=python/template
+template=python/0PLG/template.pl
 text==
 
 Le programme python suivant ne fait pas ce qu'il faut corrigez le pour qu'il affiche :

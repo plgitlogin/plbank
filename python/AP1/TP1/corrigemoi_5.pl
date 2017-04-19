@@ -5,7 +5,7 @@ clog=error|quoting|print
 
 title= Corrige Moi !
 name= Trouvez l'erreur
-template=python/template
+template=python/0PLG/template.pl
 text==
 
 Le programme python si dessous contient une erreur corrigez la pour passer à l'exercice suivant.
