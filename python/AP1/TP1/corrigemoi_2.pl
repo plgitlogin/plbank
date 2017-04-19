@@ -21,7 +21,7 @@ output0==
 Je connais 2 langages de programmation
 ==
 
-feedback==
+compilehelp==
 **print** est une fonction il faut lui fournir ces paramêtres entre paranthèses.
 ==
 
