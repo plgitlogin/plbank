@@ -1,7 +1,6 @@
 # Copyright 2016 Dominique Revuz <dr@univ-mlv.fr>
 author=Dominique Revuz 
-name= function
-title= function
+name= Une fonction bob
 tag=function 
 template=/python/0PLG/template
 text==
@@ -10,6 +9,8 @@ text==
 
 Ecrire une fonction **bob** qui retourne la valeur entière 1238.
 
+	>>> bob()
+	1238
 ==
 
 code==
@@ -21,7 +22,14 @@ code==
 pltest==
 >>> bob()
 1238
->>> bobo()==1238
+>>> bob()==1238
 True
 ==
+
+# le code suivant permet de tester l'exercice (le grader est il correct)
+testcode==
+def bob()
+	return 1238
+==
+
 

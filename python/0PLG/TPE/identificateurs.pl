@@ -2,7 +2,8 @@
 author=Dominique Revuz 
 name= Vérification des identificateurs 
 title= Vérification des identificateurs 
-tag= identifier
+tag= 
+give=identifier
 
 text==
 
@@ -48,6 +49,11 @@ $pip$
 # L'équipe PL
 ==
 
+# dans cet exercice vous avez un grader totalement
+# spécifique à l'exercice 
+# vous pouvez l'utiliser comme modèle pour 
+# un autre exercice 
+
 grader==
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
@@ -61,15 +67,23 @@ grader==
 
 import sys
 import json
+
+# ceci permet de retourner le json (sous forme d'une chaine) pour le logiciel de
+# gestion des exercices
+# seul les champs success et feedback sont utile pour le moment 
 def failure(message):
 	dico_reponse = { "success": False , "errormessages" : "" ,
 	 "feedback": message, "other":"" ,"error":"","execution":""}
 	print(json.dumps(dico_reponse))
 	sys.exit(0)
 
+# lecture du code de l'etudiant 
 f = open("student.py","r")
 lignes = f.read().split('\n')
 
+# la suite est spécifique à l'exercice 
+# il faut garder les identificateurs correct 
+# si l'on efface tout cela ne marche pas ;)
 if len(lignes)<2:
 	failure("Qui a dit efface tout cela va marcher ?\n")
 
@@ -99,11 +113,14 @@ for x in ["jenesuispasunidentifiant", "JeNeSuisPasUnIdentifiant", "a",
 	if not x in lignes:
 		failure("Vous avez éliminé l'identificateur ",x," qui est un identificateur valable.\n")
 
+# Si aucune des cause d'erreur n'a été détécté alors l'exercice et juste :)
+# nous aurions pu avoir une fonction successs pour ces deux lignes ;)
+
 dico_reponse = { "success": True , "errormessages" : "" ,
- "feedback": "Bravo ", "other":"" ,"error":"","execution":""}
+ "feedback": "# Bien \n vous avez **identifié** tout les identificateurs :)\n", "other":"" ,"error":"","execution":""}
 print(json.dumps(dico_reponse))
 
-sys.exit(0)
+
 ==
 
 

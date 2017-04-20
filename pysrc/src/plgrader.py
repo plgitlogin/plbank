@@ -32,13 +32,20 @@ class Grader:
                 
             except Exception as EE:
                 self.fb.addCompilationError(str(EE))
+                if "compilehelp" in self.pld:
+                    self.fb.addFeedback(self.pld['compilehelp'])
                 self.fb.success=False
                 return False
             else:
                 return True # compilation ok
 
     def doOutput(self):
-        dico_response = { "success": self.fb.success , "errormessages" : "","feedback": self.fb.feedback(), "other": "","error":"","execution": "","grade":"1"}
+        if "showinput" in self.pld: # valeur sans importance
+            self.fb.showinput =True
+        if "failure" in self.pld and not self.fb.success :
+            self.fb.addFeedback(self.pld["failure"])
+
+        dico_response = { "success": self.fb.success , "errormessages" : "","feedback": self.fb.feedback(), "other": "","error":"XK11","execution": "","grade":"1"}
         return(json.dumps(dico_response))
 
     def expectedoutput(self):
@@ -131,6 +138,24 @@ class Grader:
             self.fb.addFeedback(out)
         return (r,out)
 
+    def direct(self):
+        if  not "direct" in self.pld:
+            return False
+        if not "expectedoutput" in self.pld:
+            return False
+        with open("student.py","r") as f:
+            x=f.read().split("\n")[0]
+        if x == self.pld["expectedoutput"]: # FIXME ASSERT 
+            self.fb.success = True
+        else:
+            self.fb.success = False
+            if "#" in x:
+                self.fb.addFeedback("ne mettez pas de commentaires dans votre réponse")
+            if "" == x :
+                self.fb.addFeedback("sur la première ligne votre réponse")
+            self.fb.addFeedback("la valeur attendu était "+self.pld["expectedoutput"])
+        return True
+
     def generatorsoluce(self):
         if  not "soluce" in self.pld or not "inputgenerator" in self.pld:
             return False
@@ -179,6 +204,7 @@ class Grader:
 
     def grade(self):
         """
+        direct
         compile
         expectedoutput ?
         input/output
@@ -187,7 +213,9 @@ class Grader:
         input/soluce
         pltest
         """
-        if not self.compilestudent():
+        if self.direct():
+            return self.doOutput()
+        elif not self.compilestudent():
             return self.doOutput()
         elif self.expectedoutput() :
             return self.doOutput()

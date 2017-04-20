@@ -1,9 +1,24 @@
+author=DR 2016-2017
 
-author=DR 2016
 
-title= Tests de plgrader
+# ceci est une FEUILLE D'EXERCICES PL
 
-name= LENOMDUPLTP
+# pour avoir des exercies accessibles sous moodle
+# vous devez écrire une feuille comme celle ci
+# dans laquelle vous indiquez les exercices
+# que vous souhaitez vous apparaitres 
+
+
+# Le nom affiché dans moodle de l'activité PL
+# ceci est modifiable une fois que l'zactivité à été chargée
+name= LE NOM DU PLTP
+
+
+# Le texte suivant est affiché au lancement de l'activité
+# Cela permet de mettre des liens vers les cours associés
+# des rappels de cours
+# etc.
+
 
 introduction==
 
@@ -25,21 +40,26 @@ L'Equipe Premier langage.
 
 ==
 
+# ceci est pour le moment inopérant
+# dans un avenir futur la list des tags seras collecté
+# sur les exos puis comparer à celle ci pour vérifier la cohérence
+# remplissez cette variable pour expliquer ce que vous
+# souhaitez enseigner/valider/vérifier dans cette feuille d'exo
 tag=print|input|variables|identifieurs
 
 
 concept==debug
+@ /python/0PLG/TPE/error.pl
 @ /python/0PLG/TPE/function001.pl
 @ /python/0PLG/TPE/operator001.pl
 @ /python/0PLG/TPE/identificateurs.pl
-@ /python/0PLG/TPE/error.pl
 ==
 
 
 
 
 
-
+title= Tests de plgrader
 
 
 

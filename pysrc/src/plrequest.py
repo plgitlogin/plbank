@@ -22,7 +22,6 @@ class SanboxSession:
 		self.question = question
 		self.url = url
 
-
 	def createEnvFile(self):
 		from shutil import rmtree
 		rmtree('/tmp/env/')
@@ -32,9 +31,9 @@ class SanboxSession:
 
 
 
-	def call(self,studentfile,timeout=0.1):
+	def call(self,studentfile):
 		self.files = {'environment': open('/tmp/env.zip', 'rb'),'student.py':studentfile}
-		self.answer = requests.post(self.url,data=self.question.dico,files=self.files,timeout=timeout)
+		self.answer = requests.post(self.url,data=self.question.dico,files=self.files,timeout=0.1)
 
 
 
