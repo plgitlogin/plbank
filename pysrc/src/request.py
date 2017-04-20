@@ -22,8 +22,8 @@ class SanboxSession:
 		self.question = question
 		self.url = url
 
-	def call(self):
-		self.answer = requests.post(self.url,data=self.question.dico,timeout=0.1)
+	def call(self,timeout=0):
+		self.answer = requests.post(self.url,data=self.question.dico,timeout=timeout)
 
 
 
