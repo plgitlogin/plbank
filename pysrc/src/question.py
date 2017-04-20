@@ -38,7 +38,7 @@ def openandsplit(filename):
 
 name='^(?P<name>\w*)\s*'
 operator='(?P<op>=|==|=@)\s*'
-value='(?P<value>[^\s=@][^#]*)'
+value='(?P<value>[^\s=@#]*)'
 commentANDend='($|(?P<comment>#.*)$)'
 li=re.compile(name+operator+value+commentANDend,re.DEBUG)
 starmulti=re.compile(name+"(?P<op>==).*$")
