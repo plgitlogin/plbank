@@ -1,7 +1,7 @@
 
 # Copyright 2016 Dominique Revuz <dr@univ-mlv.fr>
 author=Dominique Revuz
-title=<>
+name=<>
 text==
 
 Ceci est un texte qui ne devrai pas apparaitre voyez avec dr@univ-mlv.fr
