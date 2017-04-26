@@ -20,3 +20,4 @@ Saisissez la valeur de la variable r une fois les instructions suivantes exécut
 
 ==
 expectedoutput=-1
+# Not using 0PLG grader
