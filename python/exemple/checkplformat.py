@@ -86,8 +86,8 @@ def dumppljson(filename):
 
 	print(ini)
 
-	#import json
-	#json.dump(ini,open("pl.json","w"))
+	import json
+	json.dump(ini,open("pl.json","w"))
 
 
 if __name__ == '__main__':
