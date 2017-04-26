@@ -1956,7 +1956,7 @@ def pltestfile(teststring, module_relative=True, name="Your Code", package=None,
              extraglobs=None, raise_on_error=False, parser=DocTestParser(),
              encoding=None):
     """
-    This is the same function than doctest.testfile but the text comme from the teststring
+    This is the same function than doctest.testfile but the text comme from the teststring.
 
     """
     global master
