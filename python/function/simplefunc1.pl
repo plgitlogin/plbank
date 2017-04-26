@@ -1,5 +1,6 @@
-template=/python/template.pl
+author=dr
 title=Fizz Buzz 
+template=/python/0PLG/template.pl
 
 text==
 #  Fizz Buzz 

@@ -2,7 +2,7 @@
 author=Dominique Revuz 
 title=subsets.pl
 tag=function|set|sorted # N'oubliez pas de remplir ce champs svp
-template=/python/exemple/autogradertemplate
+template=/python/0PLG/template
 piste=rouge
 text==
 

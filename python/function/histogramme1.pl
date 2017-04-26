@@ -2,7 +2,7 @@
 author=Dominique Revuz 
 title=histogramme de notes
 tag=function|list|branching
-template=/python/template
+template=/python/0PLG/template
 text==
 
 # Histogramme des Notes 

@@ -2,7 +2,7 @@
 author=Dominique Revuz 
 title= Fibo
 tag=root # N'oubliez pas de remplir ce champs svp
-template=/python/template.pl
+template=/python/0PLG/template.pl
 text==
 
 Ecrire une fonction **F** à un parametre entier qui vérifie la définition suivante :

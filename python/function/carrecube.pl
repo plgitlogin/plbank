@@ -4,7 +4,7 @@ name=  Carre Cube
 title= Carre Cube
 
 tag= def|return  # N'oubliez pas de remplir ce champs svp
-template=/python/template.pl
+template=/python/0PLG/template.pl
 
 taboo=print
 text==

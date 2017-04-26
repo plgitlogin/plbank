@@ -3,7 +3,7 @@ author=Dominique Revuz
 name=  Romains 
 title=  Gaulois  # N'oubliez pas de remplir ce champs svp
 tag=function|parameter|return  # N'oubliez pas de remplir ce champs svp
-template=/python/template.pl
+template=/python/0PLG/template.pl
 text==
 ## Nombres Romains
 Ecrire une fonction **romains** qui prend un parametre entier *n* et qui le retourne écrit avec la numération romaine :

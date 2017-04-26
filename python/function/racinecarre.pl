@@ -1,7 +1,7 @@
 # ceci est un exercice Premier langage
 
 tag=math|exponentiation|parameter
-template=/python/template
+template=/python/0PLG/template
 piste=verte
 text==
 

@@ -3,9 +3,9 @@ author=Dominique Revuz
 name=  Pim Pim Pim Pim
 title=  Pim Pim Pim Pim  # N'oubliez pas de remplir ce champs svp
 tag= def|return  # N'oubliez pas de remplir ce champs svp
-template=/python/template.pl
+template=/python/0PLG/template.pl
 
-taboo=print
+taboo=print|join
 text==
 
 # Ecrire une fonction **pim**
@@ -18,9 +18,9 @@ text==
 	      retourne la chaine **Pim Pim Pim** pour n = 3
 	etc
 
-# taboo
+## taboo
 
-	Ne pas utiliser print.
+	Ne pas utiliser **print** ni **join**.
 
 ==
 

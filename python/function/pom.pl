@@ -2,8 +2,8 @@
 author=Dominique Revuz 
 name=  pom.pl
 title=  Pom Pom Pom Pom  # N'oubliez pas de remplir ce champs svp
-tag=  # N'oubliez pas de remplir ce champs svp
-template=/python/template.pl
+tag=function|parameter  # N'oubliez pas de remplir ce champs svp
+template=/python/0PLG/template.pl
 text==
 
 Ecrire une fonction **pom** qui prend un parametre entier n et qui Affiche des Pom :

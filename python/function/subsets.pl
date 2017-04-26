@@ -2,7 +2,7 @@
 author=Dominique Revuz 
 title=Calcul des sous ensembles
 tag=root # N'oubliez pas de remplir ce champs svp
-template=/python/template.pl
+template=/python/0PLG/template.pl
 
 
 text==

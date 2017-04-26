@@ -3,7 +3,7 @@ author=Dominique Revuz
 name=  Romains 
 title=  Gaulois  # N'oubliez pas de remplir ce champs svp
 tag=function|parameter|return  # N'oubliez pas de remplir ce champs svp
-template=/python/template.pl
+template=/python/0PLG/template.pl
 text==
 En utilisant la fonction **romains** de l'exercice précédent et la liste des associations suivantes:
 

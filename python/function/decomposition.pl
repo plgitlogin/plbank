@@ -3,18 +3,18 @@ author=Dominique Revuz
 name=decomposition
 title= Décomposition en facteurs Premiers  # N'oubliez pas de remplir ce champs svp
 tag=join|list|def|parameters|return # N'oubliez pas de remplir ce champs svp
-template=/python/template.pl
+template=/python/0PLG/template.pl
 text==
 ## Décomposition en facteurs premiers
 
 Tout entier positif *n* se décompose de manière unique en produit de nombres premiers. Par exemple, *301158* se décompose en
-<a href="https://www.codecogs.com/eqnedit.php?latex=2&mult;3^4&mult;11&mult;13^2" target="_blank"><img src="https://latex.codecogs.com/gif.latex?2&mult;3^4&mult;11&mult;13^2" title="2*3^4*11*13^2" /></a>.
+<a href="https://www.codecogs.com/eqnedit.php?latex=2*3^4*11*13^2" target="_blank"><img src="https://latex.codecogs.com/gif.latex?2*3^4*11*13^2" title="2*3^4*11*13^2" /></a>.
 ###  *contient_puissance*
 Écrire une fonction **contient_puissance** qui prend comme arguments un entier positif
 *n* et un nombre premier
 *p* et qui renvoie le plus grand entier
 *k* tel que
-*n* est divisible par *p**k* .
+*n* est divisible par *p^k* .
 
 ## *decomposition*
 
@@ -47,11 +47,18 @@ pltest==
 2^3*3^4
 >>> decomposition(2**3*3**4*11**11*97**2)
 2^3*3^4*11^11*97^2
-
+>>> decomposition(2**1000)
+2^1000
 ==
 
 
 testcode==
+def estpremier(p):
+	for i in range(2,p//2):
+		if p % i == 0:
+			return False
+	return True
+
 def contient_puissance(n,p):
 	"""
 	>>> contient_puissance(4,2)
@@ -73,6 +80,12 @@ def contient_puissance(n,p):
 	return np
 
 
+def premiersuivant(k):
+	while True:
+		k += 1
+		if estpremier(k):
+			return(k)
+
 def ldecomposition(n):
 	p=2
 	l=[]
@@ -81,7 +94,7 @@ def ldecomposition(n):
 		if pp >0:
 			l.append("%d^%d" % (p,pp))
 			n /= p**pp
-		p += 1
+		p = premiersuivant(p)
 	return l
 
 def decomposition(n):

@@ -3,7 +3,7 @@ author=Dominique Revuz
 name= Jumeaux
 title= Premier Jumeaux  # N'oubliez pas de remplir ce champs svp
 tag=def|parameters|return # N'oubliez pas de remplir ce champs svp
-template=/python/template.pl
+template=/python/0PLG/template.pl
 text==
 ## Nombres Premiers Jumeaux
 
@@ -31,3 +31,7 @@ pltest==
 >>> len(jumeaux(120))
 120
 ==
+
+timeout=20
+
+

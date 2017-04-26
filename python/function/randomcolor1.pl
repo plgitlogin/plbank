@@ -3,7 +3,7 @@ author=Dominique Revuz
 title=randomcolor1.pl
 # N'oubliez pas d'indiquez les tags
 tag=list|function|random
-template=/python/template
+template=/python/0PLG/template
 tag=function|random|list
 text==
 
