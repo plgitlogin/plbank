@@ -5,7 +5,7 @@ tag=titi
 introduction==
 le texte
 ==
-content==
+concept==variable
 @ python/dynamic/dyna1.pl
 @ python/dynamic/dyna2.pl
 @ python/dynamic/dyna3.pl
