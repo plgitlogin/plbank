@@ -1,7 +1,7 @@
 # Copyright 2016 Dominique Revuz <dr@univ-mlv.fr>
 author=Dominique Revuz
 # le nom de l'exercice affiché par moodle 
-name= Erreur de paranthèses
+name= Erreur de parenthèses
 # le title est un identifiant interne
 title=erreurdeocompilation
 tag=compile|error
