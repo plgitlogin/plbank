@@ -4,7 +4,7 @@ name= Calcul d'intérêt
 title= Operateurs mutliplicatifs 
 
 tag= print|input|operator.mod|operator.floordiv
-template=/python/IUT/template
+template=/python/0PLG/template
 text==
 
 # Operator ** / * + - 
