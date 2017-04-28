@@ -4,7 +4,7 @@ name=lireuneliste.pl
 title=  Lire une liste
 tag= list|input
 tog= listinput
-template=/python/exemple/autogradertemplate
+template=/python/0PLG/template.pl
 text==
 Notre premier exercice sur les listes permet de lire une liste au clavier,
 nous allons supposer que notre utilisateur va entrez une seule ligne de texte avec un espace entre chaque valeur de la liste:
