@@ -1,5 +1,5 @@
 name=Afficher
-template=/python/exemple/autogradertemplate
+template=/python/0PLG/template.pl
 text==
 La fonction **print** permet de faire des affichages (envois de caractère à l'écran).
 Nous allons l'utiliser pour écrire votre premier programme python.
