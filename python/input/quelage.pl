@@ -2,7 +2,7 @@
 author=Dominique Revuz 
 title= Quel age à le capitaine
 tag=input|print|variable
-template=/python/exemple/autogradertemplate
+template=/python/0PLG/template.pl
 name=Capitaine
 text==
 Demandez au Capitaine son année de naissance puis calculez et affichez son age au 31 décembre 2018 à Minuit.
