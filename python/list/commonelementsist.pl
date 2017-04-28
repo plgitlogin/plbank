@@ -3,7 +3,7 @@ author=Dominique Revuz
 name=commonelementlist.pl
 title=  Les listes utilisées comme des ensembles.
 tag= listinput|conversion
-template=/python/exemple/autogradertemplate
+template=/python/0PLG/template.pl
 text==
 
 Dans cet exercice nous allons fabriquer un ***type utilisateur*** qui utilise des listes pour représenter des ensembles.
@@ -27,7 +27,7 @@ Pour vérifier que vos fonctions fonctionnent vous allez les utiliser avec le co
 	# création de l'ensemble des éléments communs cela doit être un ensemble pourquoi ? 
 	for e in l2:
 		if appartient(me1,e):
-			ajouter(me2,e)
+			ajouter(me_commun,e)
 	print(me2)
 
 ==
@@ -46,7 +46,7 @@ for e in l1:
 # création de l'ensemble des éléments communs cela doit être un ensemble pourquoi ? 
 for e in l2:
 	if appartient(me1,e):
-		ajouter(me2,e)
+		ajouter(me_commun,e)
 print(sorted(me2))
 ==
 
