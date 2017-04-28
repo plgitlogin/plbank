@@ -1,10 +1,10 @@
 # Copyright 2016 Dominique Revuz <dr@univ-mlv.fr>
 author=Dominique Revuz 
 name= Camel Look 
-title= capitalize.pl   # N'oubliez pas de remplir ce champs svp
+title= Camel Look (le look a boses)  # N'oubliez pas de remplir ce champs svp
 tag=string|case   # TODO; la case doit être définie comme concept
 prod=capitalize
-template=/python/exemple/autogradertemplate
+template=/python/0PLG/template
 text==
 
 Le programme :
@@ -25,9 +25,6 @@ est transformée en :
 
 # Choisir pltest ou soluce ou expectedoutput
 
-input==
-Here commes the big bad red wolf
-==
 
 expectedoutput==
 hereCommesTheBigBadRedWolf
@@ -43,7 +40,11 @@ print(" ".join([ k[randint(0,len(k)-1)] for x in range(randint(3,5))]))
 
 ==
 
-kkkk==
+soluce==
+l=[x.capitalize() for x in input().split()]
+print(l.pop(0).lower(),*l,sep="")
+==
+testcode==
 l=[x.capitalize() for x in input().split()]
 print(l.pop(0).lower(),*l,sep="")
 ==
