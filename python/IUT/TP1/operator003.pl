@@ -5,7 +5,7 @@ title= Opérateurs Booleans
 
 prerequis=function # objectif montrer le fait que les opérateurs sont fainéants 
 tag= operator.or|operator.and  # N'oubliez pas de remplir ce champs svp
-template=/python/IUT/template
+template=/python/0PLG/template
 text==
 
 Les **Blork** sont des monstres qui envaissent l'imaginaire de Kid Paddle.
