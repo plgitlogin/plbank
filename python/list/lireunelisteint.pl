@@ -4,7 +4,7 @@ name=lireunelisteint.pl
 title=  Lire une liste d'entiers
 tag= listinput|conversion
 tog= intlistinput
-template=/python/exemple/autogradertemplate
+template=/python/0PLG/template.pl
 text==
 Nous souhaitons lire une liste d'entiers que 
 nous allons suppose être entrée sur une seule ligne avec un espace entre chaque valeur de la liste.
@@ -28,7 +28,11 @@ from random import randint
 print(" ".join([ str(randint(0,2000)) for j in range(randint(3,7))]))
 ==
 
-feedback==
+feedbackfalse==
+	Lire la documentation de la méthode ***split()*** sur les chaines de caractères.
+==
+
+success==
 Très bien 
 Retenez bien ce code :<br>
 	input().split()
