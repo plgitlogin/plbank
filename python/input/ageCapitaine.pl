@@ -1,9 +1,10 @@
 # Copyright 2016 Dominique Revuz <dr@univ-mlv.fr>
 author=Dominique Revuz 
-title= Age du Capitaine
-name=Captaine
+title= lecture d'un entier
+name=Age du Capitaine 
 tag=input|print|variable
-template=/python/exemple/autogradertemplate
+
+template=/python/0PLG/template.pl
 
 text==
 Ecriver un programme utilisant une unique variable **age** qui affiche
