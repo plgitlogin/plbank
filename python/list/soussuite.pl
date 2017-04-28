@@ -4,7 +4,7 @@ name=soussuite.pl
 title=  Une liste dans une autre: la sous suite ou la sous liste 
 tag= list  # N'oubliez pas de remplir ce champs svp
 tog=sublist
-template=/python/exemple/autogradertemplate
+template=/python/0PLG/template.pl
 text==
 
 Nous allons ici nous intéresser à deux définitions de la présence d'une liste dans une autre.
