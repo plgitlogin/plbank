@@ -3,7 +3,8 @@ author=Dominique Revuz
 name=Multiplication des chaines
 title=La fonction print
 tag=print
-template=/python/exemple/autogradertemplate
+give=print
+template=/python/0PLG/template.pl
 text==
 
 Utilisons la fonction **print** pour faire un affichage.
