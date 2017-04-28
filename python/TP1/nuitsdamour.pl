@@ -3,7 +3,7 @@ author=Dominique Revuz
 name=nuitsdamour.pl
 title= Drole de calcul  # N'oubliez pas de remplir ce champs svp
 tag=  # N'oubliez pas de remplir ce champs svp
-template=/python/exemple/autogradertemplate
+template=/python/0PLG/template
 text==
 
 1. Decide le nombre de nuits par semaine durant lesquelles tu aimerais faire l'amour.
