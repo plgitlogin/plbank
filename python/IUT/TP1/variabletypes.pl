@@ -2,8 +2,9 @@
 author=Dominique Revuz
 name=variablettypes.pl
 title= Variables et Types
+status=notfinished
 tag= int|str|type|
-template=/python/template
+template=/python/0PLG/template.pl
 text==
 
 
@@ -19,5 +20,5 @@ text==
 
 ==
 code==
-# code intiale de l'editeur
+# code initiale de l'editeur
 ==
