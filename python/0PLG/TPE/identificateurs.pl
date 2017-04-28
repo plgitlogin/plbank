@@ -4,6 +4,7 @@ name= Vérification des identificateurs
 title= Vérification des identificateurs 
 tag= 
 give=identifier
+# 0PLG
 
 text==
 
@@ -111,7 +112,7 @@ if "42" in lignes:
 for x in ["jenesuispasunidentifiant", "JeNeSuisPasUnIdentifiant", "a",
 "a1","abc", "__truc__"]:
 	if not x in lignes:
-		failure("Vous avez éliminé l'identificateur ",x," qui est un identificateur valable.\n")
+		failure("Vous avez éliminé l'identificateur "+str(x)+" qui est un identificateur valable.\n")
 
 # Si aucune des cause d'erreur n'a été détécté alors l'exercice et juste :)
 # nous aurions pu avoir une fonction successs pour ces deux lignes ;)
