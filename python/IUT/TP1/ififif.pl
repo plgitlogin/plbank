@@ -3,7 +3,7 @@ author=Dominique Revuz
 name= Branchements
 title=  if if if and else
 tag=if|else|and  # N'oubliez pas de remplir ce champs svp
-template=/python/IUT/template
+template=/python/0PLG/template
 text==
 
 Demander un entier à l'utilisateur avec //input// puis afficher si il c'est un multiple de 2 de 3  et de 7 avec les affichages suivants.
