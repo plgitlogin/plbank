@@ -2,7 +2,7 @@
 author=Dominique Revuz 
 title=Manipulation de Nombre
 tag=input|print
-template=/python/exemple/autogradertemplate
+template=/python/0PLG/template.pl
 
 text==
 Ecrire un programme qui demande à l’utilisateur de saisir quatre entiers au clavier (un par ligne), affiche ensuite une valeur par ligne, puis leur somme et leur moyenne sur la ligne suivante. Par exemple, si l’utilisateur entre les valeurs
@@ -25,10 +25,11 @@ ou la syntaxe avec % mais attention c'est un float<br>
 ==
 
 inputgenerator==
-print(12)
-print(3)
-print(14)
-print(5)
+from random import randint 
+print(randint(3,7)+4)
+print(randint(3,7)+4)
+print(randint(3,7)+4)
+print(randint(3,7)+4)
 ==
 
 soluce==
