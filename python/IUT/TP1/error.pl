@@ -3,12 +3,13 @@ author=Dominique Revuz
 name= Erreur de compilation 
 title= Erreur de compilation 
 tag=compile|error
-template=/python/IUT/template
+template=/python/0PLG/template
 
 text==
 
-Corrigez l'erreur qui fait que le code suivant ne compile pas. 
+# Erreurs de Compilation
 
+Corrigez l'erreur qui fait que le code suivant ne compile pas. 
 
 ==
 
