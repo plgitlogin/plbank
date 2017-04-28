@@ -3,7 +3,7 @@ author=Dominique Revuz
 name= Erreurs de Type
 title=  Erreur de Type
 tag=TypeError  # N'oubliez pas de remplir ce champs svp
-template=/python/IUT/template
+template=/python/0PLG/template
 
 text==
 
