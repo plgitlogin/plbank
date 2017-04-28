@@ -3,7 +3,7 @@ author=Dominique Revuz
 name=sisi002.pl
 title= Si  Sinon  
 tag= input|else|if|elif|bool|and|or|paranthesis
-template=/python/template
+template=/python/0PLG/template.pl
 text==
 ## IF ELIF ELSE
 Ecrire un programme qui demande à l’utilisateur trois entiers a,b et c par exemple:
