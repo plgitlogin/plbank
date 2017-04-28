@@ -4,7 +4,7 @@ tag=all
 introduction==
 Tout les exos de la plateforme 
 ==
-concept==
+concept==all
 @ python/0PLG/TPE/empty.pl
 @ python/0PLG/TPE/error.pl
 @ python/0PLG/TPE/function001.pl
