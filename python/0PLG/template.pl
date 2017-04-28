@@ -2,7 +2,7 @@
 
 # using the new plgrader 
 
-name=  python/0PLG/template.pl
+name=  /python/0PLG/template.pl
 
 grader==
 from plgrader import Grader
