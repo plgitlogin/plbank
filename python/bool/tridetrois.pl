@@ -4,7 +4,7 @@ name=Tri de trois
 title=Tri de trois
 tag= if|else
 
-template=/python/template.pl
+template=/python/0PLG/template.pl
 text==
 
 # Tri de Trois
