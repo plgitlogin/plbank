@@ -3,7 +3,7 @@ author=Dominique Revuz
 name= Affichage
 title= Première Exercice
 tag=print
-template=/python/IUT/template
+template=/python/0PLG/template
 text==
 
 Votre premier programme sur la plateforme :
