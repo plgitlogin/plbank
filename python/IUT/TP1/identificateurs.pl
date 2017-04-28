@@ -97,7 +97,7 @@ if "42" in lignes:
 for x in ["jenesuispasunidentifiant", "JeNeSuisPasUnIdentifiant", "a",
 "a1","abc", "__truc__"]:
 	if not x in lignes:
-		failure("Vous avez éliminé l'identificateur ",x," qui est un identificateur valable.\n")
+		failure("Vous avez éliminé l'identificateur "+str(x)+" qui est un identificateur valable.\n")
 
 dico_reponse = { "success": True , "errormessages" : "" ,
  "feedback": "Bravo ", "other":"" ,"error":"","execution":""}
@@ -108,7 +108,7 @@ sys.exit(0)
 
 
 
-
+# Not using 0PLG
 
 
 
