@@ -1,10 +1,11 @@
+
 author=Dominique Revuz
-name=Tout les exos
+name=auto_exo_all
 tag=all
 introduction==
 Tout les exos de la plateforme 
 ==
-concept==all
+concept==NONE
 @ python/0PLG/TPE/empty.pl
 @ python/0PLG/TPE/error.pl
 @ python/0PLG/TPE/function001.pl
@@ -61,7 +62,6 @@ concept==all
 @ python/function/decomposition.pl
 @ python/function/estpremier.pl
 @ python/function/estpremier2.pl
-@ python/function/functiongradertemplate.pl
 @ python/function/funcvoyelle.pl
 @ python/function/histogramme1.pl
 @ python/function/jumeaux.pl
