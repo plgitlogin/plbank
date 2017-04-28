@@ -3,7 +3,7 @@ author=Dominique Revuz
 name= Entrée Sorties
 title=   # N'oubliez pas de remplir ce champs svp
 tag=input|print
-template=/python/IUT/template
+template=/python/0PLG/template
 text==
 
 Exercice classique d'entrée sortie. La ligne suivante permet de demander une information à l'utilisateur:
