@@ -3,7 +3,7 @@ author=Dominique Revuz
 name=writebase.pl
 title=   # N'oubliez pas de remplir ce champs svp
 tag=  # N'oubliez pas de remplir ce champs svp
-template=/python/template.pl
+template=/python/0PLG/template.pl
 text==
 
 # Write In Base
