@@ -3,7 +3,10 @@ author=Dominique Revuz
 name= Jumeaux Cachés
 tag=list|loop 
 prod=indicesearch
-template=/python/exemple/autogradertemplate
+template=/python/0PLG/template.pl
+
+showinput=True
+
 text==
 
 Deux jumeaux se chachent dans une foule la seule information que l'on ai sur chaque personne est son poids.
