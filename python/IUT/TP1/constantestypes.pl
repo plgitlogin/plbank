@@ -2,10 +2,10 @@
 author=Dominique Revuz
 name=constantestypes.pl
 title= Variables et Types
-tag= int|str|type|constant
+tag= int|str|type|litteral|variable
 
 # je ne suis pas sur d'avoir besoin de ca FIXME 
-template=/python/IUT/template
+template=/python/0PLG/template
 text==
 
 
@@ -25,20 +25,19 @@ Si nous regardons ces différentes littéraux nous constatons qu'ils ne sont pas
 
 <span style="color:blue;background-color: white;">
 - Je voudrais réserver *15h30* *demain* pour *Oui* .
-
 - *3*. Ils seront près à *Mille-Feuilles*.
 </span>
 
-Mais il est possible de les changer en les remplacant par une autre constante du **MEME TYPE**.
+Mais il est possible de les changer en les remplacant par une autre constante (littérale) du **MEME TYPE** pour avoir quelque chose de mieux.
 
 <span style="color:blue;background-color: white;">
-	Je voudrais réserver *10* *Charlottes-aux-poires* pour *Lundi*.
-	*Non*.  Désolé nous somme fermés *Lundi*.
+- Je voudrais réserver *10* *Charlottes-aux-poires* pour *Lundi*.
+- *Non*.  Désolé nous somme fermés *Lundi*.
 </span>
 
 Le **type** de ces constantes est soit un jour *Lundi*, soit un nom de gateau *Charlottes-aux-poires* soit un nombre entier *10* soit une heure *7h57* etc.
 
-Pour python nous allons trouver des Littéraux avec des types prédéfins qui nous permettent d'exprimer des valeurs pertinantes ici nous demandons a python de nous donner le type de chaque littéral :
+Pour python nous allons trouver des Littéraux avec des types prédéfinis qui nous permettent d'exprimer des valeurs pertinantes ici nous demandons a python de nous donner le type de chaque exemple de littéral :
 
 	>>> type(1)   # je demande le type du littéral 1 un entier 
 	<class 'int'>
