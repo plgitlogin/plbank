@@ -3,7 +3,7 @@ author=Dominique Revuz
 name=sisi002.pl
 title= Si  Sinon  
 tag= input|else|if|elif
-template=/python/template
+template=/python/0PLG/template.pl
 text==
 ## IF ELIF ELSE
 Ecrire un programme qui demande à l’utilisateur un entier grace au texte:
