@@ -1,10 +1,17 @@
 # Copyright 2016 Dominique Revuz <dr@univ-mlv.fr>
+# you should use /python/0PLG/template.pl  directly
+# 
 
-name=  python/iut/template.pl
+
+# using the new plgrader 
+
+name=  /python/0PLG/template.pl
 
 grader==
-from utils import grade
-grade()
+from plgrader import Grader
+g=Grader()
+print(g.grade())
 ==
-files=@/pysrc/src/plutils.py
-files=@/pysrc/src/utils.py
+files=@/pysrc/src/plgrader.py
+files=@/pysrc/src/feedback.py
+
