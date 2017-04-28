@@ -2,11 +2,16 @@
 # untitled Copyright 2016 Dominique Revuz <dr@univ-mlv.fr>
 author=Dominique Revuz 
 title=variadic
+template=/python/0PLG/template.pl
 text==
 ** Variadic ** 
-Veuiller ecrire une fonction variadique  fvar qui affiche ces paramètres
+Veuiller ecrire une fonction variadique  **fvar** qui affiche ces paramètres
  entre [] séparés par des ','.
- 
+
+    >>> fvar(1,2,3,4)
+    [1,2,3,4]
+    >>> fvar(12,"tyty","bob")
+    [12,"tyty","bob"]
 
 
 ==
@@ -14,19 +19,10 @@ code==
 # Veuillez saisir votre code ici
 
 ==
-grader==
-import sys
-import json 
-
-
-dico_good = { "success": True , "errormessages" : "" , "execution": "OK", "feedback": "ok", "other": "" }
-dico_bad = { "success": False , "errormessages" : "création d'une exception", "execution": "", "feedback": "modifier votre valeur", "other": "" }
-
-
-try:
-	import student
-	print(json.dumps(dico_good))
-except:
-    print(json.dumps(dico_bad))
+pltest==
+>>> fvar(1,2,3,4)
+[1,2,3,4]
+>>> fvar(12,"tyty","bob")
+[12,"tyty","bob"]
 ==
 
