@@ -3,7 +3,7 @@ author=Dominique Revuz
 name=condbool.pl
 title=   # N'oubliez pas de remplir ce champs svp
 tag= input|boolean|if # N'oubliez pas de remplir ce champs svp
-template=/python/template
+template=/python/0PLG/template.pl
 text==
 ## Easy Jet 
 Ecrire un programme qui demande à l’utilisateur le poids de son bagage en kilos.
