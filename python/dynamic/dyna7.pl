@@ -1,7 +1,7 @@
 
 author=Dominique Revuz
 tag=ref
-template=direct.pl
+template=/python/dynamic/direct.pl
 text==
 
 # Références 
