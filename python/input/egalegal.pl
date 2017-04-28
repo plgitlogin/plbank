@@ -2,20 +2,17 @@
 author=Dominique Revuz 
 title= Egal ou EgalEgal ? 
 tag=root
-template=/python/exemple/autogradertemplate
+template=/python/0PLG/template.pl
 
 text==
 
-ATTENTION EXERCICE VEROLE TEMPS QUE LA BUG 38 n'est pas corrigée. DR.
-
-Remplacer les @@ par '=' ou '= =' aux bons endrois pour rendre le code coohérent.
 
 == 
 
 code==
-a @@ int(input())
-b @@ int(input())
-if a @@ b :
+a = int(input())
+b = int(input())
+if a == b :
 	print(" les deux valeurs entrées sont égales ")
 else:
 	print(" les deux valeurs entrées ne sont pas égales ")
