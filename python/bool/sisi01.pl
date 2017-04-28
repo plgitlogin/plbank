@@ -3,7 +3,7 @@ author=Dominique Revuz
 name=sisi01.pl
 title= Si et seulement si
 tag= input|boolean|if # N'oubliez pas de remplir ce champs svp
-template=/python/template
+template=/python/0PLG/template.pl
 text==
 ## IF 
 Ecrire un programme qui demande à l’utilisateur un entier grace au texte:
