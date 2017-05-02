@@ -26,3 +26,12 @@ n=int(input("Saisissez un entier?"))
 if n >0:
 	print("Strictement Positif.")
 ==
+
+testcode==
+n=int(input("Saisissez un entier?"))
+if n >0:
+	print("Strictement Negeatid")
+==
+
+
+
