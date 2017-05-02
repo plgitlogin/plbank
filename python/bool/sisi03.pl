@@ -50,5 +50,5 @@ elif a < b :
 else:
 	forma="%d est égal à %d" 
 
-print(forma % (a,b))`
+print(forma % (a,b))
 ==
