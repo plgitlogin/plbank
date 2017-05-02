@@ -24,7 +24,7 @@ Soit le code suivant:
 	if glork(n) or blik(n):
 		n = n-3
 
-	if glork(n) or blik(n):
+	if glork(n) and blik(n):
 		n=n+2
 
 	if glork(n) or blik(n):
@@ -35,6 +35,10 @@ Ecriver un code d'une ligne qui affiche la même suite de X et de W
 
 ==
 
+failure==
+Les opérateurs logiques sont fainéant 
+==
+noexpected=true
 expectedoutput=XXWXW
 
 # Choisir pltest ou soluce ou expectedoutput
