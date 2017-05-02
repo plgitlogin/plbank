@@ -30,3 +30,7 @@ pltest=
 >>>
 ==
 
+testcode==
+def racinecarre(n):
+    racine n/2
+==
