@@ -1,6 +1,7 @@
 # Copyright 2016 Dominique Revuz <dr@univ-mlv.fr>
 author=Dominique Revuz 
-title=histogramme de notes
+name=histogramme de notes
+title=xx
 tag=function|list|branching
 template=/python/0PLG/template
 text==
