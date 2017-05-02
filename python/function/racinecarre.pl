@@ -25,8 +25,6 @@ pltest=
 1000.0
 >>> racinecarre(10000000)
 3162.2776601683795
->>> racinecarre(10**100)
-1e+50
 >>> racinecarre(0)
 0.0
 >>>
