@@ -1,6 +1,7 @@
 # Copyright 2016 Dominique Revuz <dr@univ-mlv.fr>
 author=Dominique Revuz 
-title= Function Voyelles
+name= Function Voyelles
+title=None
 template=/python/0PLG/template.pl
 text==
 # Appartient
