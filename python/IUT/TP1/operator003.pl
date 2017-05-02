@@ -8,12 +8,34 @@ tag= operator.or|operator.and  # N'oubliez pas de remplir ce champs svp
 template=/python/0PLG/template
 text==
 
-Les **Blork** sont des monstres qui envaissent l'imaginaire de Kid Paddle.
+# A la recherche des Glork
+
+Soit le code suivant:
+
+	def glork(n):
+		print("X",end="") # pas de passage à la ligne écrit après le X
+		return n>2
+
+	def blik(n):
+		print("W",end="") 
+		return n<1
+
+	n=3
+	if glork(n) or blik(n):
+		n = n-3
+
+	if glork(n) or blik(n):
+		n=n+2
+
+	if glork(n) or blik(n):
+		n=0
 
 
-
+Ecriver un code d'une ligne qui affiche la même suite de X et de W 
 
 ==
+
+expectedoutput=XXWXW
 
 # Choisir pltest ou soluce ou expectedoutput
 
