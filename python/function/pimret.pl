@@ -11,6 +11,7 @@ text==
 # Ecrire une fonction **pims**
 
 Qui prend un parametre entier *n* et une chaine *s* qui retourne des PimS :
+
 	Si la chaine s vaut "+" 
 	Si n < 1 retourne la chaine  "Pas+de+Pim"
 	sinon retourne la chaine "Pim" pour n = 1
@@ -23,11 +24,13 @@ Qui prend un parametre entier *n* et une chaine *s* qui retourne des PimS :
 	etc
 
 Pour cela utiliser la fonction **join** des chaines de caractères voici deux exemples:
+
 	"Kiki".join(["Oh! un "," C'est formidable un "," Quoi encore un "," fin."])
 	"Oh! un Kiki C'est formidable un Kiki Quoi encore un Kiki fin."
 	# les éléments de la liste doivent être des chaines 
 	" ".join(['1','2','3','4','5'])
 	'1 2 3 4 5'
+
 Comme on peut le voir cela permet de coller les chaines de la liste avec la chaine de jointure ici successivement "Kiki" et " ".
 
 
