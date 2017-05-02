@@ -6,6 +6,8 @@ tag=  # N'oubliez pas de remplir ce champs svp
 template=/python/0PLG/template
 text==
 
+# La cartomancienne 
+
 1. Decide le nombre de nuits par semaine durant lesquelles tu aimerais faire l'amour.
 
 2. Multiplie ce chiffre par 50.
@@ -31,7 +33,7 @@ et
 annee=1995 
 apres=True # si votre anniversaire est passé
 
-et calculer et afficher le nombre magique de la cartomentienne avec ces trois valeurs 
+et calculer et afficher le nombre magique de la cartomancienne avec ces trois valeurs 
 
 ==
 
@@ -40,7 +42,7 @@ NAS= # Nombre de fois
 annee= # année de naissance
 apres= # si votre anniversaire est passé 
 
-print(......)
+print(......) # un nombre de 5 chiffres 
 ==
 
 
