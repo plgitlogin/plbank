@@ -16,11 +16,12 @@ Corrigez le code en changeant le type d'une des deux opérandes de façon à ren
 
 
 code==
+print(""))
 # Il faut transformer l'entier (int) en chaine (str) pour que l'opérateur + fonctionne.
 print(" Nombre de jours dans une semaine "+7)
 # Il faut transformer la chaine en float pour que l'opération soit possible  
 PI="3.14159"
-print(" La circonférence d'un cercle de rayon 7 est de ",2*PI*7)
+print(" La circonférence d'un cercle de rayon 7 est de",2*PI*7)
 # TODO
 
 # Fin du code, n'écrivez pas de code après cette ligne s'il vous plait !
@@ -31,4 +32,3 @@ expectedoutput==
  Nombre de jours dans une semaine 7
  La circonférence d'un cercle de rayon 7 est de 43.98226
 ==
-
