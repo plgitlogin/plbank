@@ -6,7 +6,7 @@ tag=if|else|and  # N'oubliez pas de remplir ce champs svp
 template=/python/0PLG/template
 text==
 
-Demander un entier à l'utilisateur avec //input// puis afficher si il c'est un multiple de 2 de 3  et de 7 avec les affichages suivants.
+Demander un entier à l'utilisateur avec **input** puis afficher si il c'est un multiple de 2 de 3  et de 7 avec les affichages suivants.
 <br>
 Pour 2 <br>
 Affiche :<br>
@@ -25,23 +25,23 @@ Faites l'exercice sans utiliser les opérateurs and et or.
 # Choisir pltest ou soluce ou expectedoutput
 
 soluce==
-X=input("Entrez un entier")
-if X % 2 == 0 and X % 3 == 0 and X % 7 ==0 :
-	print("%d est divisible par 2 et par 3 et par 7." % X)
-if X % 2 == 0 and X % 3 != 0 and X % 7 ==0 :
-	print("%d est divisible par 2 et par 7." % X)
-if X % 2 == 0 and X % 3 == 0 and X % 7 !=0 :
-	print("%d est divisible par 2 et par 3." % X)
-if X % 2 != 0 and X % 3 == 0 and X % 7 ==0 :
-	print("%d est divisible par 3 et par 7." % X)
-if X % 2 != 0 and X % 3 == 0 and X % 7 !=0 :
-	print("%d est divisible par 3." % X)
-if X % 2 == 0 and X % 3 != 0 and X % 7 !=0 :
-	print("%d est divisible par 2." % X)
-if X % 2 != 0 and X % 3 != 0 and X % 7 ==0 :
-	print("%d est divisible par 7." % X)
-if X % 2 != 0 and X % 3 != 0 and X % 7 !=0 :
-	print("%d n'est divisble ni par 2 ni par 3 ni par 7." % X)
+n=int(input())
+if n% 42==0:
+    print(n,"est divisible par 2 et par 3 et par 7.")
+elif n % 6 ==0: 
+    print(n,"est divisible par 2 et par 3.")
+elif n % 14 ==0: 
+    print(n,"est divisible par 2 et par 7.")
+elif n % 21 ==0:
+    print(n,"est divisible par 3 et par 7.")
+elif n % 2 ==0:
+    print(n,"est divisible par 2.")
+elif n % 3 ==0:
+    print(n,"est divisible par 3.")
+elif n % 7 ==0:
+    print(n,"est divisible par 7.")
+else:
+    print(n,"n'est divisible ni par 2 ni par 3 ni par 7.")
 ==
 
 input0==
