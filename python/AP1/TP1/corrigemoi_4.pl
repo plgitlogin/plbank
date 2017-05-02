@@ -2,7 +2,7 @@ author=Dominique Revuz
 
 tag=error
 title= Corrige Moi !
-name= Trouvez l'erreur
+name= Combien de mois
 template=/python/0PLG/template.pl
 text==
 
@@ -15,6 +15,8 @@ n=int(input("donnez moi votre age en années :")
 mois=12
 print("Vous avez plus de "+str(mois*n)+" mois.")
 ==
+
+showinput=true
 
 input0=18
 input1=52
