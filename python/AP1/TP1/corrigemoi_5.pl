@@ -4,7 +4,7 @@ clog=error|quoting|print
 
 
 title= Corrige Moi !
-name= Trouvez l'erreur
+name= Trouvez l'erreur 5
 template=/python/0PLG/template.pl
 text==
 
@@ -19,9 +19,8 @@ code==
 print('Bonjour je m'appel Jules et je suis heureux de vous acceuillir ici !')
 ==
 
-expectedoutput==
-Bonjour je m'appel Jules et je suis heureux de vous acceuillir ici !
-==
+expectedoutput=Bonjour je m'appel Jules et je suis heureux de vous acceuillir ici !
+
 
 compilehelp==
 Dans cet exemple nous cherchons a écrire un texte pour cela nous avons placé le texte entre des caractères ' apostrophe.
