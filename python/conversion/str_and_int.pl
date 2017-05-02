@@ -12,7 +12,7 @@ Devinez les affichages pour l'entrée 1234 .
 ==
 
 code==
-# ne modifier pas le code suivant 
+# ne modifiez pas le code suivant 
 r = input()
 print(r + r)
 n = int(r)
@@ -22,7 +22,7 @@ print(n + n)
 
 
 inputgenerator==
-print("1234")
+print(1234)
 ==
 
 
