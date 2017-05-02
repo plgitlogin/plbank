@@ -2,7 +2,7 @@ author=Dominique Revuz
 
 tag=error
 title= Corrige Moi !
-name= Trouvez l'erreur
+name= x ?
 template=/python/0PLG/template.pl
 text==
 
