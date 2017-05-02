@@ -14,17 +14,11 @@ Et qui si il est **strictement positif** affiche
 
 
 
-input0==
-0
-==
+input0=0
 
-input1==
-1
-==
+input1=1
 
-input2==
--1
-==
+input2=-1
 
 
 soluce==
