@@ -1,4 +1,5 @@
 
+# -*- coding: utf-8 -*-
 
 from feedback import Feedback
 import subprocess
@@ -8,6 +9,26 @@ def getOutput(inputstr=None):
     # FIXME
     pass
 
+def removespaces(s):
+	s= "".join(s.split(" "))
+	s= "".join(s.split("\n"))
+	s= "".join(s.split("\t"))
+	return s
+
+def compare(s1,s2):
+	"""
+	returns 0 if equals
+	1 if withoutspaces equals
+	2 if s1 in s2 or s2 in s1
+	"""
+	if s1 == s2 :
+		return 0
+	elif removespaces(s1) == removespaces(s2):
+		return 1
+	elif s1 in s2 or s2 in s1:
+		return 2
+	else:
+		 return 10
 
 
 class Grader:
@@ -53,6 +74,9 @@ class Grader:
             return False
         expected = self.pld["expectedoutput"]
         stdinput = self.pld["input0"] if "input0" in self.pld else None
+        if stdinput and type(stdinput) != type("") :
+                self.fb.addFeedback("WARNING illegal type in input value")
+                stdintput= str(stdinput)
         self.compareExpectedOutput(expected,stdinput)
         return True
 
@@ -63,11 +87,23 @@ class Grader:
         return True if sucessfull
         """
         r,t = self.getStudentOutput(stdinput)
-        if r and t == expected :
+        c=compare(t,expected)
+        if r and  c < 3 :
+            if self.fb.showinput and stdinput :
+                self.fb.addOutput("input:\n"+stdinput)
             self.fb.addOutput(expected)
             self.fb.success = True
-        else:
-            self.fb.addExpectedOptained(t, expected)
+        elif r :
+            if "nohint" in self.pld: # don't tel the answer
+                self.fb.addOutput(expected)
+            else:
+                self.fb.addExpectedOptained(t, expected)
+                self.fb.addFeedback("\nDifférence ="+str(c))
+            self.fb.success = False
+        else: # erreur d'execution r = False
+            self.fb.addCompilationError(t)
+            if "compilehelp" in self.pld:
+                self.fb.addFeedback(self.pld['compilehelp'])
             self.fb.success = False
         return self.fb.success
 
@@ -185,7 +221,8 @@ class Grader:
         try:
             with open("pltest.py","w") as pltf :
                 with open("student.py","r") as f:
-                    print("\"\"\"\n"+self.pld["pltest"]+">>> \n\"\"\"",file=pltf)
+                    print("",end="\n",file=pltf)
+                    print('\"\"\"\n'+self.pld["pltest"]+'>>> \n\"\"\"',file=pltf)
                     print(f.read(),file=pltf)
         except Exception as e:
            return False
