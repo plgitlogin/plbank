@@ -15,9 +15,8 @@ a=Pomme
 print("je mange une ",a)
 ==
 
-expectedoutput==
-je mange une Pomme
-==
+expectedoutput=je mange une Pomme
+
 
 compilehelp==
 C'est une erreur classique quand un identifiant est mal orthographié.
