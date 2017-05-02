@@ -2,7 +2,7 @@ author=Dominique Revuz
 
 tag=error|print
 title= Corrige Moi !
-name= Trouvez l'erreur
+name= Plus ?
 template=/python/0PLG/template.pl
 text==
 
@@ -14,9 +14,7 @@ code==
 print("la somme de 15975 et 43242 est "+ 15975+43242)
 ==
 
-expectedoutput==
-la somme de 15975 et 43242 est  59217
-==
+expectedoutput=la somme de 15975 et 43242 est  59217
 
 compilehelp==
 Oui python ne sais pas additionner des textes et des nombres.
