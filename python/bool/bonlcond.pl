@@ -5,7 +5,7 @@ title=   # N'oubliez pas de remplir ce champs svp
 tag= input|boolean|if # N'oubliez pas de remplir ce champs svp
 template=/python/0PLG/template.pl
 text==
-## Easy Jet 
+# Easy Jet 
 Ecrire un programme qui demande à l’utilisateur le poids de son bagage en kilos.
 Si son bagage pèse plus de 20 kilos, le programme affichera le message :
 
@@ -15,14 +15,14 @@ Si son bagage pèse plus de 20 kilos, le programme affichera le message :
 
 # Choisir pltest ou soluce ou expectedoutput
 
-expectedoutput==
-"Il y a un supplément de 30 euros pour un bagage de plus de 20 kilos."
-==
+expectedoutput=Il y a un supplément de 30 euros pour un bagage de plus de 20 kilos.
 
-input==
-25
-==
 
-testcode==
-print("Il y a un supplément de 30 euros pour un bagage de plus de 20 kilos.")
+input0=25
+input1=12
+
+soluce==
+poid=int(input())
+if poid>20:
+	print("Il y a un supplément de 30 euros pour un bagage de plus de 20 kilos.")
 ==
