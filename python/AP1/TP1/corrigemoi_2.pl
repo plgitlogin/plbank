@@ -2,7 +2,7 @@ author=Dominique Revuz
 
 tag=error
 title= Corrige Moi !
-name= Trouvez l'erreur
+name= Mówisz po polsku ?
 template=/python/0PLG/template.pl
 text==
 
@@ -22,6 +22,6 @@ Je connais 2 langages de programmation
 ==
 
 compilehelp==
-**print** est une fonction il faut lui fournir ces paramêtres entre paranthèses.
+**print** est une fonction en python3 il faut lui fournir ces paramêtres entre paranthèses.
 ==
 
