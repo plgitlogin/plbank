@@ -1,5 +1,6 @@
 # Copyright 2016 Dominique Revuz <dr@univ-mlv.fr>
-author=Dominique Revuz 
+author=Dominique Revuz
+ok=False 
 title=subsets.pl
 name=Sous ensembles
 tag=function|set|sorted # N'oubliez pas de remplir ce champs svp
@@ -38,9 +39,7 @@ une version "OneLiner"<br/>
 subsets = lambda x: [[y for j, y in enumerate(set(x)) if (i >> j) & 1] for i in range(2**len(set(x)))]
 ==
 
-testcode==
-subsets = lambda x: [set([y for j, y in enumerate(set(x)) if (i >> j) & 1]) for i in range(2**len(set(x)))]
-==
+
 
 
 # des problèmes avec le test suivant
