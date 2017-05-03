@@ -1,9 +1,11 @@
 # Copyright 2016 Dominique Revuz <dr@univ-mlv.fr>
 author=Dominique Revuz 
 title=subsets.pl
+name=Sous ensembles
 tag=function|set|sorted # N'oubliez pas de remplir ce champs svp
 template=/python/0PLG/template
 piste=rouge
+
 text==
 
 # Sous ensembles 
@@ -29,6 +31,7 @@ pltest==
 [set(), {1}, {2}, {1, 2}, {3}, {1, 3}, {2, 3}, {1, 2, 3}, {4}, {1, 4}, {2, 4}, {1, 2, 4}, {3, 4}, {1, 3, 4}, {2, 3, 4}, {1, 2, 3, 4}]
 
 ==
+
 
 feedback==
 une version "OneLiner"<br/>
