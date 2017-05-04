@@ -31,5 +31,5 @@ print(randint(10,78)+1939)
 
 soluce==
 a=int(input())
-print("Le capitaine auras %d ans en 2018." % (2018-a))
+print("Le capitaine né en %d auras %d ans en 2018." % (a,2018-a))
 ==
