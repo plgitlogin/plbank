@@ -6,7 +6,10 @@
 #  Copyright 2016 Dominique Revuz <dr@univ-mlv.fr>
 #  
 #  Ce module fournis une fonction getpldic() qui lit le fichier pl.json du répertoire
-# et retourne un dictionnaire de l'exercice 
+# et retourne un dictionnaire de l'exercice
+# une fonction getstudic et une fonction getsoldic qui respectivement
+# retourne le dictoinnaire student.json et soluce.json
+# programmés avec des singleton pour eviter de relire le fichier 
 
 
 import json
