@@ -1,6 +1,7 @@
 # Copyright 2016 Dominique Revuz <dr@univ-mlv.fr>
 author=Dominique Revuz 
 title=L'éponge Caré
+name=L'éponge Carée
 tag=function # N'oubliez pas de remplir ce champs svp
 template=/python/0PLG/template.pl
 text==
