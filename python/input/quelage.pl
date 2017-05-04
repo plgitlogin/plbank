@@ -7,13 +7,13 @@ name=Capitaine
 text==
 Demandez au Capitaine son année de naissance puis calculez et affichez son age au 31 décembre 2018 à Minuit.
 
-  Le capitaine auras XXX ans en 2018.
+  Le capitaine auras __ ans en 2018.
 == 
 
 code==
 # 
 annee=int(input())
-# Le capitaine auras XXX ans.
+# Le capitaine auras __ ans.
 
 ==
 
