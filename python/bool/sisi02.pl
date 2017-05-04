@@ -8,26 +8,25 @@ text==
 ## IF ELIF ELSE
 Ecrire un programme qui demande à l’utilisateur un entier grace au texte:
 	Saisissez un entier?
+
 Si l'entier est **positif** affiche 
 	Positif.
+
 Sinon si l'entier est **négatif** affiche
 	Négatif.
-sinon affiche
+
+Sinon affiche
 	Nul.
 ==
 
 
 
-input0==
-12
-==
 
-input1==
-0
-==
-input2==
--12
-==
+input0=0
+
+input1=1
+
+input2=-1
 
 
 soluce==
