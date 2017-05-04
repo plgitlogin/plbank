@@ -67,11 +67,12 @@ def test_feedback2():
 <style>
     h3 {color: red;}
     div.feedback  {color: pink;}
-    div.feedback  {background-color: bleu;}
+    div.feedback  {background-color: blue;}
     
 </style>
 <div class="feedback">
     <h3> Erreur de Compilation</h3>beurk ca compile pas 
+
 
 </div>
 <!-- feedback -->
@@ -216,8 +217,8 @@ def testPltestPasOk():
     g = plgrader.Grader()
     g.fb.buildTemplate(testtemplate)
     x = json.loads(g.grade())
+    print(x["feedback"])
     assert x["success"]==False
     assert x["feedback"] == """
 echec
-# Echec de tests<br/>Trying:<br/>    f()<br/>Expecting:<br/>    4<br/>**********************************************************************<br/>File "/Users/dr/DJANGO/plbank/pysrc/src/pltest.py", line 2, in pltest<br/>Failed example:<br/>    f()<br/>Expected:<br/>    4<br/>Got:<br/>    3<br/>1 items had no tests:<br/>    pltest.f<br/>**********************************************************************<br/>1 items had failures:<br/>   1 of   1 in pltest<br/>1 tests in 2 items.<br/>0 passed and 1 failed.<br/>***Test Failed*** 1 failures.<br/>"""
-    
+# Echec de tests<br/>Trying:<br/>    f()<br/>Expecting:<br/>    4<br/>**********************************************************************<br/>File "/Users/dr/DJANGO/plbank/pltest.py", line 3, in pltest<br/>Failed example:<br/>    f()<br/>Expected:<br/>    4<br/>Got:<br/>    3<br/>1 items had no tests:<br/>    pltest.f<br/>**********************************************************************<br/>1 items had failures:<br/>   1 of   1 in pltest<br/>1 tests in 2 items.<br/>0 passed and 1 failed.<br/>***Test Failed*** 1 failures.<br/>"""
