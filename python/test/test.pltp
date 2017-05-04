@@ -13,7 +13,9 @@ un mail à votre administrateur pour lui signaler le problème
 </p>
 
 Le premier fichier de test est testok qui vérifie les choses suivantes:
-
+- que le grader.py est executé 
+- que les fichiers indiqués dans le template sont correctement installés dans le repertoire d'execution de l'exercice se sont les fichiers utils.py plutils.py pldoctest.py
+- que le fichier student.py existe.
 
 
 ==
