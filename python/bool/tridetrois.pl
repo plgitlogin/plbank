@@ -35,25 +35,43 @@ print("\n".join(sort([a,b,c])))
 
 
 
-input0=1 2 3
+input0==
+1
+2
+3
+==
+
 output0==
 1
 2
 3
 ==
-input1= 2 3 1
+input1==
+2
+3
+1
+==
+
 output1==
 1
 2
 3
 ==
-input2= 3 1 7
+input2==
+3
+1
+7
+==
 output2==
 1
 3
 7
 ==
-input3= 6 8 4
+input3==
+6
+8
+4
+==
 output3==
 4
 6
