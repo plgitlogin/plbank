@@ -3,6 +3,8 @@
 # Major enhancements and refactoring by:
 #     Jim Fulton
 #     Edward Loper
+# Minor enhancements and refactoring by:
+#     dominique revuz 
 
 # Provided as-is; use at your own risk; no warranty; no promises; enjoy!
 
