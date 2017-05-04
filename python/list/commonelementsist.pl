@@ -6,6 +6,8 @@ tag= listinput|conversion
 template=/python/0PLG/template.pl
 text==
 
+# Eléments communs dans deux listes
+
 Dans cet exercice nous allons fabriquer un ***type utilisateur*** qui utilise des listes pour représenter des ensembles.
 
 Pour cella nous allons créer plusieurs opérations:
