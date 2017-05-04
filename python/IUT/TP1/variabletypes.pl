@@ -1,24 +1,26 @@
 # Copyright 2017 Dominique Revuz <dr@univ-mlv.fr>
 author=Dominique Revuz
-name=variablettypes.pl
-title= Variables et Types
-status=notfinished
-tag= int|str|type|
-template=/python/0PLG/template.pl
+name=Variable et Constantes
+tag=ref
+template=direct.pl
 text==
 
+# Références 
 
-# Constantes et types
-
-
-# Variables et Types
+Saisissez la valeur de la variable r une fois les instructions suivantes exécutées :
 
 
-
-
+    a=-1
+    b=0
+    a,b=b,a
+    b,a=a,b
+    b=b-a
+    b=a-b
+    a=a*b
+    r=a+b
 
 
 ==
-code==
-# code initiale de l'editeur
-==
+expectedoutput=0
+
+# Not using 0PLG grader
