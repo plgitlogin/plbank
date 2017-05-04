@@ -34,7 +34,6 @@ concept==NONE
 @ python/IUT/TP1/printbonjour.pl
 @ python/IUT/TP1/printinput.pl
 @ python/IUT/TP1/variabletypes.pl
-@ python/IUT/template.pl
 @ python/TP1/nuitsdamour.pl
 @ python/TP1/valeurs.pl
 @ python/bool/bonlcond.pl
@@ -44,7 +43,6 @@ concept==NONE
 @ python/bool/sisi04.pl
 @ python/bool/tridetrois.pl
 @ python/conversion/str_and_int.pl
-@ python/dynamic/direct.pl
 @ python/dynamic/dyna1.pl
 @ python/dynamic/dyna2.pl
 @ python/dynamic/dyna3.pl
