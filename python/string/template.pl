@@ -1,3 +1,0 @@
-author=chilowi
-bench=python
-
