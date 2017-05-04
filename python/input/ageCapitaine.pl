@@ -11,7 +11,7 @@ Ecriver un programme utilisant une unique variable **age** qui lit cette informa
 
 	Le capitaine a __ ans. Dans deux ans il auras ___ ans.
 
-puis Sachant que dans cinq ans, le perroquet aura le tiers de l’âge du capitaine (arrondi à l'année inférieur) quel est l'age actuel du perroquet, le programme affiche:
+puis sachant que dans cinq ans, le perroquet aura le tiers de l’âge du capitaine (arrondi à l'année inférieur) quel est l'age actuel du perroquet, le programme affiche:
 
 	Le perroquet du capitaine a __ ans.
 
@@ -19,7 +19,7 @@ puis Sachant que dans cinq ans, le perroquet aura le tiers de l’âge du capita
 == 
 
 code==
-# 
+# lecture au clavier et transformation en entier puis affectation
 age=int(input())
 # Le capitaine a __ ans. Dans deux ans il auras __ ans.
 # Le perroquet du capitaine à __ ans.
