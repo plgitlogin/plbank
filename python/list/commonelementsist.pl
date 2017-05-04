@@ -1,6 +1,6 @@
 # Copyright 2016 Dominique Revuz <dr@univ-mlv.fr>
 author=Dominique Revuz 
-name=commonelementlist.pl
+name=Elements Communs
 title=  Les listes utilisées comme des ensembles.
 tag= listinput|conversion
 template=/python/0PLG/template.pl
@@ -34,6 +34,8 @@ Pour vérifier que vos fonctions fonctionnent vous allez les utiliser avec le co
 
 ==
 
+
+
 code==
 # ajoutez vos trois définitions de fonctions ici
 
@@ -60,6 +62,8 @@ t=set(input().split())
 print(sorted(s & t))
 ==
 
+showinput=true
+numberofgenerator=1
 inputgenerator==
 from random import randint
 print(" ".join([ str(randint(7,77)) for j in range(randint(7,77))]))
