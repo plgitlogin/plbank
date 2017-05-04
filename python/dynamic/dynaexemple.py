@@ -44,11 +44,14 @@ x= templ.render(resultname=name,instructions=instructions,resultat=result)
 tampl = jinja2.Template("""
 author=Dominique Revuz
 tag=ref
+name=Dynamic generated
 template=direct.pl
 text==
 {{ text }}
 ==
 expectedoutput={{ result }}
+
+# Not using 0PLG grader
 """)
 
 print(tampl.render(text=x,result=result))
