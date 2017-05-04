@@ -6,8 +6,8 @@ tag=output
 template=/C/template
 
 text==
-# Premières instuctions 
-Ecrire une suite d'instruction qui affiche *Hello
+# Premières instuctions
+Ecrire une **suite d'instruction** qui affiche *Hello
 World!* sur la sortie standard ainsi qu'un retourne à la ligne '\n'.
 
 ## remarques
@@ -21,7 +21,8 @@ code==
 /* votre code ici... */
 ==
 
-instruction=defined
+mode=instructions
+
 
 expectedoutput==
 Hello World!
