@@ -7,16 +7,6 @@
 #  
 
 
-"""
-.. module:: feedback
-   :platform: Unix, Windows
-   :synopsis:Contruit le Html de Feedback pour un exercice PL.
-
-.. moduleauthor:: Dominique Revuz <dr@univ-mlv.fr>
-
-"""
-
-
 
 from jinja2 import Template
 
@@ -44,16 +34,17 @@ class Feedback:
 <style>
     {%- if feedback.success %}
     h3 {color: powderblue;}
-    div.feedback  {background-color:Chartreuse ;}
+    div.feedback  {background-color: white;}
     {%- else %}
     h3 {color: red;}
     div.feedback  {color: pink;}
-    div.feedback  {background-color: bleu;}
+    div.feedback  {background-color: blue;}
     {% endif %}
 </style>
 <div class="feedback">
 {%- if  feedback.compile %}
     <h3> Erreur de Compilation</h3>{{- feedback.compilationError }}
+{{ feedback.feedbacktext }}
 {%- else %}
 {% if feedback.asio %}
 <h3> Executions </h3>
