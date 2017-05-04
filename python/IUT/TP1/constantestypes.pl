@@ -1,6 +1,6 @@
 # Copyright 2017 Dominique Revuz <dr@univ-mlv.fr>
 author=Dominique Revuz
-name=constantestypes.pl
+name=Variables et Types
 title= Variables et Types
 tag= int|str|type|litteral|variable
 
