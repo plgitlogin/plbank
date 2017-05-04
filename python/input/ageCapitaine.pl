@@ -39,5 +39,5 @@ print(randint(10,40)+10)
 soluce==
 a=int(input())
 print("Le capitaine à %d ans. Dans deux ans il auras %d ans." % (a,a+2))
-print("Le perroquet du capitaine a %d " % (((a+5)//3)-5))
+print("Le perroquet du capitaine a %d ans." % (((a+5)//3)-5))
 ==
