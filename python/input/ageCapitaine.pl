@@ -9,11 +9,11 @@ template=/python/0PLG/template.pl
 text==
 Ecriver un programme utilisant une unique variable **age** qui lit cette information au clavier puis affiche :
 
-	Le capitaine à __ ans. Dans deux ans il auras ___ ans.
+	Le capitaine a __ ans. Dans deux ans il auras ___ ans.
 
 puis Sachant que dans cinq ans, le perroquet aura le tiers de l’âge du capitaine (arrondi à l'année inférieur) quel est l'age actuel du perroquet, le programme affiche:
 
-	Le perroquet du capitaine à __ ans.
+	Le perroquet du capitaine a __ ans.
 
 
 == 
@@ -21,7 +21,7 @@ puis Sachant que dans cinq ans, le perroquet aura le tiers de l’âge du capita
 code==
 # 
 age=int(input())
-# Le capitaine à __ ans. Dans deux ans il auras __ ans.
+# Le capitaine a __ ans. Dans deux ans il auras __ ans.
 # Le perroquet du capitaine à __ ans.
 ==
 
