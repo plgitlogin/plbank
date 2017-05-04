@@ -81,11 +81,11 @@ La création d'une variable se fait au moment de l'association initiale.
 	NameError: name 'a' is not defined
 	>>> 
 
-Exercice : définisez une variable **entier** entière c'est à dire de type <class int>.
+Exercice : définisez une variable **entier** entière c'est à dire de type &gt;class int>.
 
-Une variable **bob** réelle de type <class float>.
+Une variable **bob** réelle de type &gt;class float>.
 
-Une variable **nom** contenant une chaine de caractère c-à-d  de type <class str>.
+Une variable **nom** contenant une chaine de caractère c-à-d  de type &gt;class str>.
 
 
 
