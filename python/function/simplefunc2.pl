@@ -8,7 +8,7 @@ text==
 Ecrire une fonction **F** à un parametre entier qui vérifie la définition suivante :
 
 	si n < 2 alors F=1
-	sinon alors F=2+F(n-1)
+	sinon alors F=F(n-2)+F(n-1)
 
 
 
