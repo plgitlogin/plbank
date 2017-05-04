@@ -7,13 +7,13 @@ tag=input|print|variable
 template=/python/0PLG/template.pl
 
 text==
-Ecriver un programme utilisant une unique variable **age** qui affiche
+Ecriver un programme utilisant une unique variable **age** qui lit cette information au clavier puis affiche :
 
-	Le capitaine à X ans. Dans deux ans il auras XX ans.
+	Le capitaine à __ ans. Dans deux ans il auras ___ ans.
 
-puis Sachant que dans cinq ans, le perroquet aura le tiers de l’âge du capitaine (arrondi à l'année inférieur) 
+puis Sachant que dans cinq ans, le perroquet aura le tiers de l’âge du capitaine (arrondi à l'année inférieur) quel est l'age actuel du perroquet, le programme affiche:
 
-	Le perroquet du capitaine à XXX ans.
+	Le perroquet du capitaine à __ ans.
 
 
 == 
@@ -21,8 +21,8 @@ puis Sachant que dans cinq ans, le perroquet aura le tiers de l’âge du capita
 code==
 # 
 age=int(input())
-# Le capitaine à X ans. Dans deux ans il auras XX ans.
-# Le perroquet du capitaine à XXX ans.
+# Le capitaine à __ ans. Dans deux ans il auras __ ans.
+# Le perroquet du capitaine à __ ans.
 ==
 
 feedback==
@@ -39,5 +39,5 @@ print(randint(10,40)+10)
 soluce==
 a=int(input())
 print("Le capitaine à %d ans. Dans deux ans il auras %d ans." % (a,a+2))
-print("Le perroquet du capitaine a %d " % ((a+5)/3))
+print("Le perroquet du capitaine a %d " % (((a+5)//3)-5))
 ==
