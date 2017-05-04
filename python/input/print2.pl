@@ -36,7 +36,7 @@ expectedoutput==
 ==
 
 feedback==
-Très bien a chaque fois que vous souhaitez avoir une information pendant l'execution de votre programme il suffit de faire un **print** de
+Très bien, a chaque fois que vous souhaitez avoir une information pendant l'execution de votre programme il suffit de faire un **print** de
 cette information.<br>
-Remarque en python 2 les paranthèses ne sont pas nécessaire, mais garder l'habitude de les utiliser.
+Remarque: en python 2 les paranthèses ne sont pas nécessaire, mais garder l'habitude de les utiliser.
 ==
