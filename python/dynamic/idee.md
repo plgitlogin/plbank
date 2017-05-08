@@ -5,6 +5,9 @@ Idee de générateur de questions
 Une liste d'opérateurs authorisés pour ce niveau d'exercices - * + / // % **  >> << & | ^ is in and or  
 https://fr.wikibooks.org/wiki/Programmation_Python/Op%C3%A9rateurs
 Une liste de concepts : if , else , elif , and,  or, function{constantes,print,return} 
+expresion ternaire  a = b if c else d
+for ... else
+
 Les accesseurs :
 {} et []
 affectation multiples
