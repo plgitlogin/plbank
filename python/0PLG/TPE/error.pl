@@ -53,7 +53,7 @@ input0=1
 # Vérifier bien votre soluce 
 soluce==
 
-x=int(input("Nombre d'équipe de Foot a embarquer sur le bateau :"))
+x=int(input("Nombre d'équipes de Football à embarquer sur le bateau :"))
 tailleequipe=11
 print("En ne comptant que les joueurs il faut ",tailleequipe*x, " places.")
 
