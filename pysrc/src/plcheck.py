@@ -71,6 +71,13 @@ def checkplfile(repo_dir,filename,sandboxurl="http://pl-sandbox-test.u-pem.fr/?a
 	with open("/tmp/result.html","w")as rf:
 		print(result["grade"]['feedback'],file=rf)
 	print("le feedback est dans file:///tmp/result.html ")
+	print("Saving tags")
+	for key in q.dico.keys():
+		print(key)
+	tagl=q.dico["tag"].split("|")
+	for tag in tagl:
+		plrequest.plcreatetag(tag,description="Initialisation par plcheck\n Dominique Revuz\n")
+	print("Tags saved")
 	return True
 
 def getrepodir():

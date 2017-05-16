@@ -39,12 +39,31 @@ def pllogdata(user,zipsha1,pljsonsha1,studentfile=None,mode="try",url = defaultp
         r=None
     return r
 
+def plcreatetag(tag,description="construit automatiquement"):
+    if studentfile == None:
+        mode= "start"
+    createurl="http://pl.univ-mlv.fr/concept/create/"
+    existurl="http://pl.univ-mlv.fr/concept/exist/"+tag+"/"
+    try:
+        r=requests.get(existurl)
+        if r.ok : # le tag exist sortie 
+            return
+        csrftoken = requests.get(createurl).cookies['csrftoken']
+        header = {'X-CSRFToken': csrftoken}
+        cookies = {'csrftoken': csrftoken}
+        r=requests.post(createurl,headers=header, cookies=cookies,data={"name":tag,"lname":tag,"description":description})
+    except Exception as e:
+        print(" Berk can't access pl.univ-mlv.fr",e) # don't dye for this
+        r=None
+    return r
+
 class SanboxSession:
     def __init__(self,question,url,studentfile):
         self.question = question
         self.url = url
         self.studentfile = studentfile
         self.call(studentfile)
+
 
     def createEnvZipRun(self):
         from shutil import rmtree
