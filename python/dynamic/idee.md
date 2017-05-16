@@ -8,6 +8,46 @@ Une liste de concepts : if , else , elif , and,  or, function{constantes,print,r
 expresion ternaire  a = b if c else d
 for ... else
 
+x:=1,2
+constante:= randint(-x,x) # difficulté x=2,3,5
+boolexp := True # diff < 2
+	False   # diff < 2
+	varN opcomp varM # var N et M initialisées
+	constante opcompt varN # varN initialisé
+	varN optcompt constante # varN initialisé
+	not boolexp
+	boolexp and/or boolexp 
+	varN is varM
+	varN isnot varM
+	varN < varM < varP
+	varN > varM > varP
+
+
+opcompt:= < > <= <= == != 
+
+initialisation:= varN = initialiseur
+
+    constante
+	    varN = varI op varJ   # avec I et J <N
+	    varN = varI op constante # I < N
+	    bvarN = boolexp
+	    varN= 
+
+instruction:=
+	    if boolexp :
+		instruction
+	    if boolexp :
+		instruction
+	    else:
+		instruction
+
+
+erreurs:=
+    erreur de non initialiation # NameError
+    erreur de syntax # SyntaxError
+    erreur d'indice # IndexError: list index out of range / tuple index out of range
+    erreur de clef # KeyError: 'laclef'
+    
 Les accesseurs :
 {} et []
 affectation multiples
