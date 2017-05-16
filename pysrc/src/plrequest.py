@@ -14,11 +14,11 @@ __doc__ = """
 
 
 import requests
-import question
+from .question import Question
 import zipfile
 import pathlib
 
-import cd
+from .cd import cd
 import subprocess
 import hashlib
 
@@ -37,7 +37,7 @@ def pllogdata(user,sha1,studentfile=None,mode="try",url = "http://127.0.0.1:9090
         r=None
     return r
 
-class SanboxSession:
+class SandboxSession:
     def __init__(self,question,url,studentfile):
         self.question = question
         self.url = url

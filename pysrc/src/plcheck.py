@@ -3,8 +3,8 @@
 import subprocess
 import sys
 import pathlib
-import question
-import plrequest
+from .question import Question
+from .plrequest import SandboxSession
 import json
 
 debug=True
