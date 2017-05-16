@@ -22,7 +22,9 @@ import cd
 import subprocess
 import hashlib
 
-def pllogdata(user,sha1,studentfile=None,mode="try",url = "http://127.0.0.1:9090"):
+defaultpldataurl="http://127.0.0.1:9090"
+
+def pllogdata(user,zipsha1,pljsonsha1,studentfile=None,mode="try",url = defaultpldataurl):
     if studentfile == None:
         mode= "start"
     geturl=url+"/add/tt"
@@ -31,7 +33,7 @@ def pllogdata(user,sha1,studentfile=None,mode="try",url = "http://127.0.0.1:9090
         csrftoken = requests.get(geturl).cookies['csrftoken']
         header = {'X-CSRFToken': csrftoken}
         cookies = {'csrftoken': csrftoken}
-        r=requests.post(posturl,headers=header, cookies=cookies,data={"user":user,"code":studentfile,"mode":mode,"sha1":sha1})
+        r=requests.post(posturl,headers=header, cookies=cookies,data={"user":user,"code":studentfile,"mode":mode,"zipsha1":zipsha1,"pljsonsha1":pljsonsha1})
     except Exception as e:
         print(" Berk can't access pldata",e) # don't dye for this
         r=None
@@ -65,12 +67,18 @@ class SanboxSession:
         mn=hashlib.sha1()
         zipvalue=open(self.zipname, 'rb').read()
         mn.update(zipvalue[:])
-        self.hashvalue = mn.hexdigest()
+        self.ziphashvalue = mn.hexdigest()
+        a=self.question.getcleanjson()
+        a=a.encode()
+        pllogdata(-1,self.ziphashvalue,hashlib.sha1(a).hexdigest(),self.studentfile)
         self.files = {'environment': zipvalue,
             'student.py':studentfile,
             "grader.py":self.question.dico['grader'],
-            'hashvalue':self.hashvalue}
-        pllogdata(-1,self.hashvalue,studentfile)
-        self.answer = requests.post(self.url,data=self.question.dico,files=self.files,timeout=1000)
+            'hashvalue':self.ziphashvalue,
+            'pl.json':self.question.json}
+        try:
+            self.answer = requests.post(self.url,data=self.question.dico,files=self.files,timeout=1000)
+        except Exception as e:
+            print(" Problem avec post sur",self.url)
         return self.answer
 

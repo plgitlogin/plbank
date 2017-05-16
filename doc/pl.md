@@ -187,11 +187,11 @@ Pl activité affiche deux boutons <suivant> et <réessayer> dans le cas  grader.
 La structure json entière  + un identifiant d'exercice + identifiant d'élève + time.stamp doit être sauvegardé dans moodle.
 
 	{
-		"success": "True or False", 
-		"errormessages" : "a afficher dans plactivity avec la couleur erreur",
-		"execution": "a afficher dans plactivity avec la couleur execution",
-		"feedback": "a afficher dans plactivity avec la couleur feedback",
-		"other": "autres choses a voir plus tard"
+		"success": True or False, 
+		"errormessages" : "utilisation future",
+		"execution":  "utilisation future",
+		"feedback": "Texte formaté fournis à l'étudiant",
+		"other":  "utilisation future"
 	}
 
 
@@ -298,7 +298,7 @@ La version 2.0 est plus étandue et serai faite dans un deuxième temps.
 	- __Obligatoire:__ NON 
 	- __Valeur par défaut:__ None 
 
-* `input`
+* `inputNN`
 	
 	- __version:__ 1.0	
 	- __Description:__ ligne d'entré dans le cas ou vous en vouler une entrée aleatoire utilisez le inputgenerator

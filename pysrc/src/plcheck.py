@@ -6,52 +6,76 @@ import pathlib
 import question
 import plrequest
 import json
+import pltp
 
 debug=True
 verbose=False
 
-def checkpltpfile(repo_dir,exopath,sandboxurl="http://127.0.0.1:8000/sandbox/?action=execute"):
+defaultsandbox="http://pl-sandbox-test.u-pem.fr/?action=execute"
+localsandbox="http://127.0.0.1:8000/sandbox/?action=execute"
+
+
+def main(repo_dir,exopath,sandboxurl=localsandbox):
 	pe = pathlib.Path(exopath)
 	s = str(pe.resolve())
-	if verbose:
-		print("Test de "+s+"\nsur : "+sandboxurl)
-	q=question.Question(s[len(str(repo_dir)):],root=repo_dir)
-	dico = q.dico
-	for key in ["introduction","concept","name"]:
-		if not key in dico:
-			raise question.ErrorPL("PLTP sans balise "+key)
-	if verbose: print(dico['concept'])
+	filename=s[len(str(repo_dir)):]
+	if verbose :
+		pass
+	if s.endswith(".pl"):
+		return checkplfile(repo_dir,filename,sandboxurl=sandboxurl)
+	elif s.endswith(".pltp"):
+		return checkpltpfile(repo_dir,filename,sandboxurl=sandboxurl)
+
+
+def checkpltpfile(repo_dir,exopath,sandboxurl=defaultsandbox):
+	print("Test de "+repo_dir+exopath+"\nsur : "+sandboxurl)
+	tp = pltp.Pltp.create(exopath,repo_dir)
+	ok=True
+	for plfilename in tp.listpl:
+		print("checking pl file :", repo_dir +plfilename)
+		ok=ok and checkplfile(repo_dir,plfilename,sandboxurl=sandboxurl)
+		if not ok:
+			raise Exception( "Un exercice pose problème pltp non validé")
+	return ok
+	#pe = pathlib.Path(exopath)
+	#s = str(pe.resolve())
+	#if verbose:
+		#print("Test de "+s+"\nsur : "+sandboxurl)
+	#q=question.Question(s[len(str(repo_dir)):],root=repo_dir)
+	#dico = q.dico
+	#for key in ["introduction","concept","name"]:
+		#if not key in dico:
+			#raise question.ErrorPL("PLTP sans balise "+key)
+	#if verbose: print(dico['concept'])
 
 	### FIX ME tester si les fichier sont connus de git et a jour
 
-def main(repo_dir,exopath,sandboxurl="http://127.0.0.1:8000/sandbox/?action=execute"):
-	if exopath.endswith(".pl"):
-		return checkplfile(repo_dir,exopath,sandboxurl=sandboxurl)
-	elif exopath.endswith(".pltp"):
-		return checkpltpfile(repo_dir,exopath,sandboxurl=sandboxurl)
 
-def checkplfile(repo_dir,exopath,sandboxurl="http://pl-sandbox-test.u-pem.fr/?action=execute",studentfile="print(3000)"):
-	pe = pathlib.Path(exopath)
-	s = str(pe.resolve())
-	if verbose : print("Test de "+s+"\nsur : "+sandboxurl)
-	q=question.Question(s[len(str(repo_dir)):],root=repo_dir)
+def checkplfile(repo_dir,filename,sandboxurl="http://pl-sandbox-test.u-pem.fr/?action=execute",studentfile="print(3000)"):
+
+	q=question.Question(filename,root=repo_dir)
 	if verbose : print("Question chargée") 
 	if "testcode" in q.dico:
 		studentfile=q.dico["testcode"]
 	elif "soluce" in q.dico :
 		studentfile=q.dico["soluce"]
 	s= plrequest.SanboxSession(q,sandboxurl,studentfile)# question,url,studentfile
+	print(s.answer)
 	result = json.loads(s.answer.text)
-	assert result["platform_error"] == []
-	#print(result)
+	if result["platform_error"] != []:
+		print("Erreur de platforme ")
+		print(result["platform_error"])
+		return False
+
 	if verbose: print("La correction pour "+studentfile+" est "+result["grade"]['feedback'])
 	with open("/tmp/result.html","w")as rf:
 		print(result["grade"]['feedback'],file=rf)
 	print("le feedback est dans file:///tmp/result.html ")
-	return s.answer.text
+	return True
 
 def getrepodir():
-	return subprocess.Popen(['git', 'rev-parse', '--show-toplevel'], stdout=subprocess.PIPE).communicate()[0].rstrip().decode("utf-8")
+	return subprocess.Popen(['git', 'rev-parse', '--show-toplevel'],
+	stdout=subprocess.PIPE).communicate()[0].rstrip().decode("utf-8")
 
 def docommit(name):
 	subprocess.run(['git', 'commit','-m','"plcheck commit"', name])
@@ -73,8 +97,8 @@ if __name__ == '__main__':
 		sys.argv.pop(0)
 	while sys.argv :
 		try:
-			main(repo_dir,sys.argv[0])
-			docommit(sys.argv[0])
+			if main(repo_dir,sys.argv[0]):
+				docommit(sys.argv[0])
 		except question.ErrorPL as e:
 			print("Fichier ",sys.argv[0]," incorrect ",str(e))
 		except Exception as e:
