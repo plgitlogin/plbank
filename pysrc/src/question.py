@@ -30,13 +30,20 @@ import time
 from pathlib import Path
 
 def openandsplit(filename):
+    """
+    FIXME is the file closed 
+    """
     try:
-        return open(filename,"r").read().split("\n")
+        with open(filename,"r") as f:
+            return f.read().split("\n")
     except IOError as e:
         print(e)
         import sys
         sys.exit(1)
 
+
+concept='^concept==(?P<value>.*)$'
+recon=re.compile(concept)
 name='^(?P<name>\w*)\s*'
 operator='(?P<op>=|==|=@)\s*'
 value='(?P<value>[^\s=@#]*)'
@@ -50,6 +57,13 @@ def parseOneLine(line,d):
         return (False,None)
     if debug:
         print("{{"+line+"}}")
+    zz=recon.search(line)
+    if zz != None:
+        if "concept" in d:
+            d["concept"].append(zz.group("value"))
+        else:
+            d["concept"] = [zz.group("value")]
+        return (True,"concept-"+zz.group("value"))
     xx = li.search(line)
     if xx == None:
         if debug:
@@ -149,7 +163,16 @@ class Question:
         self.filename = filename
         self.qname = "/tmp/"+os.path.basename(filename)+str(time.time())
 
-
+    def getcleanjson(self):
+        """
+        fournir un pl.json sans les fichiers d'environement 
+        """
+        dico=self.dico.copy() # shalow copie as we remove second level data in the copied
+        for key in ["basefiles","grader","soluce"]:
+            if key in dico:
+                del dico[key]
+        return str(json.dumps(dico))
+        
     def _createdir(self, pathdir):
         # create a rep in /tmp/ with every thing except the student file 
         pathdir.mkdir(parents=True)
