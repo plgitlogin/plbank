@@ -6,7 +6,7 @@ import pathlib
 from .question import Question
 from .plrequest import SandboxSession
 import json
-import pltp
+from .pltp import Pltp
 
 debug=True
 verbose=False
@@ -14,6 +14,7 @@ verbose=False
 defaultsandbox="http://pl-sandbox-test.u-pem.fr/?action=execute"
 localsandbox="http://127.0.0.1:8000/sandbox/?action=execute"
 
+commandline= False
 
 def main(repo_dir,exopath,sandboxurl=localsandbox):
 	pe = pathlib.Path(exopath)
@@ -85,11 +86,12 @@ def getrepodir():
 	stdout=subprocess.PIPE).communicate()[0].rstrip().decode("utf-8")
 
 def docommit(name):
-	subprocess.run(['git', 'commit','-m','"plcheck commit"', name])
+	if commandline:
+		subprocess.run(['git', 'commit','-m','"plcheck commit"', name])
 
 
 if __name__ == '__main__':
-
+	commandlne=True
 	repo_dir = getrepodir()
 	if repo_dir == "" :
 		sys.exit(-1)
