@@ -1,4 +1,4 @@
-#!/usr/bin/env python
+#!/usr/bin/env python3
 # -*- coding: utf-8 -*-
 #
 #  Question.py
@@ -37,9 +37,7 @@ def openandsplit(filename):
         with open(filename,"r") as f:
             return f.read().split("\n")
     except IOError as e:
-        print(e)
-        import sys
-        sys.exit(1)
+        raise ErrorPL("Can't open file "+ filename+"\n"+str(e))
 
 
 concept='^concept==(?P<value>.*)$'
