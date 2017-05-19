@@ -1,0 +1,6 @@
+jenesuispasunidentifiant
+JeNeSuisPasUnIdentifiant
+a
+a1
+abc
+__truc__

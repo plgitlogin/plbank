@@ -1,0 +1,29 @@
+
+Exercice pour le TP1
+
+un exercice qui explique l'usage de print
+un exercice qui explique l'usage de variables (nom stockage)
+un exercice qui explique l'usage de input
+un exercice qui explique l'usage des opérations (python est un calculateur)
+
+Un exercice lundi augmentation de 10% mardi diminution de 10% de vos salaires, alors Heureux ?
+
+Un exercice mercredi diminution de 10% mardi  diminution de 10% de vos salaires, alors Heureux ?
+
+
+Un exercice de TVA 
+
+Maman c'est quoi la TVA ?
+Taxe sur la valeur ajouté  mon chéri.
+Comment je la calcul ?
+ça dépend tu à le prix avant la taxe ou avec la taxe ?
+Hein ?
+Bon si tu a payé un jouet dans un magasin tu a payé la taxe.
+Par exemple tu à payé 12,30 euro dedans il y avais le prix du jouet + la taxe qui est calculée sur total.
+Donc 19,6% du prix c'est la taxe donc tu multiplie 12,30 par 0,196 et tu à la TVA.
+et par (1-0,196) pour le jouet.
+
+Si tu a le prix du jouet avant la taxe il suffit que tu multiplie ce prix par 100% (un) + 19,6% (la taxe), soit 1,196 pour avoir le prix total.
+
+
+

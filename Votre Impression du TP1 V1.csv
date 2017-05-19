@@ -1,0 +1,143 @@
+Response number;Trouvez vous les messages d'erreur;Trouvez vous les exercices ;Souhaitez vous d'autres exercices de ce type dans les semaines a venir ?;Indiquez les exercices qui vous on plus;Indiquez les exercices qui vous ne vous ont pas plus (à récrire a votre avis)
+0;clairs;"Trop Faciles
+Trop répétitifs";non;;"Erreur de compilation
+Erreur de compilation"
+1;pas d'avis;Trop inégaux;pourquoi pas;"Affichage
+Vérification des identificateurs
+Boites d'oeufs (Operateurs)
+Calcul d'intérêt";"Vérification des identificateurs
+Erreur de compilation
+Erreur de compilation
+Erreurs de Types"
+2;pas d'avis;Trop inégaux;oui, car instructifs;"Affichage
+Entrée Sorties
+Vérification des identificateurs
+Boites d'oeufs (Operateurs)
+Calcul d'intérêt";Erreurs de Types
+3;correct;Trop inégaux;oui;"Affichage
+Entrée Sorties
+Vérification des identificateurs
+Boites d'oeufs (Operateurs)
+Calcul d'intérêt
+Erreur de compilation
+Erreur de compilation";Erreurs de Types
+4;correct;Trop Faciles;oui oui;"Erreur de compilation
+Erreur de compilation";Erreurs de Types
+5;clairs;Trop Faciles;Je préfère les TP classiques;"Vérification des identificateurs
+Calcul d'intérêt";
+6;pas d'avis;Trop inégaux;Pourquoi pas ?;;
+7;pas d'avis;Trop Faciles;oui;Affichage;"Boites d'oeufs (Operateurs)
+Calcul d'intérêt
+Erreur de compilation
+Erreur de compilation
+Erreurs de Types"
+8;correct;Trop répétitifs;pas spécialement;"Erreur de compilation
+Erreur de compilation";
+9;correct;Trop Faciles;oui pour nous entrainer;"Boites d'oeufs (Operateurs)
+Calcul d'intérêt";Affichage
+10;correct;Trop Faciles;oui;Affichage;Erreurs de Types
+11;correct;Trop répétitifs;oui;"Affichage
+Erreur de compilation
+Erreur de compilation";Calcul d'intérêt
+12;correct;Trop inégaux;oui;"Boites d'oeufs (Operateurs)
+Calcul d'intérêt
+Erreur de compilation
+Erreur de compilation";"Affichage
+Entrée Sorties
+Vérification des identificateurs
+Erreurs de Types"
+13;pas d'avis;Trop inégaux;oui;"Affichage
+Entrée Sorties
+Vérification des identificateurs
+Boites d'oeufs (Operateurs)
+Calcul d'intérêt
+Erreur de compilation
+Erreur de compilation
+Erreurs de Types";
+14;insuffisants;"Trop Faciles
+Trop Difficiles";oui;"Affichage
+Entrée Sorties
+Vérification des identificateurs
+Boites d'oeufs (Operateurs)
+Calcul d'intérêt
+Erreur de compilation
+Erreur de compilation
+Erreurs de Types";
+15;clairs;Trop répétitifs;oui;"Erreur de compilation
+Erreurs de Types";Vérification des identificateurs
+16;insuffisants;"Trop inégaux
+Trop répétitifs";non;"Affichage
+Entrée Sorties
+Vérification des identificateurs
+Boites d'oeufs (Operateurs)
+Calcul d'intérêt";"Erreur de compilation
+Erreur de compilation
+Erreurs de Types"
+17;insuffisants;"Trop Faciles
+Trop Difficiles";oui;"Affichage
+Entrée Sorties
+Vérification des identificateurs
+Boites d'oeufs (Operateurs)
+Calcul d'intérêt
+Erreur de compilation
+Erreur de compilation
+Erreurs de Types";
+18;correct;Trop inégaux;oui;"Affichage
+Entrée Sorties
+Vérification des identificateurs
+Boites d'oeufs (Operateurs)
+Calcul d'intérêt
+Erreur de compilation
+Erreur de compilation
+Erreurs de Types";
+19;insuffisants;Trop Faciles;NON;Erreurs de Types;"Affichage
+Entrée Sorties"
+20;insuffisants;Trop Faciles;moyenement;Calcul d'intérêt;"Affichage
+Entrée Sorties
+Vérification des identificateurs
+Erreur de compilation
+Erreur de compilation
+Erreurs de Types"
+21;correct;Trop Faciles;oui;Affichage;Erreurs de Types
+22;insuffisants;Trop inégaux;non;"Vérification des identificateurs
+Boites d'oeufs (Operateurs)";"Erreur de compilation
+Erreur de compilation"
+23;pas d'avis;"Trop Difficiles
+Trop inégaux";"oui , si ce n&#039;est pas toujours noté";"Affichage
+Erreur de compilation
+Erreur de compilation
+Erreurs de Types";"Boites d'oeufs (Operateurs)
+Calcul d'intérêt"
+24;insuffisants;Trop Difficiles;Sa depend;Affichage;Boites d'oeufs (Operateurs)
+25;clairs;Trop Faciles;oui;Vérification des identificateurs;Erreur de compilation
+26;inutilisables;Trop inégaux;"avec des remarques cohérentes et moins d&#039;erreurs";Erreur de compilation;Erreurs de Types
+27;correct;Trop inégaux;"oui pourquoi pas tant qu&#039;on n&#039;a le temps de faire nos exercice tp";"Affichage
+Entrée Sorties
+Boites d'oeufs (Operateurs)
+Calcul d'intérêt
+Erreur de compilation";"Calcul d'intérêt
+Erreurs de Types"
+28;clairs;Trop Faciles;oui;"Affichage
+Calcul d'intérêt
+Erreur de compilation";Vérification des identificateurs
+29;insuffisants;Trop Faciles;"oui avec moins d&#039;erreurs sur les serveurs";"Affichage
+Entrée Sorties
+Vérification des identificateurs
+Boites d'oeufs (Operateurs)
+Calcul d'intérêt";"Erreur de compilation
+Erreur de compilation
+Erreurs de Types"
+30;clairs;Trop Faciles;Pourquoi pas.;"Boites d'oeufs (Operateurs)
+Calcul d'intérêt";"Erreur de compilation
+Erreur de compilation
+Erreurs de Types"
+31;correct;Trop Faciles;"Eventuellement, si c&#039;est un peu plus marrant et la vérification des réponses est retravaillée";"Entrée Sorties
+Erreur de compilation
+Erreurs de Types";"Affichage
+Vérification des identificateurs
+Boites d'oeufs (Operateurs)
+Calcul d'intérêt
+Erreur de compilation"
+32;pas d'avis;Trop Faciles;oui;"Entrée Sorties
+Boites d'oeufs (Operateurs)
+Calcul d'intérêt";Vérification des identificateurs

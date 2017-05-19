@@ -73,9 +73,6 @@ class SandboxSession:
         self.zipname = str(p.resolve() /  "env.zip")
         with cd.cd(str(p)) :
             subprocess.run(['zip','-qjr','env.zip','.'])
-            
-
-
 
     def checkgrader(self):
         self.question.checkgrader()

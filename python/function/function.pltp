@@ -1,0 +1,60 @@
+author=Dominique Revuz
+# Introduction au fonctions
+
+
+tag=function
+
+
+introduction==
+
+# Les fonctions
+
+l'outil le plus utile pour simplifier votre code.
+Les fonctions pemerettent de définir une séquence d'instruction réutilisable.
+Pour définir une fonction en python on utilise le mot clef **def** avec le patron suivant:
+
+
+	def mafonction(un_parametre):
+		# ici les instruction
+		# pour commencer une fonction qui ne fait rien
+		pass
+	# ici ce n'est plus la fonction
+
+Donc le mot clef **def** le nom puis des parantèses puis le caractère : deux point.
+
+Si la fonction n'a pas de paramêtres :
+
+	def sansparametre():
+		pass # elle fait pas grand chose
+
+Si la fonction à plusieurs paramêtres :
+	def fifi(para1,para2,para3): # des identifiants différents pour les paramêtres
+		print(para1," ",para2," ",para3) # utilisation des trois paramêtres.
+
+
+Les fonctions sont utiles pour regrouper des actions à faire ou réaliser des calculs intermédaires.
+
+	def carre(n):
+		return n*n
+
+	def monome(a,x,n):
+		return a*(x**n)
+
+	def seconddegree(a,b,c,x):
+		return monome(a,x,2)+monome(b,x,1)+c
+
+Ainsi si je souhaite calculer la valeur de la fonction mathématique:$$x^2+3x-5$$ pour x=2.5 il suffit d'appeler la fonction seconddegree(1,3,5,2.5):
+
+	>>> print(seconddegree(1,3,5,2.5))
+	18.75
+
+
+==
+
+
+content==
+@ python/function/simplefunc1.pl
+@ python/function/simplefunc2.pl
+@ python/function/function003.pl
+
+==

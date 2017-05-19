@@ -2,8 +2,15 @@
 author=Dominique Revuz 
 name= Jumeaux
 title= Premier Jumeaux  # N'oubliez pas de remplir ce champs svp
+
 tag=def|parameters|return # N'oubliez pas de remplir ce champs svp
+
 template=/python/0PLG/template.pl
+
+direct=False
+
+qcm=False
+
 text==
 ## Nombres Premiers Jumeaux
 

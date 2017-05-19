@@ -1,0 +1,23 @@
+
+rm ./.-- 2>/dev/null
+
+if wget -q http://127.0.0.1:8000/sandbox/ -O ./.--
+then
+cd .
+else
+echo "lancer le serveur sand box sur 127.0.0.1:8000"
+exit -1
+fi
+
+if wget -q http://127.0.0.1:9090/add/xx -O ./.--
+then
+cd .
+else
+echo "lancer le serveur pldata sur 127.0.0.1:9090"
+exit -1
+fi
+
+rm ./.-- 2>/dev/null
+ 
+plcheck $*
+

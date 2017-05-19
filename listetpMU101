@@ -1,0 +1,22 @@
+structure d'un programme python, variables, types, opérations, instructions et blocs, if (sans else ni elif)
+
+exercice avec doc:
+print  print_multi_string  
+input+print 
+variable
+print_format
+calculs taille du soleil en terres ou en jupiters
+1.616199 × 10^−35 metres Longueur de Planck // 1,3x10^28 ditance du plus loingtain quasar 
+
+
+
+
+if / else / elif, tests / debug (doucement, avec des simples print par exemple)
+les modules, listes, boucle for
+doctest, str, fonctions
+fonctions 2, boucle while
+structures plus avancées: set, tuple, dict, éventuellement d'autres
+I / O fichiers, paramètres avec valeurs par défaut
+slices, itérables en compréhension
+lambdas, map / filter
+?

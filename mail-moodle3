@@ -1,0 +1,33 @@
+Bonjour,
+voici les informations d'accès à un moodle de remplacement pour la mise en oeuvre du Projet PL.
+
+https://upem-moodle-3.cantor.fr/
+
+Vous serez confronté à un premier code d'accès :
+
+login   étudiant
+password 5tudianT!
+
+puis vous aurez accès au moodle vous devez créer un nouveau compte.
+Vous devez absolument utilisez votre adresse u-pem.fr seules adresses authorisées.
+
+
+En suite vous pouvez vous inscrire au cours L1 (auto incription activée).
+
+En suite vous avez une PLactivité que vous pouvez tester.
+
+je suis preneur de vos remarques: en particulier si vous êtes vous avez réussit à avoir un feedback de mauvaise réponse et un feedback de bonne réponse sur les exercices.
+
+
+Si vous voulez participer au code vous avec un projet github qui contient le code :
+
+http://github.com/plgitlogin/plbank.git
+
+que vous pouvez cloner avec
+
+git clone http://github.com/plgitlogin/plbank.git
+
+vous pouvez faire des mise à jours (git push) qui font des pull request,  je ferais de mon mieux pour les intégrer rapidement (je recois un mail automatiquement).
+
+Merci
+Dominique

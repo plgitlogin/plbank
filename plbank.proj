@@ -1,0 +1,74 @@
+[editor]
+line_wrapping=true
+line_break_column=72
+auto_continue_multiline=true
+
+[file_prefs]
+final_new_line=true
+ensure_convert_new_lines=true
+strip_trailing_spaces=false
+replace_tabs=false
+
+[indentation]
+indent_width=4
+indent_type=0
+indent_hard_tab_width=8
+detect_indent=true
+detect_indent_width=false
+indent_mode=2
+
+[project]
+name=plbank
+base_path=/Users/dr/DJANGO/plbank
+description=
+file_patterns=
+
+[long line marker]
+long_line_behaviour=1
+long_line_column=72
+
+[files]
+current_page=0
+FILE_NAME_0=2929;Python;0;EUTF-8;0;1;1;%2FUsers%2Fdr%2FDJANGO%2Fplbank%2Fpython%2Fdynamic%2Fcodegen.py;0;4
+
+[VTE]
+last_dir=/Users/dr
+
+[build-menu]
+PythonFT_00_LB=Commit and push
+PythonFT_00_CM=git commit -m "work" %f; git push
+PythonFT_00_WD=
+PythonFT_01_LB=Git add new file
+PythonFT_01_CM=git add %f
+PythonFT_01_WD=
+PythonFT_02_LB=
+PythonFT_02_CM=
+PythonFT_02_WD=
+filetypes=Python;None;Markdown;
+NoneFT_00_LB=git add %f
+NoneFT_00_CM=git add %f
+NoneFT_00_WD=
+NoneFT_01_LB=git commit %f ; git push %f
+NoneFT_01_CM=git commit %f -m "work"; git push 
+NoneFT_01_WD=
+NoneFT_02_LB=
+NoneFT_02_CM=
+NoneFT_02_WD=
+EX_00_LB=Test
+EX_00_CM=python3 %f
+EX_00_WD=
+EX_01_LB=python 
+EX_01_CM=python3 check.py /pysrc/src/debug1.pl 
+EX_01_WD=
+NF_01_LB=Make Custom _Target...
+NF_01_CM=git commit %f -m "%p"; git push 
+NF_01_WD=
+NF_00_LB=Doctest
+NF_00_CM=python3 -m doctest "%f"
+NF_00_WD=
+MarkdownFT_00_LB=pdf
+MarkdownFT_00_CM=/usr/local/bin/pandoc --template template.tex -s %e.md -o %e.pdf; open %e.pdf
+MarkdownFT_00_WD=
+NF_02_LB=Commit -m "Work"
+NF_02_CM=git commit -m "work"  %f
+NF_02_WD=
