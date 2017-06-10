@@ -1,4 +1,4 @@
-#Ne doit pas fonctionner: Déclaration d'une valeur multiline dans une autre
+#Ne doit pas fonctionner: Multiline non fermé
 
 author=Coumes Quentin
 title=Test2
