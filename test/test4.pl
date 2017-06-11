@@ -1,10 +1,11 @@
-#Ne doit pas fonctionner: Déclaration d'une valeur multiline dans une autre
+#Ne doit pas fonctionner: Multiline sans valeur
 
 author=Coumes Quentin
 title=Test2
 tag=test 
 
-inside==
+no_value==
+==
 
 text==
 
@@ -30,4 +31,3 @@ An [example link](http://example.com/ "Optional Title") in a sentence.
 grader==
 print('{"execution": "*italic* **bold** ***bold italic***", "other": "", "errormessages": "", "success": true, "feedback": "ceci n\'est pas un exercice doit \\u00eatre utilis\\u00e9 uniquement comme \\u00e9lement de test\\n*italic* **bold** ***bold italic***"}')
 ==
-
