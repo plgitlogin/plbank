@@ -49,7 +49,7 @@ tag=print|input|variables|identifieurs
 
 
 concept==debug
-@ /test/test3.pl
+@ /test/test5.pl
 ==
 
 
