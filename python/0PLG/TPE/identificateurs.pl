@@ -2,7 +2,7 @@
 author=Dominique Revuz 
 name= Vérification des identificateurs 
 title= Vérification des identificateurs 
-tag= 
+tag=truc
 give=identifier
 # 0PLG
 
