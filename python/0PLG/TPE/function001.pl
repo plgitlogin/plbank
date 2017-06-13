@@ -28,7 +28,7 @@ True
 ==
 
 # le code suivant permet de tester l'exercice (le grader est il correct)
-soluce==
+testcode==
 def bob():
 	return 1238
 ==

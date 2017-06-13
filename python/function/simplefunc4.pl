@@ -77,7 +77,7 @@ Z 1
 >>> 
 ==
 
-soluce==
+testcode==
 def toupper(c):
 	if 'a'<= c <= 'z':
 		return chr(ord(c)-(97-65))

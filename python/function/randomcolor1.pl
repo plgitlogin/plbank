@@ -44,7 +44,7 @@ False
 False
 ==
 
-soluce==
+testcode==
 import random
 def randomcolor(cl):
 	if len(cl)>0:

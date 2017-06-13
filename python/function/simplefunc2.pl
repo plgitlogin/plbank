@@ -27,7 +27,7 @@ pltest==
 >>>
 ==
 
-soluce==
+testcode==
 def F(n):
 	if n < 2:
 		return 1
