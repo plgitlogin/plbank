@@ -54,7 +54,7 @@ pltest==
 ==
 
 
-testcode==
+soluce==
 # p r i n t pour tester taboo et ca marche 
 def pims(n,s):
 	if n <1:

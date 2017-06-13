@@ -52,7 +52,7 @@ pltest==
     Erreur base hors de l'interval [2,36]
 ==
 
-testcode==
+soluce==
 def digit(value):
     if 0<= value <= 9 : 
         return chr(ord('0')+value)

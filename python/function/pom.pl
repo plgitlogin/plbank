@@ -31,7 +31,7 @@ Pas de Pom
 ==
 
 
-testcode==
+soluce==
 def pom(n):
 	if n>0:
 		print("Pom "*(n-1)+"Pom")

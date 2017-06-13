@@ -38,7 +38,7 @@ pltest==
 ==
 
 
-testcode==
+soluce==
 # p r i n t pour tester taboo et ca marche 
 def pim(n):
 	if n>0:

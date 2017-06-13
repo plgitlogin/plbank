@@ -43,7 +43,7 @@ pltest==
 ==
 
 
-testcode==
+soluce==
 def createlist(n):
 	return  [x + 1 for x in range(n)]
 	# return "["+"".join(range(1,n+1))+"]"

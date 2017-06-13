@@ -44,7 +44,7 @@ soluce==
 l=[x.capitalize() for x in input().split()]
 print(l.pop(0).lower(),*l,sep="")
 ==
-testcode==
+soluce==
 l=[x.capitalize() for x in input().split()]
 print(l.pop(0).lower(),*l,sep="")
 ==

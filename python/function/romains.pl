@@ -60,7 +60,7 @@ pltest==
 ==
 
 
-testcode==
+soluce==
 def ximal(v,DIX,CINQ,UN):
 	if v == 1: return UN
 	if v == 5: return CINQ
