@@ -23,7 +23,7 @@ def push(pile,valeur):
 def pop(pile):
 	pass
 
-==	
+==
 grader==
 import sys
 import json 

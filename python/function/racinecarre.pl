@@ -19,7 +19,7 @@ code==
 ==
 
 
-pltest=
+testcode==
 >>> racinecarre(4)
 2.0
 >>> racinecarre(1234)

@@ -2,7 +2,8 @@
 # Copyright 2016 Dominique Revuz <dr@univ-mlv.fr>
 author=Dominique Revuz 
 title=tuple1.pl
-template=tuple_template.pl
+template=/python/tuples/tuple_template.pl
+#On voudrait pouvoir écrire template=tuple_template.pl
 text==
 Rappel: un Tuple est une liste non mutable 
 ==

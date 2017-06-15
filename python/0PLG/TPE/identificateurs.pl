@@ -124,7 +124,14 @@ print(json.dumps(dico_reponse))
 
 ==
 
-
+soluce==
+jenesuispasunidentifiant
+JeNeSuisPasUnIdentifiant
+a1
+a
+abc
+__truc__
+==
 
 
 

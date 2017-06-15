@@ -1,6 +1,6 @@
 # Copyright 2017 Dominique Revuz <dr@univ-mlv.fr>
 author=Dominique Revuz 
-name=sisi002.pl
+name=sisi004.pl
 title= Si  Sinon  
 tag= input|else|if|elif|bool|and|or|paranthesis
 template=/python/0PLG/template.pl

@@ -30,3 +30,5 @@ print('{"execution": "*italic* **bold** ***bold italic***", "other": "", "errorm
 
 
 # n'utilise pas 0PLG
+
+soluce=""
