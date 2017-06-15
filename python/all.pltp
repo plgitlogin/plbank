@@ -49,7 +49,6 @@ concept==NONE
 @ /python/dynamic/dyna8.pl
 @ /python/dynamic/dyna9.pl
 @ /python/exemple/variadic.pl
-@ /python/function/Sundaram.pl
 @ /python/function/autosubsets.pl
 @ /python/function/carre.pl
 @ /python/function/carrecube.pl
@@ -67,27 +66,4 @@ concept==NONE
 @ /python/function/romcode.pl
 @ /python/function/simplefunc1.pl
 @ /python/function/simplefunc2.pl
-@ /python/function/simplefunc3.pl
-@ /python/function/simplefunc4.pl
-@ /python/function/subsets.pl
-@ /python/function/writebase.pl
-@ /python/input/ageCapitaine.pl
-@ /python/input/egalegal.pl
-@ /python/input/plusmoins.pl
-@ /python/input/print1.pl
-@ /python/input/print2.pl
-@ /python/input/quelage.pl
-@ /python/list/commonelementsist.pl
-@ /python/list/lireuneliste.pl
-@ /python/list/lireunelisteint.pl
-@ /python/list/soussuite.pl
-@ /python/search/jumeaux.pl
-@ /python/stack/stackbasic.pl
-@ /python/stack/undopile.pl
-@ /python/string/Kolakoski.pl
-@ /python/string/sort.pl
-@ /python/template.pl
-@ /python/test/template.pl
-@ /python/tuples/tuple1.pl
-@ /python/tuples/tuple_template.pl
 ==
