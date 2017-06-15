@@ -49,6 +49,7 @@ concept==NONE
 @ /python/dynamic/dyna8.pl
 @ /python/dynamic/dyna9.pl
 @ /python/exemple/variadic.pl
+@ /python/function/Sundaram.pl
 @ /python/function/autosubsets.pl
 @ /python/function/carre.pl
 @ /python/function/carrecube.pl
