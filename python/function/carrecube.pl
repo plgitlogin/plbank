@@ -38,7 +38,7 @@ pltest==
 ==
 
 
-soluce==
+testcode==
 def carre(n):
 	return n*n
 def cube(n):

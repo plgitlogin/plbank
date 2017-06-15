@@ -138,7 +138,7 @@ print(json.dumps(d))
 
 ==
 
-soluce==
+testcode==
 entier=123
 bob=5.5
 nom="jkh"

@@ -42,7 +42,7 @@ pltest==
 "111221"
 ==
 
-soluce==
+testcode==
 def conway(s):
 	k=0
 	res=""

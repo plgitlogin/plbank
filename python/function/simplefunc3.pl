@@ -79,7 +79,7 @@ r 2
 >>>  
 ==
 
-soluce==
+testcode==
 def histo(s):
 	d={}
 	for l in s:

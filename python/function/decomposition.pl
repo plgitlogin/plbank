@@ -51,7 +51,7 @@ pltest==
 ==
 
 
-soluce==
+testcode==
 def estpremier(p):
 	for i in range(2,p//2):
 		if p % i == 0:
