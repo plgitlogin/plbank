@@ -76,43 +76,22 @@ R 2
 Z 1
 >>> 
 ==
-
 testcode==
 def toupper(c):
-	if 'a'<= c <= 'z':
-		return chr(ord(c)-(97-65))
-	else:
-		return c
-
+	return c.upper()
 
 def histo(s):
-	d={}
+	d=dict()
 	for l in s:
-		if l in d:
-			continue
-		d[l]=0
-		for v in s:
-			if l==v:
-				d[l]+=1
+		d[l] = s.count(l)
 	for k in sorted(d.keys()):
 		print(k,d[k])
 
 def histo2(s):
-	d={}
+	d=dict()
+	s = s.upper()
 	for l in s:
-		l = toupper(l)
-		if l in d:
-			continue
-		d[l]=0
-		for v in s:
-			v = toupper(v)
-			if l==v:
-				d[l]+=1
+		d[l] = s.count(l)
 	for k in sorted(d.keys()):
 		print(k,d[k])
-
-
-
 ==
-
-
