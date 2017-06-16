@@ -45,7 +45,7 @@ Pour tester une fonction **Kiki** que vous avez ecrite dans un fichier **exo14.p
 
 ==
 
-concept==function
+concept==function 
 @ /python/function/pom.pl
 @ /python/function/pim.pl
 @ /python/function/carre.pl
@@ -55,4 +55,5 @@ concept==function
 @ /python/function/simplefunc2.pl
 @ /python/function/funcvoyelle.pl
 @ /python/function/racinecarre.pl
+@ otherbank:Sundaram2.pl
 ==
