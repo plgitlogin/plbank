@@ -32,7 +32,7 @@ pl==
                         {{ feedback.grade.feedback|safe }}
                     </div>
                 {% else %}
-                    <div class="alert alert-error">
+                    <div class="alert alert-danger">
                         {{ feedback.grade.feedback|safe }}
                     </div>
                 {% endif %}
