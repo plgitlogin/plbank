@@ -24,8 +24,8 @@ Tester votre code sur les valeurs suivantes:
 
 ==
 
-code==
-==
+code=""
+
 
 inputgenerator==
 from random import randint

@@ -1,8 +1,8 @@
 # Copyright 2017 Dominique Revuz <dr@univ-mlv.fr>
 author=Dominique Revuz 
 name=writebase.pl
-title=   # N'oubliez pas de remplir ce champs svp
-tag=  # N'oubliez pas de remplir ce champs svp
+title=Write In Base  # N'oubliez pas de remplir ce champs svp
+tag=tag  # N'oubliez pas de remplir ce champs svp
 template=/python/0PLG/template.pl
 text==
 

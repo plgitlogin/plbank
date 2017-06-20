@@ -22,10 +22,10 @@ Remarques pour les esthètes: Arrobe Croisillon et Perluète ont d'autre noms va
 ==
 
 code==
-print '!%@& ",
+print '!%& ",
 ==
 
-expectedoutput='!%@& ",
+expectedoutput='!%& ",
 
 
 compilehelp==

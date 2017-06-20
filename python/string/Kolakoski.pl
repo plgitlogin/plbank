@@ -2,7 +2,7 @@
 author=Dominique Revuz 
 name=Kolakoski.pl
 title=  kolakoski:codageparplages
-tag=  # N'oubliez pas de remplir ce champs svp
+tag=tag # N'oubliez pas de remplir ce champs svp
 template=/python/0PLG/template.pl
 text==
 

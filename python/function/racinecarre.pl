@@ -19,7 +19,7 @@ code==
 ==
 
 
-pltest=
+pltest==
 >>> racinecarre(4)
 2.0
 >>> racinecarre(1234)
@@ -30,5 +30,4 @@ pltest=
 3162.2776601683795
 >>> racinecarre(0)
 0.0
->>>
 ==

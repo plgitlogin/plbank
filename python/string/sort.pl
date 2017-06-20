@@ -1,8 +1,9 @@
 # not working
-template=@template.pl
+
 title=Tri récursif
 author=chilowi
 taboo=["sort","sorted"]
+template=/python/0PLG/template.pl
 text==
 Écrivez une fonction nommée //tidy// qui trie une liste d'éléments par n'importe quel moyen.
 

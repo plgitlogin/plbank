@@ -1,7 +1,7 @@
 # Copyright 2016 Dominique Revuz <dr@univ-mlv.fr>
 author=Dominique Revuz 
 name= Entrée Sorties
-title=   # N'oubliez pas de remplir ce champs svp
+title=bjr  # N'oubliez pas de remplir ce champs svp
 tag=input|print
 template=/python/0PLG/template
 text==

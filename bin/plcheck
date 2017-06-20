@@ -1,7 +1,0 @@
-
-rootdir=$(git rev-parse --show-toplevel)
-python $rootdir/pysrc/src/plcheck.py $*
-
-
-
-

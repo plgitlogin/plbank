@@ -80,15 +80,31 @@ r 2
 ==
 
 testcode==
+
+def toupper(s):
+	return s.upper()
+
+
+def compte(s, c):
+	return s.count(c)
+
+def compta(chaine, code):
+	return chaine.count(chr(code))
+
 def histo(s):
-	d={}
+	d=dict()
 	for l in s:
-		if l in d:
-			continue
-		d[l]=0
-		for v in s:
-			if l==v:
-				d[l]+=1
+		d[l] = s.count(l)
+	for k in sorted(d.keys()):
+		print(k,d[k])
+
+def histo2(s):
+	d=dict()
+	for l in s :
+		if ord(l) in range(97,123):
+			d[l] = s.count(l) + s.count(str(l).upper())
+		elif ord(l) in range(65,91):
+			d[l] = s.count(l) + chr(ord(l) + 32)
 	for k in sorted(d.keys()):
 		print(k,d[k])
 ==

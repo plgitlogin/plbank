@@ -1,7 +1,7 @@
 # Copyright 2017 Dominique Revuz <dr@univ-mlv.fr>
 author=Dominique Revuz 
 name=condbool.pl
-title=   # N'oubliez pas de remplir ce champs svp
+title= Condition booléenne  # N'oubliez pas de remplir ce champs svp
 tag= input|boolean|if # N'oubliez pas de remplir ce champs svp
 template=/python/0PLG/template.pl
 text==
