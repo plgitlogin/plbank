@@ -1,7 +1,7 @@
 
 author=Dominique Revuz
 
-direct=True
+type=direct
 name= Un exo Direct
 
 template=/python/0PLG/template.pl
