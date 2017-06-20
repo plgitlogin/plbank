@@ -23,9 +23,19 @@ pl==
             
             <hr>
             {% if feedback %}
-                <div class="alert alert-info">
-                    {{ feedback }}
-                </div>
+                {% if feedback.grade.success == True and not feedback.plateform_error %}
+                    <div class="alert alert-success">
+                        {{ feedback.grade.feedback|safe }}
+                    </div>
+                {% elif feedback.grade.success == True and feedback.plateform_error %}
+                    <div class="alert alert-info">
+                        {{ feedback.grade.feedback|safe }}
+                    </div>
+                {% else %}
+                    <div class="alert alert-error">
+                        {{ feedback.grade.feedback|safe }}
+                    </div>
+                {% endif %}
             {% endif %}
             <!-- Do not tabulate this div as the tabulation will appear in the editor -->
             <div id="editor" style="border-width: 1px; border-color: #5bc0de; border-radius: 4px;">
