@@ -18,7 +18,9 @@ Quelques remarques avant de commencer sur l'organisation des fichiers.
 
 l'arborescence est découpé en deux parties,
 - une partie documentation ''doc''
-- une partie langage par exemple ''python''
+- une partie langage par exemple ''python'', ''C''
+- une partie Maths ''pywims''
+- une partie code qui permet aux developpeurs d'étendre PL : ''pysrc/src/''
 
 La structure de l'arborescence sous le langage est laisé à l'appréciation de l'équipe enseignante.
 

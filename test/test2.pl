@@ -1,7 +1,10 @@
-# Copyright 2016 Dominique Revuz <dr@univ-mlv.fr>
-author=Dominique Revuz
-title=Toujours Correct
-tag=test # N'oubliez pas de remplir ce champs svp
+#Ne doit pas fonctionner: Déclaration d'une valeur multiline dans une autre
+
+author=Coumes Quentin
+title=Test2
+tag=test 
+
+inside==
 
 text==
 
@@ -24,11 +27,7 @@ An [example link](http://example.com/ "Optional Title") in a sentence.
 *italic*\n**bold**\n***bold italic***\n# section heading\n## sub-section heading\n* first point\n* second point\n* third point
 ==
 
-soluce=""
-
 grader==
 print('{"execution": "*italic* **bold** ***bold italic***", "other": "", "errormessages": "", "success": true, "feedback": "ceci n\'est pas un exercice doit \\u00eatre utilis\\u00e9 uniquement comme \\u00e9lement de test\\n*italic* **bold** ***bold italic***"}')
 ==
 
-
-# n'utilise pas 0PLG

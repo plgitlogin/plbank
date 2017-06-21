@@ -1,8 +1,9 @@
 # Copyright 2017 Dominique Revuz <dr@univ-mlv.fr>
 author=Dominique Revuz
+title=Variabletypes
 name=Variable et Constantes
 tag=ref
-template=direct.pl
+template=python/dynamic/direct.pl
 text==
 
 # Références 

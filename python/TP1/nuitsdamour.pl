@@ -2,7 +2,7 @@
 author=Dominique Revuz 
 name=nuitsdamour.pl
 title= Drole de calcul  # N'oubliez pas de remplir ce champs svp
-tag=  # N'oubliez pas de remplir ce champs svp
+tag=tag # N'oubliez pas de remplir ce champs svp
 template=/python/0PLG/template
 text==
 
@@ -48,4 +48,6 @@ print(......) # un nombre de 5 chiffres
 
 # Choisir pltest ou soluce ou expectedoutput
 
-soluce=@soluce.py
+soluce=@python/TP1/soluce.py
+
+#on voudrait juste soluce=soluce.py

@@ -1,4 +1,5 @@
 # Copyright 2016 Dominique Revuz <dr@univ-mlv.fr>
+title=fonction
 author=Dominique Revuz 
 name= Une fonction bob
 tag=function 

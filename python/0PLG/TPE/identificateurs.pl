@@ -2,7 +2,7 @@
 author=Dominique Revuz 
 name= Vérification des identificateurs 
 title= Vérification des identificateurs 
-tag= 
+tag=identifier
 give=identifier
 # 0PLG
 
@@ -124,7 +124,14 @@ print(json.dumps(dico_reponse))
 
 ==
 
-
+soluce==
+jenesuispasunidentifiant
+JeNeSuisPasUnIdentifiant
+a1
+a
+abc
+__truc__
+==
 
 
 
