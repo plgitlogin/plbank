@@ -1,8 +1,9 @@
-<!--
-Copyright 2016 Nicolas Borie <nicolas.borie@u-pem.fr>
+# Copyright 2016 Nicolas Borie <nicolas.borie@u-pem.fr>
+#
+# Hello world en C
+#
+# Exercice simple pour tester PL avec le langage C.
 
-Hello world en C
--->
 
 author=Nicolas Borie
 name=Premier programme en C
@@ -40,7 +41,7 @@ expectedoutput==
 Hello World!
 ==
 
-<!-- LOAD IMPORTANT FILES FOR GRADING -->
+# LOAD IMPORTANT FILES FOR GRADING
 files=@/C/template/basic.c
 files=@/C/template/graderC.py
 
