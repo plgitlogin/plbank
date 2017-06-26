@@ -82,5 +82,5 @@ files=@/C/template/graderC.py
 
 grader==
 from graderC import grade
-grade( {"simple éxécution": ["", "La file d'attente est vide.\nUne personne arrive et s'insere dans la file d'attente\nUne personne arrive et s'insere dans la file d'attente\nUne personne arrive et s'insere dans la file d'attente\nTrois personnes sont donc dans la file d'attente.\n", True]} , "-Wall -ansi")
+grade( {"simple éxécution": ["", "", "La file d'attente est vide.\nUne personne arrive et s'insere dans la file d'attente\nUne personne arrive et s'insere dans la file d'attente\nUne personne arrive et s'insere dans la file d'attente\nTrois personnes sont donc dans la file d'attente.\n", True]} , "-Wall -ansi")
 ==
