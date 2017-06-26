@@ -39,7 +39,7 @@ void display_2(void){
 }
 
 void display_3(void){
-  printf("Une personne arrive et s'insere dans la file d'attente\n");
+  printf("Une personne arrive et s'insere dans la file d'attente.\n");
 }
 
 int main(int argc, char* argv[]){
@@ -52,15 +52,15 @@ soluce==
 #include <stdio.h>
 
 void display_1(void){
-  printf("Trois personnes sont donc dans la file d'attente. \n");
+  printf("Trois personnes sont donc dans la file d'attente.\n");
 }
 
 void display_2(void){
-  printf("La file d'attente est vide. \n");
+  printf("La file d'attente est vide.\n");
 }
 
 void display_3(void){
-  printf("Une personne arrive et s'insere dans la file d'attente. \n");
+  printf("Une personne arrive et s'insere dans la file d'attente.\n");
 }
 
 int main(int argc, char* argv[]){
@@ -82,5 +82,5 @@ files=@/C/template/graderC.py
 
 grader==
 from graderC import grade_argcmd_stdin_stdout
-grade_argcmd_stdin_stdout( {"simple éxécution": ["", "", "La file d'attente est vide.\nUne personne arrive et s'insere dans la file d'attente\nUne personne arrive et s'insere dans la file d'attente\nUne personne arrive et s'insere dans la file d'attente\nTrois personnes sont donc dans la file d'attente.\n", True]} , "-Wall -ansi")
+grade_argcmd_stdin_stdout( {"simple éxécution": ["", "", "La file d'attente est vide.\nUne personne arrive et s'insere dans la file d'attente.\nUne personne arrive et s'insere dans la file d'attente.\nUne personne arrive et s'insere dans la file d'attente.\nTrois personnes sont donc dans la file d'attente.\n", True]} , "-Wall -ansi")
 ==
