@@ -53,15 +53,14 @@ def compile_gcc(flags=""):
     if "error:" in err_out:
         dico_reponse["errormessages"] = "Voir le feedback donné par le compilateur gcc"
         dico_reponse["execution"] = "Impossible"
-        dico_reponse["feedback"] = "Il y a des erreurs à la compilation de votre programme :\n" + err_out
+        dico_reponse["feedback"] = "Il y a des erreurs à la compilation de votre programme :\n\nFeedback gcc:\n" + err_out
         return False
-
     # If there is some warnings
     if "warning:" in err_out:
-        dico_reponse["feedback"] = "Vous pouvez augmenter la qualité de votre programme en lisant les recommandations du compilateur:\n" + err_out
+        dico_reponse["feedback"] = "Vous pouvez augmenter la qualité de votre programme en lisant les recommandations du compilateur:\n\nFeedback gcc:\n" + err_out
         dico_reponse["compilation"] = "warning"
     elif "warning:" in std_out:
-        dico_reponse["feedback"] = "Vous pouvez augmenter la qualité de votre programme en lisant les recommandations du compilateur:\n" + std_out
+        dico_reponse["feedback"] = "Vous pouvez augmenter la qualité de votre programme en lisant les recommandations du compilateur:\n\nFeedback gcc:\n" + std_out
         dico_reponse["compilation"] = "warning"
 
     # No error, no warning
@@ -80,7 +79,7 @@ def compile_gcc(flags=""):
 
 def test_exec(name, in_args="", out_expected="", verbose=True):
 
-    # set file for test arguments and expected output
+    # set files for test arguments and expected output
     if in_args != "":
         file_stdin = open("args_in", "w")
         file_stdin.write(in_args)
@@ -105,7 +104,7 @@ def test_exec(name, in_args="", out_expected="", verbose=True):
     # TODO : Sure there is better solution than a unix diff
     if len(content_diff) > 0:
         # the test failled
-        dico_reponse["errormessages"] = "Le test "+name+" a échoué:\n"
+        dico_reponse["errormessages"] = "Le test " + name + " a échoué:\n"
         # if there were arguments and activated verbose
         if in_args != "" and verbose:
             dico_reponse["errormessages"] += "Pour les données \n"
@@ -120,6 +119,16 @@ def test_exec(name, in_args="", out_expected="", verbose=True):
             file_out.close()
             dico_reponse["errormessages"] += content_out
         return False
+    # If the test pass and the verbose is activated
+    else:
+        if verbose:
+            if in_args != "":
+                dico_reponse["feedback"] += "\nPour les données \n"
+                dico_reponse["feedback"] += in_args
+            dico_reponse["feedback"] += "\nAttendu: \n"
+            dico_reponse["feedback"] += out_expected
+            dico_reponse["feedback"] += "\nProduit: \n"
+            dico_reponse["feedback"] += out_expected           
     return True
 
 
@@ -127,7 +136,7 @@ def test_exec(name, in_args="", out_expected="", verbose=True):
 #  ......:::: C grader ::::......  #
 ####################################
 
-def grade(tests=dict()):
+def grade(tests=dict(), flags=""):
     all_test_pass = True
 
     # We first try a no flag compilation in order to isolate errors only
@@ -136,9 +145,9 @@ def grade(tests=dict()):
         print(json.dumps(dico_reponse))
         sys.exit()
 
-    # Now, since it compiles, we try a -Wall -ansi compilation to get all 
-    # warnings
-    compile_gcc("-Wall -ansi")
+    # Now, since it compiles, we try a compilation to get all 
+    # warnings with the given flags
+    compile_gcc(flags=flags)
 
     # time for tests !!!
     for test_name in tests:

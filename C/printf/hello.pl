@@ -47,5 +47,5 @@ files=@/C/template/graderC.py
 
 grader==
 from graderC import grade
-grade( {"simple éxécution": ["", "Hello World!\n", True]} )
+grade( {"simple éxécution": ["", "Hello World!\n", True]} , "-Wall -ansi")
 ==
