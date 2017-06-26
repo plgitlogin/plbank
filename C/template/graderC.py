@@ -53,14 +53,16 @@ def compile_gcc(flags=""):
     if "error:" in err_out:
         dico_reponse["errormessages"] = "Voir le feedback donné par le compilateur gcc"
         dico_reponse["execution"] = "Impossible"
-        dico_reponse["feedback"] = "Il y a des erreurs à la compilation de votre programme :<br /><br />Feedback gcc:<br />" + err_out
+        dico_reponse["feedback"] = "Il y a des erreurs à la compilation de votre programme :<br /><br />Feedback gcc:<br />" + err_out + "<br />"
+        dico_reponse["compilation"] = "erreur"
         return False
+    
     # If there is some warnings
     if "warning:" in err_out:
-        dico_reponse["feedback"] = "Vous pouvez augmenter la qualité de votre programme en lisant les recommandations du compilateur:<br /><br />Feedback gcc:<br />" + err_out
+        dico_reponse["feedback"] = "Vous pouvez augmenter la qualité de votre programme en lisant les recommandations du compilateur:<br /><br />Feedback gcc:<br />" + err_out + "<br />"
         dico_reponse["compilation"] = "warning"
     elif "warning:" in std_out:
-        dico_reponse["feedback"] = "Vous pouvez augmenter la qualité de votre programme en lisant les recommandations du compilateur:<br /><br />Feedback gcc:<br />" + std_out
+        dico_reponse["feedback"] = "Vous pouvez augmenter la qualité de votre programme en lisant les recommandations du compilateur:<br /><br />Feedback gcc:<br />" + std_out + "<br />"
         dico_reponse["compilation"] = "warning"
 
     # No error, no warning

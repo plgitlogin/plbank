@@ -22,7 +22,7 @@ code==
 #include <stdio.h>
 
 int main(int argc, char* argv[]){
-/* votre code ici... */
+  /** votre code ici... **/
 }
 
 ==
