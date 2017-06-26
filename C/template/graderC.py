@@ -1,9 +1,8 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 #
-#  compilCsoft.py
 #  
-#  Copyright 2016 Nicolas Borie <nicolas.borie@u-pem.fr>
+# Copyright 2016 Nicolas Borie <nicolas.borie@u-pem.fr>
 #  
 
 ##################################################
