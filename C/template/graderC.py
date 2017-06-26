@@ -117,7 +117,7 @@ def test_exec(name, in_args="", out_expected="", verbose=True):
             file_out = open("outputstudent", "r")
             content_out = file_out.read()
             file_out.close()
-            dico_reponse["errormessages"] += content_out
+            dico_reponse["feedback"] += content_out
         return False
     # If the test pass and the verbose is activated
     else:
