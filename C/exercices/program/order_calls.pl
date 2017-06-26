@@ -1,9 +1,6 @@
 # Copyright 2016 Nicolas Borie <nicolas.borie@u-pem.fr>
 #
-# Hello world en C
-#
-# Exercice simple pour tester PL avec le langage C.
-
+# Ordonner des appels de fonction dans un main
 
 author=Nicolas Borie
 name=Ordonner les appels de fonctions
@@ -55,15 +52,15 @@ soluce==
 #include <stdio.h>
 
 void display_1(void){
-  printf("Trois personnes sont donc dans la file d'attente.\n");
+  printf("Trois personnes sont donc dans la file d'attente. \n");
 }
 
 void display_2(void){
-  printf("La file d'attente est vide.\n");
+  printf("La file d'attente est vide. \n");
 }
 
 void display_3(void){
-  printf("Une personne arrive et s'insere dans la file d'attente\n");
+  printf("Une personne arrive et s'insere dans la file d'attente. \n");
 }
 
 int main(int argc, char* argv[]){
