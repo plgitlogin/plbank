@@ -53,22 +53,22 @@ def compile_gcc(flags=""):
     if "error:" in err_out:
         dico_reponse["errormessages"] = "Voir le feedback donné par le compilateur gcc"
         dico_reponse["execution"] = "Impossible"
-        dico_reponse["feedback"] = "Il y a des erreurs à la compilation de votre programme :\n\nFeedback gcc:\n" + err_out
+        dico_reponse["feedback"] = "Il y a des erreurs à la compilation de votre programme :<br /><br />Feedback gcc:<br />" + err_out
         return False
     # If there is some warnings
     if "warning:" in err_out:
-        dico_reponse["feedback"] = "Vous pouvez augmenter la qualité de votre programme en lisant les recommandations du compilateur:\n\nFeedback gcc:\n" + err_out
+        dico_reponse["feedback"] = "Vous pouvez augmenter la qualité de votre programme en lisant les recommandations du compilateur:<br /><br />Feedback gcc:<br />" + err_out
         dico_reponse["compilation"] = "warning"
     elif "warning:" in std_out:
-        dico_reponse["feedback"] = "Vous pouvez augmenter la qualité de votre programme en lisant les recommandations du compilateur:\n\nFeedback gcc:\n" + std_out
+        dico_reponse["feedback"] = "Vous pouvez augmenter la qualité de votre programme en lisant les recommandations du compilateur:<br /><br />Feedback gcc:<br />" + std_out
         dico_reponse["compilation"] = "warning"
 
     # No error, no warning
     else:
         if flags != "": # No quality cheching flag compilation
-            dico_reponse["feedback"] = "Votre programme semble être écrit correctement (compilation avec "+flags+")\n"
+            dico_reponse["feedback"] = "Votre programme semble être écrit correctement (compilation avec "+flags+")<br />"
         else: # Some quality flags compilation
-            dico_reponse["feedback"] = "Votre programme semble être écrit correctement\n"
+            dico_reponse["feedback"] = "Votre programme semble être écrit correctement<br />"
         dico_reponse["compilation"] = "parfaite"
     # Here, the compilation is OK with possible warnings
     return True
@@ -104,16 +104,16 @@ def test_exec(name, in_args="", out_expected="", verbose=True):
     # TODO : Sure there is better solution than a unix diff
     if len(content_diff) > 0:
         # the test failled
-        dico_reponse["errormessages"] = "Le test " + name + " a échoué:\n"
+        dico_reponse["feedback"] += "Le test " + name + " a échoué:<br />"
         # if there were arguments and activated verbose
         if in_args != "" and verbose:
-            dico_reponse["errormessages"] += "Pour les données \n"
-            dico_reponse["errormessages"] += in_args
+            dico_reponse["feedback"] += "Pour les données <br />"
+            dico_reponse["feedback"] += in_args + "<br />"
         # HINT: unactive verbose when arg or output are HHUUUGGEEEE !!!!
         if verbose:
-            dico_reponse["errormessages"] += "Attendu: \n"
-            dico_reponse["errormessages"] += out_expected
-            dico_reponse["errormessages"] += "Produit: \n"
+            dico_reponse["feedback"] += "Attendu: <br />"
+            dico_reponse["feedback"] += out_expected
+            dico_reponse["feedback"] += "<br />Produit: <br />"
             file_out = open("outputstudent", "r")
             content_out = file_out.read()
             file_out.close()
@@ -123,11 +123,11 @@ def test_exec(name, in_args="", out_expected="", verbose=True):
     else:
         if verbose:
             if in_args != "":
-                dico_reponse["feedback"] += "\nPour les données \n"
+                dico_reponse["feedback"] += "<br />Pour les données<br />"
                 dico_reponse["feedback"] += in_args
-            dico_reponse["feedback"] += "\nAttendu: \n"
+            dico_reponse["feedback"] += "Attendu: <br />"
             dico_reponse["feedback"] += out_expected
-            dico_reponse["feedback"] += "\nProduit: \n"
+            dico_reponse["feedback"] += "<br />Produit: <br />"
             dico_reponse["feedback"] += out_expected           
     return True
 
