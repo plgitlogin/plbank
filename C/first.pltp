@@ -1,49 +1,9 @@
-
-
 introduction==
+Premier TP de C
 
-Ce TP est consacré au fonctions.
-
-Pour définir une fonction **f** il faut utiliser le mot clef **def** :
-
-	def f():
-		print("je suis dans f")
-
-Pour définir la valeur de retour d'une fonction il faut utiliser le mot clef **return** :
-
-	def f():
-		return 3
-
-	print(f()*f())
-	affiche 
-	9
-
-Pour faire varier le comportement de la fonction il faut lui fournir des paramêtres:
-
-	def bonjour(prenom):
-		print("Bonjour ",prenom," !")
-
-	x=input("Comment vous appellez vous ?")
-	bonjour(x)
-
-	Comment vous appellez vous ?Nada
-	Bonjour Nada !
-
-
-Pour tester une fonction **Kiki** que vous avez ecrite dans un fichier **exo14.py**utilisez l'interpréteur :
-
-	$ python3
-	Python 3.5.1 |Anaconda 2.4.1 (x86_64)| (default, Dec  7 2015, 11:24:55) 
-	[GCC 4.2.1 (Apple Inc. build 5577)] on darwin
-	Type "help", "copyright", "credits" or "license" for more information.
-	>>> from exo14 import Kiki
-	>>> Kiki()
-	Je suis un Kiki
-	>>> quit()
-	 
-
+On va vraiment bien s'ammuser...
 ==
 
 concept==function
-@ /C/printf/hello.pl
+@/C/printf/hello.pl
 ==
