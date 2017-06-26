@@ -81,6 +81,6 @@ files=@/C/template/basic.c
 files=@/C/template/graderC.py
 
 grader==
-from graderC import grade
-grade( {"simple éxécution": ["", "", "La file d'attente est vide.\nUne personne arrive et s'insere dans la file d'attente\nUne personne arrive et s'insere dans la file d'attente\nUne personne arrive et s'insere dans la file d'attente\nTrois personnes sont donc dans la file d'attente.\n", True]} , "-Wall -ansi")
+from graderC import grade_argcmd_stdin_stdout
+grade_argcmd_stdin_stdout( {"simple éxécution": ["", "", "La file d'attente est vide.\nUne personne arrive et s'insere dans la file d'attente\nUne personne arrive et s'insere dans la file d'attente\nUne personne arrive et s'insere dans la file d'attente\nTrois personnes sont donc dans la file d'attente.\n", True]} , "-Wall -ansi")
 ==
