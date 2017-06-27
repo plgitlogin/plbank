@@ -62,6 +62,10 @@ files=@/C/template/basic.c
 files=@/C/template/graderC.py
 
 grader==
-from graderC import grade_argcmd_stdin_stdout
-grade_argcmd_stdin_stdout( {"simple éxécution": ["","", "Hello World!\n", True]} , "-Wall -ansi")
+from graderC import grade_argcmd_stdin_cmp_soluce
+grade_argcmd_stdin_cmp_soluce( {"Petit mot": [" mot","", True],
+                                "Un mot": [" Bonjour","", True],
+                                "Deux mots" : [" 'ca va?' ","", True],
+                                "Mot vide" : [" ''","", True],
+                                "Long mot": [" 'Anti-constitutionnellement'","", True] } , "-Wall -ansi")
 ==

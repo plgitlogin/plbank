@@ -294,7 +294,7 @@ def grade_argcmd_stdin_stdout(tests=dict(), flags="", break_first_error=True):
     sys.exit()
 
 
-def grade_argcmd_stdin_cmp_soluce(tests=dict(), flags="", break_first_error=True):
+def grade_argcmd_stdin_cmp_soluce(tests=dict(), flags="", break_first_error=True, flags_soluce="-Wall -ansi"):
     """
     This grader takes in arguments a dictionnary of tests nammed `tests`.
     Each record must be of this format :
@@ -309,7 +309,7 @@ def grade_argcmd_stdin_cmp_soluce(tests=dict(), flags="", break_first_error=True
     """
     # Build the expected output using the teacher version.
     file_soluce = open("sources_soluce.c", "w")
-    file_solcue.write(dico_reponse['soluce'])
+    file_soluce.write(dico_reponse['soluce'])
     file_soluce.close()
 
     # We compile the soluce program.
