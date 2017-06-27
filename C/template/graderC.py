@@ -206,10 +206,6 @@ def test_exec_cmp_soluce(name, cmd_args="", in_args="", verbose=True, flags_solu
     (activated or not), extra information is added inside the
     feedback for debugging.    
     """
-    # We raise an error if no solution is implemented. Is it reasonnable ?
-    if 'soluce' not in dico_reponse:
-        raise NotImplementedError
-
     # Build the expected output using the teacher version.
     file_soluce = open("sources_soluce.c", "w")
     file_solcue.write(dico_reponse['soluce'])
@@ -220,7 +216,6 @@ def test_exec_cmp_soluce(name, cmd_args="", in_args="", verbose=True, flags_solu
     os.system(cmd_gcc)
 
     # set files for test arguments and expected output
-    # execution and diff commands
     if in_args != "":
         file_stdin = open("args_in", "w")
         file_stdin.write(in_args)
