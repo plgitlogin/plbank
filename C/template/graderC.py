@@ -188,55 +188,50 @@ def test_exec(name, cmd_args="", in_args="", out_expected="", verbose=True):
 #     A single C test with comparaison to a teacher solution version      #
 ###########################################################################
 
-# def test_exec_cmp_soluce(name, cmd_args="", in_args="", verbose=True, flags_soluce=""):
-#     """
-#     Execute the student program (nammed `progCstudent`) giving it
-#     `cmd_args` arguments in command line, `in_args` in standard input
-#     and checking its standard output with a solution provide by the
-#     author of the exercice.
+def test_exec_cmp_soluce(name, cmd_args="", in_args="", verbose=True, flags_soluce=""):
+    """
+    Execute the student program (nammed `progCstudent`) giving it
+    `cmd_args` arguments in command line, `in_args` in standard input
+    and checking its standard output with a solution provide by the
+    author of the exercice.
 
-#     The standard streams are managed with unix redirection. Output
-#     of the student programm and expected output are compared with
-#     the Unix `diff` utility. If the returned `diff` is cleaned,
-#     the test is considered as valid. The test failed if this `diff`
-#     id non trivial.
+    The standard streams are managed with unix redirection. Output
+    of the student programm and expected output are compared with
+    the Unix `diff` utility. If the returned `diff` is cleaned,
+    the test is considered as valid. The test failed if this `diff`
+    id non trivial.
 
-#     The field `feedback` of the dictionnary `dico-reponse`
-#     is updated by this function. According the `verbose`
-#     (activated or not), extra information is added inside the
-#     feedback for debugging.    
-#     """
-#     # We raise an error if no solution is implemented. Is it reasonnable ?
-#     if soluce not in dico_reponse:
-#         raise NotImplementedError("The exercice do not provide a solution")
+    The field `feedback` of the dictionnary `dico-reponse`
+    is updated by this function. According the `verbose`
+    (activated or not), extra information is added inside the
+    feedback for debugging.    
+    """
+    # Build the expected output using the teacher version.
+    file_soluce = open("sources_soluce.c", "w")
+    file_solcue.write(dico_reponse['soluce'])
+    file_soluce.close()
 
-#     # Build the expected output using the teacher version.
-#     file_soluce = open("sources_soluce.c", "w")
-#     file_solcue.write(dico_reponse['soluce'])
-#     file_soluce.close()
+    # We compile the soluce program.
+    cmd_gcc = "gcc -o progCsoluce sources_soluce.c " + flags_soluce
+    os.system(cmd_gcc)
 
-#     # We compile the soluce program.
-#     cmd_gcc = "gcc -o progCsoluce sources_soluce.c " + flags_soluce
-#     os.system(cmd_gcc)
+    # set files for test arguments and expected output
+    if in_args != "":
+        file_stdin = open("args_in", "w")
+        file_stdin.write(in_args)
+        file_stdin.close()
+        test_command = "cat args_in | ./progCsoluce " + cmd_args  + " > outputsoluce"
+    else:
+        test_command = "./progCsoluce " + cmd_args + " > outputsoluce"
+    os.system(test_command)
 
-#     # set files for test arguments and expected output
-#     # execution and diff commands
-#     if in_args != "":
-#         file_stdin = open("args_in", "w")
-#         file_stdin.write(in_args)
-#         file_stdin.close()
-#         test_command = "cat args_in | ./progCsoluce " + cmd_args  + " > outputsoluce"
-#     else:
-#         test_command = "./progCsoluce " + cmd_args + " > outputsoluce"
-#     os.system(test_command)
+    # Set now the expected output
+    file_out_expected = open("outputsoluce", "r")
+    out_expected = file_out_expected.read()
+    file_out_expected.close()
 
-#     # Set now the expected output
-#     file_out_expected = open("out_expected", "r")
-#     file_out_expected.write(out_expected)
-#     file_out_expected.close()
-
-#     # Now, we call the usual one test fonction
-#     return test_exec(name, cmd_args=cmd_args, in_args=in_args, out_expected, verbose=verbose)
+    # Now, we call the usual one test fonction
+    return test_exec(name, cmd_args=cmd_args, in_args=in_args, out_expected=out_expected, verbose=verbose)
 
 
 ##############################################################################
