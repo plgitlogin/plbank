@@ -32,7 +32,8 @@ fonction *printf* doit suffire.
 
 ==
 
-code==#include <stdio.h>
+code==
+#include <stdio.h>
 
 int main(int argc, char* argv[]){
   /* votre code ici... */
@@ -46,6 +47,8 @@ files=@/C/template/graderC.py
 
 grader==
 from graderC import grade_argcmd_stdin_stdout
+
 print("\n\n\n\n OK BEFORE GRADE \n\n\n\n")
+
 grade_argcmd_stdin_stdout( {"simple éxécution": ["","", "Hello World!\n", True]} , "-Wall -ansi")
 ==
