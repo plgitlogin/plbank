@@ -194,13 +194,13 @@ def test_exec(name, cmd_args="", in_args="", out_expected="", verbose=True):
         # HINT: unactive verbose when arg or output are HHUUUGGEEEE !!!!
         if verbose:
             dico_reponse["feedback"] += "Attendu: <br />"
-            out_expected.replace('\n', '<br />')
+            out_expected = "<br />".join(out_expected.split("\n"))
             dico_reponse["feedback"] += out_expected
             dico_reponse["feedback"] += "<br />Produit: <br />"
             file_out = open("outputstudent", "r")
             content_out = file_out.read()
             file_out.close()
-            content_out.replace('\n', '<br />')
+            content_out = "<br />".join(content_out.split("\n"))
             dico_reponse["feedback"] += content_out + "<br />"
         # The test failed so we return False
         return False
@@ -211,7 +211,7 @@ def test_exec(name, cmd_args="", in_args="", out_expected="", verbose=True):
                 dico_reponse["feedback"] += "<br />Pour les données<br />"
                 dico_reponse["feedback"] += in_args
             dico_reponse["feedback"] += "Attendu: <br />"
-            out_expected.replace('\n', '<br />')
+            out_expected = "<br />".join(out_expected.split("\n"))
             dico_reponse["feedback"] += out_expected
             dico_reponse["feedback"] += "<br />Produit: <br />"
             dico_reponse["feedback"] += out_expected + "<br />"
