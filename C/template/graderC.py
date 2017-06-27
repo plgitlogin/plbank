@@ -208,7 +208,7 @@ def test_exec_cmp_soluce(name, cmd_args="", in_args="", verbose=True, flags_solu
     """
     # We raise an error if no solution is implemented. Is it reasonnable ?
     if 'soluce' not in dico_reponse:
-        raise NotImplementedError("The exercice do not provide a solution")
+        raise NotImplementedError
 
     # Build the expected output using the teacher version.
     file_soluce = open("sources_soluce.c", "w")
@@ -231,7 +231,7 @@ def test_exec_cmp_soluce(name, cmd_args="", in_args="", verbose=True, flags_solu
     os.system(test_command)
 
     # Set now the expected output
-    file_out_expected = open("out_expected", "r")
+    file_out_expected = open("outputsoluce", "r")
     file_out_expected.write(out_expected)
     file_out_expected.close()
 
