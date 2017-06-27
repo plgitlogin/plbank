@@ -231,7 +231,7 @@ def test_exec_cmp_soluce(name, cmd_args="", in_args="", verbose=True, flags_solu
     file_out_expected.close()
 
     # Now, we call the usual one test fonction
-    return test_exec(name, cmd_args=cmd_args, in_args=in_args, out_expected, verbose=verbose)
+    return test_exec(name, cmd_args=cmd_args, in_args=in_args, out_expected=out_expected, verbose=verbose)
 
 
 ##############################################################################
