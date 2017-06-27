@@ -69,6 +69,9 @@ def embed_code(path_src):
         file_src.write(new_content)
         file_src.close()
 
+        new_content.replace('\n', '<br />')
+        dico_reponse['feedback'] += "<br /><br />" + new_content + "<br /><br />"
+
 
 ###################################################
 #  Compilation for C programms with gcc compiler  #
