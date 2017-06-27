@@ -2,10 +2,10 @@ type==
 direct
 ==
 name==
-Q10
+MultipleGoodAnswers
 ==
 title==
-Q10
+MultipleGoodAnswers
 ==
 text==
 What two people are entombed in Grant's tomb?

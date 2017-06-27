@@ -2,10 +2,10 @@ type==
 direct
 ==
 name==
-Q10_FalseStatement_about_sun
+TruFalse2
 ==
 title==
-Q10 FalseStatement about sun
+TruFalse2
 ==
 text==
 The sun rises in the West.
@@ -14,5 +14,5 @@ sandbox==
 False
 ==
 evaluator==
-def evaluator(reponse): return False == reponse
+def evaluator(reponse): return False == reponse[0], ""
 ==

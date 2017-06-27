@@ -2,10 +2,10 @@ type==
 direct
 ==
 name==
-Q7
+MultipleNumeric
 ==
 title==
-Q7
+MultipleNumeric
 ==
 text==
 When was Ulysses S. Grant born?

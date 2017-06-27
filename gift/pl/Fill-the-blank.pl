@@ -2,10 +2,10 @@ type==
 direct
 ==
 name==
-Q3
+Fill-the-blank
 ==
 title==
-Q3
+Fill-the-blank
 ==
 text==
 Two plus

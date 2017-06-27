@@ -2,10 +2,10 @@ type==
 direct
 ==
 name==
-Q9TrueStatement_about_Grant
+TrueFalse1
 ==
 title==
-Q9TrueStatement about Grant
+TrueFalse1
 ==
 text==
 Grant was buried in a tomb in New York City.
@@ -14,5 +14,5 @@ sandbox==
 False
 ==
 evaluator==
-def evaluator(reponse): return True == reponse
+def evaluator(reponse): return True == reponse[0], ""
 ==

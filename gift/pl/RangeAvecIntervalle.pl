@@ -2,10 +2,10 @@ type==
 direct
 ==
 name==
-Q5
+RangeAvecIntervalle
 ==
 title==
-Q5
+RangeAvecIntervalle
 ==
 text==
 What is a number from 1 to 5?
