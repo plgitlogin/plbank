@@ -35,7 +35,7 @@ int string_length(char* s){
 
 ==
 
-soluce==
+codecmp==
 int string_length(char* s){
   int len;
   
