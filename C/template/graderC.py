@@ -5,6 +5,31 @@
 # Copyright 2016 Nicolas Borie <nicolas.borie@u-pem.fr>
 #
 
+##########################################################################
+#           ...::: Classsical graders for the C langage :::...           #
+##########################################################################
+#
+# Different use cases :
+#
+# --> We have a collection of tests with :
+#     * arguments for the program
+#     * stdin content
+#     * expected output
+#
+# --> We have a solution and a collection of tests with :
+#     * arguments for the program
+#     * stdin content
+#     (We auto-generate expected output using the solution)
+#
+# --> Embedding code :
+#     The exercie consist in implementing only a fonction.
+#     The exercice embbed the student code inside a program
+#     for the tests
+#
+# --> Fill me if relevant....
+#
+
+
 import os
 import sys
 import json
