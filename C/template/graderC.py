@@ -36,11 +36,39 @@ import json
 
 ##########################################################################
 #  Initialization of dico_reponse add a champ compilation for C langage  #
+#        Get the exercice content                                        #
 ##########################################################################
 
 dico_reponse = { "success": False , "errormessages" : "" ,
                  "execution": "Plateforme Error", "feedback": "",
                  "other": "", "compilation" : "erreur" }
+
+exercice = json.load(open("pl.json","r"))
+
+###################################################
+#               Source embedding                  #
+###################################################
+
+def embed_code(path_src):
+    """
+    If some cases, just a fonction is required for an exercice. And a
+    single function does not constitute a complete C program. To complete
+    the program, the exercice quand provide a markdon bloc nammed
+    'codecontext' which contains the context to form a practical program.
+
+    This function update the C code inside the file `path_src` with
+    the contectual code in the exercice if it exist.
+    """
+    if 'codecontext' in exercice and len(exercice['codecontext']) > 0:
+        file_src = open(path_src, "r")
+        old_content = file_src.read()
+        file_src.close()
+        
+        new_content = exercice['codecontext'] + old_content
+        file_src = open(path_src, "w")
+        file_src.write(new_content)
+        file_src.close()
+
 
 ###################################################
 #  Compilation for C programms with gcc compiler  #
@@ -60,6 +88,8 @@ def compile_gcc(flags=""):
 
     The field `feedback` is also setted with gcc answer when relevant.
     """
+    # Code contextual
+    embed_code("basic.c")
 
     # Compilation command
     compilation_command = "gcc basic.c -o progCstudent "+ flags
@@ -308,29 +338,12 @@ def grade_argcmd_stdin_cmp_soluce(tests=dict(), flags="", break_first_error=True
     other grader `grade_argcmd_stdin_stdout`.
     """
     # Build the expected output using the teacher version.
-    # file_soluce = open("sources_soluce.c", "w")
-    # file_soluce.write(dico_reponse['soluce'])
-    # file_soluce.close()
+    file_soluce = open("sources_soluce.c", "w")
+    file_soluce.write(dico_reponse['soluce'])
+    file_soluce.close()
 
-    # TODO  REMOVE UTIL SYS.EXIT() AFTER DEBUGGING
-    exercice = json.load(open("pl.json","r"))
-    
-    dico_reponse['feedback'] += "<br />CODE CMP<br />"
-    if 'codecmp' in exercice:
-        dico_reponse['feedback'] += exercice['codecmp']
-    else:
-        dico_reponse['feedback'] += "NO CODE CMP"
-    dico_reponse['feedback'] += "<br />CODE CONTEXT<br />"
-    if 'codecontext' in exercice:
-        dico_reponse['feedback'] += exercice['codecontext']
-    else:
-        dico_reponse['feedback'] += "NO CODE CONTEXT"
-    dico_reponse["success"] = True
-
-    # GTFO
-    print(json.dumps(dico_reponse))
-    sys.exit()
-
+    # code contextual
+    embed_code("sources_soluce.c")
     
     # We compile the soluce program.
     cmd_gcc = "gcc -o progCsoluce sources_soluce.c " + flags_soluce
