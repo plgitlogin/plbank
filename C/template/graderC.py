@@ -69,8 +69,8 @@ def embed_code(path_src):
         file_src.write(new_content)
         file_src.close()
 
-        new_content.replace('\n', '<br />')
-        dico_reponse['feedback'] += "<br /><br />" + new_content + "<br /><br />"
+        # new_content.replace('\n', '<br />')
+        # dico_reponse['feedback'] += "<br /><br />" + new_content + "<br /><br />"
 
 
 ###################################################
@@ -342,7 +342,7 @@ def grade_argcmd_stdin_cmp_soluce(tests=dict(), flags="", break_first_error=True
     """
     # Build the expected output using the teacher version.
     file_soluce = open("sources_soluce.c", "w")
-    file_soluce.write(dico_reponse['soluce'])
+    file_soluce.write(exercice['codecmp'])
     file_soluce.close()
 
     # code contextual
