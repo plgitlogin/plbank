@@ -32,27 +32,12 @@ fonction *printf* doit suffire.
 
 ==
 
-code==
-#include <stdio.h>
+code==#include <stdio.h>
 
 int main(int argc, char* argv[]){
-  /** votre code ici... **/
+  /* votre code ici... */
 }
 
-==
-
-soluce==
-#include <stdio.h>
-
-int main(int argc, char* argv[]){
-  printf("Hello World\n");
-  return 0;
-}
-
-==
-
-expectedoutput==
-Hello World!
 ==
 
 # LOAD IMPORTANT FILES FOR GRADING
@@ -61,5 +46,6 @@ files=@/C/template/graderC.py
 
 grader==
 from graderC import grade_argcmd_stdin_stdout
+print("\n\n\n\n OK BEFORE GRADE \n\n\n\n")
 grade_argcmd_stdin_stdout( {"simple éxécution": ["","", "Hello World!\n", True]} , "-Wall -ansi")
 ==
