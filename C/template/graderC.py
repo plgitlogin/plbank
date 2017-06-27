@@ -356,8 +356,8 @@ def grade_argcmd_stdin_cmp_soluce(tests=dict(), flags="", break_first_error=True
     for name in tests:
         # set files for test arguments and expected output
         # execution and diff commands
-        cmd_args = test[name][0]
-        in_args = test[name][1]
+        cmd_args = tests[name][0]
+        in_args = tests[name][1]
         if in_args != "":
             file_stdin = open("args_in", "w")
             file_stdin.write(in_args)
@@ -372,6 +372,6 @@ def grade_argcmd_stdin_cmp_soluce(tests=dict(), flags="", break_first_error=True
         out_expected = file_out_expected.read()
         file_out_expected.close()    
 
-        output_tests[name] = [cmd_args, in_args, out_expected, test[name][2]]
+        output_tests[name] = [cmd_args, in_args, out_expected, tests[name][2]]
 
     grade_argcmd_stdin_stdout(output_tests, flags=flags, break_first_error=break_first_error)
