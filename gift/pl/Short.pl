@@ -2,10 +2,10 @@ type==
 direct
 ==
 name==
-Deep_Thought_said_"_
+Short
 ==
 title==
-Deep Thought said " 
+Short
 ==
 text==
 Deep Thought said "

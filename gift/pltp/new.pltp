@@ -1,12 +1,15 @@
 concept==gift
-@ /gift/../../../repo/plbank/gift/pl/Q10.pl
-@ /gift/../../../repo/plbank/gift/pl/Q5.pl
-@ /gift/../../../repo/plbank/gift/pl/QQ5.pl
-@ /gift/../../../repo/plbank/gift/pl/Q7.pl
-@ /gift/../../../repo/plbank/gift/pl/Q3.pl
-@ /gift/../../../repo/plbank/gift/pl/Q9TrueStatement_about_Grant.pl
-@ /gift/../../../repo/plbank/gift/pl/Q10_FalseStatement_about_sun.pl
-@ /gift/../../../repo/plbank/gift/pl/Deep_Thought_said_"_.pl
-@ /gift/../../../repo/plbank/gift/pl/Q2.pl
-@ /gift/../../../repo/plbank/gift/pl/Who's_buried_in_Gran.pl
+@ /gift/pl/SelectWithFeedback.pl
+@ /gift/pl/SelectSet.pl
+@ /gift/pl/Short.pl
+@ /gift/pl/TrueFalse1.pl
+@ /gift/pl/TruFalse2.pl
+@ /gift/pl/Fill-the-blank.pl
+@ /gift/pl/Match.pl
+@ /gift/pl/MultipleGoodAnswers.pl
+@ /gift/pl/MultipleNumeric.pl
+@ /gift/pl/Description.pl
+@ /gift/pl/essay.pl
+@ /gift/pl/RangeAvecTolerance.pl
+@ /gift/pl/RangeAvecIntervalle.pl
 ==

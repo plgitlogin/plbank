@@ -2,10 +2,10 @@ type==
 direct
 ==
 name==
-Who's_buried_in_Gran
+SelectSet
 ==
 title==
-Who's buried in Gran
+SelectSet
 ==
 text==
 Who's buried in Grant's tomb?

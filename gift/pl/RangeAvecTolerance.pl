@@ -2,10 +2,10 @@ type==
 direct
 ==
 name==
-QQ5
+RangeAvecTolerance
 ==
 title==
-QQ5
+RangeAvecTolerance
 ==
 text==
 What is a number from 1 to 5?
