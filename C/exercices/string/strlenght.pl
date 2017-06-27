@@ -63,9 +63,5 @@ files=@/C/template/graderC.py
 
 grader==
 from graderC import grade_argcmd_stdin_cmp_soluce
-grade_argcmd_stdin_cmp_soluce( {"Petit mot": [" mot","", True],
-                                "Un mot": [" Bonjour","", True],
-                                "Deux mots" : [" 'ca va?' ","", True],
-                                "Mot vide" : [" ''","", True],
-                                "Long mot": [" 'Anti-constitutionnellement'","", True] } , "-Wall -ansi")
+grade_argcmd_stdin_cmp_soluce( {"Petit mot": [" mot","", True], "Un mot": [" Bonjour","", True], "Deux mots" : [" 'ca va?' ","", True], "Mot vide" : [" ''","", True], "Long mot": [" 'Anti-constitutionnellement'","", True] }, "-Wall -ansi")
 ==
