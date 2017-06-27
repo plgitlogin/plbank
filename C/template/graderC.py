@@ -312,6 +312,17 @@ def grade_argcmd_stdin_cmp_soluce(tests=dict(), flags="", break_first_error=True
     file_soluce.write(dico_reponse['soluce'])
     file_soluce.close()
 
+    dico_reponse['feedback'] += "<br />SOLUCE<br />"
+    dico_reponse['feedback'] += dico_reponse['soluce']
+    dico_reponse['feedback'] += "<br />CODE CONTEXT<br />"
+    dico_reponse['feedback'] += dico_reponse['codecontext']
+    dico_reponse["success"] = True
+
+    # GTFO
+    print(json.dumps(dico_reponse))
+    sys.exit()
+
+    
     # We compile the soluce program.
     cmd_gcc = "gcc -o progCsoluce sources_soluce.c " + flags_soluce
     os.system(cmd_gcc)
