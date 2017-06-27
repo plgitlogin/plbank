@@ -201,7 +201,7 @@ def test_exec(name, cmd_args="", in_args="", out_expected="", verbose=True):
             content_out = file_out.read()
             file_out.close()
             content_out.replace('\n', '<br />')
-            dico_reponse["feedback"] += content_out
+            dico_reponse["feedback"] += content_out + "<br />"
         # The test failed so we return False
         return False
     # If the test pass and the verbose is activated
@@ -211,9 +211,10 @@ def test_exec(name, cmd_args="", in_args="", out_expected="", verbose=True):
                 dico_reponse["feedback"] += "<br />Pour les données<br />"
                 dico_reponse["feedback"] += in_args
             dico_reponse["feedback"] += "Attendu: <br />"
+            out_expected.replace('\n', '<br />')
             dico_reponse["feedback"] += out_expected
             dico_reponse["feedback"] += "<br />Produit: <br />"
-            dico_reponse["feedback"] += out_expected
+            dico_reponse["feedback"] += out_expected + "<br />"
     # At this point, the test passes.
     return True
 
