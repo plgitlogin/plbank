@@ -72,6 +72,8 @@ def embed_code(path_src):
         # new_content.replace('\n', '<br />')
         # dico_reponse['feedback'] += "<br /><br />" + new_content + "<br /><br />"
 
+# Code contextual
+embed_code("basic.c")
 
 ###################################################
 #  Compilation for C programms with gcc compiler  #
@@ -91,9 +93,6 @@ def compile_gcc(flags=""):
 
     The field `feedback` is also setted with gcc answer when relevant.
     """
-    # Code contextual
-    embed_code("basic.c")
-
     # Compilation command
     compilation_command = "gcc basic.c -o progCstudent "+ flags
 
@@ -195,11 +194,13 @@ def test_exec(name, cmd_args="", in_args="", out_expected="", verbose=True):
         # HINT: unactive verbose when arg or output are HHUUUGGEEEE !!!!
         if verbose:
             dico_reponse["feedback"] += "Attendu: <br />"
+            out_expected.replace('\n', '<br />')
             dico_reponse["feedback"] += out_expected
             dico_reponse["feedback"] += "<br />Produit: <br />"
             file_out = open("outputstudent", "r")
             content_out = file_out.read()
             file_out.close()
+            content_out.replace('\n', '<br />')
             dico_reponse["feedback"] += content_out
         # The test failed so we return False
         return False
