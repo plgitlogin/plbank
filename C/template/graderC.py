@@ -313,13 +313,13 @@ def grade_argcmd_stdin_cmp_soluce(tests=dict(), flags="", break_first_error=True
     # file_soluce.close()
 
     dico_reponse['feedback'] += "<br />SOLUCE<br />"
-    if 'soluce' in dico_reponse:
-        dico_reponse['feedback'] += dico_reponse['soluce']
+    if 'soluce' in dico:
+        dico_reponse['feedback'] += dico['soluce']
     else:
         dico_reponse['feedback'] += "NO SOLUCE"
     dico_reponse['feedback'] += "<br />CODE CONTEXT<br />"
-    if 'codecontext' in dico_reponse:
-        dico_reponse['feedback'] += dico_reponse['codecontext']
+    if 'codecontext' in dico:
+        dico_reponse['feedback'] += dico['codecontext']
     else:
         dico_reponse['feedback'] += "NO CODE CONTEXT"
     dico_reponse["success"] = True
