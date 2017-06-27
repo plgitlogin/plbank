@@ -227,7 +227,7 @@ def test_exec_cmp_soluce(name, cmd_args="", in_args="", verbose=True, flags_solu
 
     # Set now the expected output
     file_out_expected = open("outputsoluce", "r")
-    file_out_expected.write(out_expected)
+    out_expected = file_out_expected.read()
     file_out_expected.close()
 
     # Now, we call the usual one test fonction
