@@ -308,9 +308,9 @@ def grade_argcmd_stdin_cmp_soluce(tests=dict(), flags="", break_first_error=True
     other grader `grade_argcmd_stdin_stdout`.
     """
     # Build the expected output using the teacher version.
-    file_soluce = open("sources_soluce.c", "w")
-    file_soluce.write(dico_reponse['soluce'])
-    file_soluce.close()
+    # file_soluce = open("sources_soluce.c", "w")
+    # file_soluce.write(dico_reponse['soluce'])
+    # file_soluce.close()
 
     dico_reponse['feedback'] += "<br />SOLUCE<br />"
     dico_reponse['feedback'] += dico_reponse['soluce']
