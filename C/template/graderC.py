@@ -313,14 +313,16 @@ def grade_argcmd_stdin_cmp_soluce(tests=dict(), flags="", break_first_error=True
     # file_soluce.close()
 
     # TODO  REMOVE UTIL SYS.EXIT() AFTER DEBUGGING
+    exercice = json.load(open("pl.json","r"))
+    
     dico_reponse['feedback'] += "<br />SOLUCE<br />"
-    if 'soluce' in dico_reponse:
-        dico_reponse['feedback'] += dico_reponse['soluce']
+    if 'soluce' in exercice:
+        dico_reponse['feedback'] += exercice['soluce']
     else:
         dico_reponse['feedback'] += "NO SOLUCE"
     dico_reponse['feedback'] += "<br />CODE CONTEXT<br />"
-    if 'codecontext' in dico_reponse:
-        dico_reponse['feedback'] += dico_reponse['codecontext']
+    if 'codecontext' in exercice:
+        dico_reponse['feedback'] += exercice['codecontext']
     else:
         dico_reponse['feedback'] += "NO CODE CONTEXT"
     dico_reponse["success"] = True
