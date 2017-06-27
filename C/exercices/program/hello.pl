@@ -47,8 +47,5 @@ files=@/C/template/graderC.py
 
 grader==
 from graderC import grade_argcmd_stdin_stdout
-
-print("\n\n\n\n OK BEFORE GRADE \n\n\n\n")
-
 grade_argcmd_stdin_stdout( {"simple éxécution": ["","", "Hello World!\n", True]} , "-Wall -ansi")
 ==
