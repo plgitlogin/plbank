@@ -9,7 +9,6 @@ tag=macro
 template=/C/template/autograderC
 
 text==
-
 Écrire une macro **SQUARRE** qui prend en argument un seul paramètre
 (jamais typé comme c'est toujour le cas pour les macros) qui remplace
 son argument par le carré de son paramètre. Le paramètre de la macro
