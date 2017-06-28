@@ -1,17 +1,5 @@
-type==
-direct
-==
-name==
-Match
-==
 title==
 Match
-==
-text==
-Which animal eats which food?
-==
-sandbox==
-False
 ==
 answer1==
  cat food
@@ -19,23 +7,30 @@ answer1==
 answer2==
  dog food
 ==
-Question1==
-cat 
-==
-Question2==
-dog 
+text==
+Which animal eats which food?
 ==
 evaluator==
 
 def evaluator(reponse):
-    rep_exo = [' cat food', ' dog food']
     for rep_student in reponse :
-        for rep in rep_exo:
+        for rep in [' cat food', ' dog food']:
             if rep_student != rep:
                 return False, "Mauvais matching"
             rep_exo.remove(0)
             continue
     return True, "Bien joué"
-    
 
+==
+Question2==
+dog 
+==
+Question1==
+cat 
+==
+type==
+matching
+==
+name==
+Match
 ==

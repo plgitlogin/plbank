@@ -1,17 +1,5 @@
-type==
-direct
-==
-name==
-MultipleGoodAnswers
-==
 title==
 MultipleGoodAnswers
-==
-text==
-What two people are entombed in Grant's tomb?
-==
-sandbox==
-False
 ==
 answer1==
 No one
@@ -19,17 +7,26 @@ No one
 answer2==
 Grant
 ==
-answer3==
-Grant's wife
-==
-answer4==
-Grant's father
+text==
+What two people are entombed in Grant's tomb?
 ==
 evaluator==
 
 def evaluator(reponse):
-    if reponse.sort() == ['Grant', "Grant's wife"]:
+    if reponse in ['Grant', "Grant's wife"]:
         return True, 'Bien joué'
     return False, 'Réponse incorrecte'
 
+==
+answer4==
+Grant's father
+==
+answer3==
+Grant's wife
+==
+type==
+multiplechoices
+==
+name==
+MultipleGoodAnswers
 ==
