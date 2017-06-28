@@ -69,8 +69,15 @@ def embed_code(path_src):
         file_src.write(new_content)
         file_src.close()
 
-        # new_content.replace('\n', '<br />')
-        # dico_reponse['feedback'] += "<br /><br />" + new_content + "<br /><br />"
+    if 'codecontextafter' in exercice and len(exercice['codecontextafter']) > 0:
+        file_src = open(path_src, "r")
+        old_content = file_src.read()
+        file_src.close()
+        
+        new_content = old_content + exercice['codecontextafter']
+        file_src = open(path_src, "w")
+        file_src.write(new_content)
+        file_src.close()
 
 # Code contextual
 embed_code("basic.c")
