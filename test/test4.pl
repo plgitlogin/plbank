@@ -6,7 +6,7 @@ tag=test
 
 no_value==
 ==
-
+type=sandbox
 text==
 
 *italic*

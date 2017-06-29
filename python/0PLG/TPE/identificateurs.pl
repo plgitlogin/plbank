@@ -6,6 +6,8 @@ tag=identifier
 give=identifier
 # 0PLG
 
+type=sandbox
+
 text==
 
 Eliminez les lignes qui ne sont pas des identificateurs utilisables pour une variable en python :
@@ -135,6 +137,22 @@ __truc__
 
 
 
+evaluator==
+sandbox = get_object_or_404(Sandbox, name="php-sandbox")
+try:
+    sandbox_session = SandboxSession(pl, request.POST['code'], sandbox.url)
+    feedback = json.loads(sandbox_session.call())
+    if feedback['grade']['success']:
+        state = Answer.SUCCEEDED
+    else:
+        state = Answer.STARTED
+    Answer(value=request.POST['code'], pl=pl, user=request.user, state=state).save()
+    if feedback['grade']['success']:
+        return True, feedback
+    return False, feedback
+except Exception as e:
+    return True, str(type(e))+": "+ str(e))
+==
 
 
 
