@@ -13,8 +13,8 @@ Voyez avec nicolas.borie@u-pem.fr en signalant le nom de l'exercice qui devrait
 ==
 
 # chargement des fichiers utiles 
-files=@/C/template/basic.c
-files=@/C/template/graderC.py
+sandbox=@/C/template/basic.c
+sandbox=@/C/template/graderC.py
 
 
 # en fonction des balises présentes fait le bon teste

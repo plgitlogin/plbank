@@ -9,6 +9,6 @@ from plgrader import Grader
 g=Grader()
 print(g.grade())
 ==
-files=@/pysrc/src/__init__.py
-files=@/pysrc/src/plgrader.py
-files=@/pysrc/src/feedback.py
+sandbox=@/pysrc/src/__init__.py
+sandbox=@/pysrc/src/plgrader.py
+sandbox=@/pysrc/src/feedback.py
