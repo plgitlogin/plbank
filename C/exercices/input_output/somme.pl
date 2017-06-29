@@ -49,8 +49,8 @@ int main(int argc, char* argv[]){
 
 
 # LOAD IMPORTANT FILES FOR GRADING
-files=@/C/template/basic.c
-files=@/C/template/graderC.py
+sandbox=@/C/template/basic.c
+sandbox=@/C/template/graderC.py
 
 grader==
 from graderC import grade

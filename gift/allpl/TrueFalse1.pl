@@ -4,11 +4,11 @@ TrueFalse1
 text==
 Grant was buried in a tomb in New York City.
 ==
-evaluator==
-def evaluator(reponse): return True == reponse[0], ""
-==
 type==
 truefalse
+==
+evaluator==
+def evaluator(reponse): return True == reponse, ""
 ==
 name==
 TrueFalse1

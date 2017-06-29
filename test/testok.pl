@@ -4,7 +4,7 @@ name=testok.pl
 title=  Testeur de la plateforme 
 tag=nil
 template=/python/test/template.pl
-
+type=sandbox
 text==
 
 # Essai de test de la plateforme

@@ -3,6 +3,8 @@ author=Dominique Revuz
 title=Toujours Correct
 tag=test # N'oubliez pas de remplir ce champs svp
 
+type=sandbox
+
 text==
 
 *italic*

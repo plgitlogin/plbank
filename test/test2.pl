@@ -3,7 +3,7 @@
 author=Coumes Quentin
 title=Test2
 tag=test 
-
+type=sandbox
 inside==
 
 text==

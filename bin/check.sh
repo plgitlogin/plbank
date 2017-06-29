@@ -36,6 +36,7 @@ def test_checkplfile():
         
     assert(checkplfile('$i', r, sandboxurl = 'http://127.0.0.1:8000/sandbox/?action=execute'))
 EOF
+
             pytest $rootdir/../../server/serverpl/test_tmp.py
             # Test was collected and passed successfully
             if [ $? -eq 0 ]
@@ -84,7 +85,13 @@ EOF
 
     done
 }
-    
+    version=$(curl http://127.0.0.1:8000/sandbox/?action=version)
+    if [ "$version" != "{\"version\":\"pysandbox-0.1\"}" ]
+    then
+        echo "Attention vous aviez oublié de lancer le serveur"
+        python $rootdir/../../server/serverpl/manage.py runserver &
+        sleep 3
+    fi
     checking $@
     
     if [ $nb_pl -gt 0 ]

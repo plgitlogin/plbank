@@ -4,11 +4,11 @@ TruFalse2
 text==
 The sun rises in the West.
 ==
-evaluator==
-def evaluator(reponse): return False == reponse[0], ""
-==
 type==
 truefalse
+==
+evaluator==
+def evaluator(reponse): return False == reponse, ""
 ==
 name==
 TruFalse2

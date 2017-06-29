@@ -1,9 +1,10 @@
-#Ne doit pas fonctionner: chemin 'files' incorrect
+#Ne doit pas fonctionner: chemin 'sandbox' incorrect
 
 author=Coumes Quentin
 title=Test2
 tag=test
-files=@/vieu/chemin 
+sandbox=@/vieu/chemin 
+type=sandbox
 text==
 *italic*
 **bold**

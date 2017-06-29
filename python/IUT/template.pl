@@ -6,5 +6,5 @@ grader==
 from utils import grade
 grade()
 ==
-files=@/pysrc/src/utils.py
-files=@/pysrc/src/plutils.py
+sandbox=@/pysrc/src/utils.py
+sandbox=@/pysrc/src/plutils.py
