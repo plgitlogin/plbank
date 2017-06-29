@@ -4,6 +4,9 @@ MultipleNumeric
 text==
 When was Ulysses S. Grant born?
 ==
+type==
+numeric
+==
 evaluator==
 
 def evaluator(reponse): 
@@ -11,9 +14,6 @@ def evaluator(reponse):
         return True, 'Bonne réponse'
     return False, 'Réponse incorrecte'
 
-==
-type==
-numeric
 ==
 name==
 MultipleNumeric

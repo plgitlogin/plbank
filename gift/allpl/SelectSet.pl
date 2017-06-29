@@ -1,8 +1,5 @@
-title==
-SelectSet
-==
-answer1==
-Grant
+answer5==
+Mother Teresa
 ==
 answer2==
 no one
@@ -10,14 +7,17 @@ no one
 text==
 Who's buried in Grant's tomb?
 ==
-answer5==
-Mother Teresa
-==
 answer4==
 Churchill
 ==
-answer3==
-Napoleon
+title==
+SelectSet
+==
+answer1==
+Grant
+==
+name==
+SelectSet
 ==
 evaluator==
 
@@ -29,9 +29,9 @@ def evaluator(reponse):
             return False, x[1]
 
 ==
+answer3==
+Napoleon
+==
 type==
 select
-==
-name==
-SelectSet
 ==

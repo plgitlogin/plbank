@@ -1,14 +1,17 @@
+answer2==
+red
+==
+text==
+What's between orange and green in the spectrum?
+==
 title==
 SelectWithFeedback
 ==
 answer1==
 yellow
 ==
-answer2==
-red
-==
-text==
-What's between orange and green in the spectrum?
+name==
+SelectWithFeedback
 ==
 evaluator==
 
@@ -25,7 +28,4 @@ blue
 ==
 type==
 select
-==
-name==
-SelectWithFeedback
 ==

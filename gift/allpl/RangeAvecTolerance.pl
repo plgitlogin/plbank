@@ -4,6 +4,9 @@ RangeAvecTolerance
 text==
 What is a number from 1 to 5?
 ==
+type==
+numeric
+==
 evaluator==
 
 def evaluator(reponse): 
@@ -11,9 +14,6 @@ def evaluator(reponse):
         return True, 'Bonne réponse'
     return False, 'Réponse incorrecte'
 
-==
-type==
-numeric
 ==
 name==
 RangeAvecTolerance
