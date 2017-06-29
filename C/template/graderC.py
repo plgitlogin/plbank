@@ -63,7 +63,7 @@ def embed_code(path_src):
         file_src = open(path_src, "r")
         old_content = file_src.read()
         file_src.close()
-        
+
         new_content = exercice['codecontext'] + old_content
         file_src = open(path_src, "w")
         file_src.write(new_content)
@@ -73,7 +73,7 @@ def embed_code(path_src):
         file_src = open(path_src, "r")
         old_content = file_src.read()
         file_src.close()
-        
+
         new_content = old_content + exercice['codecontextafter']
         file_src = open(path_src, "w")
         file_src.write(new_content)
@@ -246,7 +246,7 @@ def test_exec_cmp_soluce(name, cmd_args="", in_args="", verbose=True, flags_solu
     The field `feedback` of the dictionnary `dico-reponse`
     is updated by this function. According the `verbose`
     (activated or not), extra information is added inside the
-    feedback for debugging.    
+    feedback for debugging.
     """
     # Build the expected output using the teacher version.
     file_soluce = open("sources_soluce.c", "w")
@@ -346,7 +346,7 @@ def grade_argcmd_stdin_cmp_soluce(tests=dict(), flags="", break_first_error=True
                            verbose for the test)
 
     This grader compile the solution given in the exercice. Thus, fort
-    each test, it compute its expected output. Once it is done, it use the 
+    each test, it compute its expected output. Once it is done, it use the
     other grader `grade_argcmd_stdin_stdout`.
     """
     # Build the expected output using the teacher version.
@@ -356,7 +356,7 @@ def grade_argcmd_stdin_cmp_soluce(tests=dict(), flags="", break_first_error=True
 
     # code contextual
     embed_code("sources_soluce.c")
-    
+
     # We compile the soluce program.
     cmd_gcc = "gcc -o progCsoluce sources_soluce.c " + flags_soluce
     os.system(cmd_gcc)
@@ -379,8 +379,160 @@ def grade_argcmd_stdin_cmp_soluce(tests=dict(), flags="", break_first_error=True
         # Set now the expected output
         file_out_expected = open("outputsoluce", "r")
         out_expected = file_out_expected.read()
-        file_out_expected.close()    
+        file_out_expected.close()
 
         output_tests[name] = [cmd_args, in_args, out_expected, tests[name][2]]
 
     grade_argcmd_stdin_stdout(output_tests, flags=flags, break_first_error=break_first_error)
+
+###########################
+#   A class for C test    #
+###########################
+
+class C_test():
+    """
+    A class for unitary tests of a C programm. The arguments are :
+
+    * name : a name for the test
+
+    * command_args : a long string of arguments given to the
+      executable (space separate arguments)
+
+    * sdtin : a stream given during programm execution on the standard
+      input
+
+    * expected_output : fusion of standard output and standard error
+      output (i.e. what produce the C programm in output if launched
+      in a terminal)
+
+    * executable_path : a path to the exuctable (mainly its name)
+    """
+    def __init__(self, name, command_args="", sdtin="",
+                 expected_output="", executable_path=None, output_path=None):
+        """
+        Initialization of `self`.
+        """
+        self._name = name
+        self._command_args = command_args
+        self._stdin = sdtin
+        self._expected_output = expected_output
+        self._executable_path = executable_path
+        if output_path is None:
+            output_path = "output.log"
+        self._output_path = output_path
+        self._feedback = ""
+        self._result = None
+
+    def __str__(self):
+        """
+        Return a single string to describe `self` (returns mainly the
+        name of the test).
+        """
+        return "Test {}".format(self._name)
+
+    def programm_path(self):
+        """
+        Return the path (mainly the name) of the C executable.
+        """
+        return self._executable_path
+
+    def command_args(self):
+        """
+        Return the string consisting of arguments given to the
+        executable for the test `self`.
+        """
+        return self._command_args
+
+    def stdin(self):
+        """
+        Return the content given into the standard input to launch the
+        test `self`.
+        """
+        return self._stdin
+
+    def output_path(self):
+        """
+        Return the name of the file containing output of the test
+        """
+        return self._output_path
+
+    def command_test(self):
+        """
+        Return the command use to execute the test `self`.
+        """
+        cmd = "cat {} | ./{} " + self.command_args() + " > {}".format(self.stdin(),
+                                                                      self.programm_path(),
+                                                                      self.output_path())
+        return cmd
+
+    def expected_output(self):
+        """
+        Return the expected output of the test `self` as a long text
+        string.
+        """
+        return self._expected_output
+
+    def feedback(self):
+        """
+        Return brut text feedback for the test `self`.
+        """
+        if self._result is not None:
+            return self._feedback
+        else:
+            self.run_test()
+            return self._feedback
+
+    def result(self):
+        """
+        Return the result of the test `self`. Lanch the test if the result
+        """
+        if self._result is not None:
+            return self._result
+        else:
+            self.run_test()
+            return self._result
+
+    def run_test(self):
+        """
+        Run the test `self`. A call to this method update the feedback
+        and the result of the test. You should normally never call
+        this method yourself. Asking for the result of the test or the
+        feedback of the test will automatically run only once this test.
+        """
+        cmd = self.command_test()
+        os.system(cmd)
+
+        # Place expected output in file expected_output.log
+        expected_output_file = open("expected_output.log", "w")
+        expected_output_file.write(self.expected_output())
+        expected_output_file.close()
+
+        diff_cmd = "diff {} {} > {}".format("expected_output.log", self.output_path(), "diff_output.log")
+        # read the diff
+        diff_output_file = open("diff_output.log", "r")
+        diff_output = diff_output_file.read()
+        diff_output_file.close()
+
+        # read the output produced by execution to generate feedback
+        output_exec_file = open(self.output_path(), "r")
+        output_exec = output_exec_file.read()
+        output_exec_file.close()
+
+        # Update result of the test
+        if len(diff_output) == 0:
+            self._result = True
+            feedback = "Test {} ... OK\n".format(self._name)
+        else:
+            self._result = False
+            feedback = "Test {} ... echec\n".format(self._name)
+
+        # contextual information for this test
+        if self.command_args() != "":
+            feedback += "Arguments : {}\n".format(self.command_args())
+        if self.stdin() != "":
+            feedback += "Entrée clavier : {}\n".format(self.stdin())
+        feedback += "Réponse attendue : \n{}\n".format(self.expected_output())
+        feedback += "Réponse obtenue : \n{}\n".format(output_exec)
+
+        # Update the feedback
+        self._feedback = feedback
