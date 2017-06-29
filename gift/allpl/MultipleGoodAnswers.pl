@@ -1,14 +1,20 @@
+answer2==
+Grant
+==
+text==
+What two people are entombed in Grant's tomb?
+==
+answer4==
+Grant's father
+==
 title==
 MultipleGoodAnswers
 ==
 answer1==
 No one
 ==
-answer2==
-Grant
-==
-text==
-What two people are entombed in Grant's tomb?
+name==
+MultipleGoodAnswers
 ==
 evaluator==
 
@@ -18,15 +24,9 @@ def evaluator(reponse):
     return False, 'Réponse incorrecte'
 
 ==
-answer4==
-Grant's father
-==
 answer3==
 Grant's wife
 ==
 type==
 multiplechoices
-==
-name==
-MultipleGoodAnswers
 ==

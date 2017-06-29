@@ -7,6 +7,7 @@ tag=test
 
 EN DEHORS DE TAG
 
+type=sandbox
 
 text==
 

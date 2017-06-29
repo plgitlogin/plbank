@@ -1,14 +1,23 @@
-title==
-Match
-==
-answer1==
- cat food
-==
 answer2==
  dog food
 ==
 text==
 Which animal eats which food?
+==
+Question2==
+dog 
+==
+answer1==
+ cat food
+==
+title==
+Match
+==
+Question1==
+cat 
+==
+name==
+Match
 ==
 evaluator==
 
@@ -22,15 +31,6 @@ def evaluator(reponse):
     return True, "Bien joué"
 
 ==
-Question2==
-dog 
-==
-Question1==
-cat 
-==
 type==
 matching
-==
-name==
-Match
 ==

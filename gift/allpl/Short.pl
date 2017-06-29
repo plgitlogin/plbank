@@ -1,14 +1,17 @@
+answer2==
+42
+==
+text==
+Deep Thought said "
+==
 title==
 Short
 ==
 answer1==
 forty two
 ==
-answer2==
-42
-==
-text==
-Deep Thought said "
+name==
+Short
 ==
 evaluator==
 
@@ -24,7 +27,4 @@ forty-two
 ==
 type==
 short
-==
-name==
-Short
 ==

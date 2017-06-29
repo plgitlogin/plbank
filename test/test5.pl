@@ -4,6 +4,7 @@ author=Coumes Quentin
 title=Test2
 tag=test
 sandbox=@/vieu/chemin 
+type=sandbox
 text==
 *italic*
 **bold**

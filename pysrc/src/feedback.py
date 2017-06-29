@@ -30,61 +30,50 @@ class Feedback:
         self.feedbacktext=""
         self.asio=False
         self.template = Template('''
-<html><body>
-<style>
-    {%- if feedback.success %}
-    h3 {color: powderblue;}
-    div.feedback  {background-color: white;}
-    {%- else %}
-    h3 {color: red;}
-    div.feedback  {color: pink;}
-    div.feedback  {background-color: blue;}
-    {% endif %}
-</style>
-<div class="feedback">
+<div>
 {%- if  feedback.compile %}
     <h3> Erreur de Compilation</h3>{{- feedback.compilationError }}
-{{ feedback.feedbacktext }}
+    {{ feedback.feedbacktext }}
 {%- else %}
-{% if feedback.asio %}
-<h3> Executions </h3>
-{%- for type,text in feedback.executionhistory %}
-    {%- if feedback.showinput and type=="input" %}
-    <span class="inputstyle">
-        <p>{{text}}</p>
-    </span>
+    {% if feedback.asio %}
+        <h3> Executions </h3>
+        {%- for type,text in feedback.executionhistory %}
+            {%- if feedback.showinput and type=="input" %}
+                <span>
+                    <p>{{text}}</p>
+                </span>
+            {%- endif %}
+            {%- if  type== "output" %}
+                <span><p>{{text}}</p></span>
+            {%- elif type=="optained" %}
+                <span>
+                    <p>Obtenu:<br/>{{text}}</p>
+                </span>
+            {%- elif type=="expected" %}
+                <span>
+                    <p>Attendu:<br/>{{text}}</p>
+                </span>
+            {%- endif %}
+        {%- endfor %}
+    {%- else %}
+        <h3> Executions </h3>
+        {%- for type,text in feedback.executionhistory %}
+            {%- if feedback.showinput and type=="input" %}
+                <span class="inputstyle">
+                    <p>{{text}}</p>
+                </span>
+            {%- endif %}
+            {%- if type=="output" %}
+                <span>
+                    <p><br/>{{text}}</p>
+                </span>
+            {%- endif %}
+        {%- endfor %}
     {%- endif %}
-    {%- if  type== "output" %}
-    <span class="outputstyle"><p>{{text}}</p></span>
-    {%- elif type=="optained" %}
-    <span class="outputstyle">
-        <p>Obtenu:<br/>{{text}}</p>
-    </span>
-    {%- elif type=="expected" %}
-        <span class="outputstyle">
-        <p>Attendu:<br/>{{text}}</p>
-    </span>
-    {%- endif %}
-    {%- endfor %}
-{%- else %}
-<h3> Executions </h3>
-{%- for type,text in feedback.executionhistory %}
-    {%- if feedback.showinput and type=="input" %}
-    <span class="inputstyle">
-        <p>{{text}}</p>
-    </span>
-    {%- endif %}
-    {%- if type=="output" %}
-    <span class="outputstyle">
-        <p><br/>{{text}}</p>
-    </span>
-    {%- endif %}
-    {%- endfor %}
-{%- endif %}
 {%- endif %}
 {%- if feedback.success %}
-<H3> Bravo ! </H3>
-{{ feedback.feedbacktext }}
+    <H3> Bravo ! </H3>
+    {{ feedback.feedbacktext }}
 {%- endif %}
 
 </div>

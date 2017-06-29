@@ -1,14 +1,17 @@
+answer2==
+2
+==
+text==
+Two plus
+==
 title==
 Fill-the-blank
 ==
 answer1==
 two
 ==
-answer2==
-2
-==
-text==
-Two plus
+name==
+Fill-the-blank
 ==
 evaluator==
 
@@ -21,7 +24,4 @@ def evaluator(reponse):
 ==
 type==
 short
-==
-name==
-Fill-the-blank
 ==
