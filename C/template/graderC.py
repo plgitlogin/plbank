@@ -385,11 +385,11 @@ def grade_argcmd_stdin_cmp_soluce(tests=dict(), flags="", break_first_error=True
 
     grade_argcmd_stdin_stdout(output_tests, flags=flags, break_first_error=break_first_error)
 
-###########################
-#   A class for C test    #
-###########################
+####################################################################
+#               A class for a single C unitary test                #
+####################################################################
 
-class C_test():
+class C_unit_test():
     """
     A class for unitary tests of a C programm. The arguments are :
 
@@ -408,7 +408,7 @@ class C_test():
     * executable_path : a path to the exuctable (mainly its name)
     """
     def __init__(self, name, command_args="", sdtin="",
-                 expected_output="", executable_path=None, output_path=None):
+                 expected_output="", executable_path=None):
         """
         Initialization of `self`.
         """
@@ -417,9 +417,9 @@ class C_test():
         self._stdin = sdtin
         self._expected_output = expected_output
         self._executable_path = executable_path
-        if output_path is None:
-            output_path = "output.log"
-        self._output_path = output_path
+
+        self._output_path = "output.log"
+        self._stdin_path = "stdin.log"
         self._feedback = ""
         self._result = None
 
@@ -450,6 +450,13 @@ class C_test():
         """
         return self._stdin
 
+    def stdin_path(self):
+        """
+        Return the path of the file containing the standard input text
+        for the test `self`.
+        """
+        return self._stdin_path
+
     def output_path(self):
         """
         Return the name of the file containing output of the test
@@ -460,9 +467,13 @@ class C_test():
         """
         Return the command use to execute the test `self`.
         """
-        cmd = "cat {} | ./{} " + self.command_args() + " > {}".format(self.stdin(),
-                                                                      self.programm_path(),
-                                                                      self.output_path())
+        if len(self.stdin()) > 0:
+            cmd = "cat {} | ./{} " + self.command_args() + " > {}".format(self.stdin_path(),
+                                                                          self.programm_path(),
+                                                                          self.output_path())
+        else:
+            cmd = "./{} " + self.command_args() + " > {}".format(self.programm_path(),
+                                                                 self.output_path())
         return cmd
 
     def expected_output(self):
@@ -498,6 +509,9 @@ class C_test():
         and the result of the test. You should normally never call
         this method yourself. Asking for the result of the test or the
         feedback of the test will automatically run only once this test.
+
+        This method caches the results. So, it is supposed to be called
+        only a single time.
         """
         cmd = self.command_test()
         os.system(cmd)
@@ -506,6 +520,12 @@ class C_test():
         expected_output_file = open("expected_output.log", "w")
         expected_output_file.write(self.expected_output())
         expected_output_file.close()
+
+        # Place sdtin inside a file
+        if len(self.stdin()) > 0:
+            stdin_file = open(self.stdin_path(), "w")
+            stdin_file.write(self.stdin())
+            stdin_file.close()
 
         diff_cmd = "diff {} {} > {}".format("expected_output.log", self.output_path(), "diff_output.log")
         # read the diff
@@ -536,3 +556,83 @@ class C_test():
 
         # Update the feedback
         self._feedback = feedback
+
+
+####################################################################
+#            A class for an ordered list of C tests                #
+#            (we know expected ouput for each test)                #
+####################################################################
+
+class Play_tests():
+    """
+    A class for an ordered lists of tests.
+
+    (string for test name,
+     arguments in command line,
+     stdin of test,
+     output of test,
+     verbose for the test)
+    """
+    def __init__(self, tests, executable_path):
+        self._tests = tests
+        self._executable_path = executable_path
+        self._feedback = ""
+        self._result = None
+
+    def __str__(self):
+        return "A collection of {} test(s)".format(len(tests))
+
+    def tests(self):
+        """
+        Return the list of tests inside
+        """
+        return self._tests
+
+    def executable_path(self):
+        """
+        Return the path of the tested executable.
+        """
+        return self._executable_path
+
+    def result(self):
+        """
+        Return the state of execution of all test contained in
+        `self`. It return `True` if all test pass and `False`
+        otherwise.
+        """
+        if self._result is not None:
+            return self._result
+        else:
+            self.run_tests()
+            return self._result
+
+    def feedback(self):
+        """
+        Return brut text feedback for the all tests contained in `self`.
+        """
+        if self._result is None:
+            self.run_tests()
+        return self._feedback
+
+    def run_tests(self):
+        # be positive at first glance
+        all_test_pass = True
+
+        # for each test inside the list (which is ordered...)
+        for test in self.tests():
+            test_name = test[0]
+            cmd_arg = test[1]
+            stdin = test[2]
+            expected_output = test[3]
+
+            test_instance = C_unit_test(test_name, cmd_arg, stdin, expected_output, self.executable_path())
+            if not test_instance.result():
+                all_test_pass = False
+            self._feedback += test_instance.feedback()
+
+        # The holy grail
+        self._result = all_test_pass
+        if all_test_pass:
+            self._feedback += "Tous les tests passent...\n"
+        else:
+            self._feedback += "Identifier scrupuleusement les conditions de test qui échouent pour corriger votre code.\n"
