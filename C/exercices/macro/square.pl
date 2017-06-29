@@ -9,8 +9,12 @@ tag=macro
 template=/C/template/autograderC
 
 text==
+<<<<<<< HEAD:C/exercices/macro/square.pl
 
 Écrire une macro **SQUARE** qui prend en argument un seul paramètre
+=======
+Écrire une macro **SQUARRE** qui prend en argument un seul paramètre
+>>>>>>> 093279be393348039fbac5bf2a59daf02f63ed6b:C/exercices/macro/squarre.pl
 (jamais typé comme c'est toujour le cas pour les macros) qui remplace
 son argument par le carré de son paramètre. Le paramètre de la macro
 sera toujours une expression C qui s'évalue dans un type numérique.

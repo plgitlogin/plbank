@@ -1,23 +1,20 @@
-type==
-direct
-==
-name==
-MultipleNumeric
-==
 title==
 MultipleNumeric
 ==
 text==
 When was Ulysses S. Grant born?
 ==
-sandbox==
-False
-==
 evaluator==
 
 def evaluator(reponse): 
-    if reponse[0] in [1820, 1821, 1822, 1823, 1824]:
+    if reponse >= 1820 and reponse <= 1824 :
         return True, 'Bonne réponse'
     return False, 'Réponse incorrecte'
 
+==
+type==
+numeric
+==
+name==
+MultipleNumeric
 ==
