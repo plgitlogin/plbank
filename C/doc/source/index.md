@@ -4,9 +4,19 @@ Cette documentation s'adresse à l'enseignant en programmation ou
 algorithmique avec le langage C qui souhaite utiliser le projet
 Premier Langage avec la base de données d'exercice PLbank.
 
+
 ## Introduction
 
-Le dépôt plbank https://github.com/plgitlogin/plbank
+Le dépôt [plbank](https://github.com/plgitlogin/plbank) hébergé
+actuellement sous [Github](https://github.com/plgitlogin/plbank)
+propose du contenu pouvant être utilisé avec le projet Premier
+Langage pour mettre en place des exercices avec le langage **C**. 
+
+Pour s'adapter au langage C, on utilise la suite de compilateur C
+**gcc** disponible sous systèmes **Unix** :
+
+![Logo GNU gcc](images/GNU_gcc.png "Logo GNU gcc")
+
 
 
 
@@ -32,8 +42,16 @@ Pour en savoir plus :
 
 ## Proposez un nouvel exercice
 
+Tout le monde est invité à proposer un nouvel exercice pour enrichir
+le contenu des activités disponibles pour le langage C. Toutefois,
+pour une bonne robustesse du projet, le développeur devra respecter
+quelques consignes d'intégration.
 
+Pour plus de détails, veuillez consulter la page
+suivante :
 [Ajouter un exercice C dans le dépôt plbank](./add_exo.html)
+
+
 
 
 

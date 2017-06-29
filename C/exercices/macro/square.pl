@@ -9,8 +9,7 @@ tag=macro
 template=/C/template/autograderC
 
 text==
-
-Écrire une macro **SQUARRE** qui prend en argument un seul paramètre
+Écrire une macro **SQUARE** qui prend en argument un seul paramètre
 (jamais typé comme c'est toujour le cas pour les macros) qui remplace
 son argument par le carré de son paramètre. Le paramètre de la macro
 sera toujours une expression C qui s'évalue dans un type numérique.
@@ -18,12 +17,12 @@ sera toujours une expression C qui s'évalue dans un type numérique.
 ==
 
 code==
-#define SQUARRE....
+#define SQUARE....
 
 ==
 
 codecmp==
-#define SQUARRE(a) ((a)*(a))
+#define SQUARE(a) ((a)*(a))
 
 ==
 
@@ -33,12 +32,12 @@ codecontextafter==
 
 int main(int argc, char* argv[]){
 
-  printf("Le carré de %d est %d\n", 0, SQUARRE(0));
-  printf("Le carré de %d est %d\n", 1, SQUARRE(1));
-  printf("Le carré de %d est %d\n", 12, SQUARRE(12));
-  printf("Le carré de %s est %d\n", "1+2", SQUARRE(1+2));
-  printf("Le carré de %s est %d\n", "2-1", SQUARRE(2-1));
-  printf("Le carré de %f est %f\n", 3.14, SQUARRE(3.14));
+  printf("Le carré de %d est %d\n", 0, SQUARE(0));
+  printf("Le carré de %d est %d\n", 1, SQUARE(1));
+  printf("Le carré de %d est %d\n", 12, SQUARE(12));
+  printf("Le carré de %s est %d\n", "1+2", SQUARE(1+2));
+  printf("Le carré de %s est %d\n", "2-1", SQUARE(2-1));
+  printf("Le carré de %f est %f\n", 3.14, SQUARE(3.14));
   return 0;
 }
 
