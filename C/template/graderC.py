@@ -621,12 +621,14 @@ class C_unit_test():
         Return the command use to execute the test `self`.
         """
         if len(self.stdin()) > 0:
-            cmd = "cat {} | ./{} " + self.command_args() + " > {}".format(self.stdin_path(),
-                                                                          self.programm_path(),
-                                                                          self.output_path())
+            cmd = "cat {} | ./{} {} > {}".format(self.stdin_path(),
+                                                 self.programm_path(),
+                                                 self.command_args(),
+                                                 self.output_path())
         else:
-            cmd = "./{} " + self.command_args() + " > {}".format(self.programm_path(),
-                                                                 self.output_path())
+            cmd = "./{} {} > {}".format(self.programm_path(),
+                                              self.command_args(),
+                                              self.output_path())
         return cmd
 
     def expected_output(self):
