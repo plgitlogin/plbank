@@ -46,6 +46,7 @@ sandbox=@/C/template/basic.c
 sandbox=@/C/template/graderC.py
 
 grader==
-from graderC import grade_argcmd_stdin_stdout
-grade_argcmd_stdin_stdout( {"simple éxécution": ["","", "Hello World!\n", True]} , "-Wall -ansi")
+from graderC import graderI
+tests = [ ["simple éxécution", "","", "Hello World!\n"] ]
+graderI(tests)
 ==
