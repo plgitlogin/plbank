@@ -892,7 +892,8 @@ def graderI(tests, flags="-Wall -ansi"):
         testsuite = Play_tests(tests, compilation.exec_path())
         testsuite.run_tests()
         dico_reponse['feedback'] = compilation.feedback()
-        dico_reponse['feedback'] += testsuite.feedback()
+        for name, feedbacktest in testsuite.feedback():
+            dico_reponse['feedback'] += feedbacktest
         dico_reponse['success'] = testsuite.result()
 
     dico_reponse['feedback'] = "<br />".join(dico_reponse['feedback'].split("\n"))
