@@ -42,11 +42,12 @@ int main(int argc, char* argv[]){
 ==
 
 # LOAD IMPORTANT FILES FOR GRADING
-sandbox=@/C/template/basic.c
-sandbox=@/C/template/graderC.py
+files=@/C/template/basic.c
+files=@/C/template/graderC.py
 
 grader==
 from graderC import graderI
+
 tests = [ ["simple éxécution", "","", "Hello World!\n"] ]
 graderI(tests)
 ==
