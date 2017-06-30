@@ -3,11 +3,11 @@
 author=Coumes Quentin
 title=Test2
 tag=test 
+type=sandbox
 text==
 *italic*
 **bold**
 ***bold italic***
-
 # section heading
 ## sub-section heading
 ### sub-sub-section heading
