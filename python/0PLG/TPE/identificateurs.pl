@@ -158,5 +158,22 @@ except Exception as e:
 
 
 
-
-
+form==
+    {% csrf_token %}
+    <!-- Do not tabulate this div as the tabulation will appear in the editor -->
+    <div id="editor" style="border-width: 1px; border-color: #5bc0de; border-radius: 4px;">
+{% if answer_exists %}{{ anwser }}{% else %}{{ pl.code }}{% endif %}</div>
+    <input type="hidden" name="code" style="display: none;">
+    <br>
+    <script src="/static/AceCodeEditor/ace-builds/ace-builds-master/src-noconflict/ace.js" type="text/javascript" charset="utf-8"></script>
+    <script>
+        var editor = ace.edit('editor');
+            editor.session.setMode("ace/mode/python");
+            editor.setTheme("ace/theme/vibrant_ink");
+        
+        var input = $('input[name="code"]');
+            editor.getSession().on("change", function() {
+            input.val(editor.getSession().getValue());
+        });
+    </script
+==

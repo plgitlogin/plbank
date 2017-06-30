@@ -7,8 +7,8 @@
 #  Last Modified: 2017-06-27
 
 
-key_error = ['title',  'evaluator']
-key_warning = ['text', 'author']
+key_error = ['title',  'evaluator', 'form']
+key_warning = ['text', 'author', 'build']
 
 def check(dic):
     dic_key = dic.keys()
