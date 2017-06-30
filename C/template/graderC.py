@@ -523,21 +523,14 @@ def graderI(tests, flags="-Wall -ansi"):
     This grader takes in arguments a dictionnary of tests nammed `tests`.
     Each record must be of this format :
 
-    string for test name: (arguments in command line,
-                           stdin of test,
-                           output of test,
-                           verbose for the test)
+    [string for test name, 
+     arguments in command line,
+     stdin of test,
+     output of test]
 
     This grader will compile the student source code producing an executable.
     The compiling and linking `flags` will be used during this process. Then,
     for each test inside the dictionnary,
-
-    * `dico_reponse['feedback']` is updated by subfonction called.
-
-    * `dico_reponse['success']` is setted to `True` if all tests pass.
-
-    * Testing stop at first error... If `break_first_error` is setted
-      to `False`, then all tests will be launched.
     """
     compilation = PreActionsAndCompile("basic.c", exercice)
     compilation.compile()
@@ -559,3 +552,15 @@ def graderI(tests, flags="-Wall -ansi"):
     
     print(json.dumps(dico_reponse))
     sys.exit()
+
+def graderII(tests, flags="-Wall -ansi"):
+    """
+    This grader takes in arguments a dictionnary of tests nammed `tests`.
+    Each record must be of this format :
+
+    [string for test name,
+     arguments in command line,
+     stdin of test]
+    """
+    generate_output_from_solution(tests)
+    graderI(tests, flags=flags)
