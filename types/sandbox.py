@@ -7,7 +7,7 @@
 #  Last Modified: 2017-06-27
 
 
-key_error = ['title',  'evaluator']
+key_error = ['title',  'evaluator', 'form']
 key_warning = ['text', 'author']
 
 def check(dic):
