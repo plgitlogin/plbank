@@ -54,8 +54,8 @@ expectedoutput==
 ==
 
 # chargement des fichiers utiles 
-files=@/C/template/basic.c
-files=@/C/template/graderC.py
+sandbox=@/C/template/basic.c
+sandbox=@/C/template/graderC.py
 
 grader==
 from graderC import grade

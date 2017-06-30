@@ -1,14 +1,15 @@
-title==
-TruFalse2
-==
 text==
 The sun rises in the West.
 ==
-type==
-truefalse
-==
 evaluator==
 def evaluator(reponse): return False == reponse, ""
+==
+template=/gift/truefalse_template.pl
+title==
+TruFalse2
+==
+type==
+truefalse
 ==
 name==
 TruFalse2

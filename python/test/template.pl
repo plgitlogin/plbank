@@ -4,8 +4,8 @@ name=template.pl
 title=  template spécifique pour les tests 
 
 
-files=@pysrc/src/plutils.py
-files=@pysrc/src/attic/utils.py
-files=@pysrc/src/pldoctest.py
+sandbox=@pysrc/src/plutils.py
+sandbox=@pysrc/src/attic/utils.py
+sandbox=@pysrc/src/pldoctest.py
 
 

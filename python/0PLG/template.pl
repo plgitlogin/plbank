@@ -11,12 +11,12 @@ print(g.grade())
 ==
 
 
+sandbox=@/pysrc/src/__init__.py
+sandbox=@/pysrc/src/plgrader.py
+sandbox=@/pysrc/src/feedback.py
+
+
 type=sandbox
-
-
-files=@/pysrc/src/__init__.py
-files=@/pysrc/src/plgrader.py
-files=@/pysrc/src/feedback.py
 
 
 evaluator==
@@ -35,6 +35,7 @@ try:
 except Exception as e:
     return True, str(type(e))+": "+ str(e))
 ==
+<<<<<<< HEAD
 
 
 form==
@@ -56,3 +57,6 @@ form==
         });
     </script
 ==
+=======
+>>>>>>> 14d1a883c8651e12b17d5d35e29d6eda556573a7
+>>>>>>> b96c947de99ad4bc419ebabd6589e996869bc51b
