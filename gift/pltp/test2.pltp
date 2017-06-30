@@ -1,5 +1,5 @@
 title=test2
 concept==gift
-@ /gift/pl/TrueFalse1.pl
-@ /gift/pl/TruFalse2.pl
+@ /gift/test2/TrueFalse1.pl
+@ /gift/test2/TruFalse2.pl
 ==
