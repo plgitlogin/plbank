@@ -37,4 +37,28 @@ try:
 except Exception as e:
     return True, str(type(e))+": "+ str(e))
 ==
+<<<<<<< HEAD
+
+
+form==
+    {% csrf_token %}
+    <!-- Do not tabulate this div as the tabulation will appear in the editor -->
+    <div id="editor" style="border-width: 1px; border-color: #5bc0de; border-radius: 4px;">
+{% if answer_exists %}{{ anwser }}{% else %}{{ pl.code }}{% endif %}</div>
+    <input type="hidden" name="code" style="display: none;">
+    <br>
+    <script src="/static/AceCodeEditor/ace-builds/ace-builds-master/src-noconflict/ace.js" type="text/javascript" charset="utf-8"></script>
+    <script>
+        var editor = ace.edit('editor');
+            editor.session.setMode("ace/mode/python");
+            editor.setTheme("ace/theme/vibrant_ink");
+        
+        var input = $('input[name="code"]');
+            editor.getSession().on("change", function() {
+            input.val(editor.getSession().getValue());
+        });
+    </script
+==
+=======
 >>>>>>> 14d1a883c8651e12b17d5d35e29d6eda556573a7
+>>>>>>> b96c947de99ad4bc419ebabd6589e996869bc51b
