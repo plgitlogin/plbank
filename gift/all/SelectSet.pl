@@ -1,11 +1,26 @@
+type==
+direct
+==
 answer1==
+
+==
+title==
+SelectSet
+==
+answer4==
 
 ==
 text==
 Who's buried in Grant's tomb?
 ==
+answer3==
+
+==
 template=/gift/template/select_template.pl
-title==
+right_feedback==
+
+==
+name==
 SelectSet
 ==
 answer5==
@@ -13,21 +28,6 @@ answer5==
 ==
 answer2==
 
-==
-right_feedback==
-
-==
-answer4==
-
-==
-type==
-direct
-==
-answer3==
-
-==
-name==
-SelectSet
 ==
 right_answer==
 Grant

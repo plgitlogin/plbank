@@ -1,18 +1,18 @@
 text==
 What is a number from 1 to 5?
 ==
-template=/gift/template/numeric_template.pl
 type==
 direct
 ==
+template=/gift/template/numeric_template.pl
 name==
-RangeAvecIntervalle
-==
-title==
 RangeAvecIntervalle
 ==
 maxi==
 5
+==
+title==
+RangeAvecIntervalle
 ==
 mini==
 1

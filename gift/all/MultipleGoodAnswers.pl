@@ -1,31 +1,31 @@
+text==
+What two people are entombed in Grant's tomb?
+==
+answer3==
+
+==
+type==
+direct
+==
+right_feedback1==
+
+==
+template=/gift/template/multiplechoices_template.pl
 answer1==
 
 ==
-answer4==
-
+name==
+MultipleGoodAnswers
 ==
-right_feedback1==
+answer2==
 
 ==
 right_answer1==
 Grant's wife
 ==
-text==
-What two people are entombed in Grant's tomb?
-==
-template=/gift/template/multiplechoices_template.pl
-type==
-direct
-==
-name==
-MultipleGoodAnswers
-==
-answer3==
-
-==
 title==
 MultipleGoodAnswers
 ==
-answer2==
+answer4==
 
 ==
