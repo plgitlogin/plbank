@@ -35,8 +35,6 @@ try:
 except Exception as e:
     return True, str(type(e))+": "+ str(e))
 ==
-<<<<<<< HEAD
-
 
 form==
     {% csrf_token %}
@@ -57,6 +55,4 @@ form==
         });
     </script
 ==
-=======
->>>>>>> 14d1a883c8651e12b17d5d35e29d6eda556573a7
->>>>>>> b96c947de99ad4bc419ebabd6589e996869bc51b
+

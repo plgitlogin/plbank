@@ -8,3 +8,10 @@ form==
     <input id="msg" type="text" class="form-control" name="Answer" placeholder="">
 </div>
 ==
+
+evaluator==
+def evaluator(reponse, dic): 
+    if reponse >= int(dic['mini']) and reponse <= int(dic['max']) :
+        return True, 'Bonne réponse'
+    return False, 'Réponse incorrecte'
+==
