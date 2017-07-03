@@ -48,7 +48,7 @@ int main(int argc, char* argv[]){
 
 ==
 
-soluce==
+solution==
 #include <stdio.h>
 
 void display_1(void){
@@ -77,10 +77,12 @@ int main(int argc, char* argv[]){
 
 
 # LOAD IMPORTANT FILES FOR GRADING
-sandbox=@/C/template/basic.c
-sandbox=@/C/template/graderC.py
+files=@/C/template/basic.c
+files=@/C/template/graderC.py
 
 grader==
-from graderC import grade_argcmd_stdin_stdout
-grade_argcmd_stdin_stdout( {"simple éxécution": ["", "", "La file d'attente est vide.\nUne personne arrive et s'insere dans la file d'attente.\nUne personne arrive et s'insere dans la file d'attente.\nUne personne arrive et s'insere dans la file d'attente.\nTrois personnes sont donc dans la file d'attente.\n", True]} , "-Wall -ansi")
+from graderC import graderII
+
+tests = [ ["simple éxécution", "", ""] ]
+graderII(tests)
 ==

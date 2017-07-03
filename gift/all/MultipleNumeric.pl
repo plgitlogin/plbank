@@ -1,0 +1,19 @@
+text==
+When was Ulysses S. Grant born?
+==
+type==
+direct
+==
+template=/gift/template/numeric_template.pl
+name==
+MultipleNumeric
+==
+maxi==
+1824.0
+==
+title==
+MultipleNumeric
+==
+mini==
+1820.0
+==

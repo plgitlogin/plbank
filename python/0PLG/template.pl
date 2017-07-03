@@ -14,7 +14,9 @@ print(g.grade())
 sandbox=@/pysrc/src/__init__.py
 sandbox=@/pysrc/src/plgrader.py
 sandbox=@/pysrc/src/feedback.py
-
+files=@/pysrc/src/__init__.py
+files=@/pysrc/src/plgrader.py
+files=@/pysrc/src/feedback.py
 
 type=sandbox
 
@@ -35,6 +37,10 @@ try:
 except Exception as e:
     return True, str(type(e))+": "+ str(e))
 ==
+<<<<<<< HEAD
+=======
+
+>>>>>>> 7115b2f4c66133296664a224e621535e23cf4020
 
 form==
     {% csrf_token %}
@@ -55,4 +61,3 @@ form==
         });
     </script
 ==
-

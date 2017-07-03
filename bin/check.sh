@@ -22,7 +22,6 @@ import json
 
 EOF
         echo "Creating test for: "$i
-        
         if [ ${i#*.} = "pl" ]
         # Writing testpl in the file 
         then

@@ -1,0 +1,19 @@
+text==
+What is a number from 1 to 5?
+==
+type==
+direct
+==
+template=/gift/template/numeric_template.pl
+name==
+RangeAvecIntervalle
+==
+maxi==
+5
+==
+title==
+RangeAvecIntervalle
+==
+mini==
+1
+==
