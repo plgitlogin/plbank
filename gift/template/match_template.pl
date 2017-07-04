@@ -27,7 +27,7 @@ form==
 {% block form %}
     {% for item in question %}
         <span class="input">item:</span>
-        <select class="selectpicker" name="item" title="Choisissez un PLTP" required>
+        <select class="selectpicker" name="item" title="Réponse" required>
             {% for item2 in answer %}
                 <option value="{{ item2 }}">{{item2}}</option>
             {% endfor %}
