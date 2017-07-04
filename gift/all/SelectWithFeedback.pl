@@ -1,28 +1,35 @@
 text==
 What's between orange and green in the spectrum?
 ==
-answer3==
+right_answer==
+yellow
+==
+feedback3==
 wrong, it's yellow
 ==
-type==
-direct
-==
 template=/gift/template/select_template.pl
-answer1==
-right; good!
+answer3==
+blue
+==
+type=direct
+title==
+SelectWithFeedback
 ==
 name==
 SelectWithFeedback
 ==
+answer1==
+yellow
+==
 right_feedback==
 right; good!
 ==
-answer2==
+feedback1==
+right; good!
+==
+feedback2==
 wrong, it's yellow
 ==
-title==
-SelectWithFeedback
-==
-right_answer==
-yellow
+answer2==
+red
 ==

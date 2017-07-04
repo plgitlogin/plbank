@@ -1,25 +1,23 @@
 text==
 Which animal eats which food?
 ==
-question2==
-dog 
-==
-type==
-match
-==
-template=/gift/template/match_template.pl
 question1==
 cat 
 ==
-name==
+answer1==
+ cat food
+==
+question2==
+dog 
+==
+template=/gift/template/match_template.pl
+type=match
+title==
 Match
 ==
 answer2==
  dog food
 ==
-title==
+name==
 Match
-==
-answer1==
- cat food
 ==

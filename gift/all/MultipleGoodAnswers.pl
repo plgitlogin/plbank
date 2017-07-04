@@ -1,31 +1,29 @@
 text==
 What two people are entombed in Grant's tomb?
 ==
+answer1==
+No one
+==
 answer3==
-
-==
-type==
-direct
-==
-right_feedback1==
-
+Grant's wife
 ==
 template=/gift/template/multiplechoices_template.pl
-answer1==
-
-==
-name==
-MultipleGoodAnswers
-==
-answer2==
-
-==
-right_answer1==
+right_answer2==
 Grant's wife
+==
+type=direct
+right_answer1==
+Grant
 ==
 title==
 MultipleGoodAnswers
 ==
+answer2==
+Grant
+==
 answer4==
-
+Grant's father
+==
+name==
+MultipleGoodAnswers
 ==
