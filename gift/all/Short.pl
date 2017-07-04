@@ -1,22 +1,29 @@
+feedback1==
+Correct according to The Hitchhiker's Guide to the Galaxy!
+==
 text==
 Deep Thought said "
 ==
-answer3==
+feedback3==
 Correct!
 ==
-type==
-direct
+answer1==
+forty two
+==
+answer3==
+forty-two
 ==
 template=/gift/template/short_template.pl
-answer1==
-Correct according to The Hitchhiker's Guide to the Galaxy!
-==
-name==
-Short
-==
-answer2==
+type=direct
+feedback2==
 Correct, as told to Loonquawl and Phouchg
 ==
 title==
+Short
+==
+answer2==
+42
+==
+name==
 Short
 ==

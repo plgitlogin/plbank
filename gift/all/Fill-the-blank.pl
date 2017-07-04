@@ -1,19 +1,17 @@
 text==
 Two plus
 ==
-type==
-direct
+answer1==
+two
 ==
 template=/gift/template/short_template.pl
-answer1==
-
-==
-name==
+type=direct
+title==
 Fill-the-blank
 ==
 answer2==
-
+2
 ==
-title==
+name==
 Fill-the-blank
 ==
