@@ -4,13 +4,17 @@
 
 
 build==
-n=1
-question=list()
-answer=list()
-while ('answer'+str(n) in pl_dic):
-    answer.append(pl_dic['answer'+str(n)])
-    question.append(pl_dic['question'+str(n)])
-    n += 1
+def build(dic):
+    n=1
+    question=list()
+    answer=list()
+    while ('answer'+str(n) in pl_dic):
+        answer.append(pl_dic['answer'+str(n)])
+        question.append(pl_dic['question'+str(n)])
+        n += 1
+    dic['answer'] = answer
+    dic['question'] = question
+    return dic
 ==
 
 
@@ -30,4 +34,11 @@ form==
         </select>
     {% endfor %}
 {% endblock %}
+==
+
+evaluator==
+def evaluator(reponse, dic):
+    if (reponse == dic['answer']):
+        return True, "Bien joué"
+    return False, "Mauvais matching"
 ==

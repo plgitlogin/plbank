@@ -12,3 +12,10 @@ form==
 </label>
 ==
 
+
+evaluator==
+def evaluator(reponse, dic):
+    if (str(dic['answer']) == reponse):
+        return True, str(dic['feedback_correct'])
+    return False, str(dic['feedback_wrong'])
+==
