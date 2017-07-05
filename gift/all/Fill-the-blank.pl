@@ -1,11 +1,3 @@
-text==
-Two plus
-==
-answer1==
-two
-==
-template=/gift/template/short_template.pl
-type=direct
 title==
 Fill-the-blank
 ==
@@ -14,4 +6,12 @@ answer2==
 ==
 name==
 Fill-the-blank
+==
+text==
+Two plus
+==
+type=direct
+template=/gift/template/short_template.pl
+answer1==
+two
 ==
